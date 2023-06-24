@@ -1,0 +1,117 @@
+.container {
+  width: 100%;
+  margin: 0 auto;
+  /* border: 2px solid #00d7ff; */
+  height: 40rem;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  border-radius: 20px;
+  /* box-shadow: 0 0 12px inset #00d7ff; */
+}
+.logo {
+  width: 15rem;
+  align-self: flex-start;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.form p {
+  margin-bottom: 3rem;
+  margin-top: 1rem;
+}
+.input {
+  background-color: #0096ff33;
+  color: white;
+  border: none;
+  outline: none;
+  width: 20rem;
+  margin: 7px 0;
+  padding: 12px 1rem;
+  border-radius: 12px;
+  font-size: 16px;
+}
+.inner-input{
+  background-color: transparent;
+  color: white;
+  border: none;
+  outline: none;
+  width: 18rem;
+  /* margin: 7px 0; */
+  /* padding: 12px 20px; */
+  /* border-radius: 12px; */
+  font-size: 16px;
+}
+.icon {
+  width: 1.7rem;
+  cursor: pointer;
+}
+.button {
+  width: 21rem;
+  padding: 13px;
+  border-radius: 12px;
+  background: linear-gradient(90deg, #5800ff 0%, #00d7ff 100%);
+  border: none;
+  color: white;
+  margin: 10px 0;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 1;
+  position: relative;
+}
+.button::before {
+  position: absolute;
+  content: "";
+  border-radius: 12px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  transition: opacity 0.3s linear;
+  opacity: 0;
+  background: linear-gradient(45deg, #00d7ff 0%, #5800ff 100%);
+}
+.button:hover::before {
+  opacity: 1;
+}
+.recaptcha {
+  margin: 1.5rem;
+}
+.footer-link {
+  text-decoration: none;
+  color: #30dfff;
+}
+.error-message {
+  color: red;
+  margin: 1rem 0;
+}
+.invalid-input {
+  background-color: #0096ff33;
+  color: white;
+  border: none;
+  outline: none;
+  width: 20rem;
+  margin: 7px 0;
+  padding: 12px 1rem;
+  border-radius: 12px;
+  font-size: 16px;
+  box-shadow: 0 0 12px inset red;
+}
+.invalid-inner-input {
+  background-color: transparent;
+  color: white;
+  border: none;
+  outline: none;
+  width: 18rem;
+  /* margin: 7px 0; */
+  /* padding: 12px 20px; */
+  /* border-radius: 12px; */
+  font-size: 16px;
+
+}

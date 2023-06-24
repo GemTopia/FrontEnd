@@ -1,0 +1,14 @@
+.input {
+  background-color: #0096ff33;
+  color: white;
+  border: none;
+  outline: none;
+  width: 20rem;
+  margin: 7px 0;
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-size: 16px;
+}
+.invalid-input {
+  box-shadow: 0 0 12px inset red;
+}
