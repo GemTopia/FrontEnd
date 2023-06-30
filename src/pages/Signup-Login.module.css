@@ -1,10 +1,8 @@
 .container {
   width: 100%;
   margin: 0 auto;
-  /* border: 2px solid #00d7ff; */
   height: 40rem;
   display: flex;
-  /* justify-content: center; */
   align-items: center;
   flex-direction: column;
   color: white;
@@ -20,6 +18,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 30rem;
 }
 .form p {
   margin-bottom: 3rem;
@@ -30,29 +29,52 @@
   color: white;
   border: none;
   outline: none;
-  width: 20rem;
+  width: 70%;
   margin: 7px 0;
-  padding: 12px 1rem;
+  padding: 0 1rem;
+  height: 3rem;
   border-radius: 12px;
   font-size: 16px;
 }
-.inner-input{
+.inner-input {
   background-color: transparent;
   color: white;
   border: none;
   outline: none;
-  width: 18rem;
-  /* margin: 7px 0; */
-  /* padding: 12px 20px; */
-  /* border-radius: 12px; */
+  width: calc(97% - 1rem );
+  height: 100%;
+  border-radius: 12px;
   font-size: 16px;
 }
+.invalid-input {
+  background-color: #0096ff33;
+  color: white;
+  border: none;
+  outline: none;
+  width: 70%;
+  margin: 7px 0;
+  padding: 0 1rem;
+  height: 3rem;
+  border-radius: 12px;
+  font-size: 16px;
+  box-shadow: 0 0 12px inset red;
+}
+.invalid-inner-input {
+  background-color: transparent;
+  color: white;
+  border: none;
+  outline: none;
+  width: calc(97%-1rem);
+  font-size: 16px;
+  height: 100%;
+}
+
 .icon {
-  width: 1.7rem;
+  width: 1rem;
   cursor: pointer;
 }
 .button {
-  width: 21rem;
+  width: 75%;
   padding: 13px;
   border-radius: 12px;
   background: linear-gradient(90deg, #5800ff 0%, #00d7ff 100%);
@@ -87,31 +109,18 @@
   text-decoration: none;
   color: #30dfff;
 }
-.error-message {
+p.error-message {
   color: red;
-  margin: 1rem 0;
+  margin: 10px 0;
 }
-.invalid-input {
-  background-color: #0096ff33;
-  color: white;
-  border: none;
-  outline: none;
-  width: 20rem;
-  margin: 7px 0;
-  padding: 12px 1rem;
-  border-radius: 12px;
-  font-size: 16px;
-  box-shadow: 0 0 12px inset red;
-}
-.invalid-inner-input {
-  background-color: transparent;
-  color: white;
-  border: none;
-  outline: none;
-  width: 18rem;
-  /* margin: 7px 0; */
-  /* padding: 12px 20px; */
-  /* border-radius: 12px; */
-  font-size: 16px;
-
+@media only screen and (max-width: 480px) {
+  .form {
+    width: 80%;
+  }
+  .logo {
+    width: 10rem;
+  }
+  .form h1{
+    font-size: 25px;
+  }
 }

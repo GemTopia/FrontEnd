@@ -5,7 +5,7 @@ import React, {
   useRef,
   useState,
 } from "react";
-import styles from "./Signup.module.css";
+import styles from "./Signup-Login.module.css";
 import useInput from "../components/hooks/use-input";
 import Axios from "axios";
 import ReCAPTCHA from "react-google-recaptcha";
@@ -13,6 +13,7 @@ import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-regular-svg-icons";
+/////////////////////////////////////////////////////////////////////////
 const Signup = () => {
   const SITE_KEY = process.env.REACT_APP_reCAPTCHA_SITE_KEY;
   const SECRET_KEY = process.env.REACT_APP_reCAPTCHA_SECRET_KEY;
@@ -20,8 +21,6 @@ const Signup = () => {
   const captchaRef = useRef(null);
   const [errorMessage, setErrorMessage] = useState("");
   //////////////////////////////////////////////////////////////////INPUTS
-  const validEmail =
-    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   const {
     enteredValue: usernameValue,
     isValid: usernameIsValid,
@@ -37,6 +36,9 @@ const Signup = () => {
     inputChangeHandler: passwordChangeHandler,
     inputBlurHandler: passwordBlurHandler,
   } = useInput((input: string) => input.trim().length > 7);
+  const validEmail =
+    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
   const {
     enteredValue: emailValue,
     isValid: emailIsValid,
@@ -53,7 +55,7 @@ const Signup = () => {
   const formIsValid = usernameIsValid && passwordIsValid && emailIsValid;
   /////////////////////////////////////////////////////////////////////////
   const showPassHandler = (event: MouseEvent) => {
-    setShowPass(!showPass);
+    setShowPass((prevState) => !prevState);
   };
   const submitHandler = (event: FormEvent) => {
     event.preventDefault();
