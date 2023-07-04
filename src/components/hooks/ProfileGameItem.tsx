@@ -20,6 +20,5 @@ const ProfileGameItem:React.FC<{game:gameItem,index:number}> = (props) => {
 
 }
 
-//<img src={require('../../assets/pic.png')} alt="" className={style['game-pic']} />
 
 export default ProfileGameItem;

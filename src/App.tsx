@@ -3,7 +3,6 @@ import { Routes, Route, Navigate } from "react-router";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
-
 function App() {
   return (
     <div>
