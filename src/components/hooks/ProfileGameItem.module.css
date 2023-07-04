@@ -1,0 +1,42 @@
+.game{
+    width: 19rem;
+    height: 2.5rem;
+    display: flex;
+    border: 0.5px solid #0b7db2;
+    margin-bottom: 3px;
+    border-radius: 12px;
+    align-items: center;
+}
+
+.game:hover{
+    border: 0.5px solid #0FB3FF;
+}
+
+.up-icon{
+    color: #2F88FF;
+    margin-left: auto;
+}
+
+.game-pic{
+    width: 2rem;
+    height: 1.8rem;
+    margin: 0 5px;
+}
+
+.game-name{
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+.score{
+    font-size: 12px;
+    font-weight: 300;
+    margin-right: 17px;
+}
+
+.dark_back{
+    background-color: #06123C;
+}
+.light_back{
+    background-color: #051B48;
+}
