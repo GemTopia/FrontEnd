@@ -1,14 +1,20 @@
-import React, { useState, FormEvent, MouseEvent } from "react";
+import React, { useState, FormEvent, MouseEvent, useRef } from "react";
 import styles from "./Signup-Login.module.css";
 import useInput from "../components/hooks/use-input";
 import logo from "../assets/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-regular-svg-icons";
 import { Link } from "react-router-dom";
-
+import ReCAPTCHA from "react-google-recaptcha";
+import axios, * as others from 'axios';
+/////////////////////////////////////////////////////////////////////////
 const Login = () => {
   const [showPass, setShowPass] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const SITE_KEY = process.env.REACT_APP_reCAPTCHA_SITE_KEY;
+  const SECRET_KEY = process.env.REACT_APP_reCAPTCHA_SECRET_KEY;
+  const captchaRef = useRef(null);
+
   const {
     enteredValue: passwordValue,
     isValid: passwordIsValid,
@@ -36,6 +42,18 @@ const Login = () => {
     event.preventDefault();
     if (!formIsValid) {
       setErrorMessage("Please enter your information first");
+    } else {
+      axios
+        .post("http://localhost:8000/users/login/", {
+          email: emailValue,
+          password: passwordValue,
+        })
+        .then(function (response) {
+          console.log(response.data)
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
     }
   };
   return (
@@ -71,7 +89,11 @@ const Login = () => {
             onClick={showPassHandler}
           />
         </div>
-
+        <ReCAPTCHA
+          className={styles.recaptcha}
+          sitekey={SITE_KEY}
+          ref={captchaRef}
+        />
         <button type="submit" className={styles.button}>
           Login
         </button>
