@@ -13,6 +13,8 @@ import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-regular-svg-icons";
+import axios, * as others from "axios";
+
 /////////////////////////////////////////////////////////////////////////
 const Signup = () => {
   const SITE_KEY = process.env.REACT_APP_reCAPTCHA_SITE_KEY;
@@ -61,6 +63,26 @@ const Signup = () => {
     event.preventDefault();
     if (!formIsValid) {
       setErrorMessage("Please enter your information first");
+    } else {
+      console.log({
+        user_name: usernameValue,
+        email: emailValue,
+        password: passwordValue,
+        referrer_code: referralValue
+      });
+      axios
+        .post("http://localhost:8000/users/register/", {
+          user_name: usernameValue,
+          email: emailValue,
+          password: passwordValue,
+          referrer_code: referralValue
+        })
+        .then(function (response) {
+          console.log(response.status);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
     }
   };
   return (
