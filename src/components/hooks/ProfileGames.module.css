@@ -2,7 +2,13 @@
     margin-top: 5px;
     width: 19.5rem;
     height: 11rem;
+    margin-left: 6px;
     overflow-y: scroll;
+}
+.ContentContainer{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .game-container::-webkit-scrollbar{
@@ -11,6 +17,7 @@
 
 .score-title{
     margin-top: 15px;
+    margin-left: 6px;
     color: rgba(255, 255, 255, 0.85);
     font-size: 16px;
     font-weight: 600;
@@ -26,7 +33,7 @@
     background-color: #06123C;
     margin-left: auto;
     margin-top: 20px;
-    margin-right: 10px;
+    margin-right: 4px;
     color: #0096FFE5;
     border-radius: 50%;
     height: 25px;
@@ -39,7 +46,7 @@
 .down{
     background-color: #06123C;
     margin-top: 20px;
-    margin-right: 10px;
+    margin-right: 2px;
     color: #0096FFE5;
     border-radius: 50%;
     height: 25px;

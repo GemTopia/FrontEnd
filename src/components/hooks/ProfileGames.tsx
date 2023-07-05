@@ -9,7 +9,7 @@ import gameItem from "../../models/models";
 const ProfileGames:React.FC<{games:gameItem[]}> = (props) => {
 
     return(
-        <div>
+        <div className={style.ContentContainer}>
             <div className={style.title}>
                 <p className={style['score-title']}>scores</p>
                 <div className={style.up}><FontAwesomeIcon icon={faAngleUp} /></div>
