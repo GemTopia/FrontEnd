@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-regular-svg-icons";
 import { Link } from "react-router-dom";
 import ReCAPTCHA from "react-google-recaptcha";
-import axios, * as others from 'axios';
+import axios, * as others from "axios";
 /////////////////////////////////////////////////////////////////////////
 const Login = () => {
   const [showPass, setShowPass] = useState(false);
@@ -22,7 +22,7 @@ const Login = () => {
 
     inputChangeHandler: passwordChangeHandler,
     inputBlurHandler: passwordBlurHandler,
-  } = useInput((input: string) => input.trim().length > 7);
+  } = useInput((input: string) => input.trim().length > 7, "");
   const validEmail =
     /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
@@ -32,7 +32,7 @@ const Login = () => {
     hasError: emailHasError,
     inputChangeHandler: emailChangeHandler,
     inputBlurHandler: emailBlurHandler,
-  } = useInput((input: string) => validEmail.test(input));
+  } = useInput((input: string) => validEmail.test(input), "");
   const formIsValid = passwordIsValid && emailIsValid;
   /////////////////////////////////////////////////////////////////////////
   const showPassHandler = (event: MouseEvent) => {
@@ -49,7 +49,7 @@ const Login = () => {
           password: passwordValue,
         })
         .then(function (response) {
-          console.log(response.data)
+          console.log(response.data);
         })
         .catch(function (error) {
           console.log(error);

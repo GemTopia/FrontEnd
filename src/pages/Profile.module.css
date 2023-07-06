@@ -1,147 +1,141 @@
-.container{
-    width: 100%;
-    margin: 0 auto;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    color: white;
+.container {
+  width: 30rem;
+  margin: 2rem auto;
+  border-radius: 20px;
+  border: 1.6px solid rgba(0, 150, 255, 0.95);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  padding: 2rem 3rem;
+  font-size: 16px;
 }
 
-.profile-container{
-    width: 24rem;
-    height: 35rem;
-    margin-top: 2rem;
-    border-radius: 20px;
-    border: 1.6px solid rgba(0, 150, 255, 0.95);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.profile-header {
+  display: flex;
+  width: 100%;
+  align-items: center;
 }
 
-.first-box{
-    display:  flex;
-    flex-direction: row;
-    width: 19rem;
-    margin-top: 25px;
+.profile-img-container {
+  border-radius: 100%;
+  border: 2px solid #fff;
+  width: 6rem;
+  height: 6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.profile-img-container{
-    border-radius: 90px;
-    border: 2px solid #FFF;
-    width: 70px;
-    height: 70px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.user-icon {
+  width: 3rem;
+  height: 3rem;
 }
 
-.user-icon{
-    width: 30px;
-    height: 30px;
+.header-info {
+  margin-left: 2rem;
 }
 
-.info-container{
-    margin-left: 20px;
-    margin-top: 15px;
+.edit-icon {
+  margin-left: auto;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: #06092d;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+.social-media {
+  width: 100%;
+  display: flex;
+  margin-top: 1.3rem;
 }
 
-.info-container h3{
-    font-weight: 500;
+.social-media a {
+  margin-right: 3px;
 }
 
-.info-container p{
-    font-weight: 600;
+.social-media img {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: block;
+  border-radius: 100%;
 }
 
-.social-media{
-    display: flex;
-    width: 19rem;
-    margin-top: 25px;
+.social-media a :hover {
+  filter: brightness(130%);
 }
 
-.social-media a{
-    margin-right: 3px;
+.info-form {
+  width: 100%;
+  color: rgba(255, 255, 255, 0.85);
+  display: flex;
+  flex-direction: column;
 }
 
-.social-media img{
-    width: 25px;
-    height: 25px;
-    margin: 0 1px;
-    display: block;
+.info-form h3 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-top: 1.4rem;
+}
+.info-form p {
+  color: white;
+  margin: 0.7rem 0;
 }
 
-.social-media a :hover{
-    filter: brightness(130%);
+.footer-container {
+  width: 100%;
+}
+.referral {
+  display: flex;
+  justify-content: space-between;
+}
+.referral button {
+  font-weight: 700;
+  font-size: 22px;
+  background: linear-gradient(to right, #0fb3ff, #4924ff);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -o-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+  cursor: pointer;
+  margin: 1.3rem 0;
+  border: none;
+  outline: none;
+  padding: 0;
+  /* transition: all 1s; */
 }
 
-.info-box{
-    width: 19rem;
-    margin-top: 10px;
-    color: rgba(255, 255, 255, 0.85);
+/* .hovered {
+  font-size: 14px;
+  font-weight: 500;
+  background: linear-gradient(to right, #0fb3ff, #4924ff);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -o-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding: 5px;
+ border: 1.5px solid rgba(72, 36, 255, 0.705);
+
+  display: none;
+  border-radius: 10px;
+}
+.refer:hover .noHover {
+  display: none;
+}
+.refer:hover .hovered {
+  display: inline-block;
+} */
+.editContect {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
-.info-box h3{
-    margin-top: 10px;
-    font-size: 16px;
-    font-weight: 600;
-}
-
-.info-box p{
-    font-weight: 400;
-    font-size: 12px;
-    margin-bottom: 15px;
-}
-
-.refer{
-    width: 19.5rem;
-    margin-left: 10px;
-}
-
-.noHover{
-    font-weight: 700;
-    font-size: 17px;
-    background: linear-gradient(to right, #0FB3FF, #4924FF);
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    -o-background-clip: text;
-    background-clip: text;
-    color: transparent;
-}
-
-.hovered{
-    font-size: 13px;
-    font-weight: 500;
-    background: linear-gradient(to right, #0FB3FF, #4924FF);
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    -o-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    width : fit-content;
-    padding: 5px;
-    transition: all 0 linear;
-    border-width: 1px;
-    border-style: solid;
-    border-image: linear-gradient(to right, #0FB3FF, #4924FF) 1;
-    
-}
-.editContect{
-    display: flex;
-    flex-direction: column;
-    width: 19rem;
-}
-
-.edit-icon{
-    margin-left: auto;
-    margin-right: -15px;
-    width: 22px;
-    height: 22px;
-    background-color: #06092d;
-    border: none;
-    color: white;
-}
 /* .edit-icon-container{
     display: flex;
     justify-content: space-around;
@@ -150,88 +144,10 @@
     margin-right: -15px;
     /* width: 22px;
     height: 22px; */
-
-
-.bio{
-    resize: none;
-    background-color: #06092d;
-    border:none ;
-    color: white;
-    overflow: visible;
-    margin: 5px 0 3px 0;
-    
+.referral-copy {
+  display: flex;
+  align-items: center;
 }
-.bio:focus{
-    outline: none;
+.referral-copy img {
+  width: 1.5rem;
 }
-.bio::-webkit-scrollbar{
-    display: none;
-}
-.bioEdit{
-    resize: none;
-    background-color: rgba(0, 150, 255, 0.20);
-    border:none ;
-    padding: 10px;
-    border: transparent 1px rgba(0, 150, 255, 0.20);
-    border-radius: 12px;
-    width: 18rem;
-    color: white;
-    margin: 10px 0;
-    font-size: 11px;
-}
-.bioEdit:focus{
-    outline: none;
-}
-.username:focus{
-    outline: none;
-}
-.username{
-    background-color: #06092d;
-    border:none ;
-    color: white;
-    margin: 5px 0;
-}
-
-.usernameEdit{
-    width: 18rem;
-    background-color: rgba(0, 150, 255, 0.20);
-    padding: 10px;
-    border: none;
-    border: transparent 1px rgba(0, 150, 255, 0.20);
-    border-radius: 12px;
-    color: white;
-    margin: 10px 0;
-    
-}
-.usernameEdit:focus{
-    outline: none;
-}
-
-
-.changPassword{
-    color: #0096FF;
-    margin-bottom: 30px;
-    font-weight: 500;
-}
-.toggleLable{
-    font-weight: 400;
-    font-size: 14px;
-}
-.submitEditButton{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 15px;
-    margin-left: 13rem;
-    margin-right: 25px;
-    border: none;
-    padding: 10px;
-    padding-bottom: 25px;
-    width: 105px;
-    height: 30px;
-    border:transparent 0.1px #06092d;
-    border-radius: 6px;
-    background-color: var(--main-blue, #0096FF);
-    color: white;
-}
-

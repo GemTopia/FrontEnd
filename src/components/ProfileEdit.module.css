@@ -1,0 +1,109 @@
+.social-media {
+  width: 100%;
+  display: flex;
+  margin-top: 1.3rem;
+}
+
+.social-media a {
+  margin-right: 3px;
+}
+
+.social-media img {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: block;
+  border-radius: 100%;
+}
+
+.social-media a :hover {
+  filter: brightness(130%);
+}
+
+.info-form {
+  width: 100%;
+  color: rgba(255, 255, 255, 0.85);
+  display: flex;
+  flex-direction: column;
+}
+
+.info-form label {
+  font-size: 22px;
+  font-weight: 600;
+  margin-top: 1.4rem;
+}
+
+.footer-container {
+  width: 100%;
+}
+
+.editContect {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* .edit-icon-container{
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin-left: auto;
+      margin-right: -15px;
+      /* width: 22px;
+      height: 22px; */
+
+.bioEdit {
+  resize: none;
+  background-color: rgba(0, 150, 255, 0.2);
+  border: none;
+  padding: 10px;
+  border: transparent 1px rgba(0, 150, 255, 0.2);
+  border-radius: 12px;
+  width: 100%;
+  color: white;
+  margin: 10px 0;
+}
+.bioEdit:focus {
+  outline: none;
+}
+
+.usernameEdit {
+  width: 100%;
+  background-color: rgba(0, 150, 255, 0.2);
+  padding: 10px;
+  border: none;
+  border: transparent 1px rgba(0, 150, 255, 0.2);
+  border-radius: 12px;
+  color: white;
+  margin: 10px 0;
+  font-size: 16px;
+}
+.usernameEdit:focus {
+  outline: none;
+}
+
+.changPassword {
+  color: #0096ff;
+  margin-bottom: 30px;
+  font-weight: 500;
+}
+/* .toggleLable {
+    font-weight: 400;
+    font-size: 14px;
+  } */
+.submitEditButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+  margin-left: 13rem;
+  margin-right: 25px;
+  border: none;
+  padding: 10px;
+  padding-bottom: 25px;
+  width: 105px;
+  height: 30px;
+  border: transparent 0.1px #06092d;
+  border-radius: 6px;
+  background-color: var(--main-blue, #0096ff);
+  color: white;
+}

@@ -20,8 +20,10 @@ const reducerFunction = (
   }
   return initialInput;
 };
-const useInput = (validate: Function) => {
-  const [inputState, dispatch] = useReducer(reducerFunction, initialInput);
+const useInput = (validate: Function, defaultValue: string) => {
+  const defualtState = { value: defaultValue, isTouched: false };
+
+  const [inputState, dispatch] = useReducer(reducerFunction, defualtState);
 
   const isValid = validate(inputState.value);
   const hasError = !isValid && inputState.isTouched;

@@ -29,7 +29,7 @@ const Signup = () => {
     hasError: usernameHasError,
     inputChangeHandler: usernameChangeHandler,
     inputBlurHandler: usernameBlurHandler,
-  } = useInput((input: string) => input.trim().length !== 0);
+  } = useInput((input: string) => input.trim().length !== 0,'');
   const {
     enteredValue: passwordValue,
     isValid: passwordIsValid,
@@ -37,7 +37,7 @@ const Signup = () => {
 
     inputChangeHandler: passwordChangeHandler,
     inputBlurHandler: passwordBlurHandler,
-  } = useInput((input: string) => input.trim().length > 7);
+  } = useInput((input: string) => input.trim().length > 7,'');
   const validEmail =
     /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
@@ -47,13 +47,13 @@ const Signup = () => {
     hasError: emailHasError,
     inputChangeHandler: emailChangeHandler,
     inputBlurHandler: emailBlurHandler,
-  } = useInput((input: string) => validEmail.test(input));
+  } = useInput((input: string) => validEmail.test(input),'');
   const {
     enteredValue: referralValue,
     isValid: referralIsValid,
     inputChangeHandler: referralChangeHandler,
     inputBlurHandler: referralBlurHandler,
-  } = useInput(() => {});
+  } = useInput(() => {},'');
   const formIsValid = usernameIsValid && passwordIsValid && emailIsValid;
   /////////////////////////////////////////////////////////////////////////
   const showPassHandler = (event: MouseEvent) => {
