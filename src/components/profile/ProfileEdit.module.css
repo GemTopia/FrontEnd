@@ -1,0 +1,155 @@
+.social-media {
+  display: inline;
+  margin-top: 1.3rem;
+  align-self: flex-start;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+}
+.edit-icon {
+  font-size: 20px;
+  margin-right: 0.5rem;
+}
+.social-media a {
+  margin-right: 3px;
+}
+
+.social-media img {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: block;
+  border-radius: 100%;
+}
+
+.social-media a :hover {
+  filter: brightness(130%);
+}
+
+.info-form {
+  width: 100%;
+  color: rgba(255, 255, 255, 0.85);
+  display: flex;
+  flex-direction: column;
+}
+
+.info-form label {
+  font-size: 22px;
+  font-weight: 600;
+  margin-top: 1.5rem;
+}
+
+.footer-container {
+  width: 100%;
+}
+
+.bioEdit {
+  resize: none;
+  background-color: rgba(0, 150, 255, 0.2);
+  border: none;
+  padding: 10px;
+  border: transparent 1px rgba(0, 150, 255, 0.2);
+  border-radius: 12px;
+  width: 100%;
+  color: white;
+  margin: 10px 0;
+}
+.bioEdit:focus {
+  outline: none;
+}
+
+.usernameEdit {
+  width: 100%;
+  background-color: rgba(0, 150, 255, 0.2);
+  padding: 10px;
+  border: none;
+  border: transparent 1px rgba(0, 150, 255, 0.2);
+  border-radius: 12px;
+  color: white;
+  margin: 10px 0;
+  font-size: 16px;
+}
+.usernameEdit:focus {
+  outline: none;
+}
+
+.changePassword {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
+  color: #0096ff;
+  font-weight: 500;
+  align-self: flex-start;
+  background-color: transparent;
+  font-size: 20px;
+  margin-top: 1.5rem;
+}
+
+.switch-label {
+  display: inline;
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  margin-left: 0.7rem;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(4, 36, 84, 1);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 34px;
+  display: inline;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: rgba(6, 9, 45, 0.7);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider::before {
+  background-color: rgba(0, 150, 255, 0.95);
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+.warning {
+  color: rgba(0, 150, 255, 0.7);
+  margin-top: 0.6rem;
+}
+.submitEditButton {
+  border: none;
+  border-radius: 15px;
+  background-color: var(--main-blue, #0096ff);
+  color: white;
+  padding: 0.7rem 2.5rem;
+  font-size: 18px;
+  align-self: flex-end;
+  cursor: pointer;
+  margin-top: 0.6rem;
+}

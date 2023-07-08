@@ -12,7 +12,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye } from "@fortawesome/free-regular-svg-icons";
+import { faEye, faEyeSlash } from "@fortawesome/free-regular-svg-icons";
 import axios, * as others from "axios";
 
 /////////////////////////////////////////////////////////////////////////
@@ -29,7 +29,7 @@ const Signup = () => {
     hasError: usernameHasError,
     inputChangeHandler: usernameChangeHandler,
     inputBlurHandler: usernameBlurHandler,
-  } = useInput((input: string) => input.trim().length !== 0,'');
+  } = useInput((input: string) => input.trim().length !== 0, "");
   const {
     enteredValue: passwordValue,
     isValid: passwordIsValid,
@@ -37,7 +37,7 @@ const Signup = () => {
 
     inputChangeHandler: passwordChangeHandler,
     inputBlurHandler: passwordBlurHandler,
-  } = useInput((input: string) => input.trim().length > 7,'');
+  } = useInput((input: string) => input.trim().length > 7, "");
   const validEmail =
     /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
@@ -47,13 +47,13 @@ const Signup = () => {
     hasError: emailHasError,
     inputChangeHandler: emailChangeHandler,
     inputBlurHandler: emailBlurHandler,
-  } = useInput((input: string) => validEmail.test(input),'');
+  } = useInput((input: string) => validEmail.test(input), "");
   const {
     enteredValue: referralValue,
     isValid: referralIsValid,
     inputChangeHandler: referralChangeHandler,
     inputBlurHandler: referralBlurHandler,
-  } = useInput(() => {},'');
+  } = useInput(() => {}, "");
   const formIsValid = usernameIsValid && passwordIsValid && emailIsValid;
   /////////////////////////////////////////////////////////////////////////
   const showPassHandler = (event: MouseEvent) => {
@@ -68,14 +68,14 @@ const Signup = () => {
         user_name: usernameValue,
         email: emailValue,
         password: passwordValue,
-        referrer_code: referralValue
+        referrer_code: referralValue,
       });
       axios
         .post("http://localhost:8000/users/register/", {
           user_name: usernameValue,
           email: emailValue,
           password: passwordValue,
-          referrer_code: referralValue
+          referrer_code: referralValue,
         })
         .then(function (response) {
           console.log(response.status);
@@ -120,7 +120,7 @@ const Signup = () => {
             className={styles["inner-input"]}
           ></input>
           <FontAwesomeIcon
-            icon={faEye}
+            icon={showPass ? faEyeSlash : faEye}
             className={styles.icon}
             onClick={showPassHandler}
           />
