@@ -10,13 +10,13 @@ import steam from "../assets/steam.png";
 import instagram from "../assets/instagram.png";
 import telegram from "../assets/telegram.png";
 import ProfileGames from "../components/games/ProfileGames";
-import gameItem from "../models/models";
+import profileGameItem from "../models/profileGameItem";
 import { faL, faXmark } from "@fortawesome/free-solid-svg-icons";
 import useInput from "../components/hooks/use-input";
 import ProfileEdit from "../components/ProfileEdit";
 import smile from "../assets/smile.png";
 const Profile: React.FC = () => {
-  let dummy: gameItem[] = [
+  let dummy: profileGameItem[] = [
     {
       name: "subway",
       image_name: "pic.png",

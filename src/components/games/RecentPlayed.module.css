@@ -1,0 +1,69 @@
+.gameItemContainer{
+    /* border: 1px solid white; */
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    
+}
+.recentPlayedItem{
+    background-color: rgba(0, 150, 255, 0.07);
+    /* border:0.5px solid rgba(0, 150, 255, 0.20); */
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    
+    
+
+    border: double 3px transparent;
+    border-radius: 20px;
+    background-image: rgba(0, 150, 255, 0.07),  linear-gradient(180deg, rgba(15, 179, 255, 0.20) 0%, rgba(73, 36, 255, 0.20) 100%);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+
+.recentPlayedItem:hover{
+    border: double 3px transparent;
+    border-radius: 20px;
+    background-image: rgba(0, 150, 255, 0.07),  linear-gradient(180deg, rgba(15, 179, 255, 0.60) 0%, rgba(73, 36, 255, 0.60) 100%);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+.gameInfo{
+    display: flex;
+    margin-top: 0.5rem;
+}
+.gameLogo{
+    margin-right: 0.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+}
+.gameCategory{
+    font-size: 12px;
+    font-weight: 100;
+}
+.icon {
+    background-color: #06123c;
+    color: #0096ffe5;
+    border-radius: 50%;
+    height: 1.5rem;
+    width: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.gameThumnail{
+    transition: transform 1.2s;
+    overflow: hidden;
+    width: 14rem;
+    height: 8rem;
+}
+.gameThumnail:hover{
+    transform: scale(1.35) rotate(-10deg);
+}
+.thumbnailContainer{
+    border-radius: 20px;
+    overflow: hidden;
+    
+}

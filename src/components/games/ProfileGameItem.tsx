@@ -2,9 +2,9 @@ import React from "react";
 import style from "./ProfileGameItem.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
-import gameItem from "../../models/models";
+import profileGameItem from "../../models/profileGameItem";
 
-const ProfileGameItem: React.FC<{ game: gameItem }> = (props) => {
+const ProfileGameItem: React.FC<{ game: profileGameItem }> = (props) => {
   return (
     <div
       className={`${style.game} ${

@@ -4,9 +4,9 @@ import style from "./ProfileGames.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
-import gameItem from "../../models/models";
+import profileGameItem from "../../models/profileGameItem";
 
-const ProfileGames: React.FC<{ games: gameItem[] }> = (props) => {
+const ProfileGames: React.FC<{ games: profileGameItem[] }> = (props) => {
   const [topGame, setTopGame] = useState("0");
   const scrollUpHandler = () => {
     const element = document.getElementById(String(Number(topGame) - 4));
