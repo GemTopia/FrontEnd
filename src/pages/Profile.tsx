@@ -1,8 +1,8 @@
 import React, { Fragment, useState } from "react";
-import style from "./Profile.module.css";
+import styles from "./Profile.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser } from "@fortawesome/free-regular-svg-icons";
-import { faPenToSquare } from "@fortawesome/free-regular-svg-icons";
+import { faUser, faPenToSquare } from "@fortawesome/free-regular-svg-icons";
+import { faLink } from "@fortawesome/free-solid-svg-icons";
 import youtube from "../assets/youtube.png";
 import discord from "../assets/discord.png";
 import twitch from "../assets/twitch.png";
@@ -13,7 +13,7 @@ import ProfileGames from "../components/games/ProfileGames";
 import gameItem from "../models/models";
 import { faL, faXmark } from "@fortawesome/free-solid-svg-icons";
 import useInput from "../components/hooks/use-input";
-import ProfileEdit from "../components/ProfileEdit";
+import ProfileEdit from "../components/profile/ProfileEdit";
 import smile from "../assets/smile.png";
 const Profile: React.FC = () => {
   let dummy: gameItem[] = [
@@ -87,25 +87,25 @@ const Profile: React.FC = () => {
     }, 2000);
   };
   return (
-    <div className={style.container}>
-      <div className={style["profile-header"]}>
-        <div className={style["profile-img-container"]}>
-          <FontAwesomeIcon icon={faUser} className={style["user-icon"]} />
+    <div className={styles.container}>
+      <div className={styles["profile-header"]}>
+        <div className={styles["profile-img-container"]}>
+          <FontAwesomeIcon icon={faUser} className={styles["user-icon"]} />
         </div>
-        <div className={style["header-info"]}>
+        <div className={styles["header-info"]}>
           <h2>Profile</h2>
           <h3>sara.namdar@gmail.com</h3>
         </div>
         {!isEdit ? (
           <FontAwesomeIcon
             icon={faPenToSquare}
-            className={style["edit-icon"]}
+            className={styles["edit-icon"]}
             onClick={editHandler}
           />
         ) : (
           <FontAwesomeIcon
             icon={faXmark}
-            className={style["edit-icon"]}
+            className={styles["edit-icon"]}
             onClick={cancleEditHandler}
           />
         )}
@@ -115,7 +115,7 @@ const Profile: React.FC = () => {
         <ProfileEdit />
       ) : (
         <Fragment>
-          <div className={style["social-media"]}>
+          <div className={styles["social-media"]}>
             <a href="/" target="balnk">
               {" "}
               <img src={youtube} />{" "}
@@ -141,22 +141,25 @@ const Profile: React.FC = () => {
               <img src={telegram} alt="telegram" />{" "}
             </a>
           </div>
-          <div className={style["info-form"]}>
+          <div className={styles["info-form"]}>
             <h3>user name</h3>
-            <p className={style.username}>Jasmin-Drogon</p>
+            <p className={styles.username}>Jasmin-Drogon</p>
 
             <h3>bio</h3>
 
-            <p className={style.bio}>
+            <p className={styles.bio}>
               I'm Mathias Yeo, and I'm passionate about writing engaging content
               for businesses
             </p>
           </div>
-          <div className={style["footer-container"]}>
-            <div className={style.referral}>
-              <button onClick={referralHandler}>Referral code</button>
+          <div className={styles["footer-container"]}>
+            <div className={styles.referral}>
+              <button onClick={referralHandler}>
+                <FontAwesomeIcon icon={faLink} className={styles['referral-icon']} />
+                Referral code
+              </button>
               {referralCopy && (
-                <span className={style["referral-copy"]}>
+                <span className={styles["referral-copy"]}>
                   Link copied <img src={smile} alt="smile" />
                 </span>
               )}

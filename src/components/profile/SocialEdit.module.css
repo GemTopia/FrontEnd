@@ -1,0 +1,79 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30rem;
+  margin-top: 2rem;
+}
+.input-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+.input-container label {
+  font-weight: bold;
+}
+.input {
+  background-color: #0096ff33;
+  color: white;
+  border: none;
+  outline: none;
+  width: 55%;
+  margin: 7px 0;
+  padding: 0 1rem;
+  height: 3rem;
+  border-radius: 12px;
+  font-size: 16px;
+}
+
+.invalid-input {
+  background-color: #0096ff33;
+  color: white;
+  border: none;
+  outline: none;
+  width: 55%;
+  margin: 7px 0;
+  padding: 0 1rem;
+  height: 3rem;
+  border-radius: 12px;
+  font-size: 16px;
+  box-shadow: 0 0 12px inset red;
+}
+.input-container label {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    gap: .5rem;
+}
+.input-container img {
+    width: 2.5rem;
+    height: 2.5rem;
+    display: block;
+    border-radius: 100%;
+  }
+.icon {
+  width: 1rem;
+  cursor: pointer;
+}
+.buttons {
+  align-self: flex-end;
+  margin-top: 2rem;
+}
+.buttons button {
+  border: none;
+  border-radius: 10px;
+  background-color: var(--main-blue, #0096ff);
+  color: white;
+  padding: 0.7rem;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.buttons button.cancel-button {
+  background-color: var(--main-blue, #424242);
+  margin-right: 1rem;
+}

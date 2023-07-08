@@ -3,7 +3,7 @@ import styles from "./Signup-Login.module.css";
 import useInput from "../components/hooks/use-input";
 import logo from "../assets/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye } from "@fortawesome/free-regular-svg-icons";
+import { faEye, faEyeSlash } from "@fortawesome/free-regular-svg-icons";
 import { Link } from "react-router-dom";
 import ReCAPTCHA from "react-google-recaptcha";
 import axios, * as others from "axios";
@@ -12,7 +12,7 @@ const Login = () => {
   const [showPass, setShowPass] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const SITE_KEY = process.env.REACT_APP_reCAPTCHA_SITE_KEY;
-  const SECRET_KEY = process.env.REACT_APP_reCAPTCHA_SECRET_KEY;
+  // const SECRET_KEY = process.env.REACT_APP_reCAPTCHA_SECRET_KEY;
   const captchaRef = useRef(null);
 
   const {
@@ -84,7 +84,7 @@ const Login = () => {
             className={styles["inner-input"]}
           ></input>
           <FontAwesomeIcon
-            icon={faEye}
+            icon={showPass ? faEyeSlash : faEye}
             className={styles.icon}
             onClick={showPassHandler}
           />
