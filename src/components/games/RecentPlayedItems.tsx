@@ -1,19 +1,56 @@
+import { useState } from "react";
 import recentPlayedGameItem from "../../models/recentPlayedGameItem";
 import style from "./RecentPlayed.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
+
+
 const RecentPlayedItems: React.FC<{ games: recentPlayedGameItem[] }> = (
   props
 ) => {
+  const [leftGame, setLeftGame] = useState("0");
+  const [disableRight, setDisableRight] = useState(false);
+  const [disableLeft, setDisableLeft] = useState(true);
+
+  const scrollLeftHandler = () => {
+    if (+(leftGame) - 4 > 0) {
+      const element = document.getElementById(`recent${+(leftGame) - 4}`);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+        setLeftGame((current) => String(+(current) - 4));
+      }
+      setDisableLeft(false);
+      setDisableRight(false);
+    } else if (leftGame !== "0") {
+      const element = document.getElementById("recent0");
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+        setLeftGame("0");
+      }
+      setDisableLeft(true);
+      setDisableRight(false);
+    }
+  };
+  const scrollRightHandler = () => {
+    const element = document.getElementById(`recent${+(leftGame) + 7}`);
+    if (+(leftGame) + 8 >= props.games.length) setDisableRight(true);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+      setLeftGame((current) => String(+(current) + 4));
+      setDisableLeft(false);
+    }
+  };
+
   return (
-    <div className={style.gameItemContainer}>
-      <span className={style.icon}>
-        <FontAwesomeIcon icon={faAngleLeft} />
+    <div className={style.bodyContainer}>
+      <span className={`${style.icon} ${!disableLeft&&style.iconBackground}`}>
+        <FontAwesomeIcon icon={faAngleLeft} onClick={scrollLeftHandler} className={disableLeft ? style.disabled : ''} />
       </span>
+      <div className={style.gameItemsContainer}>
       {props.games.map((gameItem) => {
         return (
-          <div className={style.recentPlayedItem} key={gameItem.id}>
+          <div className={style.recentPlayedItem} key={gameItem.id} id={`recent${gameItem.id}`}>
             <div className={style.thumbnailContainer}>
               <img
                 src={require(`../../assets/${gameItem.thumnailImageAddress}`)}
@@ -38,8 +75,9 @@ const RecentPlayedItems: React.FC<{ games: recentPlayedGameItem[] }> = (
           </div>
         );
       })}
-      <span className={style.icon}>
-        <FontAwesomeIcon icon={faAngleRight} />
+      </div>
+      <span className={`${style.icon} ${!disableRight&&style.iconBackground}`}>
+        <FontAwesomeIcon icon={faAngleRight} onClick={scrollRightHandler} className={disableRight ? style.disabled : ''} />
       </span>
     </div>
   );

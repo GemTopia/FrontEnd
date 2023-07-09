@@ -44,7 +44,7 @@
   margin-top: 3px;
 }
 .popularGamesContainer{
-    width: 68rem;
+    width: 59rem;
     display: flex;
     flex-direction: column;
 }
@@ -54,7 +54,7 @@
   align-items: center;
   justify-content: space-between;
   /* border: 1px solid white; */
-  width: 68rem;
+  width: 59rem;
 }
 .popularGamesBody{
     display: flex;
@@ -95,20 +95,14 @@
     font-size: 14px;
     font-weight: 300;
 }
-.likeIcon{
-    color: white;
-    background-color: inherit;
-    width: 1.3rem;
-    height: 1.3rem;
-    font-weight: 100;
-    
-}
+
 .likesContainer{
     margin-left: auto;
     margin-right: 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap : 0.3rem;
 }
 .GameLikesCount{
     font-size: 13px;

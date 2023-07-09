@@ -12,16 +12,16 @@ const ProfileGames: React.FC<{ games: profileGameItem[] }> = (props) => {
   const [disableUp, setDisableUp] = useState(true);
 
   const scrollUpHandler = () => {
-    if (Number(topGame) - 4 > 0) {
-      const element = document.getElementById(String(Number(topGame) - 4));
+    if (+(topGame) - 4 > 0) {
+      const element = document.getElementById(`profile${+(topGame) - 4}`);
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });
-        setTopGame((current) => String(Number(current) - 4));
+        setTopGame((current) => String(+(current) - 4));
       }
       setDisableUp(false);
       setDisableDown(false);
     } else if (topGame !== "0") {
-      const element = document.getElementById("0");
+      const element = document.getElementById("profile0");
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });
         setTopGame("0");
@@ -31,11 +31,11 @@ const ProfileGames: React.FC<{ games: profileGameItem[] }> = (props) => {
     }
   };
   const scrollDownHandler = () => {
-    const element = document.getElementById(String(Number(topGame) + 4));
-    if (Number(topGame) + 8 >= props.games.length) setDisableDown(true);
+    const element = document.getElementById(`profile${+(topGame) + 4}`);
+    if (+(topGame) + 8 >= props.games.length) setDisableDown(true);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
-      setTopGame((current) => String(Number(current) + 4));
+      setTopGame((current) => String(+(current) + 4));
       setDisableUp(false);
     }
   };

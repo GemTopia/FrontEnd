@@ -10,7 +10,7 @@ const ProfileGameItem: React.FC<{ game: profileGameItem }> = (props) => {
       className={`${style.game} ${
         Number(props.game.id) % 2 == 0 ? style.dark_back : style.light_back
       }`}
-      id={props.game.id}
+      id={`profile${props.game.id}`}
     >
       <img
         src={require(`../../assets/${props.game.image_name}`)}

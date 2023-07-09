@@ -2,18 +2,24 @@ import PopularGameItem from "../../models/popularGameItem";
 import style from "./PopularGames.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { useState } from "react";
 import useInput from "../hooks/use-input";
 import { Link } from "react-router-dom";
 
+
+
 const PopularGames: React.FC<{ games: PopularGameItem[] }> = (props) => {
-    // let firstState = props.games.map((gameItem)=>[gameItem.rank,false])
-    // const [IsLiked, setIsLiked] = useState<any>(firstState);
-    // const likeClickHandler=()=>{
-    //     let secondState = firstState[]
-    //     setIsLiked()
-    // }
+  let firstState = props.games.map((gameItem) => false);
+  const [IsLiked, setIsLiked] = useState<boolean[]>(firstState);
+  const likeClickHandler = (event: any) => {
+    setIsLiked((firstState: boolean[]) => {
+      let secondState = [...firstState];
+      secondState[+event.target.id - 1] = !secondState[+event.target.id - 1];
+      return secondState;
+    });
+  };
+
+
   const {
     enteredValue: searchValue,
     isValid: searchIsValid,
@@ -21,6 +27,7 @@ const PopularGames: React.FC<{ games: PopularGameItem[] }> = (props) => {
     inputChangeHandler: searchChangeHandler,
     inputBlurHandler: searchBlurHandler,
   } = useInput((input: string) => input.trim().length !== 0, "");
+  console.log(IsLiked)
   return (
     <div className={style.popularGamesContainer}>
       <div className={style.popularGamesHeader}>
@@ -54,21 +61,24 @@ const PopularGames: React.FC<{ games: PopularGameItem[] }> = (props) => {
                 <h4 className={style.gameName}>{gameItem.gameName}</h4>
                 <p className={style.gameCategory}>{gameItem.gameCategory}</p>
                 <p className={style.gameRank}>#{gameItem.rank}</p>
-                
-
               </div>
 
-              <div className={style.likesContainer}>
-                
-                <FontAwesomeIcon icon={faHeart} className={style.likeIcon} />
+              <div className={style.likesContainer} >
+                <img
+                  src={require(`../../assets/${IsLiked[+(gameItem.rank)-1]?'liked-icon.png':'unliked-icon.png'}`)}
+                  alt="like icon"
+                  id={gameItem.rank}
+                  onClick={likeClickHandler}
+                />
                 <p className={style.GameLikesCount}> {gameItem.likesCount} </p>
               </div>
             </div>
           );
         })}
-        
       </div>
-        <Link to="/Home" className={style.popularGamesFooter}>veiw more</Link>
+      <Link to="/Home" className={style.popularGamesFooter}>
+        veiw more
+      </Link>
     </div>
   );
 };
