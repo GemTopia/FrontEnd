@@ -5,7 +5,7 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import useInput from "../hooks/use-input";
 import { Link } from "react-router-dom";
-
+import ListGames from "./ListGames";
 
 
 const PopularGames: React.FC<{ games: PopularGameItem[] }> = (props) => {
@@ -27,7 +27,6 @@ const PopularGames: React.FC<{ games: PopularGameItem[] }> = (props) => {
     inputChangeHandler: searchChangeHandler,
     inputBlurHandler: searchBlurHandler,
   } = useInput((input: string) => input.trim().length !== 0, "");
-  console.log(IsLiked)
   return (
     <div className={style.popularGamesContainer}>
       <div className={style.popularGamesHeader}>
@@ -48,34 +47,7 @@ const PopularGames: React.FC<{ games: PopularGameItem[] }> = (props) => {
           </form>
         </div>
       </div>
-      <div className={style.popularGamesBody}>
-        {props.games.map((gameItem) => {
-          return (
-            <div className={style.popularGameItemContainer} key={gameItem.rank}>
-              <img
-                src={require(`../../assets/${gameItem.gameLogoAddress}`)}
-                alt=""
-                className={style["gameLogo"]}
-              />
-              <div className={style.gameInfoContainer}>
-                <h4 className={style.gameName}>{gameItem.gameName}</h4>
-                <p className={style.gameCategory}>{gameItem.gameCategory}</p>
-                <p className={style.gameRank}>#{gameItem.rank}</p>
-              </div>
-
-              <div className={style.likesContainer} >
-                <img
-                  src={require(`../../assets/${IsLiked[+(gameItem.rank)-1]?'liked-icon.png':'unliked-icon.png'}`)}
-                  alt="like icon"
-                  id={gameItem.rank}
-                  onClick={likeClickHandler}
-                />
-                <p className={style.GameLikesCount}> {gameItem.likesCount} </p>
-              </div>
-            </div>
-          );
-        })}
-      </div>
+      <ListGames games={props.games}/>
       <Link to="/Home" className={style.popularGamesFooter}>
         veiw more
       </Link>

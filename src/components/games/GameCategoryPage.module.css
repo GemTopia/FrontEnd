@@ -1,0 +1,27 @@
+.CategoryGamesBody {
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  margin-top: 3rem;
+  width: 59rem;
+  /* border: 1px solid white; */
+}
+
+.oneCategoryContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  /* border: 1px solid white; */
+
+}
+.listCategoryTitle{
+  margin-bottom: -2rem;
+  font-size: 22px;
+  font-weight: 500;
+}
+.compactCategoryTitle{
+  font-size: 22px;
+  font-weight: 500;
+  margin-left: -1rem;
+
+}
