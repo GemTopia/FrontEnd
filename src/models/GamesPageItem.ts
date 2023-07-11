@@ -6,5 +6,6 @@ interface GameItem {
     rank:string;
     likesCount:string;
     id:string;
+    date:string;
 }
 export default GameItem;

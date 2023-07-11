@@ -8,6 +8,7 @@ interface CategorisedGameGroupItem {
     rank: string;
     likesCount: string;
     id: string;
+    date:string;
   }[];
 }
 export default CategorisedGameGroupItem;

@@ -16,6 +16,15 @@ const GamesBody: React.FC<{
   if (props.sortby == "rate") {
     sortedGames.sort((game1, game2) => +game1.rank - +game2.rank);
   }
+
+  if (props.sortby == "earliest") {
+    sortedGames.sort((game1 , game2) => new Date(game1.date).getTime() - new Date(game2.date).getTime());
+  }
+
+  if (props.sortby == "latest") {
+    sortedGames.sort((game1 , game2) => new Date(game2.date).getTime() - new Date(game1.date).getTime())
+  }
+
   let categorisedGames: CategorisedGameGroupItem[] = [
     {
       category: "category1",
@@ -28,6 +37,7 @@ const GamesBody: React.FC<{
           rank: "2",
           likesCount: "5278",
           id: "1",
+          date : "2022-03-25"
         },
         {
           thumnailImageAddress: "Rectangle 8.png",
@@ -37,6 +47,7 @@ const GamesBody: React.FC<{
           rank: "1",
           likesCount: "5279",
           id: "0",
+          date:"2022-03-26",
         },
         {
           thumnailImageAddress: "Rectangle 8.png",
@@ -46,6 +57,7 @@ const GamesBody: React.FC<{
           rank: "3",
           likesCount: "5277",
           id: "2",
+          date:"2022-03-28",
         },
       ],
     },
@@ -60,6 +72,7 @@ const GamesBody: React.FC<{
           rank: "4",
           likesCount: "5276",
           id: "3",
+          date:"2022-03-29",
         },
         {
           thumnailImageAddress: "Rectangle 8.png",
@@ -69,6 +82,7 @@ const GamesBody: React.FC<{
           rank: "5",
           likesCount: "5275",
           id: "4",
+          date:"2022-02-25",
         },
         {
           thumnailImageAddress: "Rectangle 8.png",
@@ -78,6 +92,7 @@ const GamesBody: React.FC<{
           rank: "6",
           likesCount: "5274",
           id: "5",
+          date:"2022-02-26",
         },
       ],
     },
@@ -92,6 +107,7 @@ const GamesBody: React.FC<{
           rank: "7",
           likesCount: "5273",
           id: "6",
+          date:"2022-02-27",
         },
         {
           thumnailImageAddress: "Rectangle 8.png",
@@ -101,6 +117,7 @@ const GamesBody: React.FC<{
           rank: "8",
           likesCount: "5272",
           id: "7",
+          date:"2022-02-28",
         },
         {
           thumnailImageAddress: "Rectangle 8.png",
@@ -110,6 +127,7 @@ const GamesBody: React.FC<{
           rank: "9",
           likesCount: "5271",
           id: "8",
+          date:"2022-02-29",
         },
       ],
     },
