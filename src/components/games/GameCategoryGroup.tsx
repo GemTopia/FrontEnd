@@ -17,14 +17,14 @@ const GameCategoryGroup: React.FC<{ categorisedGames: GameItem[] }> = (
   return (
     <div className={style.categoryGamesContainer}>
         
-      {props.categorisedGames.map((gameItem: GameItem) => {
+      {props.categorisedGames.map((gameItem: GameItem,index) => {
         return (
           
             
             <div
               className={style.gameItem}
               key={gameItem.id}
-              id={`recent${gameItem.id}`}
+              id={`categoryCompact${index}`}
             >
               <div className={style.thumbnailContainer}>
                 <img

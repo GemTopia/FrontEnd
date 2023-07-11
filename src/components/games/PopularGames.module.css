@@ -51,6 +51,7 @@
 .popularGamesHeader {
   display: flex;
   margin-top: 4rem;
+  margin-bottom: 3rem;
   align-items: center;
   justify-content: space-between;
   /* border: 1px solid white; */

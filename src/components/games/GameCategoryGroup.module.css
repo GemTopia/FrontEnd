@@ -1,6 +1,11 @@
 .categoryGamesContainer{
+    width: 59rem;
     display: flex;
-    gap: 1rem;
+    gap : 1rem;
+    overflow-x: scroll;
+}
+.categoryGamesContainer::-webkit-scrollbar {
+    display: none;
 }
 .gameItem{
     background-color: rgba(0, 150, 255, 0.07);
