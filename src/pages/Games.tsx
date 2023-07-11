@@ -18,7 +18,7 @@ const Games = () => {
       rank: "2",
       likesCount: "5278",
       id: "1",
-      date:"2022-03-25",
+      date: "2022-03-25",
     },
     {
       thumnailImageAddress: "Rectangle 8.png",
@@ -28,7 +28,7 @@ const Games = () => {
       rank: "1",
       likesCount: "5279",
       id: "0",
-      date:"2022-03-26",
+      date: "2022-03-26",
     },
     {
       thumnailImageAddress: "Rectangle 8.png",
@@ -38,7 +38,7 @@ const Games = () => {
       rank: "3",
       likesCount: "5277",
       id: "2",
-      date:"2022-03-28",
+      date: "2022-03-28",
     },
     {
       thumnailImageAddress: "Rectangle 8.png",
@@ -48,7 +48,7 @@ const Games = () => {
       rank: "4",
       likesCount: "5276",
       id: "3",
-      date:"2022-03-29",
+      date: "2022-03-29",
     },
     {
       thumnailImageAddress: "Rectangle 8.png",
@@ -58,7 +58,7 @@ const Games = () => {
       rank: "5",
       likesCount: "5275",
       id: "4",
-      date:"2023-02-25",
+      date: "2023-02-25",
     },
     {
       thumnailImageAddress: "Rectangle 8.png",
@@ -68,7 +68,7 @@ const Games = () => {
       rank: "6",
       likesCount: "5274",
       id: "5",
-      date:"2022-02-26",
+      date: "2022-02-26",
     },
     {
       thumnailImageAddress: "Rectangle 8.png",
@@ -78,7 +78,7 @@ const Games = () => {
       rank: "7",
       likesCount: "5273",
       id: "6",
-      date:"2022-02-27",
+      date: "2022-02-27",
     },
     {
       thumnailImageAddress: "Rectangle 8.png",
@@ -88,7 +88,7 @@ const Games = () => {
       rank: "8",
       likesCount: "5272",
       id: "7",
-      date:"2022-02-28",
+      date: "2022-02-28",
     },
     {
       thumnailImageAddress: "Rectangle 8.png",
@@ -98,10 +98,9 @@ const Games = () => {
       rank: "9",
       likesCount: "5271",
       id: "8",
-      date:"2022-02-29",
+      date: "2022-02-29",
     },
   ];
-
 
   let categorisedGames: CategorisedGameGroupItem[] = [
     {
@@ -115,7 +114,7 @@ const Games = () => {
           rank: "2",
           likesCount: "5278",
           id: "1",
-          date : "2022-03-25"
+          date: "2022-03-25",
         },
         {
           thumnailImageAddress: "Rectangle 8.png",
@@ -125,7 +124,7 @@ const Games = () => {
           rank: "1",
           likesCount: "5279",
           id: "0",
-          date:"2022-03-26",
+          date: "2022-03-26",
         },
         {
           thumnailImageAddress: "Rectangle 8.png",
@@ -135,7 +134,37 @@ const Games = () => {
           rank: "3",
           likesCount: "5277",
           id: "2",
-          date:"2022-03-28",
+          date: "2022-03-28",
+        },
+        {
+          thumnailImageAddress: "Rectangle 8.png",
+          gameLogoAddress: "Rectangle 846.png",
+          gameName: "subway surfers1",
+          gameCategory: "category1",
+          rank: "4",
+          likesCount: "5278",
+          id: "3",
+          date: "2022-03-25",
+        },
+        {
+          thumnailImageAddress: "Rectangle 8.png",
+          gameLogoAddress: "Rectangle 846.png",
+          gameName: "subway surfers1",
+          gameCategory: "category1",
+          rank: "5",
+          likesCount: "5279",
+          id: "4",
+          date: "2022-03-26",
+        },
+        {
+          thumnailImageAddress: "Rectangle 8.png",
+          gameLogoAddress: "Rectangle 846.png",
+          gameName: "subway surfers1",
+          gameCategory: "category1",
+          rank: "6",
+          likesCount: "5277",
+          id: "5",
+          date: "2022-03-28",
         },
       ],
     },
@@ -147,30 +176,60 @@ const Games = () => {
           gameLogoAddress: "Rectangle 846.png",
           gameName: "subway surfers1",
           gameCategory: "category2",
-          rank: "4",
+          rank: "7",
           likesCount: "5276",
-          id: "3",
-          date:"2022-03-29",
+          id: "6",
+          date: "2022-03-29",
         },
         {
           thumnailImageAddress: "Rectangle 8.png",
           gameLogoAddress: "Rectangle 846.png",
           gameName: "subway surfers1",
           gameCategory: "category2",
-          rank: "5",
+          rank: "8",
           likesCount: "5275",
-          id: "4",
-          date:"2022-02-25",
+          id: "7",
+          date: "2022-02-25",
         },
         {
           thumnailImageAddress: "Rectangle 8.png",
           gameLogoAddress: "Rectangle 846.png",
           gameName: "subway surfers1",
           gameCategory: "category2",
-          rank: "6",
+          rank: "9",
           likesCount: "5274",
-          id: "5",
-          date:"2022-02-26",
+          id: "8",
+          date: "2022-02-26",
+        },
+        {
+          thumnailImageAddress: "Rectangle 8.png",
+          gameLogoAddress: "Rectangle 846.png",
+          gameName: "subway surfers1",
+          gameCategory: "category2",
+          rank: "10",
+          likesCount: "5276",
+          id: "9",
+          date: "2022-03-29",
+        },
+        {
+          thumnailImageAddress: "Rectangle 8.png",
+          gameLogoAddress: "Rectangle 846.png",
+          gameName: "subway surfers1",
+          gameCategory: "category2",
+          rank: "11",
+          likesCount: "5275",
+          id: "10",
+          date: "2022-02-25",
+        },
+        {
+          thumnailImageAddress: "Rectangle 8.png",
+          gameLogoAddress: "Rectangle 846.png",
+          gameName: "subway surfers1",
+          gameCategory: "category2",
+          rank: "12",
+          likesCount: "5274",
+          id: "11",
+          date: "2022-02-26",
         },
       ],
     },
@@ -182,37 +241,66 @@ const Games = () => {
           gameLogoAddress: "Rectangle 846.png",
           gameName: "subway surfers1",
           gameCategory: "category3",
-          rank: "7",
+          rank: "13",
           likesCount: "5273",
-          id: "6",
-          date:"2022-02-27",
+          id: "12",
+          date: "2022-02-27",
         },
         {
           thumnailImageAddress: "Rectangle 8.png",
           gameLogoAddress: "Rectangle 846.png",
           gameName: "subway surfers1",
           gameCategory: "category3",
-          rank: "8",
+          rank: "14",
           likesCount: "5272",
-          id: "7",
-          date:"2022-02-28",
+          id: "13",
+          date: "2022-02-28",
         },
         {
           thumnailImageAddress: "Rectangle 8.png",
           gameLogoAddress: "Rectangle 846.png",
           gameName: "subway surfers1",
           gameCategory: "category3",
-          rank: "9",
+          rank: "15",
           likesCount: "5271",
-          id: "8",
-          date:"2022-02-29",
+          id: "14",
+          date: "2022-02-29",
+        },
+        {
+          thumnailImageAddress: "Rectangle 8.png",
+          gameLogoAddress: "Rectangle 846.png",
+          gameName: "subway surfers1",
+          gameCategory: "category3",
+          rank: "16",
+          likesCount: "5273",
+          id: "15",
+          date: "2022-02-27",
+        },
+        {
+          thumnailImageAddress: "Rectangle 8.png",
+          gameLogoAddress: "Rectangle 846.png",
+          gameName: "subway surfers1",
+          gameCategory: "category3",
+          rank: "17",
+          likesCount: "5272",
+          id: "16",
+          date: "2022-02-28",
+        },
+        {
+          thumnailImageAddress: "Rectangle 8.png",
+          gameLogoAddress: "Rectangle 846.png",
+          gameName: "subway surfers1",
+          gameCategory: "category3",
+          rank: "18",
+          likesCount: "5271",
+          id: "17",
+          date: "2022-02-29",
         },
       ],
     },
   ];
 
-
-  const [firstGames, setFirstGame] = useState(
+  const [firstGames, setFirstGames] = useState(
     categorisedGames.map((categoryGroup: CategorisedGameGroupItem) => {
       return { category: categoryGroup.category, firstGame: "0" };
     })
@@ -229,126 +317,179 @@ const Games = () => {
   );
 
   const scrollUpHandler = (event: any) => {
-    let [category, index] = event.target.id.split(" ");
-    index = +index;
-    let topGame = firstGames[index].firstGame;
+    let categoryIndex = event.target.id.split(" ")[1];
+    let category = event.target.id.split(" ")[0];
+    categoryIndex = +categoryIndex;
+    let topGame = firstGames[categoryIndex].firstGame;
     if (+topGame - 3 > 0) {
-      const element = document.getElementById(`categoryList${+topGame - 3}`);
+      const element = document.getElementById(
+        `categoryList${category}${+topGame - 3}`
+      );
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });
-        let firsGamesSecondState = [...firstGames];
-        firsGamesSecondState[index].firstGame = String(
-          +firsGamesSecondState[index].firstGame - 3
-        );
-        setFirstGame(firsGamesSecondState);
+        setFirstGames((currentState) => {
+          let firsGamesSecondState = [...currentState];
+          firsGamesSecondState[categoryIndex].firstGame = String(
+            +(firsGamesSecondState[categoryIndex].firstGame) - 3
+          );
+          return firsGamesSecondState;
+        });
       }
-      let disableDownSecondState = [...disableDownOrRights];
-      let disableUpSecondState = [...disableUpOrLefts];
-      disableDownSecondState[index].disableDownOrRight = false;
-      disableUpSecondState[index].disableUpOrLeft = false;
-      setDisableUpOrLeft(disableUpSecondState);
-      setDisableDownOrRight(disableDownSecondState);
-    } else if (topGame !== "0") {
-      const element = document.getElementById("categoryList0");
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-        let firsGamesSecondState = [...firstGames];
-        firsGamesSecondState[index].firstGame = "0";
-        setFirstGame(firsGamesSecondState);
-      }
-      let disableDownSecondState = [...disableDownOrRights];
-      let disableUpSecondState = [...disableUpOrLefts];
+      setDisableUpOrLeft((currentState) => {
+        let disableUpSecondState = [...currentState];
+        disableUpSecondState[categoryIndex].disableUpOrLeft = false;
+        return disableUpSecondState;
+      });
+      setDisableDownOrRight((currentState) => {
+        let disableDownSecondState = [...currentState];
+        disableDownSecondState[categoryIndex].disableDownOrRight = false;
+        return disableDownSecondState;
+      });
+    } else if (topGame != "0") {
+      const element = document.getElementById(`categoryList${category}0`);
+      // console.log(element?.id);
+      // console.log('test');
 
-      disableDownSecondState[index].disableDownOrRight = false;
-      disableUpSecondState[index].disableUpOrLeft = true;
-      setDisableUpOrLeft(disableUpSecondState);
-      setDisableDownOrRight(disableDownSecondState);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+        setFirstGames((currentState) => {
+          let firsGamesSecondState = [...currentState];
+          firsGamesSecondState[categoryIndex].firstGame = "0";
+          return firsGamesSecondState;
+        });
+      }
+      setDisableUpOrLeft((currentState) => {
+        let disableUpSecondState = [...currentState];
+        disableUpSecondState[categoryIndex].disableUpOrLeft = true;
+        return disableUpSecondState;
+      });
+      setDisableDownOrRight((currentState) => {
+        let disableDownSecondState = [...currentState];
+        disableDownSecondState[categoryIndex].disableDownOrRight = false;
+        return disableDownSecondState;
+      });
     }
   };
 
   const scrollDownHandler = (event: any) => {
-    let [category, index] = event.target.id.split(" ");
-    index = +index;
-    let topGame = firstGames[index].firstGame;
+    let categoryIndex = event.target.id.split(" ")[1];
+    let category = event.target.id.split(" ")[0];
+    console.log('down works');
+    categoryIndex = +categoryIndex;
+    let topGame = firstGames[categoryIndex].firstGame;
 
-    const element = document.getElementById(`categoryList${+topGame + 3}`);
+    const element = document.getElementById(
+      `categoryList${category}${+topGame + 3}`
+    );
 
-    if (+topGame + 6 >= categorisedGames[index].games.length) {
-      let disableDownSecondState = [...disableDownOrRights];
-      disableDownSecondState[index].disableDownOrRight = true;
-      setDisableDownOrRight(disableDownSecondState);
+    if (+topGame + 6 >= categorisedGames[categoryIndex].games.length) {
+      setDisableDownOrRight((currentState) => {
+        let disableDownSecondState = [...currentState];
+        disableDownSecondState[categoryIndex].disableDownOrRight = true;
+        return disableDownSecondState;
+      });
     }
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
-      let firsGamesSecondState = [...firstGames];
-      let disableUpSecondState = [...disableUpOrLefts];
-      firsGamesSecondState[index].firstGame = String(
-        +firsGamesSecondState[index].firstGame + 3
-      );
-      setFirstGame(firsGamesSecondState);
-      disableUpSecondState[index].disableUpOrLeft = false;
+      setFirstGames((currentState) => {
+        let firsGamesSecondState = [...currentState];
+        firsGamesSecondState[categoryIndex].firstGame = String(
+          +firsGamesSecondState[categoryIndex].firstGame + 3
+        );
+        return firsGamesSecondState;
+      });
+      setDisableUpOrLeft((currentState) => {
+        let disableUpSecondState = [...currentState];
+        disableUpSecondState[categoryIndex].disableUpOrLeft = false;
+        return disableUpSecondState;
+      });
     }
   };
 
   const scrollLeftHandler = (event: any) => {
-    let [category, index] = event.target.id.split(" ");
-    index = +index;
-    let topGame = firstGames[index].firstGame;
+    let categoryIndex = event.target.id.split(" ")[1];
+    let category = event.target.id.split(" ")[0];
+    categoryIndex = +categoryIndex;
+    let topGame = firstGames[categoryIndex].firstGame;
     if (+topGame - 3 > 0) {
-      const element = document.getElementById(`categoryCompact${+topGame - 3}`);
+      const element = document.getElementById(
+        `categoryCompact${category}${+topGame - 3}`
+      );
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });
-        let firsGamesSecondState = [...firstGames];
-        firsGamesSecondState[index].firstGame = String(
-          +firsGamesSecondState[index].firstGame - 3
-        );
-        setFirstGame(firsGamesSecondState);
+        setFirstGames((currentState) => {
+          let firsGamesSecondState = [...currentState];
+          firsGamesSecondState[categoryIndex].firstGame = String(
+            +firsGamesSecondState[categoryIndex].firstGame - 3
+          );
+          return firsGamesSecondState;
+        });
       }
-      let disableDownSecondState = [...disableDownOrRights];
-      let disableUpSecondState = [...disableUpOrLefts];
-      disableDownSecondState[index].disableDownOrRight = false;
-      disableUpSecondState[index].disableUpOrLeft = false;
-      setDisableUpOrLeft(disableUpSecondState);
-      setDisableDownOrRight(disableDownSecondState);
+      setDisableUpOrLeft((currentState) => {
+        let disableUpSecondState = [...currentState];
+        disableUpSecondState[categoryIndex].disableUpOrLeft = false;
+        return disableUpSecondState;
+      });
+      setDisableDownOrRight((currentState) => {
+        let disableDownSecondState = [...currentState];
+        disableDownSecondState[categoryIndex].disableDownOrRight = false;
+        return disableDownSecondState;
+      });
     } else if (topGame !== "0") {
-      const element = document.getElementById("categoryCompact0");
+      const element = document.getElementById(`categoryCompact${category}0`);
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });
-        let firsGamesSecondState = [...firstGames];
-        firsGamesSecondState[index].firstGame = "0";
-        setFirstGame(firsGamesSecondState);
+        setFirstGames((currentState) => {
+          let firsGamesSecondState = [...currentState];
+          firsGamesSecondState[categoryIndex].firstGame = "0";
+          return firsGamesSecondState;
+        });
       }
-      let disableDownSecondState = [...disableDownOrRights];
-      let disableUpSecondState = [...disableUpOrLefts];
-
-      disableDownSecondState[index].disableDownOrRight = false;
-      disableUpSecondState[index].disableUpOrLeft = true;
-      setDisableUpOrLeft(disableUpSecondState);
-      setDisableDownOrRight(disableDownSecondState);
+      setDisableUpOrLeft((currentState) => {
+        let disableUpSecondState = [...currentState];
+        disableUpSecondState[categoryIndex].disableUpOrLeft = true;
+        return disableUpSecondState;
+      });
+      setDisableDownOrRight((currentState) => {
+        let disableDownSecondState = [...currentState];
+        disableDownSecondState[categoryIndex].disableDownOrRight = false;
+        return disableDownSecondState;
+      });
     }
   };
 
   const scrollRightHandler = (event: any) => {
-    let [category, index] = event.target.id.split(" ");
-    index = +index;
-    let topGame = firstGames[index].firstGame;
+    let categoryIndex = event.target.id.split(" ")[1];
+    let category = event.target.id.split(" ")[0];
+    categoryIndex = +categoryIndex;
+    let topGame = firstGames[categoryIndex].firstGame;
+    console.log('right works');
+    const element = document.getElementById(
+      `categoryCompact${category}${+topGame + 5}`
+    );
 
-    const element = document.getElementById(`categoryCompact${+topGame + 5}`);
-
-    if (+topGame + 6 >= categorisedGames[index].games.length) {
-      let disableDownSecondState = [...disableDownOrRights];
-      disableDownSecondState[index].disableDownOrRight = true;
-      setDisableDownOrRight(disableDownSecondState);
+    if (+topGame + 6 >= categorisedGames[categoryIndex].games.length) {
+      setDisableDownOrRight((currentState) => {
+        let disableDownSecondState = [...currentState];
+        disableDownSecondState[categoryIndex].disableDownOrRight = true;
+        return disableDownSecondState;
+      });
     }
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
-      let firsGamesSecondState = [...firstGames];
-      let disableUpSecondState = [...disableUpOrLefts];
-      firsGamesSecondState[index].firstGame = String(
-        +firsGamesSecondState[index].firstGame + 3
-      );
-      setFirstGame(firsGamesSecondState);
-      disableUpSecondState[index].disableUpOrLeft = false;
+
+      setFirstGames((currentState) => {
+        let firsGamesSecondState = [...currentState];
+        firsGamesSecondState[categoryIndex].firstGame = String(
+          +(firsGamesSecondState[categoryIndex].firstGame) + 3
+        );
+        return firsGamesSecondState;
+      });
+      setDisableUpOrLeft((currentState) => {
+        let disableUpSecondState = [...currentState];
+        disableUpSecondState[categoryIndex].disableUpOrLeft = false;
+        return disableUpSecondState;
+      });
     }
   };
 
@@ -373,34 +514,35 @@ const Games = () => {
     setdropdownIsOpen((current) => !current);
   };
   const rateSortHandler = () => {
-    if (sortby != 'rate') {
-      setSortby('rate');
+    if (sortby != "rate") {
+      setSortby("rate");
     }
     setdropdownIsOpen((current) => !current);
   };
   const earliestSortHandler = () => {
-    if (sortby != 'earliest') {
-      setSortby('earliest');
+    if (sortby != "earliest") {
+      setSortby("earliest");
     }
     setdropdownIsOpen((current) => !current);
   };
   const latestSortHandler = () => {
-    if (sortby != 'latest') {
-      setSortby('latest');
+    if (sortby != "latest") {
+      setSortby("latest");
     }
     setdropdownIsOpen((current) => !current);
-  }
+  };
   const compactIconClickHandler = () => {
-    if (viewType !="compact") {
+    if (viewType != "compact") {
       setVeiwType("compact");
     }
-
   };
   const listIconClickHandler = () => {
     if (viewType != "list") {
       setVeiwType("list");
     }
   };
+  console.log(firstGames);
+  console.log('----------------------------------')
   return (
     <div className={style.pageContainer}>
       <div className={style.Header}>
@@ -432,11 +574,53 @@ const Games = () => {
               <p className={style.veiwTitle}>view</p>
             </div>
             {dropdownIsOpen && (
-              <div className={`${style.choiceContainer} ${viewType=='list'?style.listDropdownBackground:style.compactDropdownBackground}`}>
-                <p onClick={rateSortHandler} className={`${style.choice} ${sortby=='rate'?style.selectedChoice:style.notSelectedChoice}` }>rate</p>
-                <p onClick={categorySortHandler} className={`${style.choice} ${sortby=='category'?style.selectedChoice:style.notSelectedChoice}`}>category</p>
-                <p onClick={earliestSortHandler} className={`${style.choice} ${sortby=='earliest'?style.selectedChoice:style.notSelectedChoice}`}>earliest</p>
-                <p onClick={latestSortHandler} className={`${style.choice} ${sortby=='latest'?style.selectedChoice:style.notSelectedChoice}`}>latest</p>
+              <div
+                className={`${style.choiceContainer} ${
+                  viewType == "list"
+                    ? style.listDropdownBackground
+                    : style.compactDropdownBackground
+                }`}
+              >
+                <p
+                  onClick={rateSortHandler}
+                  className={`${style.choice} ${
+                    sortby == "rate"
+                      ? style.selectedChoice
+                      : style.notSelectedChoice
+                  }`}
+                >
+                  rate
+                </p>
+                <p
+                  onClick={categorySortHandler}
+                  className={`${style.choice} ${
+                    sortby == "category"
+                      ? style.selectedChoice
+                      : style.notSelectedChoice
+                  }`}
+                >
+                  category
+                </p>
+                <p
+                  onClick={earliestSortHandler}
+                  className={`${style.choice} ${
+                    sortby == "earliest"
+                      ? style.selectedChoice
+                      : style.notSelectedChoice
+                  }`}
+                >
+                  earliest
+                </p>
+                <p
+                  onClick={latestSortHandler}
+                  className={`${style.choice} ${
+                    sortby == "latest"
+                      ? style.selectedChoice
+                      : style.notSelectedChoice
+                  }`}
+                >
+                  latest
+                </p>
               </div>
             )}
           </div>

@@ -24,7 +24,7 @@ const GameCategoryGroup: React.FC<{ categorisedGames: GameItem[] }> = (
             <div
               className={style.gameItem}
               key={gameItem.id}
-              id={`categoryCompact${index}`}
+              id={`categoryCompact${gameItem.gameCategory}${index}`}
             >
               <div className={style.thumbnailContainer}>
                 <img

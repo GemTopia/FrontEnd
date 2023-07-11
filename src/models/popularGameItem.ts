@@ -4,5 +4,6 @@ interface PopularGameItem {
     gameCategory:string;
     rank:string;
     likesCount:string;
+    id:string;
 }
 export default PopularGameItem;
