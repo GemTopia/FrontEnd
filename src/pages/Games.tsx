@@ -18,7 +18,7 @@ const Games = () => {
       rank: "2",
       likesCount: "5278",
       id: "1",
-      date: "2022-03-25",
+      date:"2022-03-25",
     },
     {
       thumnailImageAddress: "Rectangle 8.png",
@@ -28,7 +28,7 @@ const Games = () => {
       rank: "1",
       likesCount: "5279",
       id: "0",
-      date: "2022-03-26",
+      date:"2022-03-26",
     },
     {
       thumnailImageAddress: "Rectangle 8.png",
@@ -38,7 +38,7 @@ const Games = () => {
       rank: "3",
       likesCount: "5277",
       id: "2",
-      date: "2022-03-28",
+      date:"2022-03-28",
     },
     {
       thumnailImageAddress: "Rectangle 8.png",
@@ -48,7 +48,7 @@ const Games = () => {
       rank: "4",
       likesCount: "5276",
       id: "3",
-      date: "2022-03-29",
+      date:"2022-03-29",
     },
     {
       thumnailImageAddress: "Rectangle 8.png",
@@ -58,7 +58,7 @@ const Games = () => {
       rank: "5",
       likesCount: "5275",
       id: "4",
-      date: "2023-02-25",
+      date:"2023-02-25",
     },
     {
       thumnailImageAddress: "Rectangle 8.png",
@@ -68,7 +68,7 @@ const Games = () => {
       rank: "6",
       likesCount: "5274",
       id: "5",
-      date: "2022-02-26",
+      date:"2022-02-26",
     },
     {
       thumnailImageAddress: "Rectangle 8.png",
@@ -78,7 +78,7 @@ const Games = () => {
       rank: "7",
       likesCount: "5273",
       id: "6",
-      date: "2022-02-27",
+      date:"2022-02-27",
     },
     {
       thumnailImageAddress: "Rectangle 8.png",
@@ -88,7 +88,7 @@ const Games = () => {
       rank: "8",
       likesCount: "5272",
       id: "7",
-      date: "2022-02-28",
+      date:"2022-02-28",
     },
     {
       thumnailImageAddress: "Rectangle 8.png",
@@ -98,205 +98,7 @@ const Games = () => {
       rank: "9",
       likesCount: "5271",
       id: "8",
-      date: "2022-02-29",
-    },
-  ];
-
-  let categorisedGames: CategorisedGameGroupItem[] = [
-    {
-      category: "category1",
-      games: [
-        {
-          thumnailImageAddress: "Rectangle 8.png",
-          gameLogoAddress: "Rectangle 846.png",
-          gameName: "subway surfers1",
-          gameCategory: "category1",
-          rank: "2",
-          likesCount: "5278",
-          id: "1",
-          date: "2022-03-25",
-        },
-        {
-          thumnailImageAddress: "Rectangle 8.png",
-          gameLogoAddress: "Rectangle 846.png",
-          gameName: "subway surfers1",
-          gameCategory: "category1",
-          rank: "1",
-          likesCount: "5279",
-          id: "0",
-          date: "2022-03-25",
-        },
-        {
-          thumnailImageAddress: "Rectangle 8.png",
-          gameLogoAddress: "Rectangle 846.png",
-          gameName: "subway surfers1",
-          gameCategory: "category1",
-          rank: "3",
-          likesCount: "5277",
-          id: "2",
-          date: "2022-03-25",
-        },
-        {
-          thumnailImageAddress: "Rectangle 8.png",
-          gameLogoAddress: "Rectangle 846.png",
-          gameName: "subway surfers1",
-          gameCategory: "category1",
-          rank: "5",
-          likesCount: "5278",
-          id: "4",
-          date: "2022-03-25",
-        },
-        {
-          thumnailImageAddress: "Rectangle 8.png",
-          gameLogoAddress: "Rectangle 846.png",
-          gameName: "subway surfers1",
-          gameCategory: "category1",
-          rank: "4",
-          likesCount: "5279",
-          id: "3",
-          date: "2022-03-25",
-        },
-        {
-          thumnailImageAddress: "Rectangle 8.png",
-          gameLogoAddress: "Rectangle 846.png",
-          gameName: "subway surfers1",
-          gameCategory: "category1",
-          rank: "6",
-          likesCount: "5277",
-          id: "5",
-          date: "2022-03-25",
-        },
-      ],
-    },
-    {
-      category: "category2",
-      games: [
-        {
-          thumnailImageAddress: "Rectangle 8.png",
-          gameLogoAddress: "Rectangle 846.png",
-          gameName: "subway surfers1",
-          gameCategory: "category2",
-          rank: "4",
-          likesCount: "5276",
-          id: "6",
-          date: "2022-03-25",
-        },
-        {
-          thumnailImageAddress: "Rectangle 8.png",
-          gameLogoAddress: "Rectangle 846.png",
-          gameName: "subway surfers1",
-          gameCategory: "category2",
-          rank: "5",
-          likesCount: "5275",
-          id: "7",
-          date: "2022-03-25",
-        },
-        {
-          thumnailImageAddress: "Rectangle 8.png",
-          gameLogoAddress: "Rectangle 846.png",
-          gameName: "subway surfers1",
-          gameCategory: "category2",
-          rank: "6",
-          likesCount: "5274",
-          id: "8",
-          date: "2022-03-25",
-        },
-        {
-          thumnailImageAddress: "Rectangle 8.png",
-          gameLogoAddress: "Rectangle 846.png",
-          gameName: "subway surfers1",
-          gameCategory: "category2",
-          rank: "7",
-          likesCount: "5278",
-          id: "9",
-          date: "2022-03-25",
-        },
-        {
-          thumnailImageAddress: "Rectangle 8.png",
-          gameLogoAddress: "Rectangle 846.png",
-          gameName: "subway surfers1",
-          gameCategory: "category2",
-          rank: "8",
-          likesCount: "5279",
-          id: "10",
-          date: "2022-03-25",
-        },
-        {
-          thumnailImageAddress: "Rectangle 8.png",
-          gameLogoAddress: "Rectangle 846.png",
-          gameName: "subway surfers1",
-          gameCategory: "category2",
-          rank: "9",
-          likesCount: "5277",
-          id: "11",
-          date: "2022-03-25",
-        },
-      ],
-    },
-    {
-      category: "category3",
-      games: [
-        {
-          thumnailImageAddress: "Rectangle 8.png",
-          gameLogoAddress: "Rectangle 846.png",
-          gameName: "subway surfers1",
-          gameCategory: "category3",
-          rank: "10",
-          likesCount: "5273",
-          id: "12",
-          date: "2022-03-25",
-        },
-        {
-          thumnailImageAddress: "Rectangle 8.png",
-          gameLogoAddress: "Rectangle 846.png",
-          gameName: "subway surfers1",
-          gameCategory: "category3",
-          rank: "11",
-          likesCount: "5272",
-          id: "13",
-          date: "2022-03-25",
-        },
-        {
-          thumnailImageAddress: "Rectangle 8.png",
-          gameLogoAddress: "Rectangle 846.png",
-          gameName: "subway surfers1",
-          gameCategory: "category3",
-          rank: "12",
-          likesCount: "5271",
-          id: "14",
-          date: "2022-03-25",
-        },
-        {
-          thumnailImageAddress: "Rectangle 8.png",
-          gameLogoAddress: "Rectangle 846.png",
-          gameName: "subway surfers1",
-          gameCategory: "category3",
-          rank: "13",
-          likesCount: "5273",
-          id: "15",
-          date: "2022-03-25",
-        },
-        {
-          thumnailImageAddress: "Rectangle 8.png",
-          gameLogoAddress: "Rectangle 846.png",
-          gameName: "subway surfers1",
-          gameCategory: "category3",
-          rank: "14",
-          likesCount: "5272",
-          id: "16",
-          date: "2022-03-25",
-        },
-        {
-          thumnailImageAddress: "Rectangle 8.png",
-          gameLogoAddress: "Rectangle 846.png",
-          gameName: "subway surfers1",
-          gameCategory: "category3",
-          rank: "15",
-          likesCount: "5271",
-          id: "17",
-          date: "2022-03-25",
-        },
-      ],
+      date:"2022-02-29",
     },
   ];
 
@@ -450,6 +252,7 @@ const Games = () => {
     inputChangeHandler: searchChangeHandler,
     inputBlurHandler: searchBlurHandler,
   } = useInput((input: string) => input.trim().length !== 0, "");
+
   const dropdownIconClickHandler = () => {
     setdropdownIsOpen((current) => !current);
   };
@@ -460,24 +263,23 @@ const Games = () => {
     setdropdownIsOpen((current) => !current);
   };
   const rateSortHandler = () => {
-    if (sortby != "rate") {
-      setSortby("rate");
+    if (sortby != 'rate') {
+      setSortby('rate');
     }
     setdropdownIsOpen((current) => !current);
   };
   const earliestSortHandler = () => {
-    if (sortby != "earliest") {
-      setSortby("earliest");
+    if (sortby != 'earliest') {
+      setSortby('earliest');
     }
     setdropdownIsOpen((current) => !current);
   };
   const latestSortHandler = () => {
-    if (sortby != "latest") {
-      setSortby("latest");
+    if (sortby != 'latest') {
+      setSortby('latest');
     }
     setdropdownIsOpen((current) => !current);
-  };
-
+  }
   const compactIconClickHandler = () => {
     if (viewType !="compact") {
       setVeiwType("compact");
@@ -520,53 +322,11 @@ const Games = () => {
               <p className={style.veiwTitle}>view</p>
             </div>
             {dropdownIsOpen && (
-              <div
-                className={`${style.choiceContainer} ${
-                  viewType == "list"
-                    ? style.listDropdownBackground
-                    : style.compactDropdownBackground
-                }`}
-              >
-                <p
-                  onClick={rateSortHandler}
-                  className={`${style.choice} ${
-                    sortby == "rate"
-                      ? style.selectedChoice
-                      : style.notSelectedChoice
-                  }`}
-                >
-                  rate
-                </p>
-                <p
-                  onClick={categorySortHandler}
-                  className={`${style.choice} ${
-                    sortby == "category"
-                      ? style.selectedChoice
-                      : style.notSelectedChoice
-                  }`}
-                >
-                  category
-                </p>
-                <p
-                  onClick={earliestSortHandler}
-                  className={`${style.choice} ${
-                    sortby == "earliest"
-                      ? style.selectedChoice
-                      : style.notSelectedChoice
-                  }`}
-                >
-                  earliest
-                </p>
-                <p
-                  onClick={latestSortHandler}
-                  className={`${style.choice} ${
-                    sortby == "latest"
-                      ? style.selectedChoice
-                      : style.notSelectedChoice
-                  }`}
-                >
-                  latest
-                </p>
+              <div className={`${style.choiceContainer} ${viewType=='list'?style.listDropdownBackground:style.compactDropdownBackground}`}>
+                <p onClick={rateSortHandler} className={`${style.choice} ${sortby=='rate'?style.selectedChoice:style.notSelectedChoice}` }>rate</p>
+                <p onClick={categorySortHandler} className={`${style.choice} ${sortby=='category'?style.selectedChoice:style.notSelectedChoice}`}>category</p>
+                <p onClick={earliestSortHandler} className={`${style.choice} ${sortby=='earliest'?style.selectedChoice:style.notSelectedChoice}`}>earliest</p>
+                <p onClick={latestSortHandler} className={`${style.choice} ${sortby=='latest'?style.selectedChoice:style.notSelectedChoice}`}>latest</p>
               </div>
             )}
           </div>
