@@ -1,0 +1,54 @@
+.container{
+    width: 58rem;
+    height: 1.5rem;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    border: 1.5px solid rgba(0, 150, 255, 0.15);
+    border-radius: 15px;
+    padding: 0.5rem;
+}
+
+.container:hover{
+    border: 1.5px solid rgba(0, 150, 255, 0.40);
+}
+
+.darkBackground{
+    background-color: rgba(0, 150, 255, 0.07);
+}
+
+.lightBackgeround{
+    background: rgba(0, 150, 255, 0.13);
+}
+
+.rankContainer{ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2rem;
+    height: 2rem;
+    margin-left: 1.5rem;
+}
+
+.medal{
+    width: 2rem;
+    height: 2rem;
+}
+
+.playerImage{
+    width: 2rem;
+    height: 2rem;
+    margin-left: 1.5rem;
+}
+
+.username{
+    margin-left: 1rem;
+    font-size: 15px;
+}
+
+.scoreCount{
+    font-size: 15px;
+    margin-left: auto;
+    margin-right: 1.5rem;
+    font-weight: 400;
+}

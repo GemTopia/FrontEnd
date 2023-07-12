@@ -5,6 +5,7 @@ import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import Home from "./pages/Home";
 import Games from "./pages/Games";
+import Game from "./pages/Game";
 function App() {
   return (
     <div>
@@ -15,6 +16,7 @@ function App() {
         <Route path="/profile" element={<Profile />}></Route>
         <Route path="/Home" element={<Home />}></Route>
         <Route path="/Games" element={<Games />}></Route>
+        <Route path="/Game" element={<Game />}></Route>
       </Routes>
     </div>
   );

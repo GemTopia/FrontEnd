@@ -3,8 +3,8 @@ import RecentPlayedItems from "../components/games/RecentPlayedItems";
 import PopularGames from "../components/games/PopularGames";
 import recentPlayedGameItem from "../models/recentPlayedGameItem";
 import PopularGameItem from "../models/popularGameItem";
-import TopPlayers from "../components/users/TopPlayers";
-import topPlayerItem from "../models/topPlayerItem";
+import HomeTopPlayers from "../components/users/HomeTopPlayers";
+import homeTopPlayerItem from "../models/homeTopPlayerItem";
 
 const Home = () => {
   let recentPlayedDummy: recentPlayedGameItem[] = [
@@ -37,33 +37,33 @@ const Home = () => {
       id: "3",
     },
     {
-        thumnailImageAddress: "Rectangle 8.png",
-        gameLogoAddress: "Rectangle 846.png",
-        gameName: "subway surfers5",
-        gameCategory: "category",
-        id: "4",
-      },
-      {
-        thumnailImageAddress: "Rectangle 8.png",
-        gameLogoAddress: "Rectangle 846.png",
-        gameName: "subway surfers6",
-        gameCategory: "category",
-        id: "5",
-      },
-      {
-        thumnailImageAddress: "Rectangle 8.png",
-        gameLogoAddress: "Rectangle 846.png",
-        gameName: "subway surfers7",
-        gameCategory: "category",
-        id: "6",
-      },
-      {
-        thumnailImageAddress: "Rectangle 8.png",
-        gameLogoAddress: "Rectangle 846.png",
-        gameName: "subway surfers8",
-        gameCategory: "category",
-        id: "7",
-      },
+      thumnailImageAddress: "Rectangle 8.png",
+      gameLogoAddress: "Rectangle 846.png",
+      gameName: "subway surfers5",
+      gameCategory: "category",
+      id: "4",
+    },
+    {
+      thumnailImageAddress: "Rectangle 8.png",
+      gameLogoAddress: "Rectangle 846.png",
+      gameName: "subway surfers6",
+      gameCategory: "category",
+      id: "5",
+    },
+    {
+      thumnailImageAddress: "Rectangle 8.png",
+      gameLogoAddress: "Rectangle 846.png",
+      gameName: "subway surfers7",
+      gameCategory: "category",
+      id: "6",
+    },
+    {
+      thumnailImageAddress: "Rectangle 8.png",
+      gameLogoAddress: "Rectangle 846.png",
+      gameName: "subway surfers8",
+      gameCategory: "category",
+      id: "7",
+    },
   ];
 
   let popularGamesDummy: PopularGameItem[] = [
@@ -139,78 +139,78 @@ const Home = () => {
     },
   ];
 
-  let topPlayersDummy: topPlayerItem[] = [
+  let topPlayersDummy: homeTopPlayerItem[] = [
     {
-      rank : "first-place-medal.png",
-      imageAddress : "player.png",
-      userName : "Jasmine Dragon",
-      score : "120",
-      id : "0"
+      rank: "first-place-medal.png",
+      imageAddress: "player.png",
+      userName: "Jasmine Dragon",
+      token: "120",
+      id: "0",
     },
     {
-      rank : "second-place-medal.png",
-      imageAddress : "player.png",
-      userName : "Jasmine Dragon",
-      score : "119",
-      id : "1"
+      rank: "second-place-medal.png",
+      imageAddress: "player.png",
+      userName: "Jasmine Dragon",
+      token: "119",
+      id: "1",
     },
     {
-      rank : "third-place-medal.png",
-      imageAddress : "player.png",
-      userName : "Jasmine Dragon",
-      score : "118",
-      id : "2"
+      rank: "third-place-medal.png",
+      imageAddress: "player.png",
+      userName: "Jasmine Dragon",
+      token: "118",
+      id: "2",
     },
     {
-      rank : "fourth-place-medal.png",
-      imageAddress : "player.png",
-      userName : "Jasmine Dragon",
-      score : "117",
-      id : "3"
+      rank: "fourth-place-medal.png",
+      imageAddress: "player.png",
+      userName: "Jasmine Dragon",
+      token: "117",
+      id: "3",
     },
     {
-      rank : "5",
-      imageAddress : "player.png",
-      userName : "Jasmine Dragon",
-      score : "116",
-      id : "4"
+      rank: "5",
+      imageAddress: "player.png",
+      userName: "Jasmine Dragon",
+      token: "116",
+      id: "4",
     },
     {
-      rank : "6",
-      imageAddress : "player.png",
-      userName : "Jasmine Dragon",
-      score : "115",
-      id : "5"
+      rank: "6",
+      imageAddress: "player.png",
+      userName: "Jasmine Dragon",
+      token: "115",
+      id: "5",
     },
     {
-      rank : "7",
-      imageAddress : "player.png",
-      userName : "Jasmine Dragon",
-      score : "114",
-      id : "6"
+      rank: "7",
+      imageAddress: "player.png",
+      userName: "Jasmine Dragon",
+      token: "114",
+      id: "6",
     },
     {
-      rank : "8",
-      imageAddress : "player.png",
-      userName : "Jasmine Dragon",
-      score : "113",
-      id : "7"
+      rank: "8",
+      imageAddress: "player.png",
+      userName: "Jasmine Dragon",
+      token: "113",
+      id: "7",
     },
     {
-      rank : "9",
-      imageAddress : "player.png",
-      userName : "Jasmine Dragon",
-      score : "112",
-      id : "8"
+      rank: "9",
+      imageAddress: "player.png",
+      userName: "Jasmine Dragon",
+      token: "112",
+      id: "8",
     },
     {
-      rank : "10",
-      imageAddress : "player.png",
-      userName : "Jasmine Dragon",
-      score : "111",
-      id : "9"
+      rank: "10",
+      imageAddress: "player.png",
+      userName: "Jasmine Dragon",
+      token: "111",
+      id: "9",
     },
-  ]
+  ];
 
   return (
     <div className={style.pageContainer}>
@@ -218,9 +218,8 @@ const Home = () => {
         <h2 className={style.recentPlayedTitle}>Recent played</h2>
         <RecentPlayedItems games={recentPlayedDummy} />
       </div>
-          <PopularGames games={popularGamesDummy} />
-          <TopPlayers players={topPlayersDummy} />
-
+      <PopularGames games={popularGamesDummy} />
+      <HomeTopPlayers players={topPlayersDummy} />
     </div>
   );
 };

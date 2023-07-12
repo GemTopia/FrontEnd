@@ -1,7 +1,7 @@
-import topPlayerItem from "../../models/topPlayerItem";
-import style from "./TopPlayerItem.module.css";
+import homeTopPlayerItem from "../../models/homeTopPlayerItem";
+import style from "./HomeTopPlayerItem.module.css";
 
-const TopPlayerItem: React.FC<{ player: topPlayerItem }> = (props) => {
+const HomeTopPlayerItem: React.FC<{ player: homeTopPlayerItem }> = (props) => {
   return (
     <div
       className={`${style.container} ${
@@ -30,14 +30,11 @@ const TopPlayerItem: React.FC<{ player: topPlayerItem }> = (props) => {
       <p className={style.username}>{props.player.userName}</p>
 
       <div className={style.tokenContainer}>
-        <p className={style.tokenCount}>{props.player.score}</p>
-        <img
-          src={require("../../assets/gemyto.png")}
-          alt="gemyto"
-        />
+        <p className={style.tokenCount}>{props.player.token}</p>
+        <img src={require("../../assets/gemyto.png")} alt="gemyto" />
       </div>
     </div>
   );
 };
 
-export default TopPlayerItem;
+export default HomeTopPlayerItem;
