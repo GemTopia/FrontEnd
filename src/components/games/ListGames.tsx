@@ -2,7 +2,7 @@ import GameItem from "../../models/GamesPageItem";
 import style from "./ListGames.module.css"
 import PopularGameItem from "../../models/popularGameItem";
 import { useState } from "react";
-const ListGames: React.FC<{ games: GameItem[]|PopularGameItem[],page:string}> = (props) => {
+const ListGames: React.FC<{ games: GameItem[]|PopularGameItem[],page:string,sortby?:string}> = (props) => {
   let firstState = props.games.map((gameItem) => false);
   const [IsLiked, setIsLiked] = useState<boolean[]>(firstState);
   const likeClickHandler = (event: any) => {
@@ -15,9 +15,13 @@ const ListGames: React.FC<{ games: GameItem[]|PopularGameItem[],page:string}> = 
     return(
         <div className={style.listGamesBody}>
         {props.games.map((gameItem,index) => {
+          // console.log(props.viewType=='category')
+          // if (props.page=='games'&&props.sortby=='category'){
+          //   console.log(props.page=='games'&&index);
+
+          // }
           return (
-            
-            <div className={style.listGameItemContainer} key={gameItem.rank}id={`categoryList${props.page=='games'&&index}`}>
+            <div className={style.listGameItemContainer} key={gameItem.rank}id={`categoryList${gameItem.gameCategory}${props.page=='games'&&index}`}>
               <img
                 src={require(`../../assets/${gameItem.gameLogoAddress}`)}
                 alt=""

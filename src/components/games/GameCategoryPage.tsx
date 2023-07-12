@@ -26,7 +26,7 @@ const GameCategory: React.FC<{
         (CategoryGroup: CategorisedGameGroupItem, index: number) => {
           if (props.viewType == "compact") {
             return (
-              <div className={style.oneCategoryContainer}>
+              <div className={style.oneCategoryContainer} key={CategoryGroup.category}>
                 <div className={style.categoryHeader}>
                   <p className={style.compactCategoryTitle}>
                     {CategoryGroup.category}
@@ -68,7 +68,7 @@ const GameCategory: React.FC<{
             );
           } else if (props.viewType == "list") {
             return (
-              <div className={style.listCategoryGroupContainer}>
+              <div className={style.listCategoryGroupContainer}key={CategoryGroup.category}>
                 <div className={style.categoryHeader}>
                   <p className={style.listCategoryTitle}>
                     {CategoryGroup.category}
@@ -106,6 +106,7 @@ const GameCategory: React.FC<{
                     games={CategoryGroup.games.sort(
                       (game1, game2) => +game1.rank - +game2.rank
                     )}
+                    sortby="category"
                   />
                 </div>
               </div>
