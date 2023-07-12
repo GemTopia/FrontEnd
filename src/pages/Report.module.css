@@ -1,0 +1,92 @@
+.pageContainer {
+  display: flex;
+  margin-top: 3.2rem;
+  width: 59rem;
+  margin-left: 14rem;
+  gap: 7rem;
+  color: white;
+}
+.reportIssueContainer {
+  width: 36.5rem;
+}
+.reportHeaderContainer {
+  width: 95%;
+}
+.sidePicturesContainer {
+  width: 40rem;
+}
+.HeaderTitle {
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+.HeaderBody {
+  font-size: 16.5px;
+  font-weight: 350;
+  letter-spacing: 0.21px;
+  margin-top: 1.3rem;
+}
+.reportInputContainer {
+  margin-top: 3.8rem;
+}
+.InputTitle {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.21px;
+}
+.reportInput {
+  resize: none;
+  background-color: rgba(0, 150, 255, 0.2);
+  border: none;
+  padding: 10px;
+  border: transparent 1px rgba(0, 150, 255, 0.2);
+  border-radius: 12px;
+  width: 95%;
+  color: white;
+  margin: 10px 0;
+  height: 9.5rem;
+}
+.reportInput:focus {
+  outline: none;
+}
+
+.reportInput::-webkit-scrollbar {
+  display: none;
+}
+
+.submitEditButton {
+  border: none;
+  border-radius: 15px;
+  background-color: var(--main-blue, #0096ff);
+  color: white;
+  padding: 1rem 3rem;
+  font-size: 14px;
+  align-self: flex-end;
+  cursor: pointer;
+  font-weight: 400;
+  letter-spacing: 0.21px;
+  margin-top: 0.6rem;
+  margin-left: 16rem;
+}
+.sidePicturesContainer {
+  display: flex;
+  top: 0;
+  left: 0;
+}
+.leftImage {
+  position: absolute;
+  top: 123px;
+  height: 323px;
+  width: 235;
+  z-index: 2;
+  left: 774px;
+}
+
+.rightImage {
+  left: 1008px;
+  top: 118px;
+  height: 321px;
+  width: 235px;
+  position: absolute;
+  z-index: 1;
+}
