@@ -44,40 +44,40 @@ const Games = () => {
       thumnailImageAddress: "Rectangle 8.png",
       gameLogoAddress: "Rectangle 846.png",
       gameName: "subway surfers1",
-      gameCategory: "category2",
+      gameCategory: "category1",
       rank: "4",
-      likesCount: "5276",
+      likesCount: "5278",
       id: "3",
-      date: "2022-03-29",
+      date: "2022-03-25",
     },
     {
       thumnailImageAddress: "Rectangle 8.png",
       gameLogoAddress: "Rectangle 846.png",
       gameName: "subway surfers1",
-      gameCategory: "category2",
+      gameCategory: "category1",
       rank: "5",
-      likesCount: "5275",
+      likesCount: "5279",
       id: "4",
-      date: "2023-02-25",
+      date: "2022-03-26",
     },
     {
       thumnailImageAddress: "Rectangle 8.png",
       gameLogoAddress: "Rectangle 846.png",
       gameName: "subway surfers1",
-      gameCategory: "category2",
+      gameCategory: "category1",
       rank: "6",
-      likesCount: "5274",
+      likesCount: "5277",
       id: "5",
-      date: "2022-02-26",
+      date: "2022-03-28",
     },
     {
       thumnailImageAddress: "Rectangle 8.png",
       gameLogoAddress: "Rectangle 846.png",
       gameName: "subway surfers1",
       gameCategory: "category3",
-      rank: "7",
+      rank: "13",
       likesCount: "5273",
-      id: "6",
+      id: "12",
       date: "2022-02-27",
     },
     {
@@ -85,9 +85,9 @@ const Games = () => {
       gameLogoAddress: "Rectangle 846.png",
       gameName: "subway surfers1",
       gameCategory: "category3",
-      rank: "8",
+      rank: "14",
       likesCount: "5272",
-      id: "7",
+      id: "13",
       date: "2022-02-28",
     },
     {
@@ -95,210 +95,43 @@ const Games = () => {
       gameLogoAddress: "Rectangle 846.png",
       gameName: "subway surfers1",
       gameCategory: "category3",
-      rank: "9",
+      rank: "15",
       likesCount: "5271",
-      id: "8",
+      id: "14",
+      date: "2022-02-29",
+    },
+    {
+      thumnailImageAddress: "Rectangle 8.png",
+      gameLogoAddress: "Rectangle 846.png",
+      gameName: "subway surfers1",
+      gameCategory: "category3",
+      rank: "16",
+      likesCount: "5273",
+      id: "15",
+      date: "2022-02-27",
+    },
+    {
+      thumnailImageAddress: "Rectangle 8.png",
+      gameLogoAddress: "Rectangle 846.png",
+      gameName: "subway surfers1",
+      gameCategory: "category3",
+      rank: "17",
+      likesCount: "5272",
+      id: "16",
+      date: "2022-02-28",
+    },
+    {
+      thumnailImageAddress: "Rectangle 8.png",
+      gameLogoAddress: "Rectangle 846.png",
+      gameName: "subway surfers1",
+      gameCategory: "category3",
+      rank: "18",
+      likesCount: "5271",
+      id: "17",
       date: "2022-02-29",
     },
   ];
-
-  let categorisedGames: CategorisedGameGroupItem[] = [
-    {
-      category: "category1",
-      games: [
-        {
-          thumnailImageAddress: "Rectangle 8.png",
-          gameLogoAddress: "Rectangle 846.png",
-          gameName: "subway surfers1",
-          gameCategory: "category1",
-          rank: "2",
-          likesCount: "5278",
-          id: "1",
-          date: "2022-03-25",
-        },
-        {
-          thumnailImageAddress: "Rectangle 8.png",
-          gameLogoAddress: "Rectangle 846.png",
-          gameName: "subway surfers1",
-          gameCategory: "category1",
-          rank: "1",
-          likesCount: "5279",
-          id: "0",
-          date: "2022-03-26",
-        },
-        {
-          thumnailImageAddress: "Rectangle 8.png",
-          gameLogoAddress: "Rectangle 846.png",
-          gameName: "subway surfers1",
-          gameCategory: "category1",
-          rank: "3",
-          likesCount: "5277",
-          id: "2",
-          date: "2022-03-28",
-        },
-        {
-          thumnailImageAddress: "Rectangle 8.png",
-          gameLogoAddress: "Rectangle 846.png",
-          gameName: "subway surfers1",
-          gameCategory: "category1",
-          rank: "4",
-          likesCount: "5278",
-          id: "3",
-          date: "2022-03-25",
-        },
-        {
-          thumnailImageAddress: "Rectangle 8.png",
-          gameLogoAddress: "Rectangle 846.png",
-          gameName: "subway surfers1",
-          gameCategory: "category1",
-          rank: "5",
-          likesCount: "5279",
-          id: "4",
-          date: "2022-03-26",
-        },
-        {
-          thumnailImageAddress: "Rectangle 8.png",
-          gameLogoAddress: "Rectangle 846.png",
-          gameName: "subway surfers1",
-          gameCategory: "category1",
-          rank: "6",
-          likesCount: "5277",
-          id: "5",
-          date: "2022-03-28",
-        },
-      ],
-    },
-    {
-      category: "category2",
-      games: [
-        {
-          thumnailImageAddress: "Rectangle 8.png",
-          gameLogoAddress: "Rectangle 846.png",
-          gameName: "subway surfers1",
-          gameCategory: "category2",
-          rank: "7",
-          likesCount: "5276",
-          id: "6",
-          date: "2022-03-29",
-        },
-        {
-          thumnailImageAddress: "Rectangle 8.png",
-          gameLogoAddress: "Rectangle 846.png",
-          gameName: "subway surfers1",
-          gameCategory: "category2",
-          rank: "8",
-          likesCount: "5275",
-          id: "7",
-          date: "2022-02-25",
-        },
-        {
-          thumnailImageAddress: "Rectangle 8.png",
-          gameLogoAddress: "Rectangle 846.png",
-          gameName: "subway surfers1",
-          gameCategory: "category2",
-          rank: "9",
-          likesCount: "5274",
-          id: "8",
-          date: "2022-02-26",
-        },
-        {
-          thumnailImageAddress: "Rectangle 8.png",
-          gameLogoAddress: "Rectangle 846.png",
-          gameName: "subway surfers1",
-          gameCategory: "category2",
-          rank: "10",
-          likesCount: "5276",
-          id: "9",
-          date: "2022-03-29",
-        },
-        {
-          thumnailImageAddress: "Rectangle 8.png",
-          gameLogoAddress: "Rectangle 846.png",
-          gameName: "subway surfers1",
-          gameCategory: "category2",
-          rank: "11",
-          likesCount: "5275",
-          id: "10",
-          date: "2022-02-25",
-        },
-        {
-          thumnailImageAddress: "Rectangle 8.png",
-          gameLogoAddress: "Rectangle 846.png",
-          gameName: "subway surfers1",
-          gameCategory: "category2",
-          rank: "12",
-          likesCount: "5274",
-          id: "11",
-          date: "2022-02-26",
-        },
-      ],
-    },
-    {
-      category: "category3",
-      games: [
-        {
-          thumnailImageAddress: "Rectangle 8.png",
-          gameLogoAddress: "Rectangle 846.png",
-          gameName: "subway surfers1",
-          gameCategory: "category3",
-          rank: "13",
-          likesCount: "5273",
-          id: "12",
-          date: "2022-02-27",
-        },
-        {
-          thumnailImageAddress: "Rectangle 8.png",
-          gameLogoAddress: "Rectangle 846.png",
-          gameName: "subway surfers1",
-          gameCategory: "category3",
-          rank: "14",
-          likesCount: "5272",
-          id: "13",
-          date: "2022-02-28",
-        },
-        {
-          thumnailImageAddress: "Rectangle 8.png",
-          gameLogoAddress: "Rectangle 846.png",
-          gameName: "subway surfers1",
-          gameCategory: "category3",
-          rank: "15",
-          likesCount: "5271",
-          id: "14",
-          date: "2022-02-29",
-        },
-        {
-          thumnailImageAddress: "Rectangle 8.png",
-          gameLogoAddress: "Rectangle 846.png",
-          gameName: "subway surfers1",
-          gameCategory: "category3",
-          rank: "16",
-          likesCount: "5273",
-          id: "15",
-          date: "2022-02-27",
-        },
-        {
-          thumnailImageAddress: "Rectangle 8.png",
-          gameLogoAddress: "Rectangle 846.png",
-          gameName: "subway surfers1",
-          gameCategory: "category3",
-          rank: "17",
-          likesCount: "5272",
-          id: "16",
-          date: "2022-02-28",
-        },
-        {
-          thumnailImageAddress: "Rectangle 8.png",
-          gameLogoAddress: "Rectangle 846.png",
-          gameName: "subway surfers1",
-          gameCategory: "category3",
-          rank: "18",
-          likesCount: "5271",
-          id: "17",
-          date: "2022-02-29",
-        },
-      ],
-    },
-  ];
+  let categorisedGames: CategorisedGameGroupItem[]=groupBy(dummy);
 
   const [firstGames, setFirstGames] = useState(
     categorisedGames.map((categoryGroup: CategorisedGameGroupItem) => {
@@ -330,7 +163,7 @@ const Games = () => {
         setFirstGames((currentState) => {
           let firsGamesSecondState = [...currentState];
           firsGamesSecondState[categoryIndex].firstGame = String(
-            +(firsGamesSecondState[categoryIndex].firstGame) - 3
+            +firsGamesSecondState[categoryIndex].firstGame - 3
           );
           return firsGamesSecondState;
         });
@@ -347,8 +180,6 @@ const Games = () => {
       });
     } else if (topGame != "0") {
       const element = document.getElementById(`categoryList${category}0`);
-      // console.log(element?.id);
-      // console.log('test');
 
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });
@@ -374,7 +205,6 @@ const Games = () => {
   const scrollDownHandler = (event: any) => {
     let categoryIndex = event.target.id.split(" ")[1];
     let category = event.target.id.split(" ")[0];
-    console.log('down works');
     categoryIndex = +categoryIndex;
     let topGame = firstGames[categoryIndex].firstGame;
 
@@ -463,7 +293,6 @@ const Games = () => {
     let category = event.target.id.split(" ")[0];
     categoryIndex = +categoryIndex;
     let topGame = firstGames[categoryIndex].firstGame;
-    console.log('right works');
     const element = document.getElementById(
       `categoryCompact${category}${+topGame + 5}`
     );
@@ -481,7 +310,7 @@ const Games = () => {
       setFirstGames((currentState) => {
         let firsGamesSecondState = [...currentState];
         firsGamesSecondState[categoryIndex].firstGame = String(
-          +(firsGamesSecondState[categoryIndex].firstGame) + 3
+          +firsGamesSecondState[categoryIndex].firstGame + 3
         );
         return firsGamesSecondState;
       });
@@ -541,8 +370,7 @@ const Games = () => {
       setVeiwType("list");
     }
   };
-  console.log(firstGames);
-  console.log('----------------------------------')
+  // console.log(groupBy(dummy));
   return (
     <div className={style.pageContainer}>
       <div className={style.Header}>
@@ -647,12 +475,11 @@ const Games = () => {
           />
         </div>
       </div>
-      {/* <GamesBody viewType={viewType} sortby={sortby} games={dummy} categorisedGames={groupBy(dummy)} dropdownIsOpen={dropdownIsOpen} /> */}
       <GamesBody
         viewType={viewType}
         sortby={sortby}
         games={dummy}
-        categorisedGames={categorisedGames}
+        categorisedGames={groupBy(dummy)}
         dropdownIsOpen={dropdownIsOpen}
         disableDownOrRights={disableDownOrRights}
         disableUpOrLefts={disableUpOrLefts}
@@ -664,12 +491,20 @@ const Games = () => {
     </div>
   );
 };
+function removewithfilter(arr: string[]) {
+  let outputArray = arr.filter(function (v, i, self) {
+    return i == self.indexOf(v);
+  });
+  return outputArray;
+}
 
 function groupBy(array: GameItem[]) {
-  let categoryGroups: CategorisedGameGroupItem[] = [];
-  for (let game of array) {
-    categoryGroups.push({ category: game.gameCategory, games: [] });
-  }
+  let categoryGroups: any = [];
+  categoryGroups = array.map((game) => game.gameCategory);
+  categoryGroups = removewithfilter(categoryGroups);
+  categoryGroups = categoryGroups.map((category: string) => {
+    return { category: category, games: [] };
+  });
 
   for (let j = 0; j < categoryGroups.length; j++) {
     let categoryGroup = categoryGroups[j];
