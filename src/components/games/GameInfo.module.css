@@ -1,0 +1,115 @@
+.infoBox{
+    /* border: 1px solid white;  */
+    width: 59rem;
+    display: flex;
+    margin-top: 2rem;
+}
+
+.gameInfoContainer{
+    /* border: 1px solid white; */
+    width: 36rem;
+    display: flex;
+}
+
+.thumbnail{
+    width: 12rem;
+    height: 12rem;
+}
+
+.infoContainer{
+    /* border: 1px solid white; */
+    width: 22rem;
+    margin-left: auto;
+}
+
+.infoContainer h1{
+    /* font-family: Inter; */
+    font-size: 32px;
+    font-weight: 650;
+    line-height: 30px;
+}
+
+.gameName{
+    color: rgba(255, 255, 255, 0.80);
+    font-weight: 400;
+    font-size: 17px;
+}
+.rank{
+    color: #0096FF;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.description{
+    color: rgba(255, 255, 255, 0.80);
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 16px;
+}
+
+.buttons{
+    /* border: 1px solid white; */
+    display: flex;
+    width: 22rem;
+    margin-top: 2rem;
+}
+
+.like{
+    /* border: 1px solid white; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.likeContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.likeContainer img{
+    cursor: pointer;
+}
+
+.likeCount{
+    font-size: 12px;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.reportIcon{
+    width: 1.3rem;
+    height: 1.3rem;
+    margin-left: 0.3rem;
+}
+
+.reportIcon img{
+    width: 1.3rem;
+    height: 1.3rem;
+}
+
+.playButton{
+    width: 7.6rem;
+    height: 2.4rem;
+    border-radius: 12px;
+    background: #0096FF;
+    border: none;
+    color: #FFF;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.playButtonContainer{
+    margin-left: auto;
+}
+
+.playButtonContainer :hover{
+    box-shadow: 1px 1px 10px 7px rgba(0, 150, 255, 0.1);
+    border-radius: 12px;
+}
+
+.roadmap{
+    margin-left: auto;
+    height: 14rem;
+}
