@@ -2,7 +2,7 @@ import { faL } from "@fortawesome/free-solid-svg-icons";
 import GameItem from "../../models/GamesPageItem";
 import style from "./CompactGames.module.css";
 import { useState } from "react";
-
+ 
 const CompactGames: React.FC<{ games: GameItem[];dropdownIsOpen:boolean;}> = (props) => {
   let firstState = props.games.map((gameItem) => false);
   const [IsLiked, setIsLiked] = useState<boolean[]>(firstState);
@@ -14,41 +14,40 @@ const CompactGames: React.FC<{ games: GameItem[];dropdownIsOpen:boolean;}> = (pr
     });
   };
     return(
-        <div className={style.compactGamesBody}>
-      {props.games.map((gameItem) => {
+        <div className={style["compact-games-body"]}>
+      {props.games.map((gameItem,index) => {
         return (
-          <div className={`${style.gameItem} ${((gameItem.rank)!='3'||props.dropdownIsOpen==false)&& style.gameItemHover}`} key={gameItem.id} id={`recent${gameItem.id}`}>
-            <div className={style.thumbnailContainer}>
+          <div className={`${style["game-item"]} ${((index)!=2||props.dropdownIsOpen==false)&& style["game-item-hover"]}`} key={gameItem.id} id={`recent${gameItem.id}`}>
+            <div className={style["thumbnail-container"]}>
               <img
-                src={require(`../../assets/${gameItem.thumnailImageAddress}`)}
+                src={require(`../../assets/${gameItem.thumbnailImageAddress}`)}
                 alt=""
-                className={`${style.gameThumnail} ${((gameItem.rank)!='3'||props.dropdownIsOpen==false)&& style.gameThumnailHover}`}
+                className={`${style["game-thumbnail"]} ${((index)!=2||props.dropdownIsOpen==false)&& style["game-thumbnail-hover"]}`}
               />
             </div>
-            <div className={style.gameInfoContainer}>
+            <div className={style["game-info-container"]}>
               <img
                 src={require(`../../assets/${gameItem.gameLogoAddress}`)}
                 alt=""
-                className={style["gameLogo"]}
+                className={style["game-logo"]}
               />
-              <div className={style.gameTextInfoContainer}>
-                {gameItem.gameName}
-                <br />
-                <div className={style.gameCategory}>
+              <div className={style["game-text-info-container"]}>
+                <p>{gameItem.gameName}</p>
+                <p className={style["game-category"]}>
                   {gameItem.gameCategory}
-                </div>
-                <div className={style.rank}>
+                </p>
+                <p className={style.rank}>
                   #{gameItem.rank}
-                </div>
+                </p>
               </div>
-              <div className={style.likesContainer} >
+              <div className={style["likes-container"]} >
                 <img
                   src={require(`../../assets/${IsLiked[+(gameItem.rank)-1]?'liked-icon.png':'unliked-icon.png'}`)}
                   alt="like icon"
                   id={gameItem.rank}
                   onClick={likeClickHandler}
                 />
-                <p className={style.GameLikesCount}> {gameItem.likesCount} </p>
+                <p className={style["game-likes-count"]}> {gameItem.likesCount} </p>
               </div>
             </div>
           </div>

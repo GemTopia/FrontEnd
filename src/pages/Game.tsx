@@ -1,8 +1,8 @@
 import style from "./Game.module.css";
 import gameTopPlayerItem from "../models/gameTopPlayer";
 import GameTopPlayers from "../components/players/GameTopPlayers";
-import GameInfo from "../components/games/GameInfo";
-import GamePictures from "../components/games/GamePictures";
+import GameInfo from "../components/game/GameInfo";
+import GamePictures from "../components/game/GamePictures";
 
 const Game = () => {
   let dummyPictures: { imgAddress: string; id: string }[] = [
@@ -90,7 +90,7 @@ const Game = () => {
   return (
     <div className={style.container}>
       <div className={style.header}>
-        <p className={style.headerContent}>
+        <p className={style["header-content"]}>
           The top 4 players will not only dominate the game, but also earn{" "}
           <span>Gemytos</span>
         </p>

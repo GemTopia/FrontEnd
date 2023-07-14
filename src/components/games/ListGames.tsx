@@ -15,11 +15,6 @@ const ListGames: React.FC<{ games: GameItem[]|PopularGameItem[],page:string,sort
     return(
         <div className={style["list-games-body"]}>
         {props.games.map((gameItem,index) => {
-          // console.log(props.viewType=='category')
-          // if (props.page=='games'&&props.sortby=='category'){
-          //   console.log(props.page=='games'&&index);
-
-          // }
           return (
             <div className={style["list-game-item-container"]} key={gameItem.rank}id={`categoryList${gameItem.gameCategory}${props.page=='games'&&index}`}>
               <img

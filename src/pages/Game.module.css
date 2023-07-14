@@ -1,6 +1,5 @@
 .container{
-    /* border: 1px solid white; */
-    width: 70rem;
+    width: 89%;
     margin: 5rem auto;
     display: flex;
     flex-direction: column;
@@ -9,7 +8,7 @@
 }
 
 .header{
-    width: 59rem;
+    width: 84%;
     display: flex;
     justify-content: center;
     background: rgba(0, 150, 255, 0.25); 
@@ -17,7 +16,7 @@
 }
 
 
-.headerContent{
+.header-content{
     font-family:Poppins,sans-serif;
     font-size: 12px;
     font-weight: 200;
@@ -25,7 +24,7 @@
     margin: 0.6rem 0.2rem;
 }
 
-.headerContent span{
+.header-content span{
     font-size: 14px;
     color: #00D7FF;
 }

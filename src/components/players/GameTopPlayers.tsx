@@ -2,7 +2,7 @@ import style from "./GameTopPlayers.module.css";
 import GameTopPlayerItem from "./GameTopPlayerItem";
 import gameTopPlayerItem from "../../models/gameTopPlayer";
 
-
+ 
 
 const GameTopPlayers: React.FC<{ players: gameTopPlayerItem[] }> = (props) => {
 

@@ -19,7 +19,7 @@ const GamesBody: React.FC<{
   categorisedGames: CategorisedGameGroupItem[];
 }> = (props) => {
   let sortedGames = [...props.games];
-  if (props.sortby == "rate") {
+  if (props.sortby == "rate" || props.sortby == "category") {
     sortedGames.sort((game1, game2) => +game1.rank - +game2.rank);
   }
 
@@ -33,7 +33,7 @@ const GamesBody: React.FC<{
 
   
   return (
-    <div className={style.bodyContainer}>
+    <div className={style["body-container"]}>
       {props.viewType == "list" &&
         (props.sortby == "rate" ||
           props.sortby == "earliest" ||
@@ -63,6 +63,7 @@ const GamesBody: React.FC<{
           scrollDownHandler={props.scrollDownHandler}
           scrollLeftHandler={props.scrollLeftHandler}
           scrollRightHandler={props.scrollRightHandler}
+          dropdownIsOpen = {props.dropdownIsOpen}
         />
       )}
     </div>

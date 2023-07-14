@@ -1,12 +1,11 @@
 .container{
     width: 58rem;
-    height: 1.5rem;
     display: flex;
     align-items: center;
     margin-bottom: 0.5rem;
     border: 1.5px solid rgba(0, 150, 255, 0.15);
     border-radius: 15px;
-    padding: 0.5rem;
+    padding: 0.3rem;
 }
 
 .container:hover{

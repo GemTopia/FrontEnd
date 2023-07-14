@@ -41,7 +41,7 @@ const ProfileGames: React.FC<{ games: profileGameItem[] }> = (props) => {
   };
   const loadedGames = props.games;
   return (
-    <div className={styles.ContentContainer}>
+    <div className={styles["content-container"]}>
       <div className={styles.title}>
         <p className={styles["score-title"]}>scores</p>
         <span className={styles.icon} onClick={scrollUpHandler}>

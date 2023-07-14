@@ -29,16 +29,16 @@ const GameInfo = () => {
     
 
   return (
-    <div className={style.infoBox}>
-      <div className={style.gameInfoContainer}>
+    <div className={style["container"]}>
+      <div className={style["game-info-container"]}>
         <img
           src={require("../../assets/GamePic.png")}
           alt="game thumbnail"
           className={style.thumbnail}
         />
-        <div className={style.infoContainer}>
+        <div className={style["info-box"]}>
           <h1>2048</h1>
-          <p className={style.gameName}>Puzzle game</p>
+          <p className={style["game-name"]}>Puzzle game</p>
           <p className={style.rank}>#1</p>
           <p className={style.description}>
             You join the numbers and get to the 2048 tile! Supports tiny (3x3),
@@ -46,17 +46,18 @@ const GameInfo = () => {
             Be ready for a new challenge!
           </p>
           <div className={style.buttons}>
-            <div className={style.likeContainer}>
+            <div className={style["like-container"]}>
               <img
                 src={require(`../../assets/${
                   liked ? "liked-icon.png" : "unliked-icon.png"
                 }`)}
                 alt="like icon"
                 onClick={likeHandler}
+                className={style["like-icon"]}
               />
-              <p className={style.likeCount}>{likeCount}</p>
+              <p className={style["like-count"]}>{likeCount}</p>
             </div>
-            <a href="/Game" className={style.reportIcon}>
+            <a href="/Game" className={style["report"]}>
               <img
                 src={require(`../../assets/${
                   isHovered ? "hovered-report.png" : "report.png"
@@ -64,10 +65,11 @@ const GameInfo = () => {
                 alt="report icon"
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
+                className={style["report-icon"]}
               />
             </a>
-            <div className={style.playButtonContainer}>
-              <button className={style.playButton}>Play now</button>
+            <div className={style["play-button-container"]}>
+              <button className={style["play-button"]}>Play now</button>
             </div>
           </div>
         </div>

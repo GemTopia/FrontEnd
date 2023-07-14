@@ -1,45 +1,32 @@
-.CategoryGamesBody {
+.category-games-body {
   gap: 1rem;
   display: flex;
   flex-direction: column;
-  /* margin-top: 3rem; */
   width: 59rem;
-  /* border: 1px solid white; */
 }
 
-.oneCategoryContainer {
+.one-category-container {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  /* border: 1px solid white; */
+}
 
-}
-.listCategoryTitle{
-  /* margin-bottom: -2rem; */
-  font-size: 22px;
-  font-weight: 500;
-}
-.compactCategoryTitle{
-  font-size: 22px;
-  font-weight: 500;
-}
-.listCategoryGroupContainer{
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-.listCategoryGamesContainer{
-  height: 19.2rem;
-  overflow-y: hidden;
-  /* border: 1px solid white; */
-}
-.listCategoryGamesContainer::-webkit-scrollbar {
-  display: none;
-}
-.categoryHeader{
+.category-header{
   display: flex;
   justify-content: space-between;
 }
+
+.compact-category-title{
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.scroll-icons-container{
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
 .icon {
   background-color: #06123c;
   color: #0096ffe5;
@@ -49,11 +36,31 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  /* margin-left: 0.3rem; */
   cursor: pointer;
 }
-.scrollIconsContainer{
-  display: flex;
-  align-items: center;
-  gap: 0.3rem;
+
+.disabled{
+  color: #0095ff69;
 }
+
+.list-category-group-container{
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.list-category-title{
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.list-category-games-container{
+  height: 19.2rem;
+  overflow-y: hidden;
+  /* border: 1px solid white; */
+}
+.list-category-games-container::-webkit-scrollbar {
+  display: none;
+}
+
+

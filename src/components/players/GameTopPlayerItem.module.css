@@ -1,27 +1,28 @@
 .container{
-    width: 58rem;
-    height: 1.5rem;
+    /* width: 58rem; */
+    /* height: 1.5rem; */
+    width: 98%;
     display: flex;
     align-items: center;
     margin-bottom: 0.5rem;
     border: 1.5px solid rgba(0, 150, 255, 0.15);
     border-radius: 15px;
-    padding: 0.5rem;
+    padding: 0.3rem;
 }
 
 .container:hover{
     border: 1.5px solid rgba(0, 150, 255, 0.40);
 }
 
-.darkBackground{
+.dark-background{
     background-color: rgba(0, 150, 255, 0.07);
 }
 
-.lightBackgeround{
+.light-backgeround{
     background: rgba(0, 150, 255, 0.13);
 }
 
-.rankContainer{ 
+.rank-container{ 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -35,7 +36,7 @@
     height: 2rem;
 }
 
-.playerImage{
+.player-image{
     width: 2rem;
     height: 2rem;
     margin-left: 1.5rem;
@@ -46,7 +47,7 @@
     font-size: 15px;
 }
 
-.scoreCount{
+.score-count{
     font-size: 15px;
     margin-left: auto;
     margin-right: 1.5rem;

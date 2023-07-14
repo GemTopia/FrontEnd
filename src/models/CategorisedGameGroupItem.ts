@@ -1,7 +1,7 @@
 interface CategorisedGameGroupItem {
   category: string;
   games: {
-    thumnailImageAddress: string;
+    thumbnailImageAddress: string;
     gameLogoAddress: string;
     gameName: string;
     gameCategory: string;

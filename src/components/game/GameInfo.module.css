@@ -1,13 +1,15 @@
-.infoBox{
-    /* border: 1px solid white;  */
-    width: 59rem;
+.container{
+    /* border: 1px solid white; */
+    /* width: 59rem; */
+    width: 84%;
     display: flex;
     margin-top: 2rem;
 }
 
-.gameInfoContainer{
+.game-info-container{
     /* border: 1px solid white; */
-    width: 36rem;
+    /* width: 36rem; */
+    width: 61%;
     display: flex;
 }
 
@@ -16,20 +18,21 @@
     height: 12rem;
 }
 
-.infoContainer{
+.info-box{
     /* border: 1px solid white; */
-    width: 22rem;
+    /* width: 22rem; */
+    width: 61%;
     margin-left: auto;
 }
 
-.infoContainer h1{
+.info-box h1{
     /* font-family: Inter; */
     font-size: 32px;
     font-weight: 650;
     line-height: 30px;
 }
 
-.gameName{
+.game-name{
     color: rgba(255, 255, 255, 0.80);
     font-weight: 400;
     font-size: 17px;
@@ -49,49 +52,55 @@
 
 .buttons{
     /* border: 1px solid white; */
+    /* width: 22rem; */
     display: flex;
-    width: 22rem;
     margin-top: 2rem;
 }
 
-.like{
-    /* border: 1px solid white; */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.likeContainer{
+.like-container{
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 0.3rem;
 }
 
-.likeContainer img{
+.like-icon{
     cursor: pointer;
 }
 
-.likeCount{
+.like-count{
     font-size: 12px;
     font-weight: 300;
     color: rgba(255, 255, 255, 0.85);
 }
 
-.reportIcon{
+.report{
     width: 1.3rem;
     height: 1.3rem;
     margin-left: 0.3rem;
 }
 
-.reportIcon img{
+.report-icon{
     width: 1.3rem;
     height: 1.3rem;
 }
 
-.playButton{
-    width: 7.6rem;
-    height: 2.4rem;
+.play-button-container{
+    margin-left: auto;
+    width: 34%;
+    /* border: 1px solid white; */
+}
+
+.play-button-container :hover{
+    box-shadow: 1px 1px 10px 7px rgba(0, 150, 255, 0.1);
+    border-radius: 12px;
+}
+
+.play-button{
+    /* width: 7.6rem; */
+    /* height: 2.4rem; */
+    width: 100%;
+    padding: 0.8rem;
     border-radius: 12px;
     background: #0096FF;
     border: none;
@@ -100,16 +109,8 @@
     cursor: pointer;
 }
 
-.playButtonContainer{
-    margin-left: auto;
-}
-
-.playButtonContainer :hover{
-    box-shadow: 1px 1px 10px 7px rgba(0, 150, 255, 0.1);
-    border-radius: 12px;
-}
-
 .roadmap{
     margin-left: auto;
-    height: 14rem;
+    width: 29%;
+    /* height: 14rem; */
 }

@@ -41,11 +41,11 @@ const GamePictures: React.FC<{ pictures: {imgAddress : string , id : string}[] }
       };
       console.log(leftPic);
     return(
-        <div className={style.gamePicsContainer}>
-        <h2 className={style.picsHeader}>Screenshots</h2>
-        <div className={style.gamePicsBody}>
+        <div className={style.container}>
+        <h2 className={style["pics-header"]}>Screenshots</h2>
+        <div className={style["game-pics-body"]}>
           <span
-            className={`${style.iconContainer} ${!disableLeft && style.iconBackground}`}
+            className={`${style["icon-container"]} ${!disableLeft && style["icon-background"]}`}
           >
             <FontAwesomeIcon
               icon={faAngleLeft}
@@ -53,11 +53,11 @@ const GamePictures: React.FC<{ pictures: {imgAddress : string , id : string}[] }
               className={disableLeft ? style.disabled : style.icon}
             />
           </span>
-          <div className={style.picsContainer}>
-            {props.pictures.map((pic) =><div id={`gameShot${pic.id}`} key={pic.id}> <img src={require(`../../assets/${pic.imgAddress}`)} /> </div>)}
+          <div className={style["pics-container"]}>
+            {props.pictures.map((pic) =><div id={`gameShot${pic.id}`} key={pic.id}> <img src={require(`../../assets/${pic.imgAddress}`)} className={style["game-picture"]} /> </div>)}
           </div>
           <span
-            className={`${style.iconContainer} ${!disableRight && style.iconBackground}`}
+            className={`${style["icon-container"]} ${!disableRight && style["icon-background"]}`}
           >
             <FontAwesomeIcon
               icon={faAngleRight}

@@ -6,12 +6,12 @@ const GameTopPlayerItem: React.FC<{ player: gameTopPlayerItem }> = (props) => {
     <div
       className={`${style.container} ${
         Number(props.player.id) <= 3
-          ? style.lightBackgeround
-          : style.darkBackground 
+          ? style["light-backgeround"]
+          : style["dark-background"] 
       }`}
       id={props.player.id}
     >
-      <div className={style.rankContainer}>
+      <div className={style["rank-container"]}>
         {isNaN(parseInt(props.player.rank)) ? (
           <img
             src={require(`../../assets/${props.player.rank}`)}
@@ -25,11 +25,11 @@ const GameTopPlayerItem: React.FC<{ player: gameTopPlayerItem }> = (props) => {
       <img
         src={require(`../../assets/${props.player.imageAddress}`)}
         alt=""
-        className={style.playerImage}
+        className={style["player-image"]}
       />
       <p className={style.username}>{props.player.userName}</p>
 
-        <p className={style.scoreCount}>{props.player.score}</p>
+        <p className={style["score-count"]}>{props.player.score}</p>
     </div>
   );
 };

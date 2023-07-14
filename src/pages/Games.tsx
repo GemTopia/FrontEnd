@@ -11,7 +11,7 @@ import CategorisedGameGroupItem from "../models/CategorisedGameGroupItem";
 const Games = () => {
   let dummy: GameItem[] = [
     {
-      thumnailImageAddress: "Rectangle 8.png",
+      thumbnailImageAddress: "Rectangle 8.png",
       gameLogoAddress: "Rectangle 846.png",
       gameName: "subway surfers1",
       gameCategory: "category1",
@@ -21,7 +21,7 @@ const Games = () => {
       date: "2022-03-25",
     },
     {
-      thumnailImageAddress: "Rectangle 8.png",
+      thumbnailImageAddress: "Rectangle 8.png",
       gameLogoAddress: "Rectangle 846.png",
       gameName: "subway surfers1",
       gameCategory: "category1",
@@ -31,7 +31,7 @@ const Games = () => {
       date: "2022-03-26",
     },
     {
-      thumnailImageAddress: "Rectangle 8.png",
+      thumbnailImageAddress: "Rectangle 8.png",
       gameLogoAddress: "Rectangle 846.png",
       gameName: "subway surfers1",
       gameCategory: "category1",
@@ -41,7 +41,7 @@ const Games = () => {
       date: "2022-03-28",
     },
     {
-      thumnailImageAddress: "Rectangle 8.png",
+      thumbnailImageAddress: "Rectangle 8.png",
       gameLogoAddress: "Rectangle 846.png",
       gameName: "subway surfers1",
       gameCategory: "category1",
@@ -51,7 +51,7 @@ const Games = () => {
       date: "2022-03-25",
     },
     {
-      thumnailImageAddress: "Rectangle 8.png",
+      thumbnailImageAddress: "Rectangle 8.png",
       gameLogoAddress: "Rectangle 846.png",
       gameName: "subway surfers1",
       gameCategory: "category1",
@@ -61,7 +61,7 @@ const Games = () => {
       date: "2022-03-26",
     },
     {
-      thumnailImageAddress: "Rectangle 8.png",
+      thumbnailImageAddress: "Rectangle 8.png",
       gameLogoAddress: "Rectangle 846.png",
       gameName: "subway surfers1",
       gameCategory: "category1",
@@ -71,7 +71,7 @@ const Games = () => {
       date: "2022-03-28",
     },
     {
-      thumnailImageAddress: "Rectangle 8.png",
+      thumbnailImageAddress: "Rectangle 8.png",
       gameLogoAddress: "Rectangle 846.png",
       gameName: "subway surfers1",
       gameCategory: "category3",
@@ -81,7 +81,7 @@ const Games = () => {
       date: "2022-02-27",
     },
     {
-      thumnailImageAddress: "Rectangle 8.png",
+      thumbnailImageAddress: "Rectangle 8.png",
       gameLogoAddress: "Rectangle 846.png",
       gameName: "subway surfers1",
       gameCategory: "category3",
@@ -91,7 +91,7 @@ const Games = () => {
       date: "2022-02-28",
     },
     {
-      thumnailImageAddress: "Rectangle 8.png",
+      thumbnailImageAddress: "Rectangle 8.png",
       gameLogoAddress: "Rectangle 846.png",
       gameName: "subway surfers1",
       gameCategory: "category3",
@@ -101,7 +101,7 @@ const Games = () => {
       date: "2022-02-29",
     },
     {
-      thumnailImageAddress: "Rectangle 8.png",
+      thumbnailImageAddress: "Rectangle 8.png",
       gameLogoAddress: "Rectangle 846.png",
       gameName: "subway surfers1",
       gameCategory: "category3",
@@ -111,7 +111,7 @@ const Games = () => {
       date: "2022-02-27",
     },
     {
-      thumnailImageAddress: "Rectangle 8.png",
+      thumbnailImageAddress: "Rectangle 8.png",
       gameLogoAddress: "Rectangle 846.png",
       gameName: "subway surfers1",
       gameCategory: "category3",
@@ -121,7 +121,7 @@ const Games = () => {
       date: "2022-02-28",
     },
     {
-      thumnailImageAddress: "Rectangle 8.png",
+      thumbnailImageAddress: "Rectangle 8.png",
       gameLogoAddress: "Rectangle 846.png",
       gameName: "subway surfers1",
       gameCategory: "category3",
@@ -372,10 +372,10 @@ const Games = () => {
   };
   // console.log(groupBy(dummy));
   return (
-    <div className={style.pageContainer}>
-      <div className={style.Header}>
-        <div className={style.searchBar}>
-          <FontAwesomeIcon icon={faMagnifyingGlass} className={style.icon} />
+    <div className={style["page-container"]}>
+      <div className={style.header}>
+        <div className={style["search-bar"]}>
+          <FontAwesomeIcon icon={faMagnifyingGlass} className={style["search-icon"]} />
           <form>
             <input
               name="search"
@@ -384,37 +384,37 @@ const Games = () => {
               onBlur={searchBlurHandler}
               value={searchValue}
               type="text"
-              className={style.searchInput}
+              className={style["search-input"]}
               placeholder="search game ..."
             />
           </form>
         </div>
-        <div className={style.headerRightSideContainer}>
-          <div className={style.dropdownContainer}>
-            <div className={style.sortbyTitle}>
+        <div className={style["header-right-side-container"]}>
+          <div className={style["dropdown-container"]}>
+            <div className={style["sortby-title"]}>
               <p className={style.sortby}>sort by</p>
 
               <FontAwesomeIcon
                 icon={dropdownIsOpen ? faAngleUp : faAngleDown}
-                className={style.dropdownIcon}
+                className={style["dropdown-icon"]}
                 onClick={dropdownIconClickHandler}
               />
-              <p className={style.veiwTitle}>view</p>
+              <p className={style["veiw-title"]}>view</p>
             </div>
             {dropdownIsOpen && (
               <div
-                className={`${style.choiceContainer} ${
+                className={`${style["choice-container"]} ${
                   viewType == "list"
-                    ? style.listDropdownBackground
-                    : style.compactDropdownBackground
+                    ? style["list-dropdown-background"]
+                    : style["compact-dropdown-background"]
                 }`}
               >
                 <p
                   onClick={rateSortHandler}
                   className={`${style.choice} ${
                     sortby == "rate"
-                      ? style.selectedChoice
-                      : style.notSelectedChoice
+                      ? style["selected-choice"]
+                      : style["not-selected-choice"]
                   }`}
                 >
                   rate
@@ -423,8 +423,8 @@ const Games = () => {
                   onClick={categorySortHandler}
                   className={`${style.choice} ${
                     sortby == "category"
-                      ? style.selectedChoice
-                      : style.notSelectedChoice
+                      ? style["selected-choice"]
+                      : style["not-selected-choice"]
                   }`}
                 >
                   category
@@ -433,8 +433,8 @@ const Games = () => {
                   onClick={earliestSortHandler}
                   className={`${style.choice} ${
                     sortby == "earliest"
-                      ? style.selectedChoice
-                      : style.notSelectedChoice
+                      ? style["selected-choice"]
+                      : style["not-selected-choice"]
                   }`}
                 >
                   earliest
@@ -443,8 +443,8 @@ const Games = () => {
                   onClick={latestSortHandler}
                   className={`${style.choice} ${
                     sortby == "latest"
-                      ? style.selectedChoice
-                      : style.notSelectedChoice
+                      ? style["selected-choice"]
+                      : style["not-selected-choice"]
                   }`}
                 >
                   latest
@@ -459,8 +459,8 @@ const Games = () => {
                 ? "listIconViewSelected.png"
                 : "listIconViewUnselect.png"
             }`)}
-            alt="like icon"
-            className={style.Icon}
+            alt="view icon"
+            className={style["view-icon"]}
             onClick={listIconClickHandler}
           />
           <img
@@ -469,8 +469,8 @@ const Games = () => {
                 ? "CompactIconViewUnselect.png"
                 : "CompactIconViewSelected.png"
             }`)}
-            alt="like icon"
-            className={style.Icon}
+            alt="view icon"
+            className={style["view-icon"]}
             onClick={compactIconClickHandler}
           />
         </div>

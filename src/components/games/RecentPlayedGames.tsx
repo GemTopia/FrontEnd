@@ -55,7 +55,7 @@ const RecentPlayedItems: React.FC<{ games: recentPlayedGameItem[] }> = (
           <div className={style["recent-played-item"]} key={gameItem.id} id={`recent${gameItem.id}`}>
             <div className={style["thumbnail-container"]}>
               <img
-                src={require(`../../assets/${gameItem.thumnailImageAddress}`)}
+                src={require(`../../assets/${gameItem.thumbnailImageAddress}`)}
                 alt=""
                 className={style["game-thumbnail"]}
               />

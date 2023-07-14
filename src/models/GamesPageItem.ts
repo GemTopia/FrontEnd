@@ -1,5 +1,5 @@
 interface GameItem {
-    thumnailImageAddress:string;
+    thumbnailImageAddress:string;
     gameLogoAddress:string;
     gameName:string;
     gameCategory:string;

@@ -1,40 +1,23 @@
-.gamePicsContainer{
+.container{
     /* border: 1px solid white; */
-    width: 70rem;
+    /* width: 70rem; */
+    width: 100%;
     margin-top: 1rem;
 }
 
-.picsHeader{
+.pics-header{
     margin-left: 5.5rem;
     font-weight: 500;
     letter-spacing: 0.5px;
 }
 
-.gamePicsBody{
+.game-pics-body{
     display: flex;
     align-items: center;
     margin-top: 1.6rem;
 }
 
-.picsContainer{
-    /* border: 1px solid white; */
-    width: 40rem;
-    display: flex;
-    margin-left: 2rem;
-    gap: 2.5rem;
-    overflow: scroll;
-}
-
-.picsContainer::-webkit-scrollbar {
-    display: none;
-}
-
-.picsContainer img{
-    height: 25rem;  
-}
-
-.iconContainer {
-    /* background-color: #06123c; */
+.icon-container {
     color: #0096ffe5;
     border-radius: 50%;
     height: 2.2rem;
@@ -51,12 +34,30 @@
     width: 1.3rem;
 }
 
-.iconBackground{
+.icon-background{
     background-color: #06123c;
     
 }
 
 .disabled{
     display: none;
-    /* color: #0095ff69; */
   }
+
+.pics-container{
+    /* border: 1px solid white; */
+    /* width: 40rem; */
+    width: 57%;
+    display: flex;
+    margin-left: 2rem;
+    gap: 2.5rem;
+    overflow: scroll;
+}
+
+.pics-container::-webkit-scrollbar {
+    display: none;
+}
+
+.game-picture{
+    height: 25rem;  
+}
+

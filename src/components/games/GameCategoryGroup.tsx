@@ -2,7 +2,7 @@ import GameItem from "../../models/GamesPageItem";
 import style from "./GameCategoryGroup.module.css";
 import { useState } from "react";
 
-const GameCategoryGroup: React.FC<{ categorisedGames: GameItem[] }> = (
+const GameCategoryGroup: React.FC<{ categorisedGames: GameItem[]; dropdownIsOpen:boolean; categoryIndex:number }> = (
   props
 ) => {
   let firstState = props.categorisedGames.map((gameItem) => false);
@@ -15,48 +15,47 @@ const GameCategoryGroup: React.FC<{ categorisedGames: GameItem[] }> = (
     });
   };
   return (
-    <div className={style.categoryGamesContainer}>
+    <div className={style["category-games-container"]}>
         
       {props.categorisedGames.map((gameItem: GameItem,index) => {
         return (
           
             
             <div
-              className={style.gameItem}
+              className={`${style["game-item"]} ${!((index==2 && props.categoryIndex ==0)&& props.dropdownIsOpen==true)&& style["game-item-hover"]}`}
               key={gameItem.id}
               id={`categoryCompact${gameItem.gameCategory}${index}`}
             >
-              <div className={style.thumbnailContainer}>
+              <div className={style["thumbnail-container"]}>
                 <img
-                  src={require(`../../assets/${gameItem.thumnailImageAddress}`)}
+                  src={require(`../../assets/${gameItem.thumbnailImageAddress}`)}
                   alt=""
-                  className={style["gameThumnail"]}
+                  className={`${style["game-thumbnail"]} ${!((index==2 && props.categoryIndex ==0)&&props.dropdownIsOpen==true)&& style["game-thumbnail-hover"]}`}
                 />
               </div>
-              <div className={style.gameInfoContainer}>
+              <div className={style["game-info-container"]}>
                 <img
                   src={require(`../../assets/${gameItem.gameLogoAddress}`)}
                   alt=""
-                  className={style["gameLogo"]}
+                  className={style["game-logo"]}
                 />
-                <div className={style.gameTextInfoContainer}>
-                  {gameItem.gameName}
-                  <br />
-                  <div className={style.gameCategory}>
+                <div >
+                  <p>{gameItem.gameName}</p>
+                  <p className={style["game-category"]}>
                     {gameItem.gameCategory}
-                  </div>
-                  <div className={style.rank}>
+                  </p>
+                  <p className={style.rank}>
                   #{gameItem.rank}
+                </p>
                 </div>
-                </div>
-                <div className={style.likesContainer} >
+                <div className={style["likes-container"]} >
                 <img
                   src={require(`../../assets/${IsLiked[+(gameItem.rank)-1]?'liked-icon.png':'unliked-icon.png'}`)}
                   alt="like icon"
                   id={gameItem.rank}
                   onClick={likeClickHandler}
                 />
-                <p className={style.GameLikesCount}> {gameItem.likesCount} </p>
+                <p className={style["game-likes-count"]}> {gameItem.likesCount} </p>
               </div>
               </div>
             </div>

@@ -39,7 +39,7 @@ const PopularGames: React.FC<{ games: PopularGameItem[] }> = (props) => {
             />
           </form>
         </div>
-        
+         
       </div>
       <ListGames games={props.games} page="home"/>
       <Link to="/Home" className={style["popular-games-footer"]}>

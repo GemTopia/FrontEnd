@@ -1,60 +1,69 @@
-.compactGamesBody {
+.compact-games-body {
     gap : 1rem;
     display: flex;
     flex-direction: row;
-    /* margin-top: 3rem; */
     flex-wrap: wrap;
   }
-  .gameItem{
+
+.game-item{
     background-color: rgba(0, 150, 255, 0.07);
     border:1px solid #06173E;
     display: flex;
     flex-direction: column;
     padding: 1rem;
     border-radius: 15px;
-    
 }
-.gameItemHover:hover{
+
+.game-item-hover:hover{
     border-color: #04417F;
 }
-.gameInfoContainer{
-    display: flex;
-    margin-top: 1rem;
+
+.thumbnail-container{
+    border-radius: 15px;
+    overflow: hidden;
 }
-.gameTextInfoContainer{
-    line-height: 15px;
-    margin-top: 3px;
-}
-.gameLogo{
-    margin-right: 0.5rem;
-    width: 3.5rem;
-    height: 3.5rem;
-}
-.gameCategory , .rank{
-    font-size: 12px;
-    font-weight: 100;
-}
-.gameThumnail{
+
+.game-thumbnail{
     transition: transform 1.2s;
     overflow: hidden;
     width: 16.66rem;
     height: 10rem;
 }
-.gameThumnailHover:hover{
+
+.game-thumbnail-hover:hover{
     transform: scale(1.35) rotate(-10deg);
 }
-.thumbnailContainer{
-    border-radius: 15px;
-    overflow: hidden;
+
+.game-info-container{
+    display: flex;
+    margin-top: 1rem;
 }
-.likesContainer{
+
+.game-logo{
+    margin-right: 0.5rem;
+    width: 3.5rem;
+    height: 3.5rem;
+}
+
+.game-text-info-container{
+    line-height: 15px;
+    margin-top: 3px;
+}
+
+.game-category , .rank{
+    font-size: 12px;
+    font-weight: 100;
+}
+
+.likes-container{
     margin-left: auto;
     margin-right: 0.4rem;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.GameLikesCount{
+
+.game-likes-count{
     font-size: 13px;
     font-weight: 300;
 }
