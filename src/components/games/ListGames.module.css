@@ -1,10 +1,11 @@
-.listGamesBody {
+.list-games-body {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
   /* margin-top: 3rem; */
 }
-.listGameItemContainer {
+
+.list-game-item-container {
   display: flex;
   align-items: center;
   padding: 10px;
@@ -12,14 +13,17 @@
   border: 1.5px solid rgba(0, 150, 255, 0.15);
   background: rgba(0, 150, 255, 0.07);
 }
-.listGameItemContainer:hover {
+
+.list-game-item-container:hover {
   border: 1.5px solid rgba(0, 150, 255, 0.4);
 }
-.gameLogo{
+
+.game-logo{
     width: 4rem;
     height: 4rem;
 }
-.gameInfoContainer{
+
+.game-info-container{
     display: flex;
     flex-direction: column;
     align-items: start;
@@ -27,17 +31,18 @@
     margin-left: 1rem;
     line-height: 15px;
 }
-.gameName{
+
+.game-name{
     font-weight: 600;
     font-size: 16px;
 }
 
-.gameCategory , .gameRank{
+.game-category , .game-rank{
     font-size: 14px;
     font-weight: 300;
 }
 
-.likesContainer{
+.likes-container{
     margin-left: auto;
     margin-right: 2rem;
     display: flex;
@@ -45,7 +50,8 @@
     align-items: center;
     gap : 0.3rem;
 }
-.GameLikesCount{
+
+.game-likes-count{
     font-size: 13px;
     font-weight: 300;
 }

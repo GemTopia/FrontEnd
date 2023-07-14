@@ -1,9 +1,9 @@
 import style from "./Home.module.css";
-import RecentPlayedItems from "../components/games/RecentPlayedItems";
+import RecentPlayedItems from "../components/games/RecentPlayedGames";
 import PopularGames from "../components/games/PopularGames";
 import recentPlayedGameItem from "../models/recentPlayedGameItem";
 import PopularGameItem from "../models/popularGameItem";
-import HomeTopPlayers from "../components/users/HomeTopPlayers";
+import HomeTopPlayers from "../components/players/HomeTopPlayers";
 import homeTopPlayerItem from "../models/homeTopPlayerItem";
 
 const Home = () => {
@@ -72,7 +72,7 @@ const Home = () => {
       gameName: "subway surfers",
       gameCategory: "category",
       rank: "1",
-      id:"0",
+      id: "0",
       likesCount: "5279",
     },
     {
@@ -80,7 +80,7 @@ const Home = () => {
       gameName: "subway surfers",
       gameCategory: "category",
       rank: "2",
-      id:"1",
+      id: "1",
       likesCount: "5278",
     },
     {
@@ -88,7 +88,7 @@ const Home = () => {
       gameName: "subway surfers",
       gameCategory: "category",
       rank: "3",
-      id:"2",
+      id: "2",
       likesCount: "5277",
     },
     {
@@ -96,7 +96,7 @@ const Home = () => {
       gameName: "subway surfers",
       gameCategory: "category",
       rank: "4",
-      id:"3",
+      id: "3",
       likesCount: "5276",
     },
     {
@@ -104,7 +104,7 @@ const Home = () => {
       gameName: "subway surfers",
       gameCategory: "category",
       rank: "5",
-      id:"4",
+      id: "4",
       likesCount: "5275",
     },
     {
@@ -112,7 +112,7 @@ const Home = () => {
       gameName: "subway surfers",
       gameCategory: "category",
       rank: "6",
-      id:"5",
+      id: "5",
       likesCount: "5274",
     },
     {
@@ -120,7 +120,7 @@ const Home = () => {
       gameName: "subway surfers",
       gameCategory: "category",
       rank: "7",
-      id:"6",
+      id: "6",
       likesCount: "5273",
     },
     {
@@ -128,7 +128,7 @@ const Home = () => {
       gameName: "subway surfers",
       gameCategory: "category",
       rank: "8",
-      id:"7",
+      id: "7",
       likesCount: "5272",
     },
     {
@@ -136,7 +136,7 @@ const Home = () => {
       gameName: "subway surfers",
       gameCategory: "category",
       rank: "9",
-      id:"8",
+      id: "8",
       likesCount: "5271",
     },
     {
@@ -144,7 +144,7 @@ const Home = () => {
       gameName: "subway surfers",
       gameCategory: "category",
       rank: "10",
-      id:"9",
+      id: "9",
       likesCount: "5270",
     },
   ];
@@ -223,11 +223,8 @@ const Home = () => {
   ];
 
   return (
-    <div className={style.pageContainer}>
-      <div className={style.recentPlayedContainer}>
-        <h2 className={style.recentPlayedTitle}>Recent played</h2>
-        <RecentPlayedItems games={recentPlayedDummy} />
-      </div>
+    <div className={style["page-container"]}>
+      <RecentPlayedItems games={recentPlayedDummy} />
       <PopularGames games={popularGamesDummy} />
       <HomeTopPlayers players={topPlayersDummy} />
     </div>

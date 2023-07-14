@@ -9,16 +9,6 @@ import ListGames from "./ListGames";
 
 
 const PopularGames: React.FC<{ games: PopularGameItem[] }> = (props) => {
-  let firstState = props.games.map((gameItem) => false);
-  const [IsLiked, setIsLiked] = useState<boolean[]>(firstState);
-  const likeClickHandler = (event: any) => {
-    setIsLiked((firstState: boolean[]) => {
-      let secondState = [...firstState];
-      secondState[+event.target.id - 1] = !secondState[+event.target.id - 1];
-      return secondState;
-    });
-  };
-
 
   const {
     enteredValue: searchValue,
@@ -27,13 +17,16 @@ const PopularGames: React.FC<{ games: PopularGameItem[] }> = (props) => {
     inputChangeHandler: searchChangeHandler,
     inputBlurHandler: searchBlurHandler,
   } = useInput((input: string) => input.trim().length !== 0, "");
+
+
   return (
-    <div className={style.popularGamesContainer}>
-      <div className={style.popularGamesHeader}>
+    <div className={style["popular-games-container"]}>
+      <div className={style["popular-games-header"]}>
         <h2>Popular Games</h2>
-        <div className={style.searchBar}>
+        
+        <div className={style["search-bar"]}>
           <FontAwesomeIcon icon={faMagnifyingGlass} className={style.icon} />
-          <form>
+          <form> 
             <input
               name="search"
               id="search"
@@ -41,14 +34,15 @@ const PopularGames: React.FC<{ games: PopularGameItem[] }> = (props) => {
               onBlur={searchBlurHandler}
               value={searchValue}
               type="text"
-              className={style.searchInput}
+              className={style["search-input"]}
               placeholder="search game ..."
             />
           </form>
         </div>
+        
       </div>
       <ListGames games={props.games} page="home"/>
-      <Link to="/Home" className={style.popularGamesFooter}>
+      <Link to="/Home" className={style["popular-games-footer"]}>
         veiw more
       </Link>
     </div>

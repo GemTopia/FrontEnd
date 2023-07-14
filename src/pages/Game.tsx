@@ -1,26 +1,18 @@
 import style from "./Game.module.css";
 import gameTopPlayerItem from "../models/gameTopPlayer";
-import GameTopPlayers from "../components/users/GameTopPlayers";
+import GameTopPlayers from "../components/players/GameTopPlayers";
 import GameInfo from "../components/games/GameInfo";
 import GamePictures from "../components/games/GamePictures";
 
 const Game = () => {
-
-
-  let dummyPictures :{imgAddress : string , id : string}[] = [
-    {imgAddress :'screenshot.png',
-     id : '0'},
-     {imgAddress :'screenshot.png',
-     id : '1'},
-     {imgAddress :'screenshot.png',
-     id : '2'},
-     {imgAddress :'screenshot.png',
-     id : '3'},
-     {imgAddress :'screenshot.png',
-     id : '4'},
-     {imgAddress :'screenshot.png',
-     id : '5'}, ];
-
+  let dummyPictures: { imgAddress: string; id: string }[] = [
+    { imgAddress: "screenshot.png", id: "0" },
+    { imgAddress: "screenshot.png", id: "1" },
+    { imgAddress: "screenshot.png", id: "2" },
+    { imgAddress: "screenshot.png", id: "3" },
+    { imgAddress: "screenshot.png", id: "4" },
+    { imgAddress: "screenshot.png", id: "5" },
+  ];
 
   let topPlayersDummy: gameTopPlayerItem[] = [
     {
@@ -95,7 +87,6 @@ const Game = () => {
     },
   ];
 
-
   return (
     <div className={style.container}>
       <div className={style.header}>
@@ -115,7 +106,7 @@ const Game = () => {
         />
       </div>
       <GameInfo />
-      <GamePictures pictures = {dummyPictures} />
+      <GamePictures pictures={dummyPictures} />
       <GameTopPlayers players={topPlayersDummy} />
     </div>
   );

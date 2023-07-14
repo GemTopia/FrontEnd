@@ -1,4 +1,4 @@
-.pageContainer{
+.page-container{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -6,23 +6,6 @@
     width: 74rem;
     margin: 2rem auto;
     /* border: 1px solid white; */
-}
-.recentPlayedContainer{
-    /* border: 1px solid white; */
-    width: 73.5rem;
-}
-.recentPlayedTitle{
-    margin-left: 7rem;
-}
-.popularGamesHeader{
-    display: flex;
-    margin-left: 3rem;
-    margin-top: 4rem;
-    justify-content: space-between;
-    align-items: center;
-}
-.searchBar{
-    background-color: rgba(6, 18, 60, 0.85);
-    border-radius: 15px;
-    border: 1.3px solid rgba(0, 150, 255, 0.85);
-}
+} 
+
+

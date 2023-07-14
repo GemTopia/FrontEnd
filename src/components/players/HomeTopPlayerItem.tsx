@@ -6,12 +6,12 @@ const HomeTopPlayerItem: React.FC<{ player: homeTopPlayerItem }> = (props) => {
     <div
       className={`${style.container} ${
         Number(props.player.id) % 2 == 0
-          ? style.darkBackground
-          : style.lightBackgeround
+          ? style["dark-background"]
+          : style["light-backgeround"]
       }`}
       id={props.player.id}
     >
-      <div className={style.rankContainer}>
+      <div className={style["rank-container"]}>
         {isNaN(parseInt(props.player.rank)) ? (
           <img
             src={require(`../../assets/${props.player.rank}`)}
@@ -25,12 +25,12 @@ const HomeTopPlayerItem: React.FC<{ player: homeTopPlayerItem }> = (props) => {
       <img
         src={require(`../../assets/${props.player.imageAddress}`)}
         alt=""
-        className={style.playerImage}
+        className={style["player-image"]}
       />
       <p className={style.username}>{props.player.userName}</p>
 
-      <div className={style.tokenContainer}>
-        <p className={style.tokenCount}>{props.player.token}</p>
+      <div className={style["token-container"]}>
+        <p className={style["token-count"]}>{props.player.token}</p>
         <img src={require("../../assets/gemyto.png")} alt="gemyto" />
       </div>
     </div>

@@ -1,0 +1,94 @@
+.recent-played-title{
+    margin-left: 2.5rem;
+}
+
+.body-container{
+    /* border: 1px solid white; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;   
+}
+
+.icon {
+    /* background-color: #06123c; */
+    color: #0096ffe5;
+    border-radius: 50%;
+    height: 1.5rem;
+    width: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.icon-background{
+    background-color: #06123c;
+}
+
+.disabled{
+    display: none;
+  }
+
+  .game-items-container{
+    /* border: 1px solid white; */
+    width: 59rem;
+    display: flex;
+    gap : 1rem;
+    overflow-x: scroll;
+  }
+
+.game-items-container::-webkit-scrollbar {
+    display: none;
+}
+
+.recent-played-item{
+    background-color: rgba(0, 150, 255, 0.07);
+    border:1px solid #06173E;
+    display: flex;
+    flex-direction: column;
+    padding: 0.9rem;
+    border-radius: 15px;
+    
+}
+
+.recent-played-item:hover{
+    border-color: #04417F;
+}
+
+.thumbnail-container{
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.game-thumbnail{
+    transition: transform 1.2s;
+    overflow: hidden;
+    width: 12rem;
+    height: 7rem;
+}
+
+.game-thumbnail:hover{
+    transform: scale(1.35) rotate(-10deg);
+}
+
+.game-info{
+    display: flex;
+    margin-top: 0.5rem;
+}
+
+.game-logo{
+    margin-right: 0.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.game-category{
+    font-size: 12px;
+    font-weight: 100;
+}
+
+
+
+

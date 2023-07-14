@@ -1,6 +1,6 @@
 import { useState } from "react";
 import recentPlayedGameItem from "../../models/recentPlayedGameItem";
-import style from "./RecentPlayed.module.css";
+import style from "./RecentPlayedGames.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
@@ -43,42 +43,44 @@ const RecentPlayedItems: React.FC<{ games: recentPlayedGameItem[] }> = (
   };
 
   return (
-    <div className={style.bodyContainer}>
-      <span className={`${style.icon} ${!disableLeft&&style.iconBackground}`}>
+    <div>
+      <h2 className={style["recent-played-title"]}>Recent played</h2>
+    <div className={style["body-container"]}>
+      <span className={`${style.icon} ${!disableLeft&&style["icon-background"]}`}>
         <FontAwesomeIcon icon={faAngleLeft} onClick={scrollLeftHandler} className={disableLeft ? style.disabled : ''} />
       </span>
-      <div className={style.gameItemsContainer}>
+      <div className={style["game-items-container"]}>
       {props.games.map((gameItem) => {
         return (
-          <div className={style.recentPlayedItem} key={gameItem.id} id={`recent${gameItem.id}`}>
-            <div className={style.thumbnailContainer}>
+          <div className={style["recent-played-item"]} key={gameItem.id} id={`recent${gameItem.id}`}>
+            <div className={style["thumbnail-container"]}>
               <img
                 src={require(`../../assets/${gameItem.thumnailImageAddress}`)}
                 alt=""
-                className={style["gameThumnail"]}
+                className={style["game-thumbnail"]}
               />
             </div>
-            <div className={style.gameInfo}>
+            <div className={style["game-info"]}>
               <img
                 src={require(`../../assets/${gameItem.gameLogoAddress}`)}
                 alt=""
-                className={style["gameLogo"]}
+                className={style["game-logo"]}
               />
               <div>
-                {gameItem.gameName}
-                <br />
-                <div className={style.gameCategory}>
+                <p>{gameItem.gameName}</p>
+                <p className={style["game-category"]}>
                   {gameItem.gameCategory}
-                </div>
+                </p>
               </div>
             </div>
           </div>
         );
       })}
       </div>
-      <span className={`${style.icon} ${!disableRight&&style.iconBackground}`}>
+      <span className={`${style.icon} ${!disableRight&&style["icon-background"]}`}>
         <FontAwesomeIcon icon={faAngleRight} onClick={scrollRightHandler} className={disableRight ? style.disabled : ''} />
       </span>
+    </div>
     </div>
   );
 };

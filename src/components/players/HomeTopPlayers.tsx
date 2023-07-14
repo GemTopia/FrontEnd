@@ -20,8 +20,9 @@ const HomeTopPlayers: React.FC<{ players: homeTopPlayerItem[] }> = (props) => {
     <div className={style.container}>
       <div className={style.header}>
         <h2>Top Players</h2>
-        <div className={style.searchBar}>
+        <div className={style["search-bar"]}>
           <FontAwesomeIcon icon={faMagnifyingGlass} className={style.icon} />
+          <form>
           <input
             name="search"
             id="search"
@@ -29,9 +30,10 @@ const HomeTopPlayers: React.FC<{ players: homeTopPlayerItem[] }> = (props) => {
             onBlur={searchBlurHandler}
             value={searchValue}
             type="text"
-            className={style.searchInput}
+            className={style["search-input"]}
             placeholder="search game ..."
           />
+          </form>
         </div>
       </div>
       {loadedPlayers.map((player) => {

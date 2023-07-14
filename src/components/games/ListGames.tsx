@@ -13,7 +13,7 @@ const ListGames: React.FC<{ games: GameItem[]|PopularGameItem[],page:string,sort
     });
   };
     return(
-        <div className={style.listGamesBody}>
+        <div className={style["list-games-body"]}>
         {props.games.map((gameItem,index) => {
           // console.log(props.viewType=='category')
           // if (props.page=='games'&&props.sortby=='category'){
@@ -21,26 +21,26 @@ const ListGames: React.FC<{ games: GameItem[]|PopularGameItem[],page:string,sort
 
           // }
           return (
-            <div className={style.listGameItemContainer} key={gameItem.rank}id={`categoryList${gameItem.gameCategory}${props.page=='games'&&index}`}>
+            <div className={style["list-game-item-container"]} key={gameItem.rank}id={`categoryList${gameItem.gameCategory}${props.page=='games'&&index}`}>
               <img
                 src={require(`../../assets/${gameItem.gameLogoAddress}`)}
                 alt=""
-                className={style["gameLogo"]}
+                className={style["game-logo"]}
               />
-              <div className={style.gameInfoContainer}>
-                <h4 className={style.gameName}>{gameItem.gameName}</h4>
-                <p className={style.gameCategory}>{gameItem.gameCategory}</p>
-                <p className={style.gameRank}>#{gameItem.rank}</p>
+              <div className={style["game-info-container"]}>
+                <h4 className={style["game-name"]}>{gameItem.gameName}</h4>
+                <p className={style["game-category"]}>{gameItem.gameCategory}</p>
+                <p className={style["game-rank"]}>#{gameItem.rank}</p>
               </div>
-                
-              <div className={style.likesContainer} >
+              
+              <div className={style["likes-container"]} >
                 <img
                   src={require(`../../assets/${IsLiked[+(gameItem.rank)-1]?'liked-icon.png':'unliked-icon.png'}`)}
                   alt="like icon"
                   id={gameItem.rank}
                   onClick={likeClickHandler}
                 />
-                <p className={style.GameLikesCount}> {gameItem.likesCount} </p>
+                <p className={style["game-likes-count"]}> {gameItem.likesCount} </p>
               </div>
                 
                 
