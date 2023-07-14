@@ -4,7 +4,7 @@ import useInput from "../components/hooks/use-input";
 import logo from "../assets/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-regular-svg-icons";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ReCAPTCHA from "react-google-recaptcha";
 import axios, * as others from "axios";
 /////////////////////////////////////////////////////////////////////////
@@ -14,7 +14,8 @@ const Login = () => {
   const SITE_KEY = process.env.REACT_APP_reCAPTCHA_SITE_KEY;
   // const SECRET_KEY = process.env.REACT_APP_reCAPTCHA_SECRET_KEY;
   const captchaRef = useRef(null);
-
+  const navigate = useNavigate();
+  //////////////////////////////////////////////////////////////////////
   const {
     enteredValue: passwordValue,
     isValid: passwordIsValid,
@@ -49,10 +50,21 @@ const Login = () => {
           password: passwordValue,
         })
         .then(function (response) {
-          console.log(response.data);
+          console.log(response.data.access);
+          axios
+            .get("http://localhost:8000/users/profile/", {
+              headers: { Authorization: `Bearer ${response.data.access}` },
+            })
+            .then(function (response) {
+              console.log(response);
+              navigate("/profile");
+            })
+            .catch(function (error) {
+              console.log(error);
+            });
         })
         .catch(function (error) {
-          console.log(error);
+          // console.log(error);
         });
     }
   };

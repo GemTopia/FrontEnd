@@ -1,0 +1,89 @@
+.container {
+  /* border: 1px solid white; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  width: 100%;
+}
+.title {
+  align-self: flex-start;
+  margin-left: 3rem;
+}
+.icon {
+  /* background-color: #06123c; */
+  color: #0096ffe5;
+  border-radius: 50%;
+  height: 1.5rem;
+  width: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.disabled {
+  display: none;
+  /* color: #0095ff69; */
+}
+
+.iconBackground {
+  background-color: #06123c;
+  padding: 1rem;
+}
+
+.gameItemsContainer {
+  /* border: 1px solid white; */
+  /* width: 15.5rem; */
+  display: flex;
+  gap: 1rem;
+  overflow-x: hidden;
+}
+
+.gameItemsContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.recentPlayedItem {
+  background-color: rgba(0, 150, 255, 0.07);
+  width: 15.5rem;
+  border: 1px solid #06173e;
+  display: flex;
+  flex-direction: column;
+  padding: 0.9rem;
+  border-radius: 15px;
+}
+
+.recentPlayedItem:hover {
+  border-color: #04417f;
+}
+.thumbnailContainer {
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.gameThumnail {
+  transition: transform 1.2s;
+  overflow: hidden;
+  /* width: 12rem; */
+  /* height: 7rem; */
+}
+.gameThumnail:hover {
+  transform: scale(1.35) rotate(-10deg);
+}
+
+.gameInfo {
+  display: flex;
+  margin-top: 0.5rem;
+  font-size: 18px;
+}
+.gameLogo {
+  margin-right: 0.5rem;
+  /* width: 2.5rem; */
+  /* height: 2.5rem; */
+}
+.gameCategory {
+  font-size: 16px;
+  font-weight: 300;
+}

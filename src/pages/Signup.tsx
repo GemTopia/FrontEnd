@@ -9,7 +9,7 @@ import styles from "./Signup-Login.module.css";
 import useInput from "../components/hooks/use-input";
 import Axios from "axios";
 import ReCAPTCHA from "react-google-recaptcha";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-regular-svg-icons";
@@ -22,6 +22,7 @@ const Signup = () => {
   const [showPass, setShowPass] = useState(false);
   const captchaRef = useRef(null);
   const [errorMessage, setErrorMessage] = useState("");
+  const navigate = useNavigate();
   //////////////////////////////////////////////////////////////////INPUTS
   const {
     enteredValue: usernameValue,
@@ -78,10 +79,10 @@ const Signup = () => {
           referrer_code: referralValue,
         })
         .then(function (response) {
-          console.log(response.status);
+          navigate('/profile')
         })
         .catch(function (error) {
-          console.log(error);
+          setErrorMessage(error)
         });
     }
   };
