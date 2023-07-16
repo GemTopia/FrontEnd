@@ -85,21 +85,9 @@
     height: 1.3rem;
 }
 
-.play-button-container{
+.play-button{
     margin-left: auto;
     width: 34%;
-    /* border: 1px solid white; */
-}
-
-.play-button-container :hover{
-    box-shadow: 1px 1px 10px 7px rgba(0, 150, 255, 0.1);
-    border-radius: 12px;
-}
-
-.play-button{
-    /* width: 7.6rem; */
-    /* height: 2.4rem; */
-    width: 100%;
     padding: 0.8rem;
     border-radius: 12px;
     background: #0096FF;
@@ -107,6 +95,11 @@
     color: #FFF;
     font-size: 12px;
     cursor: pointer;
+}
+
+.play-button:hover{
+    box-shadow: 1px 1px 10px 7px rgba(0, 150, 255, 0.1);
+    border-radius: 12px;
 }
 
 .roadmap{

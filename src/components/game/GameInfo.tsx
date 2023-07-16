@@ -68,9 +68,7 @@ const GameInfo = () => {
                 className={style["report-icon"]}
               />
             </a>
-            <div className={style["play-button-container"]}>
               <button className={style["play-button"]}>Play now</button>
-            </div>
           </div>
         </div>
       </div>

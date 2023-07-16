@@ -8,6 +8,7 @@ import Games from "./pages/Games";
 import Game from "./pages/Game";
 import Report from "./pages/Report";
 import GameResult from "./pages/GameResult";
+import Inventory from "./pages/Inventory";
 function App() {
   return (
     <div>
@@ -21,6 +22,7 @@ function App() {
         <Route path="/game" element={<Game />}></Route>
         <Route path="/result" element={<GameResult />}></Route>
         <Route path="/report" element={<Report />}></Route>
+        <Route path="/inventory" element={<Inventory />}></Route>
       </Routes>
     </div>
   );
