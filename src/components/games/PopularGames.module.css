@@ -1,9 +1,9 @@
-.popular-games-container{
+.popular-games-container {
   width: 59rem;
   display: flex;
   flex-direction: column;
 }
- 
+
 .popular-games-header {
   display: flex;
   margin-top: 4rem;
@@ -16,7 +16,7 @@
 
 .search-bar {
   display: flex;
-  width: 22%;
+  width: 30%;
   gap: 7px;
   justify-content: center;
   align-content: center;
@@ -61,14 +61,14 @@
   outline: none;
 }
 
-.popular-games-footer{
-    margin-left: auto;
-    text-decoration: none;
-    color: rgba(255, 255, 255, 0.75);
-    margin-top: 1.3rem;
+.popular-games-footer {
+  margin-left: auto;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.75);
+  margin-top: 1.3rem;
 }
 
-.popular-games-footer:hover{
-    color: white;
-    filter: brightness(180%);
+.popular-games-footer:hover {
+  color: white;
+  filter: brightness(180%);
 }

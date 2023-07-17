@@ -7,10 +7,12 @@ import { faEye, faEyeSlash } from "@fortawesome/free-regular-svg-icons";
 import { Link, useNavigate } from "react-router-dom";
 import ReCAPTCHA from "react-google-recaptcha";
 import axios, * as others from "axios";
+import ForgotPassword from "../components/other/ForgotPassword";
 /////////////////////////////////////////////////////////////////////////
 const Login = () => {
   const [showPass, setShowPass] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [pageState, setPageState] = useState("ligin");
   const SITE_KEY = process.env.REACT_APP_reCAPTCHA_SITE_KEY;
   // const SECRET_KEY = process.env.REACT_APP_reCAPTCHA_SECRET_KEY;
   const captchaRef = useRef(null);
@@ -39,6 +41,26 @@ const Login = () => {
   const showPassHandler = (event: MouseEvent) => {
     setShowPass((prevState) => !prevState);
   };
+  const forgotPassHandler = (event: MouseEvent) => {
+    event.preventDefault();
+    if (!emailIsValid) {
+      setErrorMessage("Please enter your email");
+    } else {
+      setErrorMessage("");
+      axios
+        .post("http://localhost:8000/password_reset/", { email: emailValue })
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    }
+    setPageState("forgot");
+  };
+  const cancelForgotHandler = () => {
+    setPageState("login");
+  };
   const submitHandler = (event: FormEvent) => {
     event.preventDefault();
     if (!formIsValid) {
@@ -50,83 +72,88 @@ const Login = () => {
           password: passwordValue,
         })
         .then(function (response) {
-          console.log(response.data.access);
-          axios
-            .get("http://localhost:8000/users/profile/", {
-              headers: { Authorization: `Bearer ${response.data.access}` },
-            })
-            .then(function (response) {
-              console.log(response);
-              navigate("/profile");
-            })
-            .catch(function (error) {
-              console.log(error);
-            });
+          // console.log(response.data);
+          const token = response.data.access;
+          document.cookie = `token=${token}`;
+          navigate("/home");
         })
         .catch(function (error) {
-          // console.log(error);
+          // console.log(error.response.data.detail);
+          setErrorMessage("Your email or your password is wrong");
         });
     }
   };
   return (
     <div className={styles.container}>
       <img src={logo} alt="" className={styles.logo} />
-
-      <form action="" className={styles.form} onSubmit={submitHandler}>
-        <h1>Sign In</h1>
-        <p>Please fill the input below here</p>
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          onChange={emailChangeHandler}
-          onBlur={emailBlurHandler}
-          className={emailHasError ? styles["invalid-input"] : styles.input}
-        />
-
-        <div
-          className={passwordHasError ? styles["invalid-input"] : styles.input}
-        >
-          <input
-            type={showPass ? "text" : "password"}
-            name="password"
-            placeholder="Password"
-            onChange={passwordChangeHandler}
-            onBlur={passwordBlurHandler}
-            className={styles["inner-input"]}
-          ></input>
-          <FontAwesomeIcon
-            icon={showPass ? faEyeSlash : faEye}
-            className={styles.icon}
-            onClick={showPassHandler}
-          />
-        </div>
-        <ReCAPTCHA
-          className={styles.recaptcha}
-          sitekey={SITE_KEY}
-          ref={captchaRef}
-        />
-        <button type="submit" className={styles.button}>
-          Login
-        </button>
-
-        {/* {requestIsLoading ? (
-        <LoaderSpinner />
+      {pageState === "forgot" ? (
+        <ForgotPassword cancelForgot={cancelForgotHandler} />
       ) : (
-        <button type="submit" className={styles.button}>
-          Create account
-        </button>
-      )} */}
-        {errorMessage && (
-          <p className={styles["error-message"]}>{errorMessage}</p>
-        )}
-        <span>
-          already have an account?{" "}
-          <Link to="/signup" className={styles["footer-link"]}>
-            Signup
-          </Link>
-        </span>
-      </form>
+        <form action="" className={styles.form} onSubmit={submitHandler}>
+          <h1>Sign In</h1>
+          <p>Please fill the input below here</p>
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            onChange={emailChangeHandler}
+            onBlur={emailBlurHandler}
+            className={emailHasError ? styles["invalid-input"] : styles.input}
+          />
+
+          <div
+            className={
+              passwordHasError ? styles["invalid-input"] : styles.input
+            }
+          >
+            <input
+              type={showPass ? "text" : "password"}
+              name="password"
+              placeholder="Password"
+              onChange={passwordChangeHandler}
+              onBlur={passwordBlurHandler}
+              className={styles["inner-input"]}
+            ></input>
+            <FontAwesomeIcon
+              icon={showPass ? faEyeSlash : faEye}
+              className={styles.icon}
+              onClick={showPassHandler}
+            />
+          </div>
+          <button
+            type="button"
+            className={styles["forgot-password"]}
+            onClick={forgotPassHandler}
+          >
+            Forgot your password?
+          </button>
+          <ReCAPTCHA
+            className={styles.recaptcha}
+            sitekey={SITE_KEY}
+            ref={captchaRef}
+          />
+          <button type="submit" className={styles.button}>
+            Login
+          </button>
+
+          {/* {requestIsLoading ? (
+            <LoaderSpinner />
+          ) : (
+            <button type="submit" className={styles.button}>
+              Create account
+            </button>
+          )} */}
+          {errorMessage && (
+            <p className={styles["error-message"]}>{errorMessage}</p>
+          )}
+          <span>
+            already have an account?{" "}
+            <Link to="/signup" className={styles["footer-link"]}>
+              Signup
+            </Link>
+          </span>
+        </form>
+      )}
     </div>
   );
 };

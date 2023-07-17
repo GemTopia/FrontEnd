@@ -62,7 +62,7 @@ const RecentGames: React.FC<{ games: recentPlayedGameItem[] }> = (props) => {
               >
                 <div className={style.thumbnailContainer}>
                   <img
-                    src={require(`../../assets/${gameItem.thumnailImageAddress}`)}
+                    src={require(`../../assets/${gameItem.thumbnailImageAddress}`)}
                     alt=""
                     className={style.gameThumnail}
                   />

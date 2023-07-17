@@ -84,16 +84,28 @@ const Profile: React.FC = () => {
       setReferralCopy(false);
     }, 2000);
   };
-  // useEffect(() => {
-  //   axios
-  //     .get("http://localhost:8000/users/profile/")
-  //     .then(function (response) {
-  //       console.log(response);
-  //     })
-  //     .catch(function (error) {
-  //       console.log(error);
-  //     });
-  // }, []);
+  function getCookie(name: string) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts && parts.length === 2) return parts.pop()?.split(";").shift();
+  }
+  useEffect(() => {
+    axios
+      .get(
+        `http://localhost:8000/users/profile/?user=${getCookie('username')}`,
+        {
+          headers: {
+            Authorization: `Bearer ${getCookie('token')}`,
+          },
+        }
+      )
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }, []);
   return (
     <Fragment>
       <Header />

@@ -79,10 +79,11 @@ const Signup = () => {
           referrer_code: referralValue,
         })
         .then(function (response) {
-          navigate('/profile')
+          navigate('/home')
+          console.log(response);
         })
         .catch(function (error) {
-          setErrorMessage(error)
+          setErrorMessage(error.response.data.detail)
         });
     }
   };
