@@ -1,6 +1,6 @@
 .container {
-  width: 30rem;
-  margin: 2rem auto;
+  width: 40rem;
+  margin: 0 auto;
   border-radius: 20px;
   border: 1.6px solid rgba(0, 150, 255, 0.95);
   display: flex;
@@ -15,6 +15,7 @@
   display: flex;
   width: 100%;
   align-items: center;
+  gap: .6rem;
 }
 
 .profile-img-container {
@@ -29,18 +30,13 @@
 }
 
 .user-icon {
-  width: 3rem;
-  height: 3rem;
-}
-
-.header-info {
-  margin-left: 2rem;
+  font-size: 40px;
 }
 
 .edit-icon {
-  margin-left: auto;
-  width: 1.5rem;
-  height: 1.5rem;
+  margin-left: auto;  
+  font-size: 25px;
+ 
   background-color: #06092d;
   border: none;
   color: white;
@@ -58,7 +54,6 @@
 
 .social-media img {
   width: 2.5rem;
-  height: 2.5rem;
   display: block;
   border-radius: 100%;
 }
@@ -118,4 +113,33 @@
 }
 .referral-copy img {
   width: 1.5rem;
+}
+@media only screen and (max-width: 767px) {
+  .container {
+    width: 100%;
+    border: none;
+    padding: 1rem;
+  }
+  .profile-img-container{
+    width: 4rem;
+    height: 4rem;
+  }
+  .header-info{
+    font-size: 12.5px;
+  }
+  .user-icon{
+    font-size: 30px;
+  }
+  .edit-icon{
+    font-size: 20px;
+  }
+  .social-media img {
+    width: 2rem;
+  }
+  .info-form h3{
+    font-size: 18px;
+  }
+  .referral button{
+    font-size: 18px;
+  }
 }

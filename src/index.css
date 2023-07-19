@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #06092d;
+  background-color: #040c37;
 }
 
 code {
@@ -14,8 +14,13 @@ code {
 }
 * {
   margin: 0;
+  box-sizing: border-box;
 }
 textarea {
   font-family: inherit;
   font-size: inherit;
+}
+a {
+  text-decoration: none;
+  color: white;
 }

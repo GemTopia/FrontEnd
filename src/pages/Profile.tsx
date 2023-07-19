@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import styles from "./Profile.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faPenToSquare } from "@fortawesome/free-regular-svg-icons";
@@ -11,10 +11,12 @@ import instagram from "../assets/instagram.png";
 import telegram from "../assets/telegram.png";
 import ProfileGames from "../components/games/ProfileGames";
 import profileGameItem from "../models/profileGameItem";
-import { faL, faXmark } from "@fortawesome/free-solid-svg-icons";
-import useInput from "../components/hooks/use-input";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import ProfileEdit from "../components/profile/ProfileEdit";
 import smile from "../assets/smile.png";
+import Header from "../components/layout/Header";
+import axios, * as others from "axios";
+
 const Profile: React.FC = () => {
   let dummy: profileGameItem[] = [
     {
@@ -67,10 +69,6 @@ const Profile: React.FC = () => {
     },
   ];
 
-  const [beProtected, setBeProtected] = useState<boolean>(false);
-  const toggleHandler = () => {
-    setBeProtected((beProtected) => !beProtected);
-  };
   const [referralCopy, setReferralCopy] = useState(false);
   const [isEdit, setIsEdit] = useState<boolean>(false);
   const editHandler = () => {
@@ -86,89 +84,117 @@ const Profile: React.FC = () => {
       setReferralCopy(false);
     }, 2000);
   };
+  function getCookie(name: string) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts && parts.length === 2) return parts.pop()?.split(";").shift();
+  }
+  useEffect(() => {
+    axios
+      .get(
+        `http://localhost:8000/users/profile/?user=${getCookie('username')}`,
+        {
+          headers: {
+            Authorization: `Bearer ${getCookie('token')}`,
+          },
+        }
+      )
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }, []);
   return (
-    <div className={styles.container}>
-      <div className={styles["profile-header"]}>
-        <div className={styles["profile-img-container"]}>
-          <FontAwesomeIcon icon={faUser} className={styles["user-icon"]} />
+    <Fragment>
+      <Header />
+      <div className={styles.container}>
+        <div className={styles["profile-header"]}>
+          <div className={styles["profile-img-container"]}>
+            <FontAwesomeIcon icon={faUser} className={styles["user-icon"]} />
+          </div>
+          <div className={styles["header-info"]}>
+            <h2>Profile</h2>
+            <h3>sara.namdar@gmail.com</h3>
+          </div>
+          {!isEdit ? (
+            <FontAwesomeIcon
+              icon={faPenToSquare}
+              className={styles["edit-icon"]}
+              onClick={editHandler}
+            />
+          ) : (
+            <FontAwesomeIcon
+              icon={faXmark}
+              className={styles["edit-icon"]}
+              onClick={cancleEditHandler}
+            />
+          )}
         </div>
-        <div className={styles["header-info"]}>
-          <h2>Profile</h2>
-          <h3>sara.namdar@gmail.com</h3>
-        </div>
-        {!isEdit ? (
-          <FontAwesomeIcon
-            icon={faPenToSquare}
-            className={styles["edit-icon"]}
-            onClick={editHandler}
-          />
+
+        {isEdit ? (
+          <ProfileEdit />
         ) : (
-          <FontAwesomeIcon
-            icon={faXmark}
-            className={styles["edit-icon"]}
-            onClick={cancleEditHandler}
-          />
+          <Fragment>
+            <div className={styles["social-media"]}>
+              <a href="/" target="balnk">
+                {" "}
+                <img src={youtube} alt="youtube" />{" "}
+              </a>
+              <a href="/" target="balnk">
+                {" "}
+                <img src={discord} alt="discord" />{" "}
+              </a>
+              <a href="/" target="balnk">
+                {" "}
+                <img src={twitch} alt="twitch" />{" "}
+              </a>
+              <a href="/" target="balnk">
+                {" "}
+                <img src={steam} alt="steam" />{" "}
+              </a>
+              <a href="/" target="balnk">
+                {" "}
+                <img src={instagram} alt="instagram" />{" "}
+              </a>
+              <a href="/" target="balnk">
+                {" "}
+                <img src={telegram} alt="telegram" />{" "}
+              </a>
+            </div>
+            <div className={styles["info-form"]}>
+              <h3>user name</h3>
+              <p className={styles.username}>Jasmin-Drogon</p>
+
+              <h3>bio</h3>
+
+              <p className={styles.bio}>
+                I'm Mathias Yeo, and I'm passionate about writing engaging
+                content for businesses
+              </p>
+            </div>
+            <div className={styles["footer-container"]}>
+              <div className={styles.referral}>
+                <button onClick={referralHandler}>
+                  <FontAwesomeIcon
+                    icon={faLink}
+                    className={styles["referral-icon"]}
+                  />
+                  Referral code
+                </button>
+                {referralCopy && (
+                  <span className={styles["referral-copy"]}>
+                    Link copied <img src={smile} alt="smile" />
+                  </span>
+                )}
+              </div>
+              <ProfileGames games={dummy} />
+            </div>
+          </Fragment>
         )}
       </div>
-
-      {isEdit ? (
-        <ProfileEdit />
-      ) : (
-        <Fragment>
-          <div className={styles["social-media"]}>
-            <a href="/" target="balnk">
-              {" "}
-              <img src={youtube} />{" "}
-            </a>
-            <a href="/" target="balnk">
-              {" "}
-              <img src={discord} />{" "}
-            </a>
-            <a href="/" target="balnk">
-              {" "}
-              <img src={twitch} />{" "}
-            </a>
-            <a href="/" target="balnk">
-              {" "}
-              <img src={steam} />{" "}
-            </a>
-            <a href="/" target="balnk">
-              {" "}
-              <img src={instagram} alt="instagram" />{" "}
-            </a>
-            <a href="/" target="balnk">
-              {" "}
-              <img src={telegram} alt="telegram" />{" "}
-            </a>
-          </div>
-          <div className={styles["info-form"]}>
-            <h3>user name</h3>
-            <p className={styles.username}>Jasmin-Drogon</p>
-
-            <h3>bio</h3>
-
-            <p className={styles.bio}>
-              I'm Mathias Yeo, and I'm passionate about writing engaging content
-              for businesses
-            </p>
-          </div>
-          <div className={styles["footer-container"]}>
-            <div className={styles.referral}>
-              <button onClick={referralHandler}>
-                <FontAwesomeIcon icon={faLink} className={styles['referral-icon']} />
-                Referral code
-              </button>
-              {referralCopy && (
-                <span className={styles["referral-copy"]}>
-                  Link copied <img src={smile} alt="smile" />
-                </span>
-              )}
-            </div>
-            <ProfileGames games={dummy} />
-          </div>
-        </Fragment>
-      )}
-    </div>
+    </Fragment>
   );
 };
 export default Profile;

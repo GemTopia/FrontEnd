@@ -156,3 +156,11 @@ input:checked + .slider:before {
   cursor: pointer;
   margin-top: 0.6rem;
 }
+@media only screen and (max-width: 767px) {
+  .info-form label{
+    font-size: 18px;
+  }
+  .changePassword {
+    font-size: 18px;
+  }
+}

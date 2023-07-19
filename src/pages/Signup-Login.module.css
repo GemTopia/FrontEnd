@@ -8,6 +8,7 @@
   color: white;
   border-radius: 20px;
   /* box-shadow: 0 0 12px inset #00d7ff; */
+  font-size: 18px;
 }
 .logo {
   width: 15rem;
@@ -18,7 +19,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 30rem;
+  width: 28rem;
+  margin-top: 2rem;
 }
 .form p {
   margin-bottom: 3rem;
@@ -29,7 +31,7 @@
   color: white;
   border: none;
   outline: none;
-  width: 70%;
+  width: 100%;
   margin: 7px 0;
   padding: 0 1rem;
   height: 3rem;
@@ -51,7 +53,7 @@
   color: white;
   border: none;
   outline: none;
-  width: 70%;
+  width: 100%;
   margin: 7px 0;
   padding: 0 1rem;
   height: 3rem;
@@ -68,7 +70,15 @@
   font-size: 16px;
   height: 100%;
 }
-
+.forgot-password{
+  color: white;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-size: 16px;
+  cursor: pointer;
+  align-self: flex-start;
+}
 .icon {
   width: 1rem;
   cursor: pointer;
@@ -113,9 +123,10 @@ p.error-message {
   color: red;
   margin: 10px 0;
 }
+
 @media only screen and (max-width: 480px) {
   .form {
-    width: 80%;
+    width: 90%;
   }
   .logo {
     width: 10rem;
