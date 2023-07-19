@@ -2,7 +2,7 @@ import PopularGameItem from "../../models/popularGameItem";
 import style from "./PopularGames.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
+import React from "react";
 import useInput from "../hooks/use-input";
 import { Link } from "react-router-dom";
 import ListGames from "./ListGames";

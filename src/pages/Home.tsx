@@ -1,4 +1,5 @@
 import style from "./Home.module.css";
+import React from "react";
 import RecentPlayedItems from "../components/games/RecentPlayedGames";
 import PopularGames from "../components/games/PopularGames";
 import recentPlayedGameItem from "../models/recentPlayedGameItem";

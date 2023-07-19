@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React , { useState } from "react";
 import recentPlayedGameItem from "../../models/recentPlayedGameItem";
 import style from "./RecentPlayedGames.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

@@ -1,4 +1,5 @@
 import style from "./Games.module.css";
+import React from "react";
 import useInput from "../components/hooks/use-input";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

@@ -5,6 +5,12 @@
     width: 40%;
     /* border: 1px solid white; */
 }
+.list-title{
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 5%;
+    font-size: 24px;
+    font-weight: 500;
+}
 .game-item{
     background-color: rgba(0, 150, 255, 0.14);
     border: 1px solid rgba(0, 150, 255, 0.15);
@@ -14,20 +20,14 @@
     align-items: center;
     border-radius: 12px;
 }
+.game-item:hover{
+    border: 1px solid rgba(0, 150, 255, 0.35);
+}
 .game-name{
-    /* margin: 0 9rem 0 3rem; */
+    font-family: inherit;
     margin-left: 1rem;
     margin-right: 10rem;
     font-size: 14px;
-    font-weight: 500;
-    /* border: 1px solid white; */
-    /* display: inline-block; */
-    /* height: 13px; */
-}
-.list-title{
-    color: rgba(255, 255, 255, 0.85);
-    margin-bottom: 5%;
-    font-size: 24px;
     font-weight: 500;
 }
 .gemyto{
@@ -41,10 +41,17 @@
     margin-top: 2%;
     
 }
-.no-game-warning{
-    color: rgba(0, 150, 255, 0.80);
-    font-size: 15px;
-    font-weight: 500;
+.warning-icon{
+    font-size: 1.2rem;
+    margin-left: 3%;
+    margin-top: 1%;
+    border-radius: 50%;
+    margin-right: 1%;
+}
+.blue-icon{
+    color: #0096FF;
+    box-shadow: 0px 0px 10px 4px rgba(71, 133, 181, 0.3);
+
 }
 .list-description{
     color: rgba(0, 150, 255, 0.80);
@@ -56,15 +63,8 @@
     margin-left: 0.8%;
     
 }
-.warning-icon{
-    font-size: 1.2rem;
-    margin-left: 3%;
-    margin-top: 1%;
-    border-radius: 50%;
-    margin-right: 1%;
-}
-.blue-icon{
-    color: #0096FF;
-    box-shadow: 0px 0px 10px 4px rgba(170, 207, 234, 0.3);
-
+.no-game-warning{
+    color: rgba(0, 150, 255, 0.80);
+    font-size: 15px;
+    font-weight: 500;
 }

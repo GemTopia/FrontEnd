@@ -1,7 +1,7 @@
 import { faL } from "@fortawesome/free-solid-svg-icons";
 import GameItem from "../../models/GamesPageItem";
 import style from "./CompactGames.module.css";
-import { useState } from "react";
+import React , { useState } from "react";
  
 const CompactGames: React.FC<{ games: GameItem[];dropdownIsOpen:boolean;}> = (props) => {
   let firstState = props.games.map((gameItem) => false);

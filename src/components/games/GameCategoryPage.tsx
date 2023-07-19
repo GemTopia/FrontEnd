@@ -7,7 +7,7 @@ import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
 import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
+import React from "react";
 
 const GameCategory: React.FC<{
   categorisedGames: CategorisedGameGroupItem[];

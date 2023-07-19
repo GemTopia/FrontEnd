@@ -1,7 +1,7 @@
 import GameItem from "../../models/GamesPageItem";
 import style from "./ListGames.module.css"
 import PopularGameItem from "../../models/popularGameItem";
-import { useState } from "react";
+import React,{ useState } from "react";
 const ListGames: React.FC<{ games: GameItem[]|PopularGameItem[],page:string,sortby?:string}> = (props) => {
   let firstState = props.games.map((gameItem) => false);
   const [IsLiked, setIsLiked] = useState<boolean[]>(firstState);

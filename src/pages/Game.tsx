@@ -1,4 +1,5 @@
 import style from "./Game.module.css";
+import React from "react";
 import gameTopPlayerItem from "../models/gameTopPlayer";
 import GameTopPlayers from "../components/players/GameTopPlayers";
 import GameInfo from "../components/game/GameInfo";

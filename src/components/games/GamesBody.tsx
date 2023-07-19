@@ -4,6 +4,7 @@ import ListGames from "./ListGames";
 import CompactGames from "./CompactGames";
 import GameCategory from "./GameCategoryPage";
 import CategorisedGameGroupItem from "../../models/CategorisedGameGroupItem";
+import React from "react";
 
 const GamesBody: React.FC<{
   games: GameItem[];

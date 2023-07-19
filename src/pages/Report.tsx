@@ -1,4 +1,5 @@
 import style from "./Report.module.css";
+import React from "react";
 import useInput from "../components/hooks/use-input";
 const Report: React.FC = () => {
   const {

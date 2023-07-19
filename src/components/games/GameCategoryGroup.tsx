@@ -1,6 +1,6 @@
 import GameItem from "../../models/GamesPageItem";
 import style from "./GameCategoryGroup.module.css";
-import { useState } from "react";
+import React , { useState } from "react";
 
 const GameCategoryGroup: React.FC<{ categorisedGames: GameItem[]; dropdownIsOpen:boolean; categoryIndex:number }> = (
   props
