@@ -105,6 +105,7 @@ const Inventory = () => {
             <p>Yesteday ,You received the tokens you were eligible for !</p>
             <img src={require("../assets/stareye.png")} alt="emoji1" />
             <img src={require("../assets/happy.png")} alt="emoji2" />
+            <img src={require("../assets/winning.gif")} alt="winning gif" className={style['winning-gif']}/>
           </div>
         )}
         <div className={style["withdraw-container"]}>
@@ -136,8 +137,8 @@ const Inventory = () => {
         <tbody>
           {transactionDummy.map((transaction, index) => {
             return (
-              <tr>
-                <td className={style["table-index"]}>{index}</td>
+              <tr key={index}>
+                <td className={style["table-index"]}>{index+1}</td>
                 <td className={style["table-date"]}>
                   {dateFormater(transaction.Date)}
                 </td>
@@ -152,11 +153,11 @@ const Inventory = () => {
                   />
                 </td>
                 <td className={style["table-to"]}>
-                  <img
+                  {/* <img
                     src={require("../assets/right arrow.png")}
                     alt="right arrow icon"
                     className={style["to-arrow-icon"]}
-                  />
+                  /> */}
                   {transaction.To.slice(0, 8) +
                     "..." +
                     transaction.To.slice(transaction.To.length - 8)}

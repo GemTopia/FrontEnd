@@ -1,5 +1,4 @@
 .container{
-    /* border: 1px solid white; */
     width: 75%;
     margin: 5.3rem auto;
     display: flex;
@@ -9,7 +8,6 @@
 }
 
 .header{
-    /* border: 1px solid white; */
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -30,7 +28,6 @@
 }
 
 .token-count-container{
-    /* border: 1px solid white; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -53,14 +50,20 @@
     align-items: center;
     justify-content: center;
     color:white;
+    position: relative;
     padding: 0.5% 1.5%;
     margin-top: 1%;
     background-color: rgba(0, 150, 255, 0.25);
     border-radius: 12px;
 }
+.winning-gif{
+    position: absolute;
+    left: 84%;
+    bottom: -120%;
+    rotate: 45deg;
+}
 
 .withdraw-container{
-    /* border: 1px solid snow; */
     width: 86%;
     margin-top: 2.7rem;
     display: flex;
@@ -104,11 +107,10 @@
 
 
 .lists-container{
-    /* border: 1px solid white; */
     display: flex;
     justify-content: start;
     width: 85%;
-    gap: 13.8rem;
+    gap: 20%;
     margin-top: 8%;
 }
 table{
@@ -135,7 +137,6 @@ th:nth-child(2),th:nth-child(3){
     border-bottom: 1px solid rgba(0, 150, 255, 0.15);
 }
 th:nth-child(4){
-    padding-left: 33px;
     border-top: 1px solid rgba(0, 150, 255, 0.15);
     border-bottom: 1px solid rgba(0, 150, 255, 0.15);
 }
@@ -153,7 +154,6 @@ tbody td{
 td,th{
     padding: 1%;
     text-align:start;
-    /* border: 1px solid white; */
 }
 thead th{
     font-size: 14px;
@@ -175,13 +175,13 @@ thead th{
 .table-to{
     width: 27%;
 }
-.to-arrow-icon{
+/* .to-arrow-icon{
     border: 1px solid white;
     margin-bottom: -3px;
     padding: 3px;
     border-radius: 50%;
     margin-right: 5px;
-}
+} */
 .table-quantity{
     width: 25%;
 }

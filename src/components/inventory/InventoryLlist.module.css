@@ -3,7 +3,6 @@
     flex-direction: column;
     gap: 0.5rem;
     width: 40%;
-    /* border: 1px solid white; */
 }
 .list-title{
     color: rgba(255, 255, 255, 0.85);
@@ -23,12 +22,19 @@
 .game-item:hover{
     border: 1px solid rgba(0, 150, 255, 0.35);
 }
+.game-info{
+    display: flex;
+    align-items: center;
+}
 .game-name{
     font-family: inherit;
     margin-left: 1rem;
-    margin-right: 10rem;
     font-size: 14px;
     font-weight: 500;
+}
+.game-item p{
+    margin-left: auto;
+
 }
 .gemyto{
     width : 1rem;
@@ -55,7 +61,6 @@
 }
 .list-description{
     color: rgba(0, 150, 255, 0.80);
-    /* border: 1px solid white; */
     width: 90%;
     font-size: 15px;
     font-weight: 500;

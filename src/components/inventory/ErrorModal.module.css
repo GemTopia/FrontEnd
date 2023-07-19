@@ -13,7 +13,7 @@
   border-radius: 50%;
   color: #15ff00;
   margin-right: 2%;
-  box-shadow: 0px 0px 10px 4px #96f78d;
+  box-shadow: 0px 0px 10px 4px #1d8713;
 }
 .wallet-connect-content-container {
   display: flex;
@@ -32,7 +32,7 @@
   font-size: 1.2rem;
   border-radius: 50%;
   margin-right: 2%;
-  box-shadow: 0px 0px 10px 4px #f89a9a;
+  box-shadow: 0px 0px 10px 4px #851616;
 }
 .meta-mask-fox {
   display: flex;
@@ -69,7 +69,7 @@
   top: 30%;
   left: 35%;
   right: 35%;
-  width: 30%;
+  width: 35%;
   padding: 1%;
   padding-bottom: 4%;
   font-size: 16px;

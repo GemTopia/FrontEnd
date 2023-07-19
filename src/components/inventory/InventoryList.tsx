@@ -15,11 +15,14 @@ const InventoryLlist: React.FC<{
         {props.gameItems.map((gameItem) => {
           return (
             <div className={style["game-item"]}>
+              <div className={style['game-info']}>
               <img
                 src={require(`../../assets/${gameItem.gameLogoAddress}`)}
                 alt="game logo"
               />
               <pre className={style["game-name"]}>{gameItem.gameName}</pre>
+
+              </div>
               <p>{gameItem.earnedCount}</p>
               <img
                 src={require("../../assets/gemyto2.png")}
