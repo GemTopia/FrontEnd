@@ -120,16 +120,16 @@ const Profile: React.FC = () => {
           <Fragment>
             <div className={styles["profile-header"]}>
               <div className={styles["profile-img-container"]}>
-                {profileUser?.avatar ? (
+                {/* {profileUser?.avatar ? (
                   <img
                     src={require(`../../../../gemtopia-back/BackEnd/BackEnd/media${profileUser.avatar}`)}
                   ></img>
-                ) : (
+                ) : ( */}
                   <FontAwesomeIcon
                     icon={faUser}
                     className={styles["user-icon"]}
                   />
-                )}
+                {/* )} */}
                 {/* ../../gemtopia-back/BackEnd/BackEnd/media${profileUser.avatar}` */}
               </div>
               <div className={styles["header-info"]}>
