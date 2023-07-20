@@ -16,7 +16,7 @@ const Games = () => {
       logo_image: "",
       name: "subway surfers1",
       game_type: "category1",
-      // rank: "2",
+      rank: "2",
       num_of_like: 78,
       id: 1,
       created_at: "2022-03-25",
