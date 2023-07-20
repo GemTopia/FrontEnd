@@ -8,7 +8,7 @@ import {
   faAngleUp,
 } from "@fortawesome/free-solid-svg-icons";
 import useInput from "../components/hooks/use-input";
-
+import Footer from "../components/layout/Footer";
 const Landing = () => {
   let dummy: GameItem[] = [
     {
@@ -59,6 +59,22 @@ const Landing = () => {
   const dropdownClickHandler4 = () => {
     setDropdownIsOpen4((current) => !current);
   };
+  const now = new Date();
+  const greenwichHours = now.getUTCHours();
+  const greenwichMinutes = now.getUTCMinutes();
+  const greenwichSeconds = now.getUTCSeconds();
+  const [seconds, setSeconds] = useState<number>(
+    3600 * greenwichHours + 60 * greenwichMinutes + greenwichSeconds
+  );
+  useEffect(() => {
+    const interval = setInterval(() => {
+      //code inside here will run every second
+      setSeconds((current) => (current + 1) % 86400);
+
+      // console.log('working')
+    }, 1000); //change the 1000 to however many miliseconds you want between execution
+    return () => clearInterval(interval);
+  }, []);
 
   const [IsLiked, setIsLiked] = useState<boolean[]>([false, false, false]);
   const likeClickHandler = (event: any) => {
@@ -68,7 +84,7 @@ const Landing = () => {
       return secondState;
     });
   };
-  const [chosenGame, setChosenGame] = useState(0);
+  const [chosenGame, setChosenGame] = useState<number>(0);
   useEffect(() => {
     const interval = setInterval(() => {
       //code inside here will run every second
@@ -81,7 +97,7 @@ const Landing = () => {
     setChosenGame(+event.target.id);
   };
 
-  const [isHovered, setIsHovered] = useState(false);
+  const [isHovered, setIsHovered] = useState<boolean>(false);
   const handleMouseEnter = () => {
     setIsHovered(true);
   };
@@ -115,7 +131,6 @@ const Landing = () => {
     inputChangeHandler: emailChangeHandler,
     inputBlurHandler: emailBlurHandler,
   } = useInput((input: string) => validEmail.test(input), "");
-
   return (
     <div className={style.container}>
       <div className={style["intro-container"]}>
@@ -171,35 +186,32 @@ const Landing = () => {
             </div>
           </div>
         </div>
-        <div className={style["small-size-games-container"]} >
-          <div
-            className={`${style["first-small-game-background-image"]} `} 
-          >
+        <div className={style["small-size-games-container"]}>
+          <div className={`${style["first-small-game-background-image"]} `}>
             <div
               className={`${
                 chosenGame != 0 && style["fully-blur-background-color"]
               } ${chosenGame == 0 && style["bottom-blur-background"]}`}
-              id="0" onClick={gameClickHandler}
+              id="0"
+              onClick={gameClickHandler}
             ></div>
           </div>
-          <div
-            className={`${style["second-small-game-background-image"]}`}
-          >
+          <div className={`${style["second-small-game-background-image"]}`}>
             <div
               className={`${
                 chosenGame != 1 && style["fully-blur-background-color"]
               } ${chosenGame == 1 && style["bottom-blur-background"]}`}
-              id="1" onClick={gameClickHandler}
+              id="1"
+              onClick={gameClickHandler}
             ></div>
           </div>
-          <div
-            className={`${style["third-small-game-background-image"]}`}
-          >
+          <div className={`${style["third-small-game-background-image"]}`}>
             <div
               className={`${
                 chosenGame != 2 && style["fully-blur-background-color"]
               } ${chosenGame == 2 && style["bottom-blur-background"]}`}
-              id="2" onClick={gameClickHandler}
+              id="2"
+              onClick={gameClickHandler}
             ></div>
           </div>
         </div>
@@ -331,6 +343,30 @@ const Landing = () => {
           </div>
         </div>
       </div>
+
+      <div className={style["clock-and-description-container"]}>
+        <div className={style["clock-container"]}>
+          {Math.floor(seconds / 3600).toString().padStart(2,'0') +
+            ":" +
+            Math.floor((seconds - 3600 * Math.floor(seconds / 3600)) / 60).toString().padStart(2,'0') +
+            ":" +
+            (seconds -
+              3600 * Math.floor(seconds / 3600) -
+              60 *
+                Math.floor((seconds - 3600 * Math.floor(seconds / 3600)) / 60)).toString().padStart(2,'0')}
+        </div>
+        <p className={style["clock-description"]}>
+          You have the opportunity to earn tokens by actively participating in
+          games and steadily improving your ranking among fellow players. <br /> <br />Strive
+          to maintain your position at the top of the leaderboard until the
+          day's end, and you'll be rewarded with tokens as a sign of your skill
+          and dedication. <br /> <br />Engage in gameplay, showcase your talent, and seize
+          the chance to earn even more rewards as you climb higher in the
+          rankings. <br /><br />So, embrace the challenge, compete with determination, and
+          let your success in the games be the key to unlocking a plethora of
+          tokens.
+        </p>
+      </div>
       <img src={require("../assets/Road map.png")} className={style.roadmap} />
 
       <div className={style["faq-container"]}>
@@ -421,6 +457,7 @@ const Landing = () => {
           <button className={style["subscribe-button"]}>Subscribe</button>
         </form>
       </div>
+      <Footer/>
     </div>
   );
 };

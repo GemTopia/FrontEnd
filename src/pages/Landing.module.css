@@ -4,6 +4,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* border: 1px solid white; */
 }
 
 .intro-container{
@@ -366,14 +367,40 @@
     font-size: 14px;
     font-weight: 600;
 }
+.clock-and-description-container{
+    display: flex;
+    align-items: center;
+    gap:4rem;
+    margin-top: 20rem;
+    margin-left: 20rem;
+}
+.clock-container{
+    color: white;
+    background: linear-gradient(to bottom, #0B0BC1 , #1919EB , #00B );
+    border-radius: 30px;
+    width: 17rem;
+    height: 8rem;
+    font-size: 54px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.clock-description{
+    color: white;
+    width: 50%;
+    font-size: 20px;
+    font-weight: 500;
+}
 .roadmap{
     width: 95%;
-    margin-top: 15%;
+    margin-top: 18%;
 }
 .faq-container{
     color: white;
     margin-left: 5%;
     margin-top: 10%;
+    margin-bottom: 10%;
     width: 70%;
     display: flex;
     flex-direction: column;
