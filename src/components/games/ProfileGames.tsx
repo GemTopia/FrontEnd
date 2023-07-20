@@ -6,17 +6,19 @@ import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import profileGameItem from "../../models/profileGameItem";
 
-const ProfileGames: React.FC<{ games: profileGameItem[] }> = (props) => {
+const ProfileGames: React.FC<{ games: profileGameItem[] | undefined }> = (
+  props
+) => {
   const [topGame, setTopGame] = useState("0");
   const [disableDown, setDisableDown] = useState(false);
   const [disableUp, setDisableUp] = useState(true);
 
   const scrollUpHandler = () => {
-    if (+(topGame) - 4 > 0) {
-      const element = document.getElementById(`profile${+(topGame) - 4}`);
+    if (+topGame - 4 > 0) {
+      const element = document.getElementById(`profile${+topGame - 4}`);
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });
-        setTopGame((current) => String(+(current) - 4));
+        setTopGame((current) => String(+current - 4));
       }
       setDisableUp(false);
       setDisableDown(false);
@@ -31,11 +33,11 @@ const ProfileGames: React.FC<{ games: profileGameItem[] }> = (props) => {
     }
   };
   const scrollDownHandler = () => {
-    const element = document.getElementById(`profile${+(topGame) + 4}`);
-    if (+(topGame) + 8 >= props.games.length) setDisableDown(true);
+    const element = document.getElementById(`profile${+topGame + 4}`);
+    if (props.games && +topGame + 8 >= props.games.length) setDisableDown(true);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
-      setTopGame((current) => String(+(current) + 4));
+      setTopGame((current) => String(+current + 4));
       setDisableUp(false);
     }
   };

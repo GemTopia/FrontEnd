@@ -2,10 +2,7 @@ import style from "./GameTopPlayers.module.css";
 import GameTopPlayerItem from "./GameTopPlayerItem";
 import gameTopPlayerItem from "../../models/gameTopPlayer";
 
- 
-
 const GameTopPlayers: React.FC<{ players: gameTopPlayerItem[] }> = (props) => {
-
   const loadedPlayers = props.players;
   return (
     <div className={style.container}>
@@ -14,7 +11,7 @@ const GameTopPlayers: React.FC<{ players: gameTopPlayerItem[] }> = (props) => {
         <p>The ranking is based on scores from the last 24 hours.</p>
       </div>
       {loadedPlayers.map((player) => {
-        return <GameTopPlayerItem key={player.id} player={player} />;
+        return <GameTopPlayerItem key={String(player.id)} player={player} />;
       })}
     </div>
   );

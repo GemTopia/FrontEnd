@@ -1,13 +1,11 @@
 import { Fragment, useState } from "react";
 import recentPlayedGameItem from "../../models/recentPlayedGameItem";
-import style from "./RecentPlayedGames.module.css";
+import style from "./RecentGames.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
 
-const RecentPlayedGames: React.FC<{ games: recentPlayedGameItem[] }> = (
-  props
-) => {
+const RecentGames: React.FC<{ games: recentPlayedGameItem[] }> = (props) => {
   const [leftGame, setLeftGame] = useState("0");
   const [disableRight, setDisableRight] = useState(false);
   const [disableLeft, setDisableLeft] = useState(true);
@@ -15,9 +13,6 @@ const RecentPlayedGames: React.FC<{ games: recentPlayedGameItem[] }> = (
   const scrollLeftHandler = () => {
     if (+leftGame - 4 > 0) {
       const element = document.getElementById(`recent${+leftGame - 4}`);
-      const titleElement = document.getElementById("root");
-      titleElement?.scrollIntoView({ behavior: "smooth" });
-
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });
         setLeftGame((current) => String(+current - 4));
@@ -36,13 +31,9 @@ const RecentPlayedGames: React.FC<{ games: recentPlayedGameItem[] }> = (
   };
   const scrollRightHandler = () => {
     const element = document.getElementById(`recent${+leftGame + 7}`);
-    const titleElement = document.getElementById("root");
-    titleElement?.scrollIntoView({ behavior: "smooth" });
-
     if (+leftGame + 8 >= props.games.length) setDisableRight(true);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
-
       setLeftGame((current) => String(+current + 4));
       setDisableLeft(false);
     }
@@ -50,14 +41,10 @@ const RecentPlayedGames: React.FC<{ games: recentPlayedGameItem[] }> = (
 
   return (
     <Fragment>
-      <h2 className={style["recent-played-title"]} id="title">
-        Recent played
-      </h2>
-      <div className={style["body-container"]}>
+      <h2 className={style.title}>Recently played</h2>
+      <div className={style.container}>
         <span
-          className={`${style.icon} ${
-            !disableLeft && style["icon-background"]
-          }`}
+          className={`${style.icon} ${!disableLeft && style.iconBackground}`}
           onClick={scrollLeftHandler}
         >
           <FontAwesomeIcon
@@ -65,32 +52,33 @@ const RecentPlayedGames: React.FC<{ games: recentPlayedGameItem[] }> = (
             className={disableLeft ? style.disabled : ""}
           />
         </span>
-        <div className={style["game-items-container"]}>
+        <div className={style.gameItemsContainer}>
           {props.games.map((gameItem) => {
             return (
               <div
-                className={style["recent-played-item"]}
+                className={style.recentPlayedItem}
                 key={String(gameItem.id)}
                 id={`recent${gameItem.id}`}
               >
-                <div className={style["thumbnail-container"]}>
+                <div className={style.thumbnailContainer}>
                   <img
                     src={require(`../../assets/${gameItem.cover_image}`)}
                     alt=""
-                    className={style["game-thumbnail"]}
+                    className={style.gameThumnail}
                   />
                 </div>
-                <div className={style["game-info"]}>
+                <div className={style.gameInfo}>
                   <img
                     src={require(`../../assets/${gameItem.logo_image}`)}
                     alt=""
-                    className={style["game-logo"]}
+                    className={style.gameLogo}
                   />
                   <div>
-                    <p>{gameItem.name}</p>
-                    <p className={style["game-category"]}>
+                    {gameItem.name}
+                    <br />
+                    <div className={style.gameCategory}>
                       {gameItem.game_type}
-                    </p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -98,9 +86,7 @@ const RecentPlayedGames: React.FC<{ games: recentPlayedGameItem[] }> = (
           })}
         </div>
         <span
-          className={`${style.icon} ${
-            !disableRight && style["icon-background"]
-          }`}
+          className={`${style.icon} ${!disableRight && style.iconBackground}`}
           onClick={scrollRightHandler}
         >
           <FontAwesomeIcon
@@ -113,4 +99,4 @@ const RecentPlayedGames: React.FC<{ games: recentPlayedGameItem[] }> = (
   );
 };
 
-export default RecentPlayedGames;
+export default RecentGames;

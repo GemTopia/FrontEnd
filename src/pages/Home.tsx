@@ -8,6 +8,7 @@ import homeTopPlayerItem from "../models/homeTopPlayerItem";
 import { Fragment, useEffect, useState } from "react";
 import Header from "../components/layout/Header";
 import axios, * as others from "axios";
+import { baseUrl } from "../shares/shared";
 
 const Home = () => {
   const [recentGames, setRecentGames] = useState<RecentPlayedGameItem[]>([]);
@@ -43,30 +44,87 @@ const Home = () => {
 
   // {
   // ];
-  function getCookie(name: string) {
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-    if (parts && parts.length === 2) return parts.pop()?.split(";").shift();
-  }
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/home/", {
-        headers: { Authorization: `Bearer ${getCookie("token")}` },
+      .get(`${baseUrl}home/`, {
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       })
       .then(function (response) {
         // console.log(response);
-        const loadedRecentGames = response.data.recent_games.map(
-          (game: RecentPlayedGameItem) => {}
-        );
-        const loadedPopularGames = response.data.ranking_games.map(
-          (game: PopularGameItem) => {}
-        );
+        localStorage.setItem("username", response.data.user_profile.user_name);
 
-        document.cookie = `username=${response.data.user_profile.user_name}`;
+        const loadedRecentGames = response.data.recent_games.map(
+          (game: RecentPlayedGameItem) => {
+            return {
+              cover_image: game.cover_image,
+              logo_image: game.logo_image,
+              name: game.name,
+              game_type: game.game_type,
+              id: game.id,
+            };
+          }
+        );
+        setRecentGames((prevGames) => {
+          let updatedGames = [...prevGames];
+          loadedRecentGames.map((game: RecentPlayedGameItem) => {
+            if (
+              !updatedGames.find((item) => {
+                return item.id === game.id;
+              })
+            )
+              updatedGames.push(game);
+          });
+          return updatedGames;
+        });
+
+        const loadedPopularGames: PopularGameItem[] =
+          response.data.ranking_games.map((game: PopularGameItem) => {
+            return {
+              logo_image: game.logo_image,
+              name: game.name,
+              game_type: game.game_type,
+              num_of_like: game.num_of_like,
+              id: game.id,
+            };
+          });
+        setPopularGames((prevGames) => {
+          let updatedGames = [...prevGames];
+          loadedPopularGames.map((game: PopularGameItem) => {
+            if (
+              !updatedGames.find((item) => {
+                return item.id === game.id;
+              })
+            )
+              updatedGames.push(game);
+          });
+          return updatedGames;
+        });
+        const loadedTopPlayers: homeTopPlayerItem[] =
+          response.data.top_players.map((player: homeTopPlayerItem) => {
+            return {
+              avatar: player.avatar,
+              user_name: player.user_name,
+              id: player.user_name,
+              // total_gemyto: player.total_gemyto,
+            };
+          });
+        setTopPlayers((prevPlayers) => {
+          let updatedPlayers = [...prevPlayers];
+          loadedTopPlayers.map((player: homeTopPlayerItem) => {
+            if (
+              !updatedPlayers.find((item) => {
+                return item.id === player.id;
+              })
+            )
+              updatedPlayers.push(player);
+          });
+          return updatedPlayers;
+        });
+        // console.log(loadedPopularGames);
       })
       .catch(function (error) {
-        // console.log(error);
+        console.log(error);
       });
   }, []);
 

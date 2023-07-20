@@ -108,7 +108,7 @@
 
 .lists-container{
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     width: 85%;
     gap: 20%;
     margin-top: 8%;

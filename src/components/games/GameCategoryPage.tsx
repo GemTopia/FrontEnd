@@ -8,26 +8,29 @@ import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
 import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
+// import { useState } from "react";
 
 const GameCategory: React.FC<{
   categorisedGames: CategorisedGameGroupItem[];
-  scrollLeftHandler:any;
-  scrollRightHandler:any;
-  scrollUpHandler:any;
-  scrollDownHandler:any;
-  disableDownOrRights: {category:string,disableDownOrRight:boolean}[];
-  disableUpOrLefts: {category:string,disableUpOrLeft:boolean}[];
+  scrollLeftHandler: any;
+  scrollRightHandler: any;
+  scrollUpHandler: any;
+  scrollDownHandler: any;
+  disableDownOrRights: { category: string; disableDownOrRight: boolean }[];
+  disableUpOrLefts: { category: string; disableUpOrLeft: boolean }[];
   viewType: string;
-  dropdownIsOpen:boolean;
+  dropdownIsOpen: boolean;
 }> = (props) => {
-
   return (
     <div className={style["category-games-body"]}>
       {props.categorisedGames.map(
         (CategoryGroup: CategorisedGameGroupItem, index: number) => {
-          if (props.viewType == "compact") {
+          if (props.viewType === "compact") {
             return (
-              <div className={style["one-category-container"]} key={CategoryGroup.category}>
+              <div
+                className={style["one-category-container"]}
+                key={CategoryGroup.category}
+              >
                 <div className={style["category-header"]}>
                   <p className={style["compact-category-title"]}>
                     {CategoryGroup.category}
@@ -38,7 +41,11 @@ const GameCategory: React.FC<{
                         icon={faAngleLeft}
                         id={`${CategoryGroup.category} ${index}`}
                         onClick={props.scrollLeftHandler}
-                        className={props.disableUpOrLefts[index].disableUpOrLeft ? style.disabled : ''}
+                        className={
+                          props.disableUpOrLefts[index].disableUpOrLeft
+                            ? style.disabled
+                            : ""
+                        }
                       />
                     </span>
                     <span className={style.icon}>
@@ -46,7 +53,11 @@ const GameCategory: React.FC<{
                         icon={faAngleRight}
                         id={`${CategoryGroup.category} ${index}`}
                         onClick={props.scrollRightHandler}
-                        className={props.disableDownOrRights[index].disableDownOrRight ? style.disabled : ''}
+                        className={
+                          props.disableDownOrRights[index].disableDownOrRight
+                            ? style.disabled
+                            : ""
+                        }
                       />
                     </span>
                   </div>
@@ -56,14 +67,17 @@ const GameCategory: React.FC<{
                   dropdownIsOpen={props.dropdownIsOpen}
                   categoryIndex={index}
                   categorisedGames={CategoryGroup.games.sort(
-                    (game1, game2) => +game1.rank - +game2.rank
+                    (game1, game2) => +game1.id - +game2.id
                   )}
                 />
               </div>
             );
-          } else if (props.viewType == "list") {
+          } else if (props.viewType === "list") {
             return (
-              <div className={style["list-category-group-container"]}key={CategoryGroup.category}>
+              <div
+                className={style["list-category-group-container"]}
+                key={CategoryGroup.category}
+              >
                 <div className={style["category-header"]}>
                   <p className={style["list-category-title"]}>
                     {CategoryGroup.category}
@@ -86,7 +100,11 @@ const GameCategory: React.FC<{
                         icon={faAngleDown}
                         id={`${CategoryGroup.category} ${index}`}
                         onClick={props.scrollDownHandler}
-                        className={props.disableDownOrRights[index].disableDownOrRight ? style.disabled : ''}
+                        className={
+                          props.disableDownOrRights[index].disableDownOrRight
+                            ? style.disabled
+                            : ""
+                        }
                       />
                     </span>
                   </div>
@@ -95,7 +113,7 @@ const GameCategory: React.FC<{
                   <ListGames
                     page="games"
                     games={CategoryGroup.games.sort(
-                      (game1, game2) => +game1.rank - +game2.rank
+                      (game1, game2) => +game1.id - +game2.id
                     )}
                     sortby="category"
                   />

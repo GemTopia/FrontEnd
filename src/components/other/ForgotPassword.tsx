@@ -4,6 +4,7 @@ import useInput from "../hooks/use-input";
 import axios, * as others from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-regular-svg-icons";
+import { baseUrl } from "../../shares/shared";
 const ForgotPassword: React.FC<{ cancelForgot: Function }> = (props) => {
   const [showNewPass, setShowNewPass] = useState(false);
   const [showConfirmPass, setShowConfirmPass] = useState(false);
@@ -45,7 +46,7 @@ const ForgotPassword: React.FC<{ cancelForgot: Function }> = (props) => {
     event.preventDefault();
     console.log({ password: newPassValue, token: verificationValue });
     axios
-      .post("http://localhost:8000/password_reset/confirm/", {
+      .post(`${baseUrl}password_reset/confirm/`, {
         password: newPassValue,
         token: verificationValue,
       })

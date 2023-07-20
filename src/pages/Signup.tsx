@@ -14,6 +14,7 @@ import logo from "../assets/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-regular-svg-icons";
 import axios, * as others from "axios";
+import { baseUrl } from "../shares/shared";
 
 /////////////////////////////////////////////////////////////////////////
 const Signup = () => {
@@ -72,7 +73,7 @@ const Signup = () => {
         referrer_code: referralValue,
       });
       axios
-        .post("http://localhost:8000/users/register/", {
+        .post(`${baseUrl}users/register/`, {
           user_name: usernameValue,
           email: emailValue,
           password: passwordValue,

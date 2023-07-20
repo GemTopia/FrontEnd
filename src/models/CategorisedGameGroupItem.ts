@@ -1,14 +1,6 @@
+import GameItem from "./GamesPageItem";
 interface CategorisedGameGroupItem {
   category: string;
-  games: {
-    thumbnailImageAddress: string;
-    gameLogoAddress: string;
-    gameName: string;
-    gameCategory: string;
-    rank: string;
-    likesCount: string;
-    id: string;
-    date:string;
-  }[];
+  games: GameItem[];
 }
 export default CategorisedGameGroupItem;

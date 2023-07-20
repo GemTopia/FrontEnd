@@ -23,21 +23,27 @@ const HomeTopPlayers: React.FC<{ players: homeTopPlayerItem[] }> = (props) => {
         <div className={style["search-bar"]}>
           <FontAwesomeIcon icon={faMagnifyingGlass} className={style.icon} />
           <form>
-          <input
-            name="search"
-            id="search"
-            onChange={searchChangeHandler}
-            onBlur={searchBlurHandler}
-            value={searchValue}
-            type="text"
-            className={style["search-input"]}
-            placeholder="search game ..."
-          />
+            <input
+              name="search"
+              id="search"
+              onChange={searchChangeHandler}
+              onBlur={searchBlurHandler}
+              value={searchValue}
+              type="text"
+              className={style["search-input"]}
+              placeholder="search game ..."
+            />
           </form>
         </div>
       </div>
-      {loadedPlayers.map((player) => {
-        return <HomeTopPlayerItem key={player.id} player={player} />;
+      {loadedPlayers.map((player, index) => {
+        return (
+          <HomeTopPlayerItem
+            key={String(player.id)}
+            player={player}
+            rank={index}
+          />
+        );
       })}
       <Link to="/Home" className={style.footer}>
         veiw more

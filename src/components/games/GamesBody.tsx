@@ -20,37 +20,37 @@ const GamesBody: React.FC<{
   categorisedGames: CategorisedGameGroupItem[];
 }> = (props) => {
   let sortedGames = [...props.games];
-  if (props.sortby == "rate" || props.sortby == "category") {
-    sortedGames.sort((game1, game2) => +game1.rank - +game2.rank);
+  if (props.sortby === "rate" || props.sortby === "category") {
+    sortedGames.sort((game1, game2) => +game1.id - +game2.id);
   }
 
-  if (props.sortby == "earliest") {
-    sortedGames.sort((game1 , game2) => new Date(game1.date).getTime() - new Date(game2.date).getTime());
+  if (props.sortby === "earliest") {
+    sortedGames.sort((game1 , game2) => new Date(game1.created_at).getTime() - new Date(game2.created_at).getTime());
   }
 
-  if (props.sortby == "latest") {
-    sortedGames.sort((game1 , game2) => new Date(game2.date).getTime() - new Date(game1.date).getTime())
+  if (props.sortby === "latest") {
+    sortedGames.sort((game1 , game2) => new Date(game2.created_at).getTime() - new Date(game1.created_at).getTime())
   }
 
   
   return (
     <div className={style["body-container"]}>
-      {props.viewType == "list" &&
-        (props.sortby == "rate" ||
-          props.sortby == "earliest" ||
-          props.sortby == "latest") && (
+      {props.viewType === "list" &&
+        (props.sortby === "rate" ||
+          props.sortby === "earliest" ||
+          props.sortby === "latest") && (
           <ListGames games={sortedGames} page="games" />
         )}
-      {props.viewType == "compact" &&
-        (props.sortby == "rate" ||
-          props.sortby == "earliest" ||
-          props.sortby == "latest") && (
+      {props.viewType === "compact" &&
+        (props.sortby === "rate" ||
+          props.sortby === "earliest" ||
+          props.sortby === "latest") && (
           <CompactGames
             games={sortedGames}
             dropdownIsOpen={props.dropdownIsOpen}
           />
         )}
-      {props.sortby == "category" && (
+      {props.sortby === "category" && (
         // <GameCategory
         //   viewType={props.viewType}
         //   categorisedGames={groupBy(sortedGames)}

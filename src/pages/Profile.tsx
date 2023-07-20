@@ -3,12 +3,12 @@ import styles from "./Profile.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faPenToSquare } from "@fortawesome/free-regular-svg-icons";
 import { faLink } from "@fortawesome/free-solid-svg-icons";
-import youtube from "../assets/youtube.png";
-import discord from "../assets/discord.png";
-import twitch from "../assets/twitch.png";
-import steam from "../assets/steam.png";
-import instagram from "../assets/instagram.png";
-import telegram from "../assets/telegram.png";
+import youtube from "../assets/social-media/youtube.png";
+import discord from "../assets/social-media/discord.png";
+import twitch from "../assets/social-media/twitch.png";
+import steam from "../assets/social-media/steam.png";
+import instagram from "../assets/social-media/instagram.png";
+import telegram from "../assets/social-media/telegram.png";
 import ProfileGames from "../components/games/ProfileGames";
 import profileGameItem from "../models/profileGameItem";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
@@ -16,6 +16,8 @@ import ProfileEdit from "../components/profile/ProfileEdit";
 import smile from "../assets/smile.png";
 import Header from "../components/layout/Header";
 import axios, * as others from "axios";
+import profileUser from "../models/profileUser";
+import { baseUrl } from "../shares/shared";
 
 const Profile: React.FC = () => {
   let dummy: profileGameItem[] = [
@@ -68,7 +70,7 @@ const Profile: React.FC = () => {
       id: "7",
     },
   ];
-
+  const [profileUser, setProfileUser] = useState<profileUser>();
   const [referralCopy, setReferralCopy] = useState(false);
   const [isEdit, setIsEdit] = useState<boolean>(false);
   const editHandler = () => {
@@ -84,59 +86,62 @@ const Profile: React.FC = () => {
       setReferralCopy(false);
     }, 2000);
   };
-  function getCookie(name: string) {
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-    if (parts && parts.length === 2) return parts.pop()?.split(";").shift();
-  }
+  const [avatar, setAvatar] = useState();
   useEffect(() => {
     axios
       .get(
-        `http://localhost:8000/users/profile/?user=${getCookie('username')}`,
+        `${baseUrl}users/profile/?user=${localStorage.getItem("username")}`,
         {
           headers: {
-            Authorization: `Bearer ${getCookie('token')}`,
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
         }
       )
       .then(function (response) {
-        console.log(response);
+        const user = response.data;
+        setProfileUser(user);
+        setAvatar(avatar);
       })
       .catch(function (error) {
         console.log(error);
       });
-  }, []);
+  }, [isEdit]);
+
   return (
     <Fragment>
       <Header />
       <div className={styles.container}>
-        <div className={styles["profile-header"]}>
-          <div className={styles["profile-img-container"]}>
-            <FontAwesomeIcon icon={faUser} className={styles["user-icon"]} />
-          </div>
-          <div className={styles["header-info"]}>
-            <h2>Profile</h2>
-            <h3>sara.namdar@gmail.com</h3>
-          </div>
-          {!isEdit ? (
-            <FontAwesomeIcon
-              icon={faPenToSquare}
-              className={styles["edit-icon"]}
-              onClick={editHandler}
-            />
-          ) : (
-            <FontAwesomeIcon
-              icon={faXmark}
-              className={styles["edit-icon"]}
-              onClick={cancleEditHandler}
-            />
-          )}
-        </div>
-
         {isEdit ? (
-          <ProfileEdit />
+          <ProfileEdit
+            profileUser={profileUser}
+            cancelEdit={cancleEditHandler}
+          />
         ) : (
           <Fragment>
+            <div className={styles["profile-header"]}>
+              <div className={styles["profile-img-container"]}>
+                {profileUser?.avatar ? (
+                  <img
+                    src={require(`../../../../gemtopia-back/BackEnd/BackEnd/media${profileUser.avatar}`)}
+                  ></img>
+                ) : (
+                  <FontAwesomeIcon
+                    icon={faUser}
+                    className={styles["user-icon"]}
+                  />
+                )}
+                {/* ../../gemtopia-back/BackEnd/BackEnd/media${profileUser.avatar}` */}
+              </div>
+              <div className={styles["header-info"]}>
+                <h2>{profileUser?.user_name}</h2>
+                <h3>{profileUser?.email}</h3>
+              </div>
+              <FontAwesomeIcon
+                icon={faPenToSquare}
+                className={styles["edit-icon"]}
+                onClick={editHandler}
+              />
+            </div>
             <div className={styles["social-media"]}>
               <a href="/" target="balnk">
                 {" "}
@@ -165,14 +170,11 @@ const Profile: React.FC = () => {
             </div>
             <div className={styles["info-form"]}>
               <h3>user name</h3>
-              <p className={styles.username}>Jasmin-Drogon</p>
+              <p className={styles.username}>{profileUser?.user_name}</p>
 
               <h3>bio</h3>
 
-              <p className={styles.bio}>
-                I'm Mathias Yeo, and I'm passionate about writing engaging
-                content for businesses
-              </p>
+              <p className={styles.bio}>{profileUser?.bio}</p>
             </div>
             <div className={styles["footer-container"]}>
               <div className={styles.referral}>
@@ -189,7 +191,7 @@ const Profile: React.FC = () => {
                   </span>
                 )}
               </div>
-              <ProfileGames games={dummy} />
+              <ProfileGames games={profileUser?.user_games} />
             </div>
           </Fragment>
         )}

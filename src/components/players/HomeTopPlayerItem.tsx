@@ -1,7 +1,10 @@
 import homeTopPlayerItem from "../../models/homeTopPlayerItem";
 import style from "./HomeTopPlayerItem.module.css";
 
-const HomeTopPlayerItem: React.FC<{ player: homeTopPlayerItem }> = (props) => {
+const HomeTopPlayerItem: React.FC<{
+  player: homeTopPlayerItem;
+  rank: number;
+}> = (props) => {
   return (
     <div
       className={`${style.container} ${
@@ -9,28 +12,30 @@ const HomeTopPlayerItem: React.FC<{ player: homeTopPlayerItem }> = (props) => {
           ? style["dark-background"]
           : style["light-backgeround"]
       }`}
-      id={props.player.id}
+      id={String(props.player.id)}
     >
       <div className={style["rank-container"]}>
-        {isNaN(parseInt(props.player.rank)) ? (
+        {props.rank < 5 ? (
           <img
-            src={require(`../../assets/${props.player.rank}`)}
+            src={require(`../../assets/home/${props.rank + 1}-medal.png`)}
             alt=""
             className={style.medal}
           />
         ) : (
-          <p>{props.player.rank}</p>
+          <p>{props.rank}</p>
         )}
       </div>
-      <img
-        src={require(`../../assets/${props.player.imageAddress}`)}
+      {/* <img
+        src={require(`../../assets/${props.player.avatar}`)}
         alt=""
         className={style["player-image"]}
-      />
-      <p className={style.username}>{props.player.userName}</p>
+      /> */}
+      <p className={style.username}>{props.player.user_name}</p>
 
       <div className={style["token-container"]}>
-        <p className={style["token-count"]}>{props.player.token}</p>
+        <p className={style["token-count"]}>
+          {String(props.player.total_gemyto)}
+        </p>
         <img src={require("../../assets/gemyto.png")} alt="gemyto" />
       </div>
     </div>

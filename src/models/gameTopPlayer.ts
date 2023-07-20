@@ -1,8 +1,9 @@
 interface gameTopPlayerItem {
-    rank:string;
-    imageAddress:string;
-    userName:string;
-    score:string;
-    id:string;
+  // rank:string;
+  avatar: string;
+  user_name: string;
+  total_gemyto: Number;
+  hide_button: Boolean;
+  id: Number;
 }
 export default gameTopPlayerItem;

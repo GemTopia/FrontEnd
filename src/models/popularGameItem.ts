@@ -1,9 +1,9 @@
 interface PopularGameItem {
-    gameLogoAddress:string;
-    gameName:string;
-    gameCategory:string;
-    rank:string;
-    likesCount:string;
-    id:string;
+  logo_image: string;
+  name: string;
+  game_type: string;
+  // rank:string;
+  num_of_like: number;
+  id: Number;
 }
 export default PopularGameItem;

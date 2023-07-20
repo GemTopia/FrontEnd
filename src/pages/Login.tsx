@@ -8,6 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 import ReCAPTCHA from "react-google-recaptcha";
 import axios, * as others from "axios";
 import ForgotPassword from "../components/other/ForgotPassword";
+import { baseUrl } from "../shares/shared";
 /////////////////////////////////////////////////////////////////////////
 const Login = () => {
   const [showPass, setShowPass] = useState(false);
@@ -48,7 +49,7 @@ const Login = () => {
     } else {
       setErrorMessage("");
       axios
-        .post("http://localhost:8000/password_reset/", { email: emailValue })
+        .post(`${baseUrl}password_reset/`, { email: emailValue })
         .then(function (response) {
           console.log(response);
         })
@@ -67,14 +68,16 @@ const Login = () => {
       setErrorMessage("Please enter your information first");
     } else {
       axios
-        .post("http://localhost:8000/users/login/", {
+        .post(`${baseUrl}users/login/`, {
           email: emailValue,
           password: passwordValue,
         })
         .then(function (response) {
           // console.log(response.data);
+          const refresh = response.data.refresh;
           const token = response.data.access;
-          document.cookie = `token=${token}`;
+          localStorage.setItem("token", token);
+          localStorage.setItem("refresh", refresh);
           navigate("/home");
         })
         .catch(function (error) {

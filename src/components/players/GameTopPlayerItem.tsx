@@ -7,12 +7,12 @@ const GameTopPlayerItem: React.FC<{ player: gameTopPlayerItem }> = (props) => {
       className={`${style.container} ${
         Number(props.player.id) <= 3
           ? style["light-backgeround"]
-          : style["dark-background"] 
+          : style["dark-background"]
       }`}
-      id={props.player.id}
+      id={String(props.player.id)}
     >
       <div className={style["rank-container"]}>
-        {isNaN(parseInt(props.player.rank)) ? (
+        {/* {isNaN(parseInt(props.player.rank)) ? (
           <img
             src={require(`../../assets/${props.player.rank}`)}
             alt=""
@@ -20,16 +20,18 @@ const GameTopPlayerItem: React.FC<{ player: gameTopPlayerItem }> = (props) => {
           />
         ) : (
           <p>{props.player.rank}</p>
-        )}
+        )} */}
       </div>
       <img
-        src={require(`../../assets/${props.player.imageAddress}`)}
+        src={require(`../../assets/${props.player.avatar}`)}
         alt=""
         className={style["player-image"]}
       />
-      <p className={style.username}>{props.player.userName}</p>
+      <p className={style.username}>{props.player.user_name}</p>
 
-        <p className={style["score-count"]}>{props.player.score}</p>
+      <p className={style["score-count"]}>
+        {String(props.player.total_gemyto)}
+      </p>
     </div>
   );
 };

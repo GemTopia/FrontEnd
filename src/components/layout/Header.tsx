@@ -18,7 +18,7 @@ const Header = () => {
           <li>About</li>
           <Link to="/profile">
             <li className={styles.icon}>
-              <img src={profile} alt="home" />
+              <img src={profile} alt="profile" />
             </li>
           </Link>
         </ul>

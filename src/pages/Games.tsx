@@ -12,127 +12,17 @@ import CategorisedGameGroupItem from "../models/CategorisedGameGroupItem";
 const Games = () => {
   let dummy: GameItem[] = [
     {
-      thumbnailImageAddress: "Rectangle 8.png",
-      gameLogoAddress: "Rectangle 846.png",
-      gameName: "subway surfers1",
-      gameCategory: "category1",
-      rank: "2",
-      likesCount: "5278",
-      id: "1",
-      date: "2022-03-25",
-    },
-    {
-      thumbnailImageAddress: "Rectangle 8.png",
-      gameLogoAddress: "Rectangle 846.png",
-      gameName: "subway surfers1",
-      gameCategory: "category1",
-      rank: "1",
-      likesCount: "5279",
-      id: "0",
-      date: "2022-03-26",
-    },
-    {
-      thumbnailImageAddress: "Rectangle 8.png",
-      gameLogoAddress: "Rectangle 846.png",
-      gameName: "subway surfers1",
-      gameCategory: "category1",
-      rank: "3",
-      likesCount: "5277",
-      id: "2",
-      date: "2022-03-28",
-    },
-    {
-      thumbnailImageAddress: "Rectangle 8.png",
-      gameLogoAddress: "Rectangle 846.png",
-      gameName: "subway surfers1",
-      gameCategory: "category1",
-      rank: "4",
-      likesCount: "5278",
-      id: "3",
-      date: "2022-03-25",
-    },
-    {
-      thumbnailImageAddress: "Rectangle 8.png",
-      gameLogoAddress: "Rectangle 846.png",
-      gameName: "subway surfers1",
-      gameCategory: "category1",
-      rank: "5",
-      likesCount: "5279",
-      id: "4",
-      date: "2022-03-26",
-    },
-    {
-      thumbnailImageAddress: "Rectangle 8.png",
-      gameLogoAddress: "Rectangle 846.png",
-      gameName: "subway surfers1",
-      gameCategory: "category1",
-      rank: "6",
-      likesCount: "5277",
-      id: "5",
-      date: "2022-03-28",
-    },
-    {
-      thumbnailImageAddress: "Rectangle 8.png",
-      gameLogoAddress: "Rectangle 846.png",
-      gameName: "subway surfers1",
-      gameCategory: "category3",
-      rank: "13",
-      likesCount: "5273",
-      id: "12",
-      date: "2022-02-27",
-    },
-    {
-      thumbnailImageAddress: "Rectangle 8.png",
-      gameLogoAddress: "Rectangle 846.png",
-      gameName: "subway surfers1",
-      gameCategory: "category3",
-      rank: "14",
-      likesCount: "5272",
-      id: "13",
-      date: "2022-02-28",
-    },
-    {
-      thumbnailImageAddress: "Rectangle 8.png",
-      gameLogoAddress: "Rectangle 846.png",
-      gameName: "subway surfers1",
-      gameCategory: "category3",
-      rank: "15",
-      likesCount: "5271",
-      id: "14",
-      date: "2022-02-29",
-    },
-    {
-      thumbnailImageAddress: "Rectangle 8.png",
-      gameLogoAddress: "Rectangle 846.png",
-      gameName: "subway surfers1",
-      gameCategory: "category3",
-      rank: "16",
-      likesCount: "5273",
-      id: "15",
-      date: "2022-02-27",
-    },
-    {
-      thumbnailImageAddress: "Rectangle 8.png",
-      gameLogoAddress: "Rectangle 846.png",
-      gameName: "subway surfers1",
-      gameCategory: "category3",
-      rank: "17",
-      likesCount: "5272",
-      id: "16",
-      date: "2022-02-28",
-    },
-    {
-      thumbnailImageAddress: "Rectangle 8.png",
-      gameLogoAddress: "Rectangle 846.png",
-      gameName: "subway surfers1",
-      gameCategory: "category3",
-      rank: "18",
-      likesCount: "5271",
-      id: "17",
-      date: "2022-02-29",
+      cover_image: "Rectangle 846.png",
+      logo_image: "",
+      name: "subway surfers1",
+      game_type: "category1",
+      // rank: "2",
+      num_of_like: 78,
+      id: 1,
+      created_at: "2022-03-25",
     },
   ];
-  let categorisedGames: CategorisedGameGroupItem[]=groupBy(dummy);
+  let categorisedGames: CategorisedGameGroupItem[] = groupBy(dummy);
 
   const [firstGames, setFirstGames] = useState(
     categorisedGames.map((categoryGroup: CategorisedGameGroupItem) => {
@@ -179,7 +69,7 @@ const Games = () => {
         disableDownSecondState[categoryIndex].disableDownOrRight = false;
         return disableDownSecondState;
       });
-    } else if (topGame != "0") {
+    } else if (topGame !== "0") {
       const element = document.getElementById(`categoryList${category}0`);
 
       if (element) {
@@ -338,36 +228,36 @@ const Games = () => {
     setdropdownIsOpen((current) => !current);
   };
   const categorySortHandler = () => {
-    if (sortby != "category") {
+    if (sortby !== "category") {
       setSortby("category");
     }
     setdropdownIsOpen((current) => !current);
   };
   const rateSortHandler = () => {
-    if (sortby != "rate") {
+    if (sortby !== "rate") {
       setSortby("rate");
     }
     setdropdownIsOpen((current) => !current);
   };
   const earliestSortHandler = () => {
-    if (sortby != "earliest") {
+    if (sortby !== "earliest") {
       setSortby("earliest");
     }
     setdropdownIsOpen((current) => !current);
   };
   const latestSortHandler = () => {
-    if (sortby != "latest") {
+    if (sortby !== "latest") {
       setSortby("latest");
     }
     setdropdownIsOpen((current) => !current);
   };
   const compactIconClickHandler = () => {
-    if (viewType != "compact") {
+    if (viewType !== "compact") {
       setVeiwType("compact");
     }
   };
   const listIconClickHandler = () => {
-    if (viewType != "list") {
+    if (viewType !== "list") {
       setVeiwType("list");
     }
   };
@@ -376,7 +266,10 @@ const Games = () => {
     <div className={style["page-container"]}>
       <div className={style.header}>
         <div className={style["search-bar"]}>
-          <FontAwesomeIcon icon={faMagnifyingGlass} className={style["search-icon"]} />
+          <FontAwesomeIcon
+            icon={faMagnifyingGlass}
+            className={style["search-icon"]}
+          />
           <form>
             <input
               name="search"
@@ -405,7 +298,7 @@ const Games = () => {
             {dropdownIsOpen && (
               <div
                 className={`${style["choice-container"]} ${
-                  viewType == "list"
+                  viewType === "list"
                     ? style["list-dropdown-background"]
                     : style["compact-dropdown-background"]
                 }`}
@@ -413,7 +306,7 @@ const Games = () => {
                 <p
                   onClick={rateSortHandler}
                   className={`${style.choice} ${
-                    sortby == "rate"
+                    sortby === "rate"
                       ? style["selected-choice"]
                       : style["not-selected-choice"]
                   }`}
@@ -423,7 +316,7 @@ const Games = () => {
                 <p
                   onClick={categorySortHandler}
                   className={`${style.choice} ${
-                    sortby == "category"
+                    sortby === "category"
                       ? style["selected-choice"]
                       : style["not-selected-choice"]
                   }`}
@@ -433,7 +326,7 @@ const Games = () => {
                 <p
                   onClick={earliestSortHandler}
                   className={`${style.choice} ${
-                    sortby == "earliest"
+                    sortby === "earliest"
                       ? style["selected-choice"]
                       : style["not-selected-choice"]
                   }`}
@@ -443,7 +336,7 @@ const Games = () => {
                 <p
                   onClick={latestSortHandler}
                   className={`${style.choice} ${
-                    sortby == "latest"
+                    sortby === "latest"
                       ? style["selected-choice"]
                       : style["not-selected-choice"]
                   }`}
@@ -456,7 +349,7 @@ const Games = () => {
 
           <img
             src={require(`../assets/${
-              viewType == "list"
+              viewType === "list"
                 ? "listIconViewSelected.png"
                 : "listIconViewUnselect.png"
             }`)}
@@ -466,7 +359,7 @@ const Games = () => {
           />
           <img
             src={require(`../assets/${
-              viewType == "list"
+              viewType === "list"
                 ? "CompactIconViewUnselect.png"
                 : "CompactIconViewSelected.png"
             }`)}
@@ -494,14 +387,14 @@ const Games = () => {
 };
 function removewithfilter(arr: string[]) {
   let outputArray = arr.filter(function (v, i, self) {
-    return i == self.indexOf(v);
+    return i === self.indexOf(v);
   });
   return outputArray;
 }
 
 function groupBy(array: GameItem[]) {
   let categoryGroups: any = [];
-  categoryGroups = array.map((game) => game.gameCategory);
+  categoryGroups = array.map((game) => game.game_type);
   categoryGroups = removewithfilter(categoryGroups);
   categoryGroups = categoryGroups.map((category: string) => {
     return { category: category, games: [] };
@@ -510,7 +403,7 @@ function groupBy(array: GameItem[]) {
   for (let j = 0; j < categoryGroups.length; j++) {
     let categoryGroup = categoryGroups[j];
     for (let i = 0; i < array.length; i++) {
-      if (categoryGroup.category == array[i].gameCategory) {
+      if (categoryGroup.category === array[i].game_type) {
         categoryGroup.games.push(array[i]);
       }
     }

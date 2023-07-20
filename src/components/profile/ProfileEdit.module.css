@@ -6,9 +6,39 @@
   font-size: 18px;
   font-weight: 600;
 }
+
+.profile-header {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.profile-img-container {
+  border-radius: 100%;
+  border: 2px solid #fff;
+  width: 6rem;
+  height: 6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-icon {
+  font-size: 40px;
+}
+
 .edit-icon {
   font-size: 20px;
   margin-right: 0.5rem;
+  margin-left: auto;
+  font-size: 25px;
+
+  background-color: #06092d;
+  border: none;
+  color: white;
+  cursor: pointer;
 }
 .social-media a {
   margin-right: 3px;
@@ -157,7 +187,7 @@ input:checked + .slider:before {
   margin-top: 0.6rem;
 }
 @media only screen and (max-width: 767px) {
-  .info-form label{
+  .info-form label {
     font-size: 18px;
   }
   .changePassword {

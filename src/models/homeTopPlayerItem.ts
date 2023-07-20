@@ -1,8 +1,8 @@
 interface homeTopPlayerItem {
-    rank:string;
-    imageAddress:string;
-    userName:string;
-    token:string;
-    id:string;
+  //   rank: string;
+  avatar: string;
+  user_name: string;
+  total_gemyto: Number;
+  id: Number;
 }
 export default homeTopPlayerItem;

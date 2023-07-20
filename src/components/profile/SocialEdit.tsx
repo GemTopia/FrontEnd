@@ -1,12 +1,12 @@
 import React, { FormEvent } from "react";
 import styles from "./SocialEdit.module.css";
 import useInput from "../hooks/use-input";
-import youtube from "../../assets/youtube.png";
-import discord from "../../assets/discord.png";
-import twitch from "../../assets/twitch.png";
-import steam from "../../assets/steam.png";
-import instagram from "../../assets/instagram.png";
-import telegram from "../../assets/telegram.png";
+import youtube from "../../assets/social-media/youtube.png";
+import discord from "../../assets/social-media/discord.png";
+import twitch from "../../assets/social-media/twitch.png";
+import steam from "../../assets/social-media/steam.png";
+import instagram from "../../assets/social-media/instagram.png";
+import telegram from "../../assets/social-media/telegram.png";
 const SocialEdit: React.FC<{ cancelEditSocial: Function }> = (props) => {
   const {
     enteredValue: discordValue,
