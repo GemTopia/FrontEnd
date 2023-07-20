@@ -464,6 +464,10 @@
     border: none;
   }
 
+  .subscribe-button:hover{
+    background: #0096FF;
+  }
+
 
 /* .blur-backgroung-color{
     background-image: url("../assets/sh 1.png");

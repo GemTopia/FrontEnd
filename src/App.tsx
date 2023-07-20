@@ -10,6 +10,7 @@ import Report from "./pages/Report";
 import GameResult from "./pages/GameResult";
 import Inventory from "./pages/Inventory";
 import Landing from "./pages/Landing";
+import TermOfUse from "./pages/TermOfUse";
 import axios, * as others from "axios";
 import { baseUrl } from "./shares/shared";
 
@@ -44,6 +45,7 @@ function App() {
         <Route path="/report" element={<Report />}></Route>
         <Route path="/inventory" element={<Inventory />}></Route>
         <Route path="/landing" element={<Landing />}></Route>
+        <Route path="/term-of-use" element={<TermOfUse />}></Route>
       </Routes>
     </div>
   );
