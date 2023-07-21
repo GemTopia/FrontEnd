@@ -1,0 +1,10 @@
+version: "3.7"
+
+services:
+  app:
+    build:
+      context: .
+    restart: always
+    container_name: front
+    ports:
+      - 127.0.0.1:3000:80
