@@ -15,6 +15,7 @@ import axios, * as others from "axios";
 import { baseUrl } from "../shares/shared";
 import { Link } from "react-router-dom";
 import Chart from "../components/other/Chart";
+import Roadmap from "../components/other/Roadmap";
 const Landing = () => {
   let dummy: GameItem[] = [
     {
@@ -66,7 +67,7 @@ const Landing = () => {
       bio: "",
     },
   ];
-  
+
   const [dropdownIsOpen1, setDropdownIsOpen1] = useState<boolean>(false);
   const [dropdownIsOpen2, setDropdownIsOpen2] = useState<boolean>(false);
   const [dropdownIsOpen3, setDropdownIsOpen3] = useState<boolean>(false);
@@ -388,11 +389,9 @@ const Landing = () => {
 
         <div className={style.tokenomics}>
           <h3 className={style["tokenomics-title"]}>Tokenomics</h3>
-          <Chart
-            width={"60rem"}
-            height={"40rem"}
-            className={style.chart}
-          />
+          <div className={style.chart}>
+            <Chart />
+          </div>
         </div>
 
         <div className={style["clock-and-description-container"]}>
@@ -411,8 +410,8 @@ const Landing = () => {
             success in the games be the key to unlocking a plethora of tokens.
           </p>
         </div>
-        
-        <div className={style["roadmap-container"]}>
+
+        {/* <div className={style["roadmap-container"]}>
           <h2>Roadmap</h2>
           <img
             src={require("../assets/roadmap.png")}
@@ -454,6 +453,11 @@ const Landing = () => {
               </p>
             </div>
           </div>
+        </div> */}
+
+        <div className={style["roadmap-container"]}>
+          <h2>Roadmap</h2>
+          <Roadmap />
         </div>
 
         <div className={style["faq-container"]} id="faq">

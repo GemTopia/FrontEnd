@@ -381,6 +381,18 @@
   font-size: 14px;
   font-weight: 600;
 }
+
+.tokenomics{
+  /* border: 1px solid white; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 40rem;
+  margin-top: 10%;
+  overflow: hidden;
+}
+
 .tokenomics-title {
   background: linear-gradient(226deg, #1500ff 0%, #0096ff 100%);
   background-clip: text;
@@ -389,11 +401,14 @@
   font-size: 40px;
   font-weight: 700;
   letter-spacing: 0.6px;
-  margin-top: 25%;
-  margin-left: 38%;
+  /* margin-left: 38%; */
+  
 }
 .chart{
-  margin-left: 39%;
+  margin-left: 50%;
+  /* border: 1px solid white; */
+  width: 72%;
+  height: 100%;
 }
 .clock-and-description-container {
   display: flex;
@@ -425,11 +440,11 @@
 }
 
 
-.roadmap-container{
+ .roadmap-container{
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 85%;
+  width: 100%;
   margin-top: 15%;
 }
 
@@ -441,29 +456,6 @@
   font-size: 40px;
   font-weight: 700;
   letter-spacing: 0.6px;
-}
-
-.roadmap-pic{
-  width: 100%;
-  margin-top: 2%;
-}
-
-.roadmap-descriptions-container{
-  display: flex;
-  width: 100%;
-  margin-top: 1%;
-}
-
-.description-container{
-  width: 26.5%;
-  margin-left: 3%;
-}
-
-.description-container p{
-  color: #FFF;
-  font-size: 13px;
-  font-weight: 300;
-  letter-spacing: 0.225px;
 }
 
 .faq-container {

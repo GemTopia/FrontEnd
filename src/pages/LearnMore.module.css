@@ -61,8 +61,12 @@
     margin-bottom: 8.1%;
     margin-right: auto;
 }
-.chart{
-    margin-left: 35%;
+.chart-container{
+    /* border: 1px solid white; */
+    width: 100%;
+    height: 20rem;
+    margin-bottom: 8.1%;
+    margin-left: 60%;
 }
 
 .token-description{
@@ -115,9 +119,13 @@
     margin-bottom: 1%;
 }
 
-.road-map-img{
+.roadmap-container{
+    display: flex;
+    justify-content: center;
+    width: 170%;
     margin-bottom: 8.1%;
 }
+
 
 .contact-description{
     color: rgba(255, 255, 255, 0.85);
@@ -132,3 +140,4 @@
     margin-right: auto;
     margin-bottom: 5%;
 }
+

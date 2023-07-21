@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import style from "./LearnMore.module.css";
 import Chart from "../components/other/Chart";
+import Roadmap from "../components/other/Roadmap";
 const LearnMore = () => {
   const [hoveredImage, setHoveredImage] = useState<number | null>(null);
 
@@ -12,7 +13,7 @@ const LearnMore = () => {
     if (element) element.scrollIntoView({ behavior: "smooth" });
   };
   return (
-    <div className={style.container}>
+      <div className={style.container}>
       <h1>Learn more</h1>
       <hr />
       <nav className={style["short-cut-container"]}>
@@ -103,11 +104,9 @@ const LearnMore = () => {
         of users, the market, and our project collaborators. The distribution of
         our tokens is as follows: 
       </p>
-      <Chart
-            width={"40rem"}
-            height={"20rem"}
-            className={style.chart}
-          />
+      <div  className={style["chart-container"]}>
+      <Chart/>
+      </div>
       <p className={style.title} id="financial-page">
         Financial Page
       </p>
@@ -135,10 +134,9 @@ const LearnMore = () => {
         This project has additional phases and higher goals. As you can see, our
         roadmap is as follows: (insert roadmap here)
       </p>
-      <img
-        src={require("../assets/learn more RM.png")}
-        className={style["road-map-img"]}
-      />
+      <div className={style["roadmap-container"]}>
+      <Roadmap />
+      </div>
       <p className={style.title} id="team">
         Team
       </p>
@@ -200,7 +198,7 @@ const LearnMore = () => {
         <br />
         The GemTopia and Gemyto Team.
       </p>
-    </div>
+      </div>
   );
 };
 

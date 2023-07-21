@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Chart  as GoogleChart} from "react-google-charts";
 
-const Chart: React.FC<{ className?: any ,width:any,height:any}> = (props) => {
+const Chart: React.FC<{ className?: any }> = (props) => {
     const data = [
         ["share of all Gemytos", "Token"],
         ["Reward", 300000000],
@@ -23,9 +23,8 @@ const Chart: React.FC<{ className?: any ,width:any,height:any}> = (props) => {
             chartType="PieChart"
             data={data}
             options={options}
-            width={props.width}
-            height={props.height}
-            className={props.className}
+            width={"100%"}
+            height={"100%"}
           />
     );
 }
