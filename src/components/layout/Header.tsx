@@ -3,12 +3,14 @@ import styles from "./Header.module.css";
 import logo from "../../assets/logo.png";
 import profile from "../../assets/profile.png";
 import { Link } from "react-router-dom";
+import Clock from "../other/Clock";
 const Header = () => {
   return (
     <header className={styles.container}>
       <Link to="/home">
         <img src={logo} alt="gemtopia" className={styles.logo} />
       </Link>
+      <Clock className={styles.Clock}/>
       <nav className={styles.navbar}>
         <ul>
           <Link to="/games">

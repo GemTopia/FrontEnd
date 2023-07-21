@@ -9,6 +9,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import useInput from "../components/hooks/use-input";
 import Footer from "../components/layout/Footer";
+import Clock from "../components/other/Clock";
 const Landing = () => {
   let dummy: GameItem[] = [
     {
@@ -59,22 +60,6 @@ const Landing = () => {
   const dropdownClickHandler4 = () => {
     setDropdownIsOpen4((current) => !current);
   };
-  const now = new Date();
-  const greenwichHours = now.getUTCHours();
-  const greenwichMinutes = now.getUTCMinutes();
-  const greenwichSeconds = now.getUTCSeconds();
-  const [seconds, setSeconds] = useState<number>(
-    3600 * greenwichHours + 60 * greenwichMinutes + greenwichSeconds
-  );
-  useEffect(() => {
-    const interval = setInterval(() => {
-      //code inside here will run every second
-      setSeconds((current) => (current + 1) % 86400);
-
-      // console.log('working')
-    }, 1000); //change the 1000 to however many miliseconds you want between execution
-    return () => clearInterval(interval);
-  }, []);
 
   const [IsLiked, setIsLiked] = useState<boolean[]>([false, false, false]);
   const likeClickHandler = (event: any) => {
@@ -345,16 +330,7 @@ const Landing = () => {
       </div>
 
       <div className={style["clock-and-description-container"]}>
-        <div className={style["clock-container"]}>
-          {Math.floor(seconds / 3600).toString().padStart(2,'0') +
-            ":" +
-            Math.floor((seconds - 3600 * Math.floor(seconds / 3600)) / 60).toString().padStart(2,'0') +
-            ":" +
-            (seconds -
-              3600 * Math.floor(seconds / 3600) -
-              60 *
-                Math.floor((seconds - 3600 * Math.floor(seconds / 3600)) / 60)).toString().padStart(2,'0')}
-        </div>
+        <Clock className={style["clock-container"]}/>
         <p className={style["clock-description"]}>
           You have the opportunity to earn tokens by actively participating in
           games and steadily improving your ranking among fellow players. <br /> <br />Strive
