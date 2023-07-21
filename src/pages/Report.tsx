@@ -1,7 +1,10 @@
 import style from "./Report.module.css";
-import React from "react";
+import React, { FormEvent } from "react";
 import useInput from "../components/hooks/use-input";
-const Report: React.FC = () => {
+import axios, * as others from "axios";
+import { baseUrl } from "../shares/shared";
+
+const Report: React.FC = (props) => {
   const {
     enteredValue: reportValue,
     isValid: reportIsValid,
@@ -10,6 +13,18 @@ const Report: React.FC = () => {
     inputBlurHandler: reportBlurHandler,
   } = useInput(() => {},
   "I'm Mathias Yeo, and I'm passionate about writing engaging content for businesses");
+  const submitHandler = (event: FormEvent) => {
+    event.preventDefault();
+    axios.post(
+      `${baseUrl}/api/reports/`,
+      {},
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      }
+    );
+  };
   return (
     <div className={style["page-container"]}>
       <div className={style["report-issue-container"]}>
@@ -22,7 +37,7 @@ const Report: React.FC = () => {
         </div>
         <div className={style["report-input-container"]}>
           <p className={style["input-title"]}>Report</p>
-          <form>
+          <form onSubmit={submitHandler}>
             <textarea
               className={style["report-input"]}
               cols={35}
@@ -38,20 +53,17 @@ const Report: React.FC = () => {
         </div>
       </div>
       <div className={style["side-pictures-container"]}>
-        
-          <img
-            src={require('../assets/characterReportBoy.png')}
-            alt=""
-            className={style["left-image"]}
-          />
-        
-        
-          <img
-            src={require('../assets/characterReportGirl.png')}
-            alt=""
-            className={style["right-image"]}
-          />
-        
+        <img
+          src={require("../assets/characterReportBoy.png")}
+          alt=""
+          className={style["left-image"]}
+        />
+
+        <img
+          src={require("../assets/characterReportGirl.png")}
+          alt=""
+          className={style["right-image"]}
+        />
       </div>
     </div>
   );

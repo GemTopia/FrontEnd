@@ -2,19 +2,19 @@
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: .5rem 2rem;
+  /* justify-content: space-between; */
+  padding: 0.5rem 2rem;
 }
 .logo {
   width: 13rem;
 }
-.Clock{
-  color: var(--main-blue, #0096FF);
+.Clock {
+  color: var(--main-blue, #0096ff);
   margin-left: 5%;
   font-size: 16px;
   font-weight: 600;
   letter-spacing: 2.4px;
-  box-shadow: 1px 1px 20px 0.5px #0096ff ;
+  box-shadow: 1px 1px 20px 0.5px #0096ff;
   border-radius: 12px;
   width: 9%;
   height: 2rem;
@@ -30,9 +30,26 @@
   align-items: center;
 }
 .navbar li {
-    font-weight: bold;
-    cursor: pointer;
+  font-weight: bold;
+  cursor: pointer;
 }
-.icon img{
-    width: 3rem;
+.navbar li:hover {
+  color: #0096ff;
+}
+.icon img {
+  width: 3rem;
+}
+.auth {
+  margin-left: auto;
+}
+a.signup {
+  border: 2px solid #0096ff;
+  padding: 0.5rem 2rem;
+  border-radius: 20px;
+  color: #0096ff;
+}
+a.signup:hover,
+a.signup li:hover {
+  background-color: #0096ff;
+  color: #040c37;
 }
