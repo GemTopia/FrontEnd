@@ -61,6 +61,9 @@
     margin-bottom: 8.1%;
     margin-right: auto;
 }
+.chart{
+    margin-left: 35%;
+}
 
 .token-description{
     color: rgba(255, 255, 255, 0.85);

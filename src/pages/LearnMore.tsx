@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import style from "./LearnMore.module.css";
-
+import Chart from "../components/other/Chart";
 const LearnMore = () => {
   const [hoveredImage, setHoveredImage] = useState<number | null>(null);
 
@@ -101,8 +101,13 @@ const LearnMore = () => {
         We have a total of 560,000,000 tokens, which have been minted only once.
         This total amount is divided into different sections to meet the needs
         of users, the market, and our project collaborators. The distribution of
-        our tokens is as follows: (insert chart here
+        our tokens is as follows: 
       </p>
+      <Chart
+            width={"40rem"}
+            height={"20rem"}
+            className={style.chart}
+          />
       <p className={style.title} id="financial-page">
         Financial Page
       </p>
