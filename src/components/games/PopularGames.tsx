@@ -1,4 +1,4 @@
-import PopularGameItem from "../../models/popularGameItem";
+import GameItem from "../../models/GameItem";
 import style from "./PopularGames.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
@@ -7,9 +7,7 @@ import useInput from "../hooks/use-input";
 import { Link } from "react-router-dom";
 import ListGames from "./ListGames";
 
-
-const PopularGames: React.FC<{ games: PopularGameItem[] }> = (props) => {
-
+const PopularGames: React.FC<{ games: GameItem[] }> = (props) => {
   const {
     enteredValue: searchValue,
     isValid: searchIsValid,
@@ -18,15 +16,14 @@ const PopularGames: React.FC<{ games: PopularGameItem[] }> = (props) => {
     inputBlurHandler: searchBlurHandler,
   } = useInput((input: string) => input.trim().length !== 0, "");
 
-
   return (
     <div className={style["popular-games-container"]}>
       <div className={style["popular-games-header"]}>
         <h2>Popular Games</h2>
-        
+
         <div className={style["search-bar"]}>
           <FontAwesomeIcon icon={faMagnifyingGlass} className={style.icon} />
-          <form> 
+          <form>
             <input
               name="search"
               id="search"
@@ -39,9 +36,8 @@ const PopularGames: React.FC<{ games: PopularGameItem[] }> = (props) => {
             />
           </form>
         </div>
-         
       </div>
-      <ListGames games={props.games} page="home"/>
+      <ListGames games={props.games} page="home" />
       <Link to="/Home" className={style["popular-games-footer"]}>
         veiw more
       </Link>

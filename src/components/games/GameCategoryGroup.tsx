@@ -1,4 +1,4 @@
-import GameItem from "../../models/GamesPageItem";
+import GameItem from "../../models/GameItem";
 import style from "./GameCategoryGroup.module.css";
 import React , { useState } from "react";
 

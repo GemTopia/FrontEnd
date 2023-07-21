@@ -4,10 +4,10 @@
   gap: 1.5rem;
   /* margin-top: 3rem; */
 }
-
 .list-game-item-container {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 10px;
   border-radius: 20px;
   border: 1.5px solid rgba(0, 150, 255, 0.15);
@@ -16,45 +16,4 @@
 
 .list-game-item-container:hover {
   border: 1.5px solid rgba(0, 150, 255, 0.4);
-}
-
-.game-logo {
-  width: 4rem;
-  height: 4rem;
-}
-
-.game-info-container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  margin-left: 1rem;
-  line-height: 15px;
-}
-
-.game-name {
-  font-weight: 600;
-  font-size: 16px;
-}
-
-.game-category,
-.game-rank {
-  font-size: 14px;
-  font-weight: 300;
-}
-
-.likes-container {
-  margin-left: auto;
-  margin-right: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.3rem;
-}
-.likes-container img {
-  cursor: pointer;
-}
-.game-likes-count {
-  font-size: 13px;
-  font-weight: 300;
 }

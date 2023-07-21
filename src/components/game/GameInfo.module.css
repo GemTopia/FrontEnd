@@ -1,109 +1,112 @@
-.container{
-    /* border: 1px solid white; */
-    /* width: 59rem; */
-    width: 84%;
-    display: flex;
-    margin-top: 2rem;
+.container {
+  /* border: 1px solid white; */
+  /* width: 59rem; */
+  width: 84%;
+  display: flex;
+  margin-top: 2rem;
 }
 
-.game-info-container{
-    /* border: 1px solid white; */
-    /* width: 36rem; */
-    width: 61%;
-    display: flex;
+.game-info-container {
+  /* border: 1px solid white; */
+  /* width: 36rem; */
+  width: 61%;
+  display: flex;
 }
 
-.thumbnail{
-    width: 12rem;
-    height: 12rem;
+.thumbnail {
+  width: 12rem;
+  height: 12rem;
 }
 
-.info-box{
-    /* border: 1px solid white; */
-    /* width: 22rem; */
-    width: 61%;
-    margin-left: auto;
+.info-box {
+  /* border: 1px solid white; */
+  /* width: 22rem; */
+  width: 61%;
+  margin-left: auto;
 }
 
-.info-box h1{
-    /* font-family: Inter; */
-    font-size: 32px;
-    font-weight: 650;
-    line-height: 30px;
+.info-box h1 {
+  /* font-family: Inter; */
+  font-size: 32px;
+  font-weight: 650;
+  line-height: 30px;
 }
 
-.game-name{
-    color: rgba(255, 255, 255, 0.80);
-    font-weight: 400;
-    font-size: 17px;
+.game-name {
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 400;
+  font-size: 17px;
 }
-.rank{
-    color: #0096FF;
-    font-weight: 400;
-    font-size: 20px;
-}
-
-.description{
-    color: rgba(255, 255, 255, 0.80);
-    font-size: 13px;
-    font-weight: 300;
-    line-height: 16px;
+.rank {
+  color: #0096ff;
+  font-weight: 400;
+  font-size: 20px;
 }
 
-.buttons{
-    /* border: 1px solid white; */
-    /* width: 22rem; */
-    display: flex;
-    margin-top: 2rem;
+.description {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 16px;
 }
 
-.like-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.3rem;
+.buttons {
+  /* border: 1px solid white; */
+  /* width: 22rem; */
+  display: flex;
+  margin-top: 2rem;
 }
 
-.like-icon{
-    cursor: pointer;
+.like-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
 }
 
-.like-count{
-    font-size: 12px;
-    font-weight: 300;
-    color: rgba(255, 255, 255, 0.85);
+.like-icon {
+  cursor: pointer;
 }
 
-.report{
-    width: 1.3rem;
-    height: 1.3rem;
-    margin-left: 0.3rem;
+.like-count {
+  font-size: 12px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.85);
 }
 
-.report-icon{
-    width: 1.3rem;
-    height: 1.3rem;
+.report {
+  width: 1.3rem;
+  height: 1.3rem;
+  margin-left: 0.3rem;
 }
 
-.play-button{
-    margin-left: auto;
-    width: 34%;
-    padding: 0.8rem;
-    border-radius: 12px;
-    background: #0096FF;
-    border: none;
-    color: #FFF;
-    font-size: 12px;
-    cursor: pointer;
+.report-icon {
+  width: 1.3rem;
+  height: 1.3rem;
+}
+.link {
+  display: contents;
+}
+.play-button {
+  margin-left: auto;
+  width: 34%;
+  padding: 0.8rem;
+  border-radius: 12px;
+  background: #0096ff;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  font-weight: bold;
 }
 
-.play-button:hover{
-    box-shadow: 1px 1px 10px 7px rgba(0, 150, 255, 0.1);
-    border-radius: 12px;
+.play-button:hover {
+  box-shadow: 1px 1px 10px 7px rgba(0, 150, 255, 0.1);
+  border-radius: 12px;
 }
 
-.roadmap{
-    margin-left: auto;
-    width: 29%;
-    /* height: 14rem; */
+.roadmap {
+  margin-left: auto;
+  width: 29%;
+  /* height: 14rem; */
 }

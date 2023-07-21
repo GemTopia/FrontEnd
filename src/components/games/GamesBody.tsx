@@ -1,4 +1,4 @@
-import GameItem from "../../models/GamesPageItem";
+import GameItem from "../../models/GameItem";
 import style from "./GamesBody.module.css";
 import ListGames from "./ListGames";
 import CompactGames from "./CompactGames";

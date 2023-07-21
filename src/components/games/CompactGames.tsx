@@ -1,5 +1,5 @@
 // import { faL } from "@fortawesome/free-solid-svg-icons";
-import GameItem from "../../models/GamesPageItem";
+import GameItem from "../../models/GameItem";
 import style from "./CompactGames.module.css";
 import React , { useState } from "react";
  
