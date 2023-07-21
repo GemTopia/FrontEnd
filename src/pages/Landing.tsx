@@ -10,6 +10,7 @@ import {
 import useInput from "../components/hooks/use-input";
 import Footer from "../components/layout/Footer";
 import Clock from "../components/other/Clock";
+
 const Landing = () => {
   let dummy: GameItem[] = [
     {
