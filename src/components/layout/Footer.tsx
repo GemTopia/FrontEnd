@@ -38,10 +38,10 @@ const Footer = () => {
       </Link>
       <nav className={styles.navbar}>
         <ul>
-          <Link to="/games">
+          <Link to="/term-of-use">
             <li >Terms of Use</li>
           </Link>
-          <Link to="/games">
+          <Link to="/learn-more">
             <li>Learn more</li>
           </Link>
           

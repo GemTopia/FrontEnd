@@ -13,6 +13,7 @@ import Landing from "./pages/Landing";
 import TermOfUse from "./pages/TermOfUse";
 import axios, * as others from "axios";
 import { baseUrl } from "./shares/shared";
+import LearnMore from "./pages/LearnMore";
 
 function App() {
   useEffect(() => {
@@ -46,6 +47,7 @@ function App() {
         <Route path="/inventory" element={<Inventory />}></Route>
         <Route path="/landing" element={<Landing />}></Route>
         <Route path="/term-of-use" element={<TermOfUse />}></Route>
+        <Route path="/learn-more" element={<LearnMore />}></Route>
       </Routes>
     </div>
   );
