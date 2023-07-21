@@ -14,6 +14,7 @@ import Header from "../components/layout/Header";
 import axios, * as others from "axios";
 import { baseUrl } from "../shares/shared";
 import { Link } from "react-router-dom";
+import Chart from "../components/other/Chart";
 const Landing = () => {
   let dummy: GameItem[] = [
     {
@@ -65,7 +66,7 @@ const Landing = () => {
       bio: "",
     },
   ];
-
+  
   const [dropdownIsOpen1, setDropdownIsOpen1] = useState<boolean>(false);
   const [dropdownIsOpen2, setDropdownIsOpen2] = useState<boolean>(false);
   const [dropdownIsOpen3, setDropdownIsOpen3] = useState<boolean>(false);
@@ -383,6 +384,15 @@ const Landing = () => {
               </div>
             </div>
           </div>
+        </div>
+
+        <div className={style.tokenomics}>
+          <h3 className={style["tokenomics-title"]}>Tokenomics</h3>
+          <Chart
+            width={"60rem"}
+            height={"40rem"}
+            className={style.chart}
+          />
         </div>
 
         <div className={style["clock-and-description-container"]}>

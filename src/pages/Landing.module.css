@@ -8,7 +8,7 @@
 }
 
 .fading-background {
-  width: 90rem;
+  width: 100%;
   height: 30rem;
   margin: 0 auto;
   background-image: url("../assets/background.png");
@@ -20,7 +20,7 @@
   filter: brightness(50%);
 }
 .fading-background-2 {
-  width: 118rem;
+  width: 100%;
   height: 40rem;
   margin: 0 auto;
   background-image: url("../assets/background.png");
@@ -381,11 +381,25 @@
   font-size: 14px;
   font-weight: 600;
 }
+.tokenomics-title {
+  background: linear-gradient(226deg, #1500ff 0%, #0096ff 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  margin-top: 25%;
+  margin-left: 38%;
+}
+.chart{
+  margin-left: 39%;
+}
 .clock-and-description-container {
   display: flex;
   align-items: center;
   gap: 4rem;
-  margin-top: 20rem;
+  margin-top: 10rem;
   width: 80%;
   justify-content: space-around;
 }
