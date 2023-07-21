@@ -21,9 +21,7 @@ const Game = () => {
     { imgAddress: "screenshot.png", id: "7" },
     { imgAddress: "screenshot.png", id: "8" },
     { imgAddress: "screenshot.png", id: "9" },
-
   ];
-
   let topPlayersDummy: gameTopPlayerItem[] = [
     {
       // rank: "first-place-medal.png",
@@ -34,6 +32,37 @@ const Game = () => {
       hide_button: false,
     },
   ];
+  let pictures = [
+    "screenshot.png",
+    "screenshot.png",
+    "screenshot.png",
+    "screenshot.png",
+    "screenshot.png",
+    "screenshot.png",
+    "screenshot.png",
+    "screenshot.png",
+    "screenshot.png",
+    "screenshot.png",
+  ];
+  let rewards: number[] = [12, 12, 12, 12];
+  let scoreLevels: number[] = [25000, 25000, 25000, 25000];
+  let dummyGame = {
+    cover_image: "GamePic.png",
+    logo_image: "",
+    name: "subway surfers1",
+    game_type: "category",
+    // rank:string;
+    num_of_like: 54,
+    id: 1,
+    created_at: "2022-03-25",
+    is_liked_by_user: true,
+    game_pictures: pictures,
+
+    link: "string",
+    num_of_report: 0,
+    num_of_users_get_gemyto: 0,
+    bio: "string",
+  };
   const [game, setGame] = useState<GameItem>();
   const params = useParams();
   useEffect(() => {
@@ -66,7 +95,8 @@ const Game = () => {
           className={style.emoji}
         />
       </div>
-      {game && <GameInfo game={game} />}
+      {/* {game && <GameInfo game={game} />} */}
+      <GameInfo game={dummyGame} rewards={rewards} scoreLevels={scoreLevels} />
       <GamePictures pictures={dummyPictures} />
       <GameTopPlayers players={topPlayersDummy} />
     </div>

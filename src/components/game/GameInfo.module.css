@@ -107,6 +107,140 @@
 
 .roadmap {
   margin-left: auto;
+  display: flex;
+  flex-direction: column;
   width: 29%;
-  /* height: 14rem; */
+}
+.fourth-level {
+  display: flex;
+}
+.third-level-score {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.195px;
+  margin-top: auto;
+  margin-bottom: -1%;
+  margin-left: 5%;
+}
+.third-to-fourth-arrow {
+  margin-top: 5%;
+  margin-left: auto;
+}
+.fourth-step-button {
+  height: 20%;
+  margin-top: 7%;
+  margin-left: 2.5%;
+  margin-right: 2%;
+}
+.fourth-level-score {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.195px;
+}
+.fourth-level-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  height: 25%;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.21px;
+  border-radius: 9px;
+  background: linear-gradient(90deg, #00d7ff 15.86%, #0d3fe6 100%);
+}
+.third-level {
+  display: flex;
+}
+.third-level-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  height: 35%;
+  margin-top: 2%;
+  margin-left: 5%;
+  padding: 2%;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.21px;
+  border-radius: 9px;
+  background: linear-gradient(90deg, #00d7ff 15.86%, #0d3fe6 100%);
+}
+.third-step-button {
+  height: 30%;
+  margin-top: 3%;
+  margin-left: 3%;
+}
+.second-to-third-arrow {
+  margin-top: 3%;
+  margin-left: 2%;
+}
+.second-level-score {
+  margin-top: auto;
+  margin-left: auto;
+  margin-right: 6%;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.195px;
+}
+.first-and-second-level {
+  display: flex;
+}
+.first-level {
+  margin-left: 12%;
+  margin-top: auto;
+}
+.first-level-score {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.195px;
+}
+.first-level-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  height: 1.7rem;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.21px;
+  border-radius: 9px;
+  background: linear-gradient(90deg, #00d7ff 15.86%, #0d3fe6 100%);
+}
+.first-to-second-arrow {
+  margin-left: 40%;
+  margin-top: 15%;
+}
+.first-step-button {
+  margin-top: 5%;
+  margin-left: 10%;
+}
+.second-level-container {
+  display: flex;
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: 10%;
+}
+.second-step-button {
+  height: 25%;
+  margin-left: -13%;
+  margin-top: 5%;
+  margin-right: 4%;
+}
+.second-level-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-family: inherit;
+  height: 1.7rem;
+  margin-top: 2%;
+  margin-left: 10%;
+  padding: 10%;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.21px;
+  border-radius: 9px;
+  background: linear-gradient(90deg, #00d7ff 15.86%, #0d3fe6 100%);
 }

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import style from "./Landing.module.css";
-import GameItem from "../models/GamesPageItem";
+// import GameItem from "../models/GamesPageItem";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faAngleRight,
@@ -12,38 +12,38 @@ import Footer from "../components/layout/Footer";
 import Clock from "../components/other/Clock";
 
 const Landing = () => {
-  let dummy: GameItem[] = [
-    {
-      cover_image: "Rectangle 8.png",
-      logo_image: "Rectangle 846.png",
-      name: "subway surfers1",
-      game_type: "category1",
-      num_of_like: 5278,
-      rank: "1",
-      id: 0,
-      created_at: "2022-03-25",
-    },
-    {
-      cover_image: "Rectangle 8.png",
-      logo_image: "Rectangle 846.png",
-      name: "subway surfers1",
-      game_type: "category1",
-      num_of_like: 5279,
-      rank: "2",
-      id: 1,
-      created_at: "2022-03-26",
-    },
-    {
-      cover_image: "Rectangle 8.png",
-      logo_image: "Rectangle 846.png",
-      name: "subway surfers1",
-      game_type: "category1",
-      num_of_like: 5277,
-      rank: "3",
-      id: 2,
-      created_at: "2022-03-28",
-    },
-  ];
+  // let dummy: GameItem[] = [
+  //   {
+  //     cover_image: "Rectangle 8.png",
+  //     logo_image: "Rectangle 846.png",
+  //     name: "subway surfers1",
+  //     game_type: "category1",
+  //     num_of_like: 5278,
+  //     rank: "1",
+  //     id: 0,
+  //     created_at: "2022-03-25",
+  //   },
+  //   {
+  //     cover_image: "Rectangle 8.png",
+  //     logo_image: "Rectangle 846.png",
+  //     name: "subway surfers1",
+  //     game_type: "category1",
+  //     num_of_like: 5279,
+  //     rank: "2",
+  //     id: 1,
+  //     created_at: "2022-03-26",
+  //   },
+  //   {
+  //     cover_image: "Rectangle 8.png",
+  //     logo_image: "Rectangle 846.png",
+  //     name: "subway surfers1",
+  //     game_type: "category1",
+  //     num_of_like: 5277,
+  //     rank: "3",
+  //     id: 2,
+  //     created_at: "2022-03-28",
+  //   },
+  // ];
 
   const [dropdownIsOpen1, setDropdownIsOpen1] = useState<boolean>(false);
   const [dropdownIsOpen2, setDropdownIsOpen2] = useState<boolean>(false);
@@ -137,7 +137,7 @@ const Landing = () => {
         </div>
       </div>
 
-      <div className={style["game-switch-container"]}>
+      {/* <div className={style["game-switch-container"]}>
         <div
           className={`${
             chosenGame == 0 && style["first-big-game-background-image"]
@@ -201,7 +201,7 @@ const Landing = () => {
             ></div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       <div className={style["token-description-container"]}>
         <div className={style["gemyto-description-container"]}>

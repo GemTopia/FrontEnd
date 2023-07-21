@@ -4,7 +4,11 @@ import GameItem from "../../models/GameItem";
 import { Link } from "react-router-dom";
 import axios, * as others from "axios";
 import { baseUrl } from "../../shares/shared";
-const GameInfo: React.FC<{ game: GameItem }> = (props) => {
+const GameInfo: React.FC<{
+  game: GameItem;
+  rewards: number[];
+  scoreLevels: number[];
+}> = (props) => {
   const [liked, setLiked] = useState<boolean>(props.game.is_liked_by_user);
   const [isHovered, setIsHovered] = useState(false);
   const [likeCount, setLikeCount] = useState<number>(props.game.num_of_like);
@@ -94,11 +98,82 @@ const GameInfo: React.FC<{ game: GameItem }> = (props) => {
           </div>
         </div>
       </div>
-      <img
-        src={require("../../assets/roadmap.png")}
-        alt="roadmap"
-        className={style.roadmap}
-      />
+      <div className={style.roadmap}>
+        <div className={style["fourth-level"]}>
+          <p className={style["third-level-score"]}>
+            {props.scoreLevels[2].toLocaleString()} Scores
+          </p>
+          <img
+            src={require("../../assets/Game/3rdTo4thArrow.png")}
+            alt="Arrow"
+            className={style["third-to-fourth-arrow"]}
+          />
+          <img
+            src={require("../../assets/Game/eachStepButton.png")}
+            alt="button"
+            className={style["fourth-step-button"]}
+          />
+          <div>
+            <p className={style["fourth-level-score"]}>
+              {props.scoreLevels[3].toLocaleString()} Scores
+            </p>
+            <p className={style["fourth-level-label"]}>
+              {props.rewards[3]} Gemyto
+            </p>
+          </div>
+        </div>
+        <div className={style["third-level"]}>
+          <p className={style["third-level-label"]}>
+            {props.rewards[2]} Gemyto
+          </p>
+          <img
+            src={require("../../assets/Game/eachStepButton.png")}
+            alt="button"
+            className={style["third-step-button"]}
+          />
+          <img
+            src={require("../../assets/Game/2ndTo3rdArrow.png")}
+            alt="Arrow"
+            className={style["second-to-third-arrow"]}
+          />
+          <p className={style["second-level-score"]}>
+            {props.scoreLevels[1].toLocaleString()} Scores
+          </p>
+        </div>
+        <div className={style["first-and-second-level"]}>
+          <div className={style["first-level"]}>
+            <p className={style["first-level-score"]}>
+              {props.scoreLevels[0].toLocaleString()} Scores
+            </p>
+            <p className={style["first-level-label"]}>
+              {props.rewards[0]} Gemyto
+            </p>
+          </div>
+          <div>
+            <img
+              src={require("../../assets/Game/1stTo2ndArrow.png")}
+              alt="Arrow"
+              className={style["first-to-second-arrow"]}
+            />
+            <img
+              src={require("../../assets/Game/eachStepButton.png")}
+              alt="button"
+              className={style["first-step-button"]}
+            />
+          </div>
+          <div className={style["second-level-container"]}>
+            <img
+              src={require("../../assets/Game/eachStepButton.png")}
+              alt="button"
+              className={style["second-step-button"]}
+            />
+
+            <pre className={style["second-level-label"]}>
+              {props.rewards[1]} Gemyto
+            </pre>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
