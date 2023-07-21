@@ -7,8 +7,8 @@ import twitter from "../../assets/social-media/footer/twitter.png";
 import hoveredTwitter from "../../assets/social-media/footer/hovered twitter.png";
 import discord from "../../assets/social-media/footer/discord.png";
 import hoveredDiscord from "../../assets/social-media/footer/hovered discord.png";
-import email from "../../assets/social-media/footer/email.png";
-import hoveredEmail from "../../assets/social-media/footer/hovered email.png";
+import email from "../../assets/social-media/footer/gmail.png";
+import hoveredEmail from "../../assets/social-media/footer/hovered gmail.png";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -16,30 +16,21 @@ const Footer = () => {
     const [twitterIsHovered, setTwitterIsHovered] = useState<boolean>(false);
     const [discordIsHovered, setDiscordIsHovered] = useState<boolean>(false);
     const [emailIsHovered, setEmailIsHovered] = useState<boolean>(false);
-  const handleTelegramMouseEnter = () => {
-    setTelegramIsHovered(true);
+  const handleTelegramHover = () => {
+    setTelegramIsHovered(current=>!current);
   };
-  const handleTelegramMouseLeave = () => {
-    setTelegramIsHovered(false);
+  const handleTwitterMouseHover = () => {
+    setTwitterIsHovered(current=>!current);
   };
-  const handleTwitterMouseEnter = () => {
-    setTwitterIsHovered(true);
+
+  const handleDiscordMouseHover = () => {
+    setDiscordIsHovered(current=>!current);
   };
-  const handleTwitterMouseLeave = () => {
-    setTwitterIsHovered(false);
+
+  const handleEmailMouseHover = () => {
+    setEmailIsHovered(current=>!current);
   };
-  const handleDiscordMouseEnter = () => {
-    setDiscordIsHovered(true);
-  };
-  const handleDiscordMouseLeave = () => {
-    setDiscordIsHovered(false);
-  };
-  const handleEmailMouseEnter = () => {
-    setEmailIsHovered(true);
-  };
-  const handleEmailMouseLeave = () => {
-    setEmailIsHovered(false);
-  };
+  
   return (
     <footer className={styles.container}>
       <Link to="/home">
@@ -57,10 +48,10 @@ const Footer = () => {
         </ul>
       </nav>
       <div className={styles['social-media-container']}>
-      <img src={telegramIsHovered?hoveredTelegram:telegram} alt="telegram" onMouseEnter={handleTelegramMouseEnter} onMouseLeave={handleTelegramMouseLeave}/>
-      <img src={twitterIsHovered?hoveredTwitter:twitter} alt="twitter"  onMouseEnter={handleTwitterMouseEnter} onMouseLeave={handleTwitterMouseLeave}/>
-      <img src={discordIsHovered?hoveredDiscord:discord} alt="discord"  onMouseEnter={handleDiscordMouseEnter} onMouseLeave={handleDiscordMouseLeave}/>
-      <img src={emailIsHovered?hoveredEmail:email} alt="email" onMouseEnter={handleEmailMouseEnter} onMouseLeave={handleEmailMouseLeave}/>
+      <img src={telegramIsHovered?hoveredTelegram:telegram} alt="telegram" onMouseEnter={handleTelegramHover} onMouseLeave={handleTelegramHover}/>
+      <img src={twitterIsHovered?hoveredTwitter:twitter} alt="twitter"  onMouseEnter={handleTwitterMouseHover} onMouseLeave={handleTwitterMouseHover}/>
+      <img src={discordIsHovered?hoveredDiscord:discord} alt="discord"  onMouseEnter={handleDiscordMouseHover} onMouseLeave={handleDiscordMouseHover}/>
+      <img src={emailIsHovered?hoveredEmail:email} alt="email" onMouseEnter={handleEmailMouseHover} onMouseLeave={handleEmailMouseHover}/>
       
             
 
