@@ -1,26 +1,29 @@
 import style from "./Games.module.css";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import useInput from "../components/hooks/use-input";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
-import GameItem from "../models/GamesPageItem";
+import GameItem from "../models/GameItem";
 import GamesBody from "../components/games/GamesBody";
 import CategorisedGameGroupItem from "../models/CategorisedGameGroupItem";
+import axios, * as others from "axios";
+import { baseUrl } from "../shares/shared";
+
 const Games = () => {
   let dummy: GameItem[] = [
-    {
-      cover_image: "Rectangle 846.png",
-      logo_image: "",
-      name: "subway surfers1",
-      game_type: "category1",
-      rank: "2",
-      num_of_like: 78,
-      id: 1,
-      created_at: "2022-03-25",
-    },
+    // {
+    //   cover_image: "Rectangle 846.png",
+    //   logo_image: "",
+    //   name: "subway surfers1",
+    //   game_type: "category1",
+    //   // rank: "2",
+    //   num_of_like: 78,
+    //   id: 1,
+    //   created_at: "2022-03-25",
+    //   is_liked_by_user: true,
+    // },
   ];
   let categorisedGames: CategorisedGameGroupItem[] = groupBy(dummy);
 
@@ -262,6 +265,18 @@ const Games = () => {
     }
   };
   // console.log(groupBy(dummy));
+  useEffect(() => {
+    axios
+      .get(`${baseUrl}home/games`, {
+        headers: {   Authorization: `Bearer ${localStorage.getItem("token")}` },
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }, []);
   return (
     <div className={style["page-container"]}>
       <div className={style.header}>

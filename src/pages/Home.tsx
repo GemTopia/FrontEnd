@@ -2,7 +2,7 @@ import style from "./Home.module.css";
 import RecentPlayedGames from "../components/games/RecentPlayedGames";
 import PopularGames from "../components/games/PopularGames";
 import RecentPlayedGameItem from "../models/recentPlayedGameItem";
-import PopularGameItem from "../models/popularGameItem";
+import GameItem from "../models/GameItem";
 import HomeTopPlayers from "../components/players/HomeTopPlayers";
 import homeTopPlayerItem from "../models/homeTopPlayerItem";
 import { Fragment, useEffect, useState } from "react";
@@ -21,8 +21,8 @@ const Home = () => {
   //   id: "0",
   // },
   // ];
-  const [popularGames, setPopularGames] = useState<PopularGameItem[]>([]);
-  // let popularGamesDummy: PopularGameItem[] = [
+  const [popularGames, setPopularGames] = useState<GameItem[]>([]);
+  // let popularGamesDummy: GameItem[] = [
   // {
   //   gameLogoAddress: "Rectangle 846.png",
   //   gameName: "subway surfers",
@@ -78,19 +78,21 @@ const Home = () => {
           return updatedGames;
         });
 
-        const loadedPopularGames: PopularGameItem[] =
-          response.data.ranking_games.map((game: PopularGameItem) => {
+        const loadedPopularGames: GameItem[] = response.data.ranking_games.map(
+          (game: GameItem) => {
             return {
               logo_image: game.logo_image,
               name: game.name,
               game_type: game.game_type,
               num_of_like: game.num_of_like,
               id: game.id,
+              is_liked_by_user: game.is_liked_by_user,
             };
-          });
+          }
+        );
         setPopularGames((prevGames) => {
           let updatedGames = [...prevGames];
-          loadedPopularGames.map((game: PopularGameItem) => {
+          loadedPopularGames.map((game: GameItem) => {
             if (
               !updatedGames.find((item) => {
                 return item.id === game.id;
@@ -105,8 +107,8 @@ const Home = () => {
             return {
               avatar: player.avatar,
               user_name: player.user_name,
-              id: player.user_name,
-              // total_gemyto: player.total_gemyto,
+              id: player.id,
+              total_gemyto: player.total_gemyto,
             };
           });
         setTopPlayers((prevPlayers) => {

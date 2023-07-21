@@ -1,6 +1,6 @@
 .success-content {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   margin-top: 2%;
   margin-left: 5%;
@@ -24,7 +24,7 @@
 }
 .wallet-connect-content {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
 }
 .red-icon {
@@ -44,7 +44,7 @@
 }
 .lack-of-amount-content {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   margin-top: 2%;
   margin-left: 5%;
