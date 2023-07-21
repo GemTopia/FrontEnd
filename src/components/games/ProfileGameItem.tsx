@@ -12,11 +12,11 @@ const ProfileGameItem: React.FC<{ game: profileGameItem }> = (props) => {
       }`}
       id={`profile${props.game.id}`}
     >
-      <img
+      {/* <img
         src={require(`../../assets/${props.game.image_name}`)}
         alt=""
         className={style["game-pic"]}
-      />
+      /> */}
       <p className={style["game-name"]}>{props.game.name}</p>
       {/* <FontAwesomeIcon icon={faAngleUp} className={style['up-icon']} /> */}
       <p className={style["score"]}>{props.game.score}</p>

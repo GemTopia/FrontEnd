@@ -10,17 +10,17 @@
 }
 .Clock {
   color: var(--main-blue, #0096ff);
-  margin-left: 5%;
   font-size: 16px;
   font-weight: 600;
   letter-spacing: 2.4px;
   box-shadow: 1px 1px 20px 0.5px #0096ff;
   border-radius: 12px;
-  width: 9%;
+  width: 10rem;
   height: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 0 auto 0  calc(50% - 18rem) ;
 }
 .navbar ul {
   list-style: none;
@@ -39,7 +39,7 @@
 .icon img {
   width: 3rem;
 }
-.auth {
+.right {
   margin-left: auto;
 }
 a.signup {

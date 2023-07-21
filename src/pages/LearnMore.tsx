@@ -7,18 +7,36 @@ const LearnMore = () => {
   const handleHover = (index: number | null) => {
     setHoveredImage(index);
   };
+  const clickHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const element = document.getElementById(event.currentTarget.name);
+    if (element) element.scrollIntoView({ behavior: "smooth" });
+  };
   return (
     <div className={style.container}>
       <h1>Learn more</h1>
       <hr />
       <nav className={style["short-cut-container"]}>
-        <a href="#signin">sign in to site</a>
-        <a href="#games">Games</a>
-        <a href="#tokens">Tokens</a>
-        <a href="#tokenomics">Tokenomics</a>
-        <a href="#financial-page">Financial Page</a>
-        <a href="#roadmap">Roadmap</a>
-        <a href="#team">Team</a>
+        <button onClick={clickHandler} name="signin">
+          sign in to site
+        </button>
+        <button onClick={clickHandler} name="games">
+          Games
+        </button>
+        <button onClick={clickHandler} name="tokens">
+          Tokens
+        </button>
+        <button onClick={clickHandler} name="tokenomics">
+          Tokenomics
+        </button>
+        <button onClick={clickHandler} name="financial-page">
+          Financial Page
+        </button>
+        <button onClick={clickHandler} name="roadmap">
+          Roadmap
+        </button>
+        <button onClick={clickHandler} name="team">
+          Team
+        </button>
       </nav>
       <p className={style.title} id="signin">
         sign in to site
@@ -52,33 +70,30 @@ const LearnMore = () => {
         top performers for each game on the current day.
       </p>
       <div className={style["buying-guidance-container"]}>
-            <div className={style["buying-platform-container"]}>
-              <p>ETHEREUM</p>
-              <img
-                src={require("../assets/uniswap.png")}
-                alt="uniswap"
-                className={style.uniswap}
-              />
-            </div>
-            <div className={style["buying-platform-container"]}>
-              <p>POLYGON</p>
-              <img src={require("../assets/quickswap.png")} alt="quickswap" />
-            </div>
-            <div className={style["buying-platform-container"]}>
-              <p>ETHEREUM</p>
-              <img
-                src={require("../assets/pancakeswap.png")}
-                alt="pancakeswap"
-              />
-            </div>
-            <div className={style["buying-platform-container"]}>
-              <p>ETHEREUM</p>
-              <img
-                src={require("../assets/apeswap.png")}
-                className={style["apeswap-img"]}
-              />
-            </div>
-          </div>
+        <div className={style["buying-platform-container"]}>
+          <p>ETHEREUM</p>
+          <img
+            src={require("../assets/uniswap.png")}
+            alt="uniswap"
+            className={style.uniswap}
+          />
+        </div>
+        <div className={style["buying-platform-container"]}>
+          <p>POLYGON</p>
+          <img src={require("../assets/quickswap.png")} alt="quickswap" />
+        </div>
+        <div className={style["buying-platform-container"]}>
+          <p>ETHEREUM</p>
+          <img src={require("../assets/pancakeswap.png")} alt="pancakeswap" />
+        </div>
+        <div className={style["buying-platform-container"]}>
+          <p>ETHEREUM</p>
+          <img
+            src={require("../assets/apeswap.png")}
+            className={style["apeswap-img"]}
+          />
+        </div>
+      </div>
       <p className={style.title} id="tokenomics">
         Tokenomics
       </p>

@@ -7,19 +7,36 @@ const TermOfUse = () => {
   const handleHover = (index: number | null) => {
     setHoveredImage(index);
   };
-
+  const clickHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const element = document.getElementById(event.currentTarget.name);
+    if (element) element.scrollIntoView({ behavior: "smooth" });
+  };
   return (
     <div className={style.container}>
       <h1>Term of Use</h1>
       <hr />
       <nav className={style["short-cut-container"]}>
-        <a href="#service-definition">Service definition</a>
-        <a href="#term-of-use">Terms of use</a>
-        <a href="#privacy">Privacy</a>
-        <a href="#legal-responsibility">Legal Responsibility</a>
-        <a href="#changes-to-the-rules">Changes to The Rules</a>
-        <a href="#access">Suspension and termination of access</a>
-        <a href="#contact-us">contact us</a>
+        <button onClick={clickHandler} name="service-definition">
+          Service definition
+        </button>
+        <button onClick={clickHandler} name="term-of-use">
+          Terms of use
+        </button>
+        <button onClick={clickHandler} name="privacy">
+          Privacy
+        </button>
+        <button onClick={clickHandler} name="legal-responsibility">
+          Legal Responsibility
+        </button>
+        <button onClick={clickHandler} name="changes-to-the-rules">
+          Changes to The Rules
+        </button>
+        <button onClick={clickHandler} name="access">
+          Suspension and termination of access
+        </button>
+        <button onClick={clickHandler} name="contact-us">
+          contact us
+        </button>
       </nav>
       <div className={style["descriptions-container"]}>
         <p className={style.title} id="service-definition">

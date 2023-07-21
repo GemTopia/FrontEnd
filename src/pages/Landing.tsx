@@ -11,7 +11,9 @@ import useInput from "../components/hooks/use-input";
 import Footer from "../components/layout/Footer";
 import Clock from "../components/other/Clock";
 import Header from "../components/layout/Header";
-
+import axios, * as others from "axios";
+import { baseUrl } from "../shares/shared";
+import { Link } from "react-router-dom";
 const Landing = () => {
   let dummy: GameItem[] = [
     {
@@ -80,7 +82,9 @@ const Landing = () => {
   const dropdownClickHandler4 = () => {
     setDropdownIsOpen4((current) => !current);
   };
-
+  const copyHandler = () => {
+    navigator.clipboard.writeText("0x728f30fa2f10074261804fa8e0b1387d");
+  };
   const [IsLiked, setIsLiked] = useState<boolean[]>([false, false, false]);
   const likeClickHandler = (event: any) => {
     setIsLiked((firstState: boolean[]) => {
@@ -91,6 +95,15 @@ const Landing = () => {
   };
   const [chosenGame, setChosenGame] = useState<number>(0);
   useEffect(() => {
+    axios
+      .get(`${baseUrl}/landing/`)
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
     const interval = setInterval(() => {
       //code inside here will run every second
       setChosenGame((current) => (current + 1) % 3);
@@ -141,7 +154,7 @@ const Landing = () => {
       <Header />
       <div className={style.container}>
         <div className={style["fading-background"]}></div>
-        <div className={style["fading-background-2"] }></div>
+        <div className={style["fading-background-2"]}></div>
 
         <div className={style["intro-container"]}>
           <h1>Welcome to GemTopia</h1>
@@ -156,16 +169,18 @@ const Landing = () => {
             </p>
             <img src={require("../assets/stareye.png")} />
           </div>
-          <button className={style["learn-more-button"]}>learn more</button>
+          <Link to="/learn-more" className={style.link}>
+            <button className={style["learn-more-button"]}>learn more</button>
+          </Link>
         </div>
 
         <div className={style["game-switch-container"]}>
           <div
             className={`${
-              chosenGame == 0 && style["first-big-game-background-image"]
-            } ${chosenGame == 1 && style["second-big-game-background-image"]} ${
-              chosenGame == 2 && style["third-big-game-background-image"]
-            }`}
+              chosenGame === 0 && style["first-big-game-background-image"]
+            } ${
+              chosenGame === 1 && style["second-big-game-background-image"]
+            } ${chosenGame === 2 && style["third-big-game-background-image"]}`}
           >
             <div className={`${style["bottom-blur-background"]}`}>
               <div className={style["game-info-container"]}>
@@ -176,7 +191,7 @@ const Landing = () => {
                   </p>
                   <p className={style.rank}>#{dummy[chosenGame].id}</p>
                 </div>
-                <div className={style["likes-container"]}>
+                {/* <div className={style["likes-container"]}>
                   <img
                     src={require(`../assets/${
                       IsLiked[chosenGame]
@@ -191,7 +206,7 @@ const Landing = () => {
                     {" "}
                     {String(dummy[chosenGame].num_of_like)}{" "}
                   </p>
-                </div>
+                </div> */}
                 <button className={style["play-now-button"]}>learn more</button>
               </div>
             </div>
@@ -200,8 +215,8 @@ const Landing = () => {
             <div className={`${style["first-small-game-background-image"]} `}>
               <div
                 className={`${
-                  chosenGame != 0 && style["fully-blur-background-color"]
-                } ${chosenGame == 0 && style["bottom-blur-background"]}`}
+                  chosenGame !== 0 && style["fully-blur-background-color"]
+                } ${chosenGame === 0 && style["bottom-blur-background"]}`}
                 id="0"
                 onClick={gameClickHandler}
               ></div>
@@ -209,8 +224,8 @@ const Landing = () => {
             <div className={`${style["second-small-game-background-image"]}`}>
               <div
                 className={`${
-                  chosenGame != 1 && style["fully-blur-background-color"]
-                } ${chosenGame == 1 && style["bottom-blur-background"]}`}
+                  chosenGame !== 1 && style["fully-blur-background-color"]
+                } ${chosenGame === 1 && style["bottom-blur-background"]}`}
                 id="1"
                 onClick={gameClickHandler}
               ></div>
@@ -218,8 +233,8 @@ const Landing = () => {
             <div className={`${style["third-small-game-background-image"]}`}>
               <div
                 className={`${
-                  chosenGame != 2 && style["fully-blur-background-color"]
-                } ${chosenGame == 2 && style["bottom-blur-background"]}`}
+                  chosenGame !== 2 && style["fully-blur-background-color"]
+                } ${chosenGame === 2 && style["bottom-blur-background"]}`}
                 id="2"
                 onClick={gameClickHandler}
               ></div>
@@ -241,31 +256,42 @@ const Landing = () => {
             <div className={style["buying-guidance-container"]}>
               <div className={style["buying-platform-container"]}>
                 <p>ETHEREUM</p>
-                <img
-                  src={require("../assets/uniswap.png")}
-                  alt="uniswap"
-                  className={style.uniswap}
-                />
+                <a href="https://uniswap.org/" target="blank">
+                  <img
+                    src={require("../assets/uniswap.png")}
+                    alt="uniswap"
+                    className={style.uniswap}
+                  />
+                </a>
               </div>
               <div className={style["buying-platform-container"]}>
                 <p>POLYGON</p>
-                <img src={require("../assets/quickswap.png")} alt="quickswap" />
+                <a href="https://quickswap.exchange/" target="blank">
+                  <img
+                    src={require("../assets/quickswap.png")}
+                    alt="quickswap"
+                  />
+                </a>
               </div>
             </div>
             <div className={style["buying-guidance-container"]}>
               <div className={style["buying-platform-container"]}>
-                <p>ETHEREUM</p>
-                <img
-                  src={require("../assets/pancakeswap.png")}
-                  alt="pancakeswap"
-                />
+                <p>ETHEREUM</p>{" "}
+                <a href="https://pancakeswap.finance/" target="blank">
+                  <img
+                    src={require("../assets/pancakeswap.png")}
+                    alt="pancakeswap"
+                  />
+                </a>
               </div>
               <div className={style["buying-platform-container"]}>
-                <p>ETHEREUM</p>
-                <img
-                  src={require("../assets/apeswap.png")}
-                  className={style["apeswap-img"]}
-                />
+                <p>ETHEREUM</p>{" "}
+                <a href="https://apeswap.finance/" target="blank">
+                  <img
+                    src={require("../assets/apeswap.png")}
+                    className={style["apeswap-img"]}
+                  />
+                </a>
               </div>
             </div>
           </div>
@@ -282,6 +308,7 @@ const Landing = () => {
               />
               <span>0x728f30fa2f10074261804fa8e0b1387d</span>
               <img
+                onClick={copyHandler}
                 src={require(`../assets/${
                   isHovered ? "hovered copy.png" : "copy.png"
                 }`)}
@@ -377,16 +404,16 @@ const Landing = () => {
         <img
           src={require("../assets/Road map.png")}
           className={style.roadmap}
+          id="roadmap"
         />
 
-        <div className={style["faq-container"]}>
+        <div className={style["faq-container"]} id="faq">
           <h3 className={style["faq-title"]}>FAQ</h3>
-          <div className={style["faq-item"]}>
+          <div className={style["faq-item"]} onClick={dropdownClickHandler1}>
             <div className={style["faq-item-header"]}>
-              <p>1.What is GemTopia?</p>
+              <p>1. What is GemTopia?</p>
               <FontAwesomeIcon
                 icon={dropdownIsOpen1 ? faAngleUp : faAngleDown}
-                onClick={dropdownClickHandler1}
               />
             </div>
             {dropdownIsOpen1 && (
@@ -396,12 +423,11 @@ const Landing = () => {
               </p>
             )}
           </div>
-          <div className={style["faq-item"]}>
+          <div className={style["faq-item"]} onClick={dropdownClickHandler2}>
             <div className={style["faq-item-header"]}>
-              <p>2.How to earn money on this site?</p>
+              <p>2. How to earn money on this site?</p>
               <FontAwesomeIcon
                 icon={dropdownIsOpen2 ? faAngleUp : faAngleDown}
-                onClick={dropdownClickHandler2}
               />
             </div>
             {dropdownIsOpen2 && (
@@ -412,12 +438,11 @@ const Landing = () => {
               </p>
             )}
           </div>
-          <div className={style["faq-item"]}>
+          <div className={style["faq-item"]} onClick={dropdownClickHandler3}>
             <div className={style["faq-item-header"]}>
-              <p>3.What is GemTopia?</p>
+              <p>3. What is GemTopia?</p>
               <FontAwesomeIcon
                 icon={dropdownIsOpen3 ? faAngleUp : faAngleDown}
-                onClick={dropdownClickHandler3}
               />
             </div>
             {dropdownIsOpen3 && (
@@ -427,12 +452,11 @@ const Landing = () => {
               </p>
             )}
           </div>
-          <div className={style["faq-item"]}>
+          <div className={style["faq-item"]} onClick={dropdownClickHandler4}>
             <div className={style["faq-item-header"]}>
-              <p>4.What are the exact four stages that exist in every game?</p>
+              <p>4. What are the exact four stages that exist in every game?</p>
               <FontAwesomeIcon
                 icon={dropdownIsOpen4 ? faAngleUp : faAngleDown}
-                onClick={dropdownClickHandler4}
               />
             </div>
             {dropdownIsOpen4 && (
@@ -454,7 +478,7 @@ const Landing = () => {
           </div>
         </div>
 
-        <div className={style["subscribe-container"]}>
+        <div className={style["subscribe-container"]} id="community">
           <p>Be The First To Know </p>
           <form className={style["input-container"]}>
             <input
@@ -463,7 +487,7 @@ const Landing = () => {
               placeholder="Your Email"
               onChange={emailChangeHandler}
               onBlur={emailBlurHandler}
-              className={emailHasError ? style["invalid-input"] : style.input}
+              className={style.input}
             />
             <button className={style["subscribe-button"]}>Subscribe</button>
           </form>
@@ -480,40 +504,40 @@ export default Landing;
   /* <div className={style["games-scroll-container"]}>
           <div
             className={`${
-              positions[0].position == 0 && style["first-game-background-image"]
+              positions[0].position === 0 && style["first-game-background-image"]
             } ${
-              positions[0].position == 1 &&
+              positions[0].position === 1 &&
               style["second-game-background-image"]
             } ${
-              positions[0].position == 2 && style["third-game-background-image"]
+              positions[0].position === 2 && style["third-game-background-image"]
             }`}
           >
             <div className={style["blur-backgroung-color"]}></div>
           </div>
           <div
             className={`${
-              positions[1].position == 0 && style["first-game-background-image"]
+              positions[1].position === 0 && style["first-game-background-image"]
             } ${
-              positions[1].position == 1 &&
+              positions[1].position === 1 &&
               style["second-game-background-image"]
             } ${
-              positions[1].position == 2 && style["third-game-background-image"]
+              positions[1].position === 2 && style["third-game-background-image"]
             }`}
           >
             <div
               className={`${
-                positions[1].position == 1 && style["second-game-container"]
+                positions[1].position === 1 && style["second-game-container"]
               } ${style["blur-backgroung-color"]}`}
             />
           </div>
           <div
             className={`${
-              positions[2].position == 0 && style["first-game-background-image"]
+              positions[2].position === 0 && style["first-game-background-image"]
             } ${
-              positions[2].position == 1 &&
+              positions[2].position === 1 &&
               style["second-game-background-image"]
             } ${
-              positions[2].position == 2 && style["third-game-background-image"]
+              positions[2].position === 2 && style["third-game-background-image"]
             }`}
           >
             <div className={style["blur-backgroung-color"]} />
