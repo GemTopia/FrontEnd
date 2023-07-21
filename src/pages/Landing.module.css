@@ -409,10 +409,49 @@
   font-size: 20px;
   font-weight: 500;
 }
-.roadmap {
-  width: 95%;
-  margin-top: 18%;
+
+
+.roadmap-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 85%;
+  margin-top: 15%;
 }
+
+.roadmap-container h2{
+  background: linear-gradient(247deg, #1500FF 0%, #00D7FF 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+}
+
+.roadmap-pic{
+  width: 100%;
+  margin-top: 2%;
+}
+
+.roadmap-descriptions-container{
+  display: flex;
+  width: 100%;
+  margin-top: 1%;
+}
+
+.description-container{
+  width: 26.5%;
+  margin-left: 3%;
+}
+
+.description-container p{
+  color: #FFF;
+  font-size: 13px;
+  font-weight: 300;
+  letter-spacing: 0.225px;
+}
+
 .faq-container {
   color: white;
   margin-top: 10%;
