@@ -103,13 +103,19 @@ const Inventory = () => {
         {yesterdayWinning && (
           <div className={style["winning-message"]}>
             <p>Yesteday ,You received the tokens you were eligible for !</p>
+            <div>
+
             <img src={require("../assets/stareye.png")} alt="emoji1" />
             <img src={require("../assets/happy.png")} alt="emoji2" />
             <img src={require("../assets/winning.gif")} alt="winning gif" className={style['winning-gif']}/>
+            </div>
           </div>
         )}
         <div className={style["withdraw-container"]}>
           <button className={style["withdraw-button"]}>Withdraw</button>
+          
+          <div>
+          
           <FontAwesomeIcon
             icon={faCircleExclamation}
             className={`${style["warning-icon"]} ${style["yellow-icon"]}`}
@@ -118,12 +124,15 @@ const Inventory = () => {
             To ensure optimal performance when connecting your wallet, we
             recommend connecting only one account.
           </p>
+          </div>
+          
         </div>
       </div>
       <div className={style["lists-container"]}>
         <InventoryLlist title="Waiting List" gameItems={dummy} />
         <InventoryLlist title="Earned Gemyto" gameItems={dummy} />
       </div>
+      <div className={style.table}>
       <table>
         <thead>
           <tr>
@@ -175,6 +184,7 @@ const Inventory = () => {
           })}
         </tbody>
       </table>
+      </div>
     </div>
   );
 };
