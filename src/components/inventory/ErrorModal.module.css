@@ -7,6 +7,8 @@
 }
 .success-content p {
   width: 75%;
+  font-size: 1.3vw;
+  font-weight: 500;
 }
 .green-icon {
   font-size: 1.2rem;
@@ -27,9 +29,13 @@
   justify-content: flex-start;
   align-items: center;
 }
+.wallet-connect-content pre{
+  font-size: 1.3vw;
+  font-weight: 500;
+}
 .red-icon {
   color: #ff0000;
-  font-size: 1.2rem;
+  font-size: 1.7vw;
   border-radius: 50%;
   margin-right: 2%;
   box-shadow: 0px 0px 10px 4px #851616;
@@ -51,6 +57,8 @@
 }
 .lack-of-amount-content p {
   width: 75%;
+  font-size: 1.3vw;
+  font-weight: 500;
 }
 .orange-icon {
   margin-top: -3%;
@@ -83,4 +91,28 @@
 }
 .cross {
   margin-left: 96%;
+}
+@media only screen and (max-width: 767px) {
+  .wallet-connect-content pre{
+    font-size: 3vw;
+    width: 100%;
+  }
+  .success-content p,.lack-of-amount-content p{
+    font-size: 3.5vw;
+    width: 70%;
+  }
+  .red-icon{
+    font-size: 5vw;
+  }
+  .meta-mask-fox{
+    width: 6%;
+    height: 6%;
+  }
+  .modal{
+    width: 90%;
+    top: 35%;
+    left: 5%;
+    padding: 3%;
+    padding-bottom: 10%;
+  }
 }

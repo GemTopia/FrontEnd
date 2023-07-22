@@ -40,7 +40,7 @@ const InventoryLlist: React.FC<{
             />
             <p className={style["list-description"]}>
               if you stay among the top players in each game by the end of the
-              day yow will earn Gemyto .
+              day you will earn Gemyto .
             </p>
           </div>
         )}
