@@ -1,13 +1,12 @@
 .page-container {
   display: flex;
-  margin-top: 3.2rem;
-  width: 59rem;
-  margin-left: 14rem;
-  gap: 7rem;
+  gap: 5rem;
   color: white;
+  width: 80%;
+  margin: 6rem auto;
 }
 .report-issue-container {
-  width: 36.5rem;
+  width: 50%;
 }
 .report-header-container {
   width: 95%;
@@ -27,13 +26,14 @@
 }
 
 .report-input-container {
-  margin-top: 3.8rem;
+  margin-top: 1rem;
 }
 
-.input-title {
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.21px;
+.report-input-container form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 95%;
 }
 
 .report-input {
@@ -43,10 +43,16 @@
   padding: 10px;
   border: transparent 1px rgba(0, 150, 255, 0.2);
   border-radius: 12px;
-  width: 95%;
+  width: 100%;
   color: white;
   margin: 10px 0;
   height: 9.5rem;
+}
+.report-input::placeholder{
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.18px;
 }
 .report-input:focus {
   outline: none;
@@ -57,35 +63,158 @@
 }
 
 .submit-edit-button {
+  width: 30%;
   border: none;
   border-radius: 15px;
   background-color: var(--main-blue, #0096ff);
   color: white;
-  padding: 1rem 3rem;
+  padding: 0.9rem 2rem;
   font-size: 14px;
   align-self: flex-end;
   cursor: pointer;
   font-weight: 400;
   letter-spacing: 0.21px;
   margin-top: 0.6rem;
-  margin-left: 16rem;
 }
 
 .side-pictures-container {
+  position: relative;
   width: 40rem;
 }
 
 
 .left-image {
   position: absolute;
-  top: 123px;
+  top: 60px;
   z-index: 2;
-  left: 774px;
+  left: 10px;
 }
 
 .right-image {
-  left: 1008px;
-  top: 118px;
+  left: 244px;
+  top: 60px;
   position: absolute;
   z-index: 1;
+}
+
+/* Success message 
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background-color: rgba(4, 12, 55, 0.75);
+}
+
+.modal {
+  position: fixed;
+  top: 30%;
+  left: 35%;
+  right: 35%;
+  width: 35%;
+  padding: 1% 2%;
+  padding-bottom: 4%;
+  font-size: 16px;
+  font-weight: 500;
+  z-index: 100;
+  overflow: hidden;
+  color: white;
+  background: var(--background, #040c37);
+  border: 1px solid rgba(0, 150, 255, 0.75);
+  border-radius: 20px;
+}
+
+.cross {
+  margin-left: 96%;
+}
+
+.content{
+  display: flex;
+  justify-content: space-between;
+}
+
+.check{
+  color: #15ff00;
+  font-size: 1.4rem;
+  border-radius: 50%;
+  margin-right: 2%;
+  box-shadow: 0px 0px 10px 4px #1d8713;
+}
+
+
+.emoji{
+  width: 1.7rem;
+  margin-bottom: -0.5rem;
+}
+*/
+
+
+/*responsive*/
+@media only screen and (max-width: 767px) {
+  .page-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 93%;
+    margin: 1rem auto;
+    gap: 4rem;
+  }
+  .report-issue-container{
+    width: 100%;
+  }
+  .report-header-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 92vw;
+  }
+  .header-title{
+    font-size: 18px;
+    letter-spacing: 0.27px;
+  }
+  .header-body{
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.195px;
+  }
+  .report-input-container{
+    margin-top: 0.8rem;
+    width: 92vw;
+  }
+  .report-input-container form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  .report-input{
+    width: 92vw;
+    height: 8rem;
+  }
+  .submit-edit-button{
+    width: 8rem;
+    padding: 0.9rem 1rem;
+  }
+
+  .side-pictures-container{
+    width: 90%;
+  }
+  .left-image {
+    width: 52vw;
+    top: 5px;
+    z-index: 2;
+    left: 0.01vw;
+  }
+  .right-image {
+    width: 45vw;
+    left: 43vw;
+    top: 0px;
+    position: absolute;
+    z-index: 1;
+  }
+
+  
 }
