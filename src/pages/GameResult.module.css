@@ -13,34 +13,34 @@
 .losing-message-container{
     /* border: 1px solid white; */
     width: 100%;
-    margin-top: 2.5rem;
-    margin-bottom: 1rem;
+    margin-top: 10%;
+    margin-bottom: 5%;
     display: flex;
     justify-content: center;
     align-items: center;
     background: rgba(4, 12, 55, 0.85);
     color: #FFF;
-    font-size: 14px;
-    font-weight: 650;
+    font-size: 16px;
+    font-weight: 800;
 }
 
 .emoji{
     width: 9%;
-    margin-left: 0.5rem;
+    margin-left: 1%;
 }
 
 .winning-message-container{
     width: 100%;
-    margin-top: 2.5rem;
-    margin-bottom: 1rem;
+    margin-top: 10%;
+    margin-bottom: 5%;
     display: flex;
     justify-content: center;
     align-items: center;
     background: rgba(4, 12, 55, 0.85);
     color: #FFF;
     /* font-size: 14px; */
-    font-size: 86%;
-    font-weight: 650;
+    font-size: 16px;
+    font-weight: 800;
     padding-top: 2%;
     padding-bottom: 2%;
     position: relative;
@@ -50,17 +50,17 @@
     position: absolute;
     /* left:34.5rem; */
     /* top:7.5rem; */
-    left: 30%;
-    bottom:40%;
+    left: 29%;
+    bottom:50%;
     width: 14%;
 }
 
 .winning-gif{
     width: 60%;
     position: absolute;
-    left: 35%;
+    left: 37%;
     bottom: -200%;
-    rotate: 30deg;
+    rotate: 35deg;
     /* bottom: -70px; */
     /* left: 35rem; */
     /* top: 1rem; */
@@ -74,26 +74,31 @@
     flex-direction: column;
     align-items: center;
     color: #FFF;
+    overflow: visible;
     /* border: 1px solid white; */
-    width: 63%;
+    width: 60%;
 }
 
 .score{
-    font-size: 27px;
-    font-weight: 800;
-    margin-bottom: 0.9rem;
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 2%;
+    color: #FFF;
+    letter-spacing: 0.45px;
+    /* border: 1px solid white; */
 }
 
 .rank{
     text-shadow: 0px 4px 8px 0px rgba(12, 26, 102, 0.40);
-    font-size: 21px;
+    font-size: 24px;
     font-weight: 800;
-    margin-bottom: 0.5rem;
+    margin-bottom: 3.2%;
 }
 
 .token{
     display: flex;
     align-items: center;
+    margin-bottom: 4%;
 }
 
 .gemyto{
@@ -101,19 +106,27 @@
 }
 
 .token-count{
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 800;
 }
 
+.earning-condition{
+    color: rgba(0, 150, 255, 0.80);
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 7%;
+    text-align: center;
+}
+
 .play-button{
-    width: 70%;
-    padding: 0.8rem;
-    margin: 2rem;
+    width: 69%;
+    padding: 5.4%;
+    margin-bottom: 13%;
     border: none;
     border-radius: 12px;
     background: linear-gradient(180deg, #6EC3FF 0%, #0096FF 57.10%);
     color: #FFF;
-    font-size: 17px;
+    font-size: 20px;
     font-weight: 800;
     box-shadow: 1px 1px 20px 1px #0096FF ;
     cursor: pointer;
@@ -126,10 +139,10 @@
 
 .footer-buttons-container{
     /* border: 1px solid white; */
-    width: 47%;
+    width: 50%;
     display: flex;
     justify-content: space-around;
-    margin-bottom: 2rem;
+    margin-bottom: 12%;
 }
 
 .footer-button{
@@ -137,7 +150,62 @@
     justify-content: center;
     align-items: center;
     background: linear-gradient(180deg, rgba(4, 12, 55, 0.50) 0%, rgba(4, 12, 55, 0.90) 57.81%);
-    width: 25%;
-    padding: 0.5rem;
+    /* width: 25%; */
+    padding: 7%;
     border-radius: 12px;
+}
+
+.footer-button img{
+    width: 93%;
+}
+
+@media only screen and (max-width: 767px) {
+    .container{
+        width: 90%;
+    }
+    .losing-message-container{
+        font-size: 4vw;
+        font-weight: 800;
+        margin-top: 3rem;
+        margin-bottom: 1.5rem;
+    }
+    .emoji{
+        width: 10vw;
+    }
+    .winning-message-container{
+        font-size: 4vw;
+        font-weight: 800;
+        margin-top: 3rem;
+        margin-bottom: 1.5rem;
+    }
+    .crown{
+        width: 17vw;
+        left: 22vw;
+        bottom: 45%;
+    }
+    .winning-gif{
+        width: 50vw;
+        left: 35vw;
+        bottom: -150%;
+    }
+    .body{
+        width: 70%;
+    }
+    .play-button{
+        width: 12rem;
+        padding: 1rem;
+        margin-bottom: 2rem;
+    }
+    .footer-buttons-container{
+        width: 8rem;
+        margin-bottom: 2rem;
+    }
+    footer-button{
+        padding: 1rem;
+    }
+    .footer-button img{
+        width: 2rem;
+    }
+
+    
 }
