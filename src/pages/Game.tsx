@@ -80,9 +80,12 @@ const Game = () => {
   return (
     <div className={style.container}>
       <div className={style.header}>
-        <p className={style["header-content"]}>
+        <div className={style["header-content"]}>
+          <p>
           The top {game?.num_of_users_get_gemyto} players will not only dominate
-          the game, but also earn <span>  <span>Gemytos</span>
+          the game, but also earn
+          </p>
+           <div>  <span>Gemytos</span>
           <span>
           <img
           src={require("../assets/stareye.png")}
@@ -95,8 +98,8 @@ const Game = () => {
           className={style.emoji}
         />
           </span>
-          </span>
-        </p>
+          </div>
+        </div>
         
       </div>
       {/* {game && <GameInfo game={game} />} */}

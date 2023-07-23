@@ -1,36 +1,28 @@
 .container {
-  /* border: 1px solid white; */
-  /* width: 59rem; */
   width: 84%;
   display: flex;
-  /* flex-wrap: wrap; */
   margin-top: 2rem;
 }
 
 .game-info-container {
-  /* border: 1px solid white; */
-  /* width: 36rem; */
   width: 61%;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .thumbnail {
   width: 12.5vw;
   height: 12.5vw;
-  /* width: 12rem;
-  height: 12rem; */
 }
 
 .info-box {
-  /* border: 1px solid white; */
-  /* width: 22rem; */
   width: 61%;
   margin-left: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .info-box h1 {
-  /* font-family: Inter; */
-  /* font-size: 32px; */
   font-size: 2.1vw;
   font-weight: 650;
   line-height: 30px;
@@ -39,7 +31,6 @@
 .game-type {
   color: rgba(255, 255, 255, 0.8);
   font-weight: 400;
-  /* font-size: 17px; */
   font-size: 1.2vw;
 }
 .rank {
@@ -56,8 +47,6 @@
 }
 
 .buttons {
-  /* border: 1px solid white; */
-  /* width: 22rem; */
   display: flex;
   margin-top: 2rem;
 }
@@ -95,16 +84,20 @@
 .play-button {
   margin-left: auto;
   width: 34%;
+  height: 100%;
   padding: 0.8rem;
   border-radius: 12px;
   background: #0096ff;
   border: none;
   color: #fff;
   font-size: 20px;
+  font-size: 1.3vw;
   cursor: pointer;
   font-weight: bold;
 }
-
+.mobile-play-button{
+  display: none;
+}
 .play-button:hover {
   box-shadow: 1px 1px 10px 7px rgba(0, 150, 255, 0.1);
   border-radius: 12px;
@@ -114,7 +107,6 @@
   margin-left: auto;
   display: flex;
   flex-direction: column;
-  /* width: 29%; */
   width: 325px;
 }
 .fourth-level {
@@ -125,11 +117,11 @@
   font-weight: 500;
   letter-spacing: 0.195px;
   margin-top: auto;
-  margin-bottom: -1%;
-  margin-left: 5%;
+  margin-bottom: -3px;
+  margin-left: 17px;
 }
 .third-to-fourth-arrow {
-  margin-top: 5%;
+  margin-top: 15px;
   margin-left: auto;
 }
 .fourth-step-button {
@@ -166,8 +158,8 @@
   height: 35%;
   margin-top: 2%;
   margin-left: 5%;
-  padding: 2%;
-  font-size: 14px;
+  padding:11px 1px;
+  font-size: 1.06vw;
   font-weight: 700;
   letter-spacing: 0.21px;
   border-radius: 9px;
@@ -216,6 +208,7 @@
 }
 .first-to-second-arrow {
   margin-left: 40%;
+  margin-left:1.1vw;
   margin-top: 15%;
 }
 .first-step-button {
@@ -261,7 +254,7 @@
   }
   .info-box{
     margin-left: 2vw;
-    width: 100%;
+    width: 72%;
   }
   .info-box h1{
     font-size: 5vw;
@@ -274,21 +267,36 @@
     font-size: 3.5vw;
   }
   .thumbnail{
-    width: 17vw;
-    height: 17vw;
+    width: 21vw;
+    height: 21vw;
   }
   .like-container{
     margin-left: auto;
+    gap: 0.3vw;
+    /* margin-left: 10%; */
   }
   .buttons{
     flex-wrap: wrap;
     gap: 0.5vw;
-    margin-top: 0;
-    /* line-height: 2vw; */
+    margin-top: -7%;
   }
   .play-button{
+    display: none;
+  }
+  .mobile-play-button {
+    margin-left: auto;
+    display: block;
     width: 100%;
-    margin-top: 1vw;
+    height: 40%;
+    margin-top: 3%;
+    padding: 0.8rem;
+    border-radius: 12px;
+    background: #0096ff;
+    border: none;
+    color: #fff;
+    font-size: 4vw;
+    cursor: pointer;
+    font-weight: bold;
   }
   .description{
     display: none;
@@ -296,5 +304,14 @@
   .roadmap{
     margin: 8vw 0;
   }
-  
+  .third-level-score{
+    margin-bottom : -1%;
+    margin-left: 5%;
+  }
+  .fourth-level-label , .third-level-label{
+    font-size: 14px;
+  }
+  .first-to-second-arrow{
+    margin-left: 40%;
+  }
 }

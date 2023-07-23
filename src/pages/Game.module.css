@@ -24,12 +24,18 @@
   display: inline;
   /* text-align: center; */
   font-size: 15px;
+  /* font-size: 0.97vw; */
   font-weight: 200;
   letter-spacing: 0.5px;
   margin: 0.6rem 0.2rem;
   font-weight: bold;
 }
-
+.header-content p{
+  display: inline;
+}
+.header-content div{
+  display: inline;
+}
 .header-content span {
   font-size: 14px;
   color: #00d7ff;
@@ -55,6 +61,7 @@
   }
   .header-content{
     font-size: 15px;
+    /* font-size: 4vw; */
     font-weight: 500;
   }
   .mobile-size-game-description{
@@ -64,11 +71,13 @@
     width: 90%;
   }
   .mobile-size-game-description h2{
-    font-size: 14px;
+    /* font-size: 14px; */
+    font-size: 3.7vw;
     font-weight: 500;
   }
   .mobile-size-game-description p{
-    font-size: 12px;
+    /* font-size: 12px; */
+    font-size: 3.3vw;
     font-weight: 300;
   }
 }
