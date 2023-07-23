@@ -69,6 +69,7 @@ const GameInfo: React.FC<{
           <p className={style["game-type"]}>{props.game.game_type}</p>
           <p className={style.rank}>#1</p>
           <p className={style.description}>{props.game.bio}</p>
+
           <div className={style.buttons}>
             <div className={style["like-container"]}>
               <img
@@ -79,7 +80,9 @@ const GameInfo: React.FC<{
                 onClick={likeHandler}
                 className={style["like-icon"]}
               />
-              <p className={style["like-count"]}>{likeCount.toLocaleString()}</p>
+              <p className={style["like-count"]}>
+                {likeCount.toLocaleString()}
+              </p>
             </div>
             <Link to="/report" className={style["report"]}>
               <img
@@ -97,6 +100,9 @@ const GameInfo: React.FC<{
             </a>
           </div>
         </div>
+        <a href={props.game.link} className={style.link} target="blank">
+          <button className={style["mobile-play-button"]}>Play now</button>
+        </a>
       </div>
       <div className={style.roadmap}>
         <div className={style["fourth-level"]}>

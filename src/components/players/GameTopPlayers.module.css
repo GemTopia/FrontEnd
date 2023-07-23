@@ -1,6 +1,4 @@
 .container{
-    /* border: 1px solid white; */
-    /* width: 59rem; */
     width: 84%;
     display: flex;
     flex-direction: column;
@@ -16,12 +14,25 @@
 
 .header h2{
     font-weight: 500;
-    letter-spacing: 0.5px;
+    font-size: 1.83vw;
+    letter-spacing: 0.42px;
 }
 
 .header p{
     color: #0096FF;
     font-size: 14px;
     font-weight: 500;
-    margin-top: 1.4rem;
+    letter-spacing: 0.21px;
+    margin-top: 1.5rem;
+}
+@media only screen and (max-width: 767px) {
+    .header h2{
+        font-size: 4.4vw;
+        letter-spacing: 0.21px;
+    }
+    .header p{
+        font-size: 12px;
+        font-size: 3.34vw;
+        letter-spacing: 0.18px;
+    }
 }

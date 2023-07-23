@@ -1,12 +1,12 @@
 .container {
-  /* border: 1px solid white; */
-  /* width: 70rem; */
   width: 100%;
+  margin-left: 5%;
   margin-top: 1rem;
 }
 
 .pics-header {
   margin-left: 5.5rem;
+  font-size: 1.83vw;
   font-weight: 500;
   letter-spacing: 0.5px;
 }
@@ -44,9 +44,7 @@
 }
 
 .pics-container {
-  /* border: 1px solid white; */
-  /* width: 40rem; */
-  /* width: 90%; */
+  width: 50%;
   display: flex;
   margin-left: 2rem;
   gap: 2.5rem;
@@ -59,6 +57,7 @@
 
 .game-picture {
   height: 25rem;
+  width: 11.7rem;
 }
 @media only screen and (max-width: 767px) {
   .icon-container{
@@ -67,8 +66,14 @@
   .pics-container{
     overflow: scroll;
     margin-left: 5vw;
+    width: 100%;
+    gap: 0.8rem;
   }
   .pics-header{
-    margin-left: 5vw;
+    display: none;
+  }
+  .game-picture{
+    height: 13rem;
+    width: 6rem;
   }
 }
