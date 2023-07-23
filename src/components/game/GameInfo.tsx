@@ -66,8 +66,8 @@ const GameInfo: React.FC<{
         />
         <div className={style["info-box"]}>
           <h1>{props.game.name}</h1>
-          <p className={style["game-name"]}>{props.game.game_type}</p>
-          {/* <p className={style.rank}>#1</p> */}
+          <p className={style["game-type"]}>{props.game.game_type}</p>
+          <p className={style.rank}>#1</p>
           <p className={style.description}>{props.game.bio}</p>
           <div className={style.buttons}>
             <div className={style["like-container"]}>
@@ -79,7 +79,7 @@ const GameInfo: React.FC<{
                 onClick={likeHandler}
                 className={style["like-icon"]}
               />
-              <p className={style["like-count"]}>{likeCount}</p>
+              <p className={style["like-count"]}>{likeCount.toLocaleString()}</p>
             </div>
             <Link to="/report" className={style["report"]}>
               <img

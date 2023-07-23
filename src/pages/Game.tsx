@@ -52,16 +52,16 @@ const Game = () => {
     name: "subway surfers1",
     game_type: "category",
     // rank:string;
-    num_of_like: 54,
+    num_of_like: 576544,
     id: 1,
     created_at: "2022-03-25",
-    is_liked_by_user: true,
+    is_liked_by_user: false,
     game_pictures: pictures,
 
     link: "string",
     num_of_report: 0,
     num_of_users_get_gemyto: 0,
-    bio: "string",
+    bio: "You join the numbers and get to the 2048 tile! Supports tiny (3x3), classic (4x4), big (5x5), bigger (6x6) and huge (8x8) board sizes. Be ready for a new challenge!",
   };
   const [game, setGame] = useState<GameItem>();
   const params = useParams();
@@ -82,9 +82,9 @@ const Game = () => {
       <div className={style.header}>
         <p className={style["header-content"]}>
           The top {game?.num_of_users_get_gemyto} players will not only dominate
-          the game, but also earn <span>Gemytos</span>
-        </p>
-        <img
+          the game, but also earn <span>  <span>Gemytos</span>
+          <span>
+          <img
           src={require("../assets/stareye.png")}
           alt="emoji1"
           className={style.emoji}
@@ -94,9 +94,17 @@ const Game = () => {
           alt="emoji2"
           className={style.emoji}
         />
+          </span>
+          </span>
+        </p>
+        
       </div>
       {/* {game && <GameInfo game={game} />} */}
       <GameInfo game={dummyGame} rewards={rewards} scoreLevels={scoreLevels} />
+      <div className={style['mobile-size-game-description']}>
+        <h2>About this game</h2>
+        <p className={style.description}>{dummyGame.bio}</p>
+      </div>
       <GamePictures pictures={dummyPictures} />
       <GameTopPlayers players={topPlayersDummy} />
     </div>

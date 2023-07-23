@@ -9,15 +9,21 @@
 
 .header {
   width: 84%;
+  /* text-align: center; */
   display: flex;
   justify-content: center;
+  align-items: center;
   background: rgba(0, 150, 255, 0.25);
   border-radius: 12px;
 }
 
 .header-content {
   font-family: Poppins, sans-serif;
-  font-size: 14px;
+  /* display: flex;
+  align-items: center; */
+  display: inline;
+  /* text-align: center; */
+  font-size: 15px;
   font-weight: 200;
   letter-spacing: 0.5px;
   margin: 0.6rem 0.2rem;
@@ -32,6 +38,37 @@
 .emoji {
   width: 1.3rem;
   height: 1.3rem;
-  margin-top: 0.5rem;
+  /* margin-top: 0.5rem; */
+  margin-bottom: -0.4rem;
   margin-left: 0.2rem;
+}
+.mobile-size-game-description{
+  display: none;
+}
+@media only screen and (max-width: 767px) {
+  .container{
+    width: 100%;
+  }
+  .header{
+    width: 95%;
+    padding: 3vw;
+  }
+  .header-content{
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .mobile-size-game-description{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    width: 90%;
+  }
+  .mobile-size-game-description h2{
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .mobile-size-game-description p{
+    font-size: 12px;
+    font-weight: 300;
+  }
 }

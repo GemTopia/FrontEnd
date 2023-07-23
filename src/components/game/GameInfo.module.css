@@ -3,6 +3,7 @@
   /* width: 59rem; */
   width: 84%;
   display: flex;
+  /* flex-wrap: wrap; */
   margin-top: 2rem;
 }
 
@@ -14,8 +15,10 @@
 }
 
 .thumbnail {
-  width: 12rem;
-  height: 12rem;
+  width: 12.5vw;
+  height: 12.5vw;
+  /* width: 12rem;
+  height: 12rem; */
 }
 
 .info-box {
@@ -27,15 +30,17 @@
 
 .info-box h1 {
   /* font-family: Inter; */
-  font-size: 32px;
+  /* font-size: 32px; */
+  font-size: 2.1vw;
   font-weight: 650;
   line-height: 30px;
 }
 
-.game-name {
+.game-type {
   color: rgba(255, 255, 255, 0.8);
   font-weight: 400;
-  font-size: 17px;
+  /* font-size: 17px; */
+  font-size: 1.2vw;
 }
 .rank {
   color: #0096ff;
@@ -109,7 +114,8 @@
   margin-left: auto;
   display: flex;
   flex-direction: column;
-  width: 29%;
+  /* width: 29%; */
+  width: 325px;
 }
 .fourth-level {
   display: flex;
@@ -243,4 +249,52 @@
   letter-spacing: 0.21px;
   border-radius: 9px;
   background: linear-gradient(90deg, #00d7ff 15.86%, #0d3fe6 100%);
+}
+@media only screen and (max-width: 767px) {
+  .container{
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  .game-info-container{
+    width: 93%;
+  }
+  .info-box{
+    margin-left: 2vw;
+    width: 100%;
+  }
+  .info-box h1{
+    font-size: 5vw;
+    font-weight: 600;
+  }
+  .game-type{
+    font-size: 3.5vw;
+  }
+  .rank{
+    font-size: 3.5vw;
+  }
+  .thumbnail{
+    width: 17vw;
+    height: 17vw;
+  }
+  .like-container{
+    margin-left: auto;
+  }
+  .buttons{
+    flex-wrap: wrap;
+    gap: 0.5vw;
+    margin-top: 0;
+    /* line-height: 2vw; */
+  }
+  .play-button{
+    width: 100%;
+    margin-top: 1vw;
+  }
+  .description{
+    display: none;
+  }
+  .roadmap{
+    margin: 8vw 0;
+  }
+  
 }

@@ -53,3 +53,17 @@
     margin-right: 1.5rem;
     font-weight: 400;
 }
+@media only screen and (max-width: 767px) {
+    .username{
+        font-size: 12px;
+    }
+    .score-count{
+        font-size: 12px;
+    }
+    .player-image{
+        margin-left: 3vw;
+    }
+    .rank-container{
+        margin-left: 3vw;
+    }
+}
