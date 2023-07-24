@@ -14,11 +14,14 @@ const Login = () => {
   const [showPass, setShowPass] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [pageState, setPageState] = useState("ligin");
+  const [valid_token, setValidToken] = useState([]);
   const SITE_KEY = process.env.REACT_APP_reCAPTCHA_SITE_KEY;
   // const SECRET_KEY = process.env.REACT_APP_reCAPTCHA_SECRET_KEY;
-  const captchaRef = useRef(null);
+  const captchaRef: any = useRef(null);
   const navigate = useNavigate();
   //////////////////////////////////////////////////////////////////////
+
+  // const handleSubmit = async (event: any) => {};
   const {
     enteredValue: passwordValue,
     isValid: passwordIsValid,
@@ -62,8 +65,38 @@ const Login = () => {
   const cancelForgotHandler = () => {
     setPageState("login");
   };
-  const submitHandler = (event: FormEvent) => {
+
+  // const verifyToken = async (token: any) => {
+  //   let APIResponse = [];
+
+  //   try {
+  //     let response = await axios.post(`http://localhost:8000/verify-token`, {
+  //       reCAPTCHA_TOKEN: token,
+  //       Secret_Key: SECRET_KEY,
+  //     });
+
+  //     APIResponse.push(response["data"]);
+  //     return APIResponse;
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+  const submitHandler = async (event: FormEvent) => {
     event.preventDefault();
+    let token: any = captchaRef.current.getValue();
+    captchaRef.current.reset();
+    console.log(token);
+    if (token) {
+      // let valid_token: any = await verifyToken(token);
+      setValidToken(valid_token);
+
+      // if (valid_token[0].success === true) {
+      //   console.log("verified");
+      // } else {
+      //   console.log("not verified");
+      //   setErrorMessage(" Sorry!! Verify you are not a bot");
+      // }
+    }
     if (!formIsValid) {
       setErrorMessage("Please enter your information first");
     } else {
@@ -71,6 +104,8 @@ const Login = () => {
         .post(`${baseUrl}users/login/`, {
           email: emailValue,
           password: passwordValue,
+          recaptcha_response: token,
+          // Secret_Key: SECRET_KEY,
         })
         .then(function (response) {
           // console.log(response.data);
@@ -81,8 +116,14 @@ const Login = () => {
           navigate("/home");
         })
         .catch(function (error) {
-          // console.log(error.response.data.detail);
-          setErrorMessage("Your email or your password is wrong");
+          // console.log(error.response.data[0]);
+          setErrorMessage(
+            error.response.data[0] ||
+              error.response.data.detail ||
+              error.response.data.email ||
+              error.response.data.password
+          );
+          // setErrorMessage("Your email or your password is wrong");
         });
     }
   };

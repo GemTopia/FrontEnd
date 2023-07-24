@@ -3,11 +3,14 @@ import styles from "./ChangePassword.module.css";
 import useInput from "../hooks/use-input";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-regular-svg-icons";
+import axios, * as others from "axios";
+import { baseUrl } from "../../shares/shared";
+
 const ChangePassword: React.FC<{ cancelChange: Function }> = (props) => {
   const [showOldPass, setShowOldPass] = useState(false);
   const [showNewPass, setShowNewPass] = useState(false);
   const [showConfirmPass, setShowConfirmPass] = useState(false);
-
+  const [errorMessage, setErrorMessage] = useState("");
   //////////////////////////////////////
   const {
     enteredValue: oldPassValue,
@@ -15,21 +18,21 @@ const ChangePassword: React.FC<{ cancelChange: Function }> = (props) => {
     hasError: oldPassHasError,
     inputChangeHandler: oldPassChangeHandler,
     inputBlurHandler: oldPassBlurHandler,
-  } = useInput((input: string) => input.trim().length !== 0, "");
+  } = useInput((input: string) => input.trim().length > 7, "");
   const {
     enteredValue: newPassValue,
     isValid: newPassIsValid,
     hasError: newPassHasError,
     inputChangeHandler: newPassChangeHandler,
     inputBlurHandler: newPassBlurHandler,
-  } = useInput((input: string) => input.trim().length !== 0, "");
+  } = useInput((input: string) => input.trim().length > 7, "");
   const {
     enteredValue: confirmPassValue,
     isValid: confirmPassIsValid,
     hasError: confirmPassHasError,
     inputChangeHandler: confirmPassChangeHandler,
     inputBlurHandler: confirmPassBlurHandler,
-  } = useInput((input: string) => input.trim().length !== 0, "");
+  } = useInput((input: string) => input === newPassValue, "");
   ////////////////////////////////////////
   const showOldPassHandler = (event: MouseEvent) => {
     setShowOldPass((prevState) => !prevState);
@@ -45,6 +48,31 @@ const ChangePassword: React.FC<{ cancelChange: Function }> = (props) => {
   };
   const submitHandler = (event: FormEvent) => {
     event.preventDefault();
+    if (oldPassIsValid && newPassIsValid && confirmPassIsValid) {
+      axios
+        .post(
+          `${baseUrl}users/change_password/`,
+          {
+            old_password: oldPassValue,
+            new_password: newPassValue,
+            repeat_new_password: confirmPassValue,
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          }
+        )
+        .then(function (response) {
+          console.log(response);
+          props.cancelChange();
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    } else {
+      setErrorMessage("Please enter your information first");
+    }
   };
   return (
     <form action="" className={styles["form"]} onSubmit={submitHandler}>
@@ -107,6 +135,9 @@ const ChangePassword: React.FC<{ cancelChange: Function }> = (props) => {
           />
         </span>
       </div>
+      {errorMessage && (
+        <p className={styles["error-message"]}>{errorMessage}</p>
+      )}
       <div className={styles.buttons}>
         <button className={styles["cancel-button"]} onClick={cancelHandler}>
           cancel change

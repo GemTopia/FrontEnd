@@ -19,22 +19,34 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 28rem;
+  width: 26rem;
   margin-top: 2rem;
 }
 .form p {
   margin-bottom: 3rem;
   margin-top: 1rem;
 }
-.input {
+input.input {
   background-color: #0096ff33;
   color: white;
   border: none;
   outline: none;
   width: 100%;
   margin: 7px 0;
-  padding: 0 1rem;
+  padding: 2rem 1.5rem;
   height: 3rem;
+  border-radius: 12px;
+  font-size: 16px;
+}
+div.input {
+  background-color: #0096ff33;
+  color: white;
+  border: none;
+  outline: none;
+  width: 100%;
+  margin: 7px 0;
+  padding: 0;
+  height: 4rem;
   border-radius: 12px;
   font-size: 16px;
 }
@@ -43,20 +55,34 @@
   color: white;
   border: none;
   outline: none;
-  width: calc(97% - 1rem );
+  width: calc(97% - 1rem);
   height: 100%;
   border-radius: 12px;
   font-size: 16px;
+  padding: 2rem 1.5rem;
 }
-.invalid-input {
+input.invalid-input {
   background-color: #0096ff33;
   color: white;
   border: none;
   outline: none;
   width: 100%;
   margin: 7px 0;
-  padding: 0 1rem;
+  padding: 2rem 1.5rem;
   height: 3rem;
+  border-radius: 12px;
+  font-size: 16px;
+  box-shadow: 0 0 12px inset red;
+}
+div.invalid-input {
+  background-color: #0096ff33;
+  color: white;
+  border: none;
+  outline: none;
+  width: 100%;
+  margin: 7px 0;
+  padding: 0;
+  height: 4rem;
   border-radius: 12px;
   font-size: 16px;
   box-shadow: 0 0 12px inset red;
@@ -69,8 +95,9 @@
   width: calc(97%-1rem);
   font-size: 16px;
   height: 100%;
+  padding: 2rem 1.5rem;
 }
-.forgot-password{
+.forgot-password {
   color: white;
   border: none;
   outline: none;
@@ -84,8 +111,8 @@
   cursor: pointer;
 }
 .button {
-  width: 75%;
-  padding: 13px;
+  width: 100%;
+  padding: 1rem;
   border-radius: 12px;
   background: linear-gradient(90deg, #5800ff 0%, #00d7ff 100%);
   border: none;
@@ -122,6 +149,7 @@
 p.error-message {
   color: red;
   margin: 10px 0;
+  text-align: center;
 }
 
 @media only screen and (max-width: 480px) {
@@ -131,7 +159,7 @@ p.error-message {
   .logo {
     width: 10rem;
   }
-  .form h1{
+  .form h1 {
     font-size: 25px;
   }
 }

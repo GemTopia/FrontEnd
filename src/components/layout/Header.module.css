@@ -3,10 +3,11 @@
   display: flex;
   align-items: center;
   /* justify-content: space-between; */
-  padding: 0.5rem 2rem;
+  padding: 0 1rem;
+  height: 4.5rem;
 }
 .logo {
-  width: 13rem;
+  width: 10rem;
 }
 .Clock {
   color: var(--main-blue, #0096ff);
@@ -15,25 +16,26 @@
   letter-spacing: 2.4px;
   box-shadow: 1px 1px 20px 0.5px #0096ff;
   border-radius: 12px;
-  width: 10rem;
+  width: 20%;
+  max-width: 10rem;
   height: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 0  calc(50% - 18rem) ;
+  margin: 0 auto 0 calc(50% - 15rem);
 }
-.navbar ul {
+ul {
   list-style: none;
   display: flex;
   color: white;
   gap: 3rem;
   align-items: center;
 }
-.navbar li {
+li {
   font-weight: bold;
   cursor: pointer;
 }
-.navbar li:hover {
+li a:hover,li:hover {
   color: #0096ff;
 }
 .icon img {
@@ -52,4 +54,26 @@ a.signup:hover,
 a.signup li:hover {
   background-color: #0096ff;
   color: #040c37;
+}
+.icon {
+  cursor: pointer;
+}
+.menu {
+  position: absolute;
+  height: 40rem;
+  top: 4.5rem;
+  background-color: #040c37;
+  width: 100%;
+  z-index: 10000000000;
+}
+.menu ul {
+  flex-direction: column;
+  align-items: start;
+  padding: 0;
+  gap: 0;
+}
+.menu ul li {
+  border-bottom: 4px solid rgba(0, 150, 255, 0.07);
+  width: 100%;
+  padding: 1rem ;
 }

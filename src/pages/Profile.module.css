@@ -85,6 +85,7 @@
 .referral {
   display: flex;
   justify-content: space-between;
+  margin-top: 1.3rem;
 }
 .referral button {
   font-weight: 700;
@@ -97,7 +98,6 @@
   color: transparent;
   display: inline-block;
   cursor: pointer;
-  margin: 1.3rem 0;
   border: none;
   outline: none;
   padding: 0;

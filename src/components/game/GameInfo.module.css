@@ -107,11 +107,19 @@
   margin-left: auto;
   display: flex;
   flex-direction: column;
+<<<<<<< HEAD
   width: 325px;
+=======
+  width: 29%;
+  align-items: center;
+>>>>>>> 572d9a1 (connecting done)
 }
-.fourth-level {
+
+.two-level {
   display: flex;
+  gap: .5rem;
 }
+<<<<<<< HEAD
 .third-level-score {
   font-size: 13px;
   font-weight: 500;
@@ -136,16 +144,33 @@
   letter-spacing: 0.195px;
 }
 .fourth-level-label {
+=======
+
+.level-container {
+>>>>>>> 572d9a1 (connecting done)
   display: flex;
   justify-content: center;
   align-items: center;
-  color: black;
-  height: 25%;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.21px;
-  border-radius: 9px;
+  align-self: flex-start;
+}
+
+.level-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 7rem;
+  gap: .3rem;
+}
+.level-score {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.195px;
+}
+
+.level-label {
   background: linear-gradient(90deg, #00d7ff 15.86%, #0d3fe6 100%);
+<<<<<<< HEAD
 }
 .third-level {
   display: flex;
@@ -231,18 +256,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
+=======
+>>>>>>> 572d9a1 (connecting done)
   color: black;
   font-family: inherit;
-  height: 1.7rem;
-  margin-top: 2%;
-  margin-left: 10%;
-  padding: 10%;
   font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.21px;
   border-radius: 9px;
-  background: linear-gradient(90deg, #00d7ff 15.86%, #0d3fe6 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.2rem 0.6rem;
 }
+<<<<<<< HEAD
 @media only screen and (max-width: 767px) {
   .container{
     flex-direction: column;
@@ -314,4 +341,15 @@
   .first-to-second-arrow{
     margin-left: 40%;
   }
+=======
+.arrow{
+  margin-bottom: 1.7rem;
+  margin-top: .5rem;
+}
+.down{
+  align-self: flex-end;
+}
+.center-arrow{
+  margin: -1.5rem 0 0 0 ;
+>>>>>>> 572d9a1 (connecting done)
 }

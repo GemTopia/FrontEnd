@@ -1,8 +1,8 @@
-interface transaction{
-    id:string;
-    Date:string;
-    From:string;
-    To:string;
-    Quantity:number;
+interface transaction {
+  id: number;
+  created_at: string;
+  wallet_address: string;
+  from_wallet: string;
+  value: number;
 }
 export default transaction;

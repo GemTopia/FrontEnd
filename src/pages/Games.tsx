@@ -1,5 +1,5 @@
 import style from "./Games.module.css";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import useInput from "../components/hooks/use-input";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,6 +10,7 @@ import GamesBody from "../components/games/GamesBody";
 import CategorisedGameGroupItem from "../models/CategorisedGameGroupItem";
 import axios, * as others from "axios";
 import { baseUrl } from "../shares/shared";
+import Header from "../components/layout/Header";
 
 const Games = () => {
   let dummy: GameItem[] = [
@@ -25,7 +26,10 @@ const Games = () => {
     //   is_liked_by_user: true,
     // },
   ];
-  let categorisedGames: CategorisedGameGroupItem[] = groupBy(dummy);
+  const [games, setGames] = useState<GameItem[]>([]);
+  const [categorisedGames, setCategorisedGames] = useState<
+    CategorisedGameGroupItem[]
+  >([]);
 
   const [firstGames, setFirstGames] = useState(
     categorisedGames.map((categoryGroup: CategorisedGameGroupItem) => {
@@ -265,178 +269,209 @@ const Games = () => {
     }
   };
   // console.log(groupBy(dummy));
+  function removewithfilter(arr: string[]) {
+    let outputArray = arr.filter(function (v, i, self) {
+      return i === self.indexOf(v);
+    });
+    return outputArray;
+  }
+
+  function groupBy(array: GameItem[]) {
+    let categoryGroups: any = [];
+    categoryGroups = array.map((game) => game.game_type);
+    categoryGroups = removewithfilter(categoryGroups);
+    categoryGroups = categoryGroups.map((category: string) => {
+      return { category: category, games: [] };
+    });
+
+    for (let j = 0; j < categoryGroups.length; j++) {
+      let categoryGroup = categoryGroups[j];
+      for (let i = 0; i < array.length; i++) {
+        if (categoryGroup.category === array[i].game_type) {
+          categoryGroup.games.push(array[i]);
+        }
+      }
+    }
+    // [
+    //     gameItem={category:'cat',gameItems:[]}
+    // ]
+
+    // for (let i=0; i<array.length; i++) {
+
+    //   let c = array[i][prop];
+    //   if (!grouped.gameCategory===c)
+    //   {
+    //     grouped[c] = [];
+    // };
+    //   grouped[c].push(array[i]);
+    // }
+    return categoryGroups;
+  }
+
   useEffect(() => {
     axios
-      .get(`${baseUrl}home/games`, {
-        headers: {   Authorization: `Bearer ${localStorage.getItem("token")}` },
-      })
+      .get(
+        `${baseUrl}home/games/?sort_by=${
+          sortby === "category" ? "rate" : sortby
+        }`,
+        {
+          headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        }
+      )
       .then(function (response) {
-        console.log(response);
+        setGames(response.data);
+        console.log(response.data);
+        setCategorisedGames(groupBy(response.data));
+        setDisableDownOrRight(
+          groupBy(response.data).map(
+            (categoryGroup: CategorisedGameGroupItem) => {
+              return {
+                category: categoryGroup.category,
+                disableDownOrRight: false,
+              };
+            }
+          )
+        );
+        setDisableUpOrLeft(
+          groupBy(response.data).map(
+            (categoryGroup: CategorisedGameGroupItem) => {
+              return {
+                category: categoryGroup.category,
+                disableUpOrLeft: true,
+              };
+            }
+          )
+        );
       })
       .catch(function (error) {
         console.log(error);
       });
-  }, []);
+  }, [sortby]);
   return (
-    <div className={style["page-container"]}>
-      <div className={style.header}>
-        <div className={style["search-bar"]}>
-          <FontAwesomeIcon
-            icon={faMagnifyingGlass}
-            className={style["search-icon"]}
-          />
-          <form>
-            <input
-              name="search"
-              id="search"
-              onChange={searchChangeHandler}
-              onBlur={searchBlurHandler}
-              value={searchValue}
-              type="text"
-              className={style["search-input"]}
-              placeholder="search game ..."
+    <Fragment>
+      <Header />
+      <div className={style["page-container"]}>
+        <div className={style.header}>
+          <div className={style["search-bar"]}>
+            <FontAwesomeIcon
+              icon={faMagnifyingGlass}
+              className={style["search-icon"]}
             />
-          </form>
-        </div>
-        <div className={style["header-right-side-container"]}>
-          <div className={style["dropdown-container"]}>
-            <div className={style["sortby-title"]}>
-              <p className={style.sortby}>sort by</p>
-
-              <FontAwesomeIcon
-                icon={dropdownIsOpen ? faAngleUp : faAngleDown}
-                className={style["dropdown-icon"]}
-                onClick={dropdownIconClickHandler}
+            <form>
+              <input
+                name="search"
+                id="search"
+                onChange={searchChangeHandler}
+                onBlur={searchBlurHandler}
+                value={searchValue}
+                type="text"
+                className={style["search-input"]}
+                placeholder="search game ..."
               />
-              <p className={style["veiw-title"]}>view</p>
-            </div>
-            {dropdownIsOpen && (
-              <div
-                className={`${style["choice-container"]} ${
-                  viewType === "list"
-                    ? style["list-dropdown-background"]
-                    : style["compact-dropdown-background"]
-                }`}
-              >
-                <p
-                  onClick={rateSortHandler}
-                  className={`${style.choice} ${
-                    sortby === "rate"
-                      ? style["selected-choice"]
-                      : style["not-selected-choice"]
-                  }`}
-                >
-                  rate
-                </p>
-                <p
-                  onClick={categorySortHandler}
-                  className={`${style.choice} ${
-                    sortby === "category"
-                      ? style["selected-choice"]
-                      : style["not-selected-choice"]
-                  }`}
-                >
-                  category
-                </p>
-                <p
-                  onClick={earliestSortHandler}
-                  className={`${style.choice} ${
-                    sortby === "earliest"
-                      ? style["selected-choice"]
-                      : style["not-selected-choice"]
-                  }`}
-                >
-                  earliest
-                </p>
-                <p
-                  onClick={latestSortHandler}
-                  className={`${style.choice} ${
-                    sortby === "latest"
-                      ? style["selected-choice"]
-                      : style["not-selected-choice"]
-                  }`}
-                >
-                  latest
-                </p>
-              </div>
-            )}
+            </form>
           </div>
+          <div className={style["header-right-side-container"]}>
+            <div className={style["dropdown-container"]}>
+              <div className={style["sortby-title"]}>
+                <p className={style.sortby}>sort by</p>
 
-          <img
-            src={require(`../assets/${
-              viewType === "list"
-                ? "listIconViewSelected.png"
-                : "listIconViewUnselect.png"
-            }`)}
-            alt="view icon"
-            className={style["view-icon"]}
-            onClick={listIconClickHandler}
-          />
-          <img
-            src={require(`../assets/${
-              viewType === "list"
-                ? "CompactIconViewUnselect.png"
-                : "CompactIconViewSelected.png"
-            }`)}
-            alt="view icon"
-            className={style["view-icon"]}
-            onClick={compactIconClickHandler}
-          />
+                <FontAwesomeIcon
+                  icon={dropdownIsOpen ? faAngleUp : faAngleDown}
+                  className={style["dropdown-icon"]}
+                  onClick={dropdownIconClickHandler}
+                />
+                <p className={style["veiw-title"]}>view</p>
+              </div>
+              {dropdownIsOpen && (
+                <div
+                  className={`${style["choice-container"]} ${
+                    viewType === "list"
+                      ? style["list-dropdown-background"]
+                      : style["compact-dropdown-background"]
+                  }`}
+                >
+                  <p
+                    onClick={rateSortHandler}
+                    className={`${style.choice} ${
+                      sortby === "rate"
+                        ? style["selected-choice"]
+                        : style["not-selected-choice"]
+                    }`}
+                  >
+                    rate
+                  </p>
+                  <p
+                    onClick={categorySortHandler}
+                    className={`${style.choice} ${
+                      sortby === "category"
+                        ? style["selected-choice"]
+                        : style["not-selected-choice"]
+                    }`}
+                  >
+                    category
+                  </p>
+                  <p
+                    onClick={earliestSortHandler}
+                    className={`${style.choice} ${
+                      sortby === "earliest"
+                        ? style["selected-choice"]
+                        : style["not-selected-choice"]
+                    }`}
+                  >
+                    earliest
+                  </p>
+                  <p
+                    onClick={latestSortHandler}
+                    className={`${style.choice} ${
+                      sortby === "latest"
+                        ? style["selected-choice"]
+                        : style["not-selected-choice"]
+                    }`}
+                  >
+                    latest
+                  </p>
+                </div>
+              )}
+            </div>
+
+            <img
+              src={require(`../assets/${
+                viewType === "list"
+                  ? "listIconViewSelected.png"
+                  : "listIconViewUnselect.png"
+              }`)}
+              alt="view icon"
+              className={style["view-icon"]}
+              onClick={listIconClickHandler}
+            />
+            <img
+              src={require(`../assets/${
+                viewType === "list"
+                  ? "CompactIconViewUnselect.png"
+                  : "CompactIconViewSelected.png"
+              }`)}
+              alt="view icon"
+              className={style["view-icon"]}
+              onClick={compactIconClickHandler}
+            />
+          </div>
         </div>
+        <GamesBody
+          viewType={viewType}
+          sortby={sortby}
+          games={games}
+          categorisedGames={groupBy(games)}
+          dropdownIsOpen={dropdownIsOpen}
+          disableDownOrRights={disableDownOrRights}
+          disableUpOrLefts={disableUpOrLefts}
+          scrollUpHandler={scrollUpHandler}
+          scrollDownHandler={scrollDownHandler}
+          scrollLeftHandler={scrollLeftHandler}
+          scrollRightHandler={scrollRightHandler}
+        />
       </div>
-      <GamesBody
-        viewType={viewType}
-        sortby={sortby}
-        games={dummy}
-        categorisedGames={groupBy(dummy)}
-        dropdownIsOpen={dropdownIsOpen}
-        disableDownOrRights={disableDownOrRights}
-        disableUpOrLefts={disableUpOrLefts}
-        scrollUpHandler={scrollUpHandler}
-        scrollDownHandler={scrollDownHandler}
-        scrollLeftHandler={scrollLeftHandler}
-        scrollRightHandler={scrollRightHandler}
-      />
-    </div>
+    </Fragment>
   );
 };
-function removewithfilter(arr: string[]) {
-  let outputArray = arr.filter(function (v, i, self) {
-    return i === self.indexOf(v);
-  });
-  return outputArray;
-}
-
-function groupBy(array: GameItem[]) {
-  let categoryGroups: any = [];
-  categoryGroups = array.map((game) => game.game_type);
-  categoryGroups = removewithfilter(categoryGroups);
-  categoryGroups = categoryGroups.map((category: string) => {
-    return { category: category, games: [] };
-  });
-
-  for (let j = 0; j < categoryGroups.length; j++) {
-    let categoryGroup = categoryGroups[j];
-    for (let i = 0; i < array.length; i++) {
-      if (categoryGroup.category === array[i].game_type) {
-        categoryGroup.games.push(array[i]);
-      }
-    }
-  }
-  // [
-  //     gameItem={category:'cat',gameItems:[]}
-  // ]
-
-  // for (let i=0; i<array.length; i++) {
-
-  //   let c = array[i][prop];
-  //   if (!grouped.gameCategory===c)
-  //   {
-  //     grouped[c] = [];
-  // };
-  //   grouped[c].push(array[i]);
-  // }
-  return categoryGroups;
-}
 
 export default Games;

@@ -21,9 +21,10 @@ const Signup = () => {
   const SITE_KEY = process.env.REACT_APP_reCAPTCHA_SITE_KEY;
   const SECRET_KEY = process.env.REACT_APP_reCAPTCHA_SECRET_KEY;
   const [showPass, setShowPass] = useState(false);
-  const captchaRef = useRef(null);
+  const captchaRef: any = useRef(null);
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
+
   //////////////////////////////////////////////////////////////////INPUTS
   const {
     enteredValue: usernameValue,
@@ -63,28 +64,42 @@ const Signup = () => {
   };
   const submitHandler = (event: FormEvent) => {
     event.preventDefault();
+    let token: any = captchaRef.current.getValue();
+    captchaRef.current.reset();
+    console.log(token);
     if (!formIsValid) {
       setErrorMessage("Please enter your information first");
     } else {
-      console.log({
-        user_name: usernameValue,
-        email: emailValue,
-        password: passwordValue,
-        referrer_code: referralValue,
-      });
+      // console.log({
+      //   user_name: usernameValue,
+      //   email: emailValue,
+      //   password: passwordValue,
+      //   referrer_code: referralValue,
+      // });
       axios
         .post(`${baseUrl}users/register/`, {
           user_name: usernameValue,
           email: emailValue,
           password: passwordValue,
           referrer_code: referralValue,
+          recaptcha_response: token,
         })
         .then(function (response) {
-          navigate('/home')
-          console.log(response);
+          const refresh = response.data.refresh;
+          const token = response.data.access;
+          localStorage.setItem("token", token);
+          localStorage.setItem("refresh", refresh);
+          navigate("/home");
+          // console.log(response);
         })
         .catch(function (error) {
-          setErrorMessage(error.response.data.detail)
+          console.log(error);
+          setErrorMessage(
+            error.response.data[0] ||
+              error.response.data.detail ||
+              error.response.data.email ||
+              error.response.data.password
+          );
         });
     }
   };

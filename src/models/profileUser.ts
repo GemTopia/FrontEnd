@@ -1,13 +1,13 @@
-import profileGameItem from "./profileGameItem";
+import GameItem from "./GameItem";
 
 interface profileUser {
   avatar: string;
-  bio: String;
+  bio: string;
   email: String;
   hide_button: boolean;
-  links: String[];
-  referrer_code: String;
-  user_games: profileGameItem[];
-  user_name: String;
+  links: { name: string; link: string }[];
+  referrer_code: string;
+  user_game: GameItem[];
+  user_name: string;
 }
 export default profileUser;

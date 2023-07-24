@@ -1,8 +1,8 @@
 import style from "./InventoryLlist.module.css";
-import InventoryGameItem from "../../models/InventoryGameItem";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleExclamation } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
+import InventoryGameItem from "../../models/InventoryGameItem";
 
 const InventoryLlist: React.FC<{
   title: string;
@@ -12,23 +12,23 @@ const InventoryLlist: React.FC<{
     return (
       <div className={style["list-container"]}>
         <p className={style["list-title"]}>{props.title}</p>
-        {props.gameItems.map((gameItem) => {
+        {props.gameItems.map((gameItem,index) => {
           return (
-            <div className={style["game-item"]}>
+            <div className={style["game-item"]} key={index}>
               <div className={style['game-info']}>
-              <img
-                src={require(`../../assets/${gameItem.gameLogoAddress}`)}
+              {/* <img
+                src={require(`../../assets/${gameItem.game_image}`)}
                 alt="game logo"
-              />
-              <pre className={style["game-name"]}>{gameItem.gameName}</pre>
+              /> */}
+              <pre className={style["game-name"]}>{gameItem.game_name}</pre>
 
               </div>
-              <p>{gameItem.earnedCount}</p>
-              <img
+              <p>{gameItem.gemyto}</p>
+              {/* <img
                 src={require("../../assets/gemyto2.png")}
                 alt="gemyto"
                 className={style.gemyto}
-              />
+              /> */}
             </div>
           );
         })}

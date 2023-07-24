@@ -1,7 +1,7 @@
 interface profileGameItem {
-  name: string;
-  image_name: string;
+  game: number;
+  user: number;
   score: number;
-  id: string;
+  gemyto: number;
 }
 export default profileGameItem;

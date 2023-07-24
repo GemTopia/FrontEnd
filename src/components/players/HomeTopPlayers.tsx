@@ -42,6 +42,7 @@ const HomeTopPlayers: React.FC<{ players: homeTopPlayerItem[] }> = (props) => {
             key={String(player.id)}
             player={player}
             rank={index}
+            index={index}
           />
         );
       })}

@@ -18,58 +18,17 @@ import Header from "../components/layout/Header";
 import axios, * as others from "axios";
 import profileUser from "../models/profileUser";
 import { baseUrl } from "../shares/shared";
+import { useParams } from "react-router";
 
 const Profile: React.FC = () => {
-  let dummy: profileGameItem[] = [
-    {
-      name: "subway",
-      image_name: "pic.png",
-      score: 135,
-      id: "0",
-    },
-    {
-      name: "angry birds",
-      image_name: "pic.png",
-      score: 123,
-      id: "1",
-    },
-    {
-      name: "angry birds2",
-      image_name: "pic.png",
-      score: 125,
-      id: "2",
-    },
-    {
-      name: "angry birds3",
-      image_name: "pic.png",
-      score: 126,
-      id: "3",
-    },
-    {
-      name: "subway2",
-      image_name: "pic.png",
-      score: 145,
-      id: "4",
-    },
-    {
-      name: "angry birds4",
-      image_name: "pic.png",
-      score: 157,
-      id: "5",
-    },
-    {
-      name: "angry birds5",
-      image_name: "pic.png",
-      score: 177,
-      id: "6",
-    },
-    {
-      name: "angry birds6",
-      image_name: "pic.png",
-      score: 156,
-      id: "7",
-    },
-  ];
+  // let dummy: profileGameItem[] = [
+  //   {
+  //     name: "subway",
+  //     image_name: "pic.png",
+  //     score: 135,
+  //     id: "0",
+  //   }
+  // ];
   const [profileUser, setProfileUser] = useState<profileUser>();
   const [referralCopy, setReferralCopy] = useState(false);
   const [isEdit, setIsEdit] = useState<boolean>(false);
@@ -81,16 +40,24 @@ const Profile: React.FC = () => {
   };
 
   const referralHandler = () => {
+    if (profileUser) navigator.clipboard.writeText(profileUser.referrer_code);
+
     setReferralCopy(true);
     setTimeout(() => {
       setReferralCopy(false);
     }, 2000);
   };
   const [avatar, setAvatar] = useState();
+  const param = useParams();
   useEffect(() => {
+    // console.log(param.username);
     axios
       .get(
-        `${baseUrl}users/profile/?user=${localStorage.getItem("username")}`,
+        `${baseUrl}users/profile/?user=${
+          param.username && param.usernaem !== localStorage.getItem("username")
+            ? param.username
+            : localStorage.getItem("username")
+        }`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -99,8 +66,9 @@ const Profile: React.FC = () => {
       )
       .then(function (response) {
         const user = response.data;
+        // console.log(user);
         setProfileUser(user);
-        setAvatar(avatar);
+        // setAvatar(avatar);
       })
       .catch(function (error) {
         console.log(error);
@@ -125,73 +93,81 @@ const Profile: React.FC = () => {
                     src={require(`../../../../gemtopia-back/BackEnd/BackEnd/media${profileUser.avatar}`)}
                   ></img>
                 ) : ( */}
-                  <FontAwesomeIcon
-                    icon={faUser}
-                    className={styles["user-icon"]}
-                  />
+                <FontAwesomeIcon
+                  icon={faUser}
+                  className={styles["user-icon"]}
+                />
                 {/* )} */}
                 {/* ../../gemtopia-back/BackEnd/BackEnd/media${profileUser.avatar}` */}
               </div>
               <div className={styles["header-info"]}>
                 <h2>{profileUser?.user_name}</h2>
-                <h3>{profileUser?.email}</h3>
+                {!param.username && <h3>{profileUser?.email}</h3>}
               </div>
-              <FontAwesomeIcon
-                icon={faPenToSquare}
-                className={styles["edit-icon"]}
-                onClick={editHandler}
-              />
+              {!param.username && (
+                <FontAwesomeIcon
+                  icon={faPenToSquare}
+                  className={styles["edit-icon"]}
+                  onClick={editHandler}
+                />
+              )}
             </div>
-            <div className={styles["social-media"]}>
-              <a href="/" target="balnk">
+            {profileUser &&
+              profileUser.links.length > 0 &&
+              profileUser.links.find((item) => item.link) && (
+                <div className={styles["social-media"]}>
+                  {profileUser.links.map((link, index) => {
+                    if (link.link)
+                      return (
+                        <a href={link.link} target="balnk" key={index}>
+                          {" "}
+                          <img
+                            src={require(`../assets/social-media/${link.name}.png`)}
+                            alt={link.name}
+                          />{" "}
+                        </a>
+                      );
+                  })}
+                  {/* <a href="/" target="balnk">
                 {" "}
                 <img src={youtube} alt="youtube" />{" "}
-              </a>
-              <a href="/" target="balnk">
-                {" "}
-                <img src={discord} alt="discord" />{" "}
-              </a>
-              <a href="/" target="balnk">
-                {" "}
-                <img src={twitch} alt="twitch" />{" "}
-              </a>
-              <a href="/" target="balnk">
-                {" "}
-                <img src={steam} alt="steam" />{" "}
-              </a>
-              <a href="/" target="balnk">
-                {" "}
-                <img src={instagram} alt="instagram" />{" "}
-              </a>
-              <a href="/" target="balnk">
-                {" "}
-                <img src={telegram} alt="telegram" />{" "}
-              </a>
-            </div>
+              </a> */}
+                </div>
+              )}
             <div className={styles["info-form"]}>
-              <h3>user name</h3>
-              <p className={styles.username}>{profileUser?.user_name}</p>
+              {!param.username && <h3>user name</h3>}
+              {!param.username && (
+                <p className={styles.username}>{profileUser?.user_name}</p>
+              )}
 
-              <h3>bio</h3>
-
-              <p className={styles.bio}>{profileUser?.bio}</p>
+              {profileUser?.bio && (
+                <Fragment>
+                  {" "}
+                  <h3>bio</h3>
+                  <p className={styles.bio}>{profileUser.bio}</p>
+                </Fragment>
+              )}
             </div>
             <div className={styles["footer-container"]}>
-              <div className={styles.referral}>
-                <button onClick={referralHandler}>
-                  <FontAwesomeIcon
-                    icon={faLink}
-                    className={styles["referral-icon"]}
-                  />
-                  Referral code
-                </button>
-                {referralCopy && (
-                  <span className={styles["referral-copy"]}>
-                    Link copied <img src={smile} alt="smile" />
-                  </span>
-                )}
-              </div>
-              <ProfileGames games={profileUser?.user_games} />
+              {!param.username && (
+                <div className={styles.referral}>
+                  <button onClick={referralHandler}>
+                    <FontAwesomeIcon
+                      icon={faLink}
+                      className={styles["referral-icon"]}
+                    />
+                    Referral code
+                  </button>
+                  {referralCopy && (
+                    <span className={styles["referral-copy"]}>
+                      Link copied <img src={smile} alt="smile" />
+                    </span>
+                  )}
+                </div>
+              )}
+              {profileUser && profileUser.user_game.length > 0 && (
+                <ProfileGames games={profileUser.user_game} />
+              )}
             </div>
           </Fragment>
         )}

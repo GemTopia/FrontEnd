@@ -52,33 +52,32 @@ const ProfileEdit: React.FC<{
   const submitHandler = (event: FormEvent) => {
     event.preventDefault();
     if (usernameIsValid && bioIsValid) {
-      if (uploadedAvatar) {
-        let formData = new FormData();
-        formData.append("file", uploadedAvatar);
-        console.log(formData);
-        axios
-          .put(
-            `${baseUrl}users/profile/`,
-            {
-              avatar: uploadedAvatar,
-              user_name: usernameValue,
-              bio: bioValue,
-              hide_button: hideButton,
+      let formData = new FormData();
+
+      if (uploadedAvatar) formData.append("file", uploadedAvatar);
+      axios
+        .put(
+          `${baseUrl}users/profile/`,
+          {
+            avatar: uploadedAvatar,
+            user_name: usernameValue,
+            bio: bioValue,
+            hide_button: hideButton,
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+              "Content-Type": "multipart/form-data",
             },
-            {
-              headers: {
-                Authorization: `Bearer ${localStorage.getItem("token")}`,
-                "Content-Type": "multipart/form-data",
-              },
-            }
-          )
-          .then(function (response) {
-            console.log(response);
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
-      }
+          }
+        )
+        .then(function (response) {
+          console.log(response);
+          props.cancelEdit();
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
     }
   };
   const editSocialHandler = () => {
