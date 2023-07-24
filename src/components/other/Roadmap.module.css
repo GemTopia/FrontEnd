@@ -1,8 +1,8 @@
 .roadmap-container{
     display: flex;
     flex-direction: column;
-    align-items: center;
     width: 85%;
+
   }
   
 .roadmap-pic{
@@ -14,6 +14,7 @@
     display: flex;
     width: 100%;
     margin-top: 1%;
+    
   }
   
 .description-container{
