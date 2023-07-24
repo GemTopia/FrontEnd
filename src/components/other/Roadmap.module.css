@@ -35,11 +35,11 @@
   }
   .roadmap-pic{
     width: 350vw;
-    margin-left: 263vw;
+    /* margin-left: 263vw; */
   }
   .roadmap-descriptions-container{
     width: 350vw;
-    margin-left: 263vw;
+    /* margin-left: 263vw; */
   }
   .description-container{
     width: 78vw;

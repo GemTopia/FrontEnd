@@ -1,10 +1,8 @@
 .container {
   width: 100%;
-  /* margin: 3rem auto; */
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* border: 1px solid white; */
 }
 
 .fading-background {
@@ -32,7 +30,6 @@
   filter: brightness(70%);
 }
 .intro-container {
-  /* margin-top: 5rem; */
   margin-top: 9.7rem;
   width: 100%;
   display: flex;
@@ -42,7 +39,6 @@
 
 .intro-container h1 {
   color: #fff;
-  /* font-size: 50px; */
   font-size: 3.25vw;
   font-weight: 700;
   letter-spacing: 0.96px;
@@ -51,7 +47,6 @@
 
 .description {
   color: #fff;
-  /* font-size: 17px; */
   font-size: 1.1vw;
   font-weight: 400;
   letter-spacing: 0.4px;
@@ -72,7 +67,6 @@
 
 .second-description {
   color: #fff;
-  /* font-size: 38px; */
   font-size: 2.46vw;
   font-weight: 700;
 }
@@ -91,7 +85,6 @@
   letter-spacing: 0.3px;
   box-shadow: 1px 1px 20px 0.5px #0095ff;
   cursor: pointer;
-  /* font-size: 22px; */
   font-size: 1.43vw;
   font-weight: bold;
 }
@@ -147,13 +140,11 @@
   margin-left: 5%;
 }
 .game-name{
-  /* font-size: 18px; */
   font-size: 1.22vw;
   font-weight: 600;
 }
 .game-category,
 .rank {
-  /* font-size: 16px; */
   font-size: 1.17;
   font-weight: 300;
 }
@@ -169,7 +160,6 @@
 }
 
 .game-likes-count {
-  /* font-size: 13px; */
   font-size: 1vw;
   font-weight: 300;
 }
@@ -181,7 +171,6 @@
   border-radius: 12px;
   padding: 0.8rem;
   color: #fff;
-  /* font-size: 17px; */
   font-size: 1.13vw;
   letter-spacing: 0.3px;
   box-shadow: 1px 1px 20px 0.5px #0095ff;
@@ -227,7 +216,6 @@
 }
 
 .token-description-container {
-  /* border: 1px solid white; */
   width: 70%;
   display: flex;
   align-items: center;
@@ -242,7 +230,6 @@
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  /* font-size: 48px; */
   font-size: 3.1vw;
   font-weight: 700;
   letter-spacing: 0.72px;
@@ -251,7 +238,6 @@
 
 .gemyto-description {
   color: rgba(255, 255, 255, 0.85);
-  /* font-size: 20px; */
   font-size: 1.3vw;
   font-weight: 500;
   margin-bottom: 2rem;
@@ -259,7 +245,6 @@
 
 .buy-guidance-title {
   color: #0096ff;
-  /* font-size: 24px; */
   font-size: 1.56vw;
   font-weight: 500;
 }
@@ -278,7 +263,6 @@
   background: rgba(0, 150, 255, 0.2);
   border-radius: 15px;
   color: rgba(255, 255, 255, 0.85);
-  /* font-size: 12px; */
   font-size: 0.78vw;
   font-weight: 600;
   letter-spacing: 0.18px;
@@ -319,7 +303,6 @@
   justify-content: center;
   align-items: center;
   color: rgba(0, 150, 255, 0.95);
-  /* font-size: 27px; */
   font-size: 1.76vw;
   font-weight: 600;
   letter-spacing: 0.48px;
@@ -334,7 +317,6 @@
   border-radius: 15px;
   padding: 1% 2.2% 1% 2.5%;
   color: rgba(255, 255, 255, 0.9);
-  /* font-size: 15px; */
   font-size: 1vw;
   font-weight: 500;
   letter-spacing: 0.225px;
@@ -371,7 +353,6 @@
 
 .price-item-title {
   color: rgba(255, 255, 255, 0.85);
-  /* font-size: 12px; */
   font-size: 0.78vw;
   font-weight: 600;
   letter-spacing: 0.21px;
@@ -380,7 +361,6 @@
 
 .price-amount {
   color: #fff;
-  /* font-size: 15px; */
   font-size: 0.98vw;
   font-weight: 600;
   letter-spacing: 0.27px;
@@ -401,20 +381,17 @@
 
 .red-text {
   color: rgba(255, 0, 0, 0.8);
-  /* font-size: 14px; */
   font-size: 0.9vw;
   font-weight: 600;
 }
 
 .green-text {
   color: rgba(0, 255, 41, 0.8);
-  /* font-size: 14px; */
   font-size: 0.9vw;
   font-weight: 600;
 }
 
 .tokenomics {
-  /* border: 1px solid white; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -429,18 +406,28 @@
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  /* font-size: 40px; */
   font-size: 2.62vw;
   font-weight: 700;
   letter-spacing: 0.6px;
-  /* margin-left: 38%; */
 }
 .chart {
-  margin-left: 50%;
-  /* border: 1px solid white; */
-  width: 72%;
+  display: flex;
+  justify-content: center;
+  margin-left: 15%;
+  width: 90%;
   height: 100%;
 }
+
+.chart p{
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.55vw;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  margin-top: 16%;
+  width: 47%;
+}
+
+
 .clock-and-description-container {
   display: flex;
   align-items: center;
@@ -451,16 +438,11 @@
 }
 .clock-container {
   color: var(--main-blue, #0096ff);
-  /* font-size: 35px; */
-  /* font-size: 54px; */
   font-size: 3.5vw;
   width: 15rem;
-  /* padding: 3rem 4rem; */
   padding: 4rem 13rem;
   padding: 4.4vw 13.6vw;
-  /* font-weight: 600; */
   font-weight: 700;
-  /* letter-spacing: 2.4px; */
   font-family: inherit;
   letter-spacing: 0.81px;
   box-shadow: 0px 0px 35px 5px #0096ff;
@@ -476,7 +458,6 @@
 .clock-description {
   color: white;
   width: 50%;
-  /* font-size: 20px; */
   font-size: 1.3vw;
   font-weight: 500;
   letter-spacing: 0.3px;
@@ -495,10 +476,14 @@
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  /* font-size: 40px; */
   font-size: 2.62vw;
   font-weight: 700;
   letter-spacing: 0.6px;
+}
+
+.roadmap{
+  display: flex;
+  justify-content: center;
 }
 
 .faq-container {
@@ -513,7 +498,6 @@
 }
 .faq-title {
   color: var(--main-blue, #0096ff);
-  /* font-size: 40px; */
   font-size: 2.62vw;
   font-weight: 700;
   letter-spacing: 0.6px;
@@ -526,7 +510,6 @@
   padding: 2%;
   background-color: rgba(0, 150, 255, 0.2);
   border-radius: 26px;
-  /* font-size: 18px; */
   font-size: 1.17vw;
   letter-spacing: 0.3px;
 
@@ -555,7 +538,6 @@
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  /* font-size: 38px; */
   font-size: 2.47vw;
   font-weight: 700;
   letter-spacing: 0.72px;
@@ -570,13 +552,11 @@
 
 .input {
   width: 80%;
-  /* border-radius: 20px; */
   border-radius: 1.3vw;
   background: rgba(0, 150, 255, 0.2);
   border: none;
   padding: 3.3% 3%;
   color: rgba(255, 255, 255, 0.85);
-  /* font-size: 20px; */
   font-size: 1.3vw;
   font-weight: 500;
   outline: none;
@@ -594,7 +574,6 @@
   border: none;
   padding: 3.3% 3%;
   color: rgba(255, 255, 255, 0.85);
-  /* font-size: 20px; */
   font-size: 1.3vw;
   font-weight: 500;
   box-shadow: 0 0 12px inset red;
@@ -603,11 +582,9 @@
 .subscribe-button {
   width: 19%;
   color: #fff;
-  /* border-radius: 24px; */
   border-radius: 1.6vw;
   background: rgba(0, 150, 255, 0.96);
   border: none;
-  /* font-size: 20px; */
   font-size: 1.3vw;
   font-weight: bold;
   cursor: pointer;
@@ -620,18 +597,11 @@
   display: contents;
 }
 @media only screen and (max-width: 767px) {
-  /* .container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  } */
   .intro-container h1{
-    /* font-size: 28px; */
     font-size: 7.7vw;
     letter-spacing: 0.42px;
   }
   .description{
-    /* font-size: 16px; */
     font-size: 4.48vw;
     letter-spacing: 0.24px;
   }
@@ -641,17 +611,13 @@
     letter-spacing: 0.3px;
   }
   .learn-more-button{
-    /* width: 150px; */
     width: 40vw;
     max-width: 18rem;
-    /* font-size: 16px; */
     font-size: 4.48vw;
     letter-spacing: 0.24px;
   }
   .first-big-game-background-image,.second-big-game-background-image,.third-big-game-background-image{
     width: 90vw;
-    /* background-size: 100% 61vw; */
-    /* background-size: auto 70vw; */
     border-radius: 25px;
     background-size: 100%;
     height: inherit;
@@ -659,17 +625,11 @@
   .bottom-blur-background{
     height: inherit;
     background-size: 100%;
-    /* width: 103vw; */
-    /* width: 90%; */
   }
   .small-size-games-container{
     display: none;
   }
-  /* .first-small-game-background-image,
-  .second-small-game-background-image,
-  .third-small-game-background-image {
-    display: none;
-  } */
+  
   .game-switch-container {
     gap: 0;
     margin-left: 0;
@@ -686,15 +646,12 @@
     margin-bottom: 7%;
   }
   .game-category , .rank{
-    /* font-size: 10px; */
     font-size: 2.8vw;
   }
   .game-name{
-    /* font-size: 12px; */
     font-size: 3.3vw;
   }
   .play-now-button{
-    /* font-size: 10px; */
     font-size: 2.74vw;
     margin-top: 50%;
     letter-spacing: 0.15px;
@@ -705,13 +662,11 @@
     margin-left: 1.4vw;
   }
   .title{
-    /* font-size: 32px; */
     font-size: 8.9vw;
     letter-spacing: 0.48px;
     margin-bottom: 1.7rem;
   }
   .gemyto-description{
-    /* font-size: 14px; */
     font-size: 3.89vw;
     letter-spacing: 0.21px;
     width: 90%;
@@ -720,20 +675,16 @@
     width: 100%;
     flex-direction: column;
     gap: 2rem;
-    /* justify-content: center;
-    align-items: center; */
   }
   .buying-guidance-container{
     justify-content: center;
     gap: 3%;
   }
   .buy-guidance-title{
-    /* font-size: 16px; */
     font-size: 4.48vw;
     letter-spacing: 0.24px;
   }
   .buying-platform-container{
-    /* font-size: 10px; */
     font-size: 2.74vw;
     letter-spacing: 0.15;
     margin-right: 0;
@@ -754,30 +705,24 @@
     width: 85%;
   }
   .gemyto-info-title{
-    /* font-size: 24px; */
     font-size: 6.65vw;
     letter-spacing: 0.36px;
   }
   .gemyto-info-title img{
-    /* width: 17%; */
     width: 4.4vw;
   }
   .contract-address-container span{
-    /* font-size: 11px; */
     font-size: 3.15vw;
     letter-spacing: 0.165px;
   }
   .price-item-title{
-    /* font-size: 7.8px; */
     font-size: 2.18vw;
     letter-spacing: 0.156px;
   }
   
 .price-amount {
-  /* font-size: 13.368px; */
   font-size: 3.7vw;
   letter-spacing: 0.2px;
-  /* margin-bottom: 9%; */
 }
 
 .price-change-container {
@@ -788,18 +733,13 @@
   padding-left: 13%;
 }
 
-/* .price-change-container img {
-  width: 0%;
-} */
 
 .red-text {
-  /* font-size: 11.882px; */
   font-size: 3.27vw;
   letter-spacing: 0.178px;
 }
 
 .green-text {
-  /* font-size: 11.882px; */
   font-size: 3.27vw;
   letter-spacing: 0.178px;
 }
@@ -817,7 +757,6 @@
 }
 .clock-description{
   width: 80%;
-  /* font-size: 14px; */
   font-size: 3.88vw;
   letter-spacing: 0.21px;
 }
@@ -825,33 +764,51 @@
   height: 20%;
 }
 .tokenomics-title{
-  /* font-size: 32px; */
   font-size: 8.9vw;
   letter-spacing: 0.48px;
 }
 .chart{
-  margin-left: 20%;
+  flex-wrap: wrap-reverse;
   width: 120%;
   min-width: 500px;
   max-width: 45rem;
   overflow: hidden;
 }
 
+.chart p{
+  width: 60%;
+  font-size: 4vw;
+  margin-right: 10%;
+}
 
-/* .roadmap-container{
-  overflow-x: scroll;
-} */
+.roadmap-container {
+  width: 90%;
+  margin-top: 5rem;
+}
+
+.roadmap-container h2 {
+  font-size: 8.9vw;
+  margin-bottom: 5rem;
+}
+
+.roadmap{
+  width: 100%;
+  overflow: scroll;
+}
+
+.roadmap::-webkit-scrollbar {
+  display: none;
+}
+
 .faq-container{
   width: 100%;
 }
 .faq-title{
-  /* font-size: 32px; */
   font-size: 8.9vw;
   letter-spacing: 0.48px;
 }
 .faq-item{
   padding: 5%;
-  /* font-size: 10px; */
   font-size: 3.15vw;
   border-radius: 10px;
   width: 90%;
@@ -860,7 +817,6 @@
   width: 100%;
 }
 .subscribe-container p{
-  /* font-size: 28px; */
   font-size: 7.65vw;
   letter-spacing: 0.45px;
   width: 60%;
@@ -872,7 +828,6 @@
 }
 .input{
   width: 100%;
-  /* font-size: 16px; */
   font-size: 3.7vw;
   letter-spacing: 0.24px;
   border-radius: 15px;
@@ -880,7 +835,6 @@
 }
 .invalid-input{
   width: 100%;
-  /* font-size: 16px; */
   font-size: 3.7vw;
   letter-spacing: 0.24px;
   border-radius: 15px;
@@ -888,7 +842,6 @@
 }
 .subscribe-button{
   width: 100%;
-  /* font-size: 14px; */
   font-size: 4.2vw;
   letter-spacing: 0.21px;
   padding: 1rem 3rem;

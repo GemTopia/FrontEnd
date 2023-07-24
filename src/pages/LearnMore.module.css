@@ -195,9 +195,11 @@
         width: 90%;
     }
     .chart-container{
-        width: 100%;
-        margin-left: auto;
-        margin-bottom: 0px;
+        margin-left: 0;
+        width: 115.1%;
+        min-width: 360.6px;
+        max-width: 45rem;
+        overflow: hidden;
     }
     .road-map-description{
         margin-bottom: 1rem;

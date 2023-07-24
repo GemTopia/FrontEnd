@@ -390,6 +390,7 @@ const Landing = () => {
         <div className={style.tokenomics}>
           <h3 className={style["tokenomics-title"]}>Tokenomics</h3>
           <div className={style.chart}>
+            <p>We have a total of 560,000,000 tokens, which have been minted only once. This total amount is divided into different sections to meet the needs of users, the market, and our project collaborators. The distribution of our tokens is as follows:</p>
             <Chart />
           </div>
         </div>
@@ -457,7 +458,9 @@ const Landing = () => {
 
         <div className={style["roadmap-container"]}>
           <h2>Roadmap</h2>
+          <div className={style.roadmap}>
           <Roadmap />
+          </div>
         </div>
 
         <div className={style["faq-container"]} id="faq">
