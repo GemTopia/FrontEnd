@@ -153,9 +153,9 @@ const Landing = () => {
   } = useInput((input: string) => validEmail.test(input), "");
   return (
     <Fragment>
-      <Header />
+      {/* <Header /> */}
       <div className={style.container}>
-        <div className={style["fading-background"]}></div>
+        {/* <div className={style["fading-background"]}></div> */}
         <div className={style["fading-background-2"]}></div>
 
         <div className={style["intro-container"]}>
@@ -187,7 +187,7 @@ const Landing = () => {
             <div className={`${style["bottom-blur-background"]}`}>
               <div className={style["game-info-container"]}>
                 <div className={style["game-text-info-container"]}>
-                  <p>{dummy[chosenGame].name}</p>
+                  <p className={style['game-name']}>{dummy[chosenGame].name}</p>
                   <p className={style["game-category"]}>
                     {dummy[chosenGame].game_type}
                   </p>
@@ -209,7 +209,7 @@ const Landing = () => {
                     {String(dummy[chosenGame].num_of_like)}{" "}
                   </p>
                 </div> */}
-                <button className={style["play-now-button"]}>learn more</button>
+                <button className={style["play-now-button"]}>Play now</button>
               </div>
             </div>
           </div>
@@ -246,9 +246,9 @@ const Landing = () => {
 
         <div className={style["token-description-container"]}>
           <div className={style["gemyto-description-container"]}>
-            <div className={style.title}>
-              <h2>Gemyto</h2>
-            </div>
+            <h2 className={style.title}>
+              Gemyto
+            </h2>
             <p className={style["gemyto-description"]}>
               Gemyto is a token with which you will earn, Invest in it or
               participate in competitions and win money. We hope to increase the
@@ -362,7 +362,7 @@ const Landing = () => {
                 </div>
               </div>
               <div className={style["price-item"]}>
-                <p className={style["price-item-title"]}>Market Cap(24h)</p>
+                <p className={style["price-item-title"]}>Market Cap</p>
                 <p className={style["price-amount"]}>
                   ${marketCap.priceAmount}
                 </p>
@@ -493,7 +493,7 @@ const Landing = () => {
           </div>
           <div className={style["faq-item"]} onClick={dropdownClickHandler3}>
             <div className={style["faq-item-header"]}>
-              <p>3. What is GemTopia?</p>
+              <p>3. Where can I get Gemyto?</p>
               <FontAwesomeIcon
                 icon={dropdownIsOpen3 ? faAngleUp : faAngleDown}
               />
@@ -516,11 +516,11 @@ const Landing = () => {
               <p className={style["faq-answer"]}>
                 In each game, specific scores are determined, which are divided
                 into four stages.When you can obtain the score of each stage in
-                the desired game, tokens for that stage will be awarded to you.
+                the desired game, tokens for that stage will be awarded to you. <br /> <br />
                 At the end of the day, if you are among the top players of each
                 game, the number of these top players depends on your game rank,
                 you can view your earned tokens on your financial page, which
-                have been added to the total number of your previous tokens. You
+                have been added to the total number of your previous tokens. <br /> <br /> You
                 need to first install and have the MetaMask wallet.Then, you
                 should reach a suitable amount of Gemyto to be eligible for
                 withdrawal. Afterwards, you can go to the financial section of
@@ -545,7 +545,7 @@ const Landing = () => {
             <button className={style["subscribe-button"]}>Subscribe</button>
           </form>
         </div>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </Fragment>
   );

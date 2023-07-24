@@ -19,16 +19,16 @@ const Clock: React.FC<{ className?: any }> = (props) => {
     return () => clearInterval(interval);
   }, []);
     return (
-        <div className={props.className}>
+        <pre className={props.className}>
             {Math.floor(seconds / 3600).toString().padStart(2,'0') +
-            ":" +
+            " : " +
             Math.floor((seconds - 3600 * Math.floor(seconds / 3600)) / 60).toString().padStart(2,'0') +
-            ":" +
+            " : " +
             (seconds -
               3600 * Math.floor(seconds / 3600) -
               60 *
                 Math.floor((seconds - 3600 * Math.floor(seconds / 3600)) / 60)).toString().padStart(2,'0')}
-        </div>
+        </pre>
     );
 };
 export default Clock;
