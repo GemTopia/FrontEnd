@@ -5,6 +5,7 @@ const Roadmap = () => {
     <div className={style["roadmap-container"]}>
       <img
         src={require("../../assets/roadmap.png")}
+        alt="Roadmap"
         className={style["roadmap-pic"]}
       />
       <div className={style["roadmap-descriptions-container"]}>

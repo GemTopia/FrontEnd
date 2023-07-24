@@ -13,12 +13,12 @@ const LearnMore = () => {
     if (element) element.scrollIntoView({ behavior: "smooth" });
   };
   return (
-      <div className={style.container}>
+    <div className={style.container}>
       <h1>Learn more</h1>
       <hr />
       <nav className={style["short-cut-container"]}>
         <button onClick={clickHandler} name="signin">
-          sign in to site
+          sign in
         </button>
         <button onClick={clickHandler} name="games">
           Games
@@ -70,29 +70,38 @@ const LearnMore = () => {
         blocked will only be received on the next day if the user is among the
         top performers for each game on the current day.
       </p>
+      <p className={style["buying-guidance-title"]}>Where you can buy :</p>
       <div className={style["buying-guidance-container"]}>
         <div className={style["buying-platform-container"]}>
           <p>ETHEREUM</p>
-          <img
-            src={require("../assets/uniswap.png")}
-            alt="uniswap"
-            className={style.uniswap}
-          />
+          <a href="https://uniswap.org/" target="blank">
+            <img
+              src={require("../assets/uniswap.png")}
+              alt="uniswap"
+              className={style.uniswap}
+            />
+          </a>
         </div>
         <div className={style["buying-platform-container"]}>
           <p>POLYGON</p>
-          <img src={require("../assets/quickswap.png")} alt="quickswap" />
+          <a href="https://quickswap.exchange/" target="blank">
+            <img src={require("../assets/quickswap.png")} alt="quickswap" />
+          </a>
         </div>
         <div className={style["buying-platform-container"]}>
           <p>ETHEREUM</p>
-          <img src={require("../assets/pancakeswap.png")} alt="pancakeswap" />
+          <a href="https://pancakeswap.finance/" target="blank">
+            <img src={require("../assets/pancakeswap.png")} alt="pancakeswap" />
+          </a>
         </div>
         <div className={style["buying-platform-container"]}>
           <p>ETHEREUM</p>
-          <img
-            src={require("../assets/apeswap.png")}
-            className={style["apeswap-img"]}
-          />
+          <a href="https://apeswap.finance/" target="blank">
+            <img
+              src={require("../assets/apeswap.png")}
+              className={style["apeswap-img"]}
+            />
+          </a>
         </div>
       </div>
       <p className={style.title} id="tokenomics">
@@ -102,10 +111,10 @@ const LearnMore = () => {
         We have a total of 560,000,000 tokens, which have been minted only once.
         This total amount is divided into different sections to meet the needs
         of users, the market, and our project collaborators. The distribution of
-        our tokens is as follows: 
+        our tokens is as follows:
       </p>
-      <div  className={style["chart-container"]}>
-      <Chart/>
+      <div className={style["chart-container"]}>
+        <Chart />
       </div>
       <p className={style.title} id="financial-page">
         Financial Page
@@ -132,10 +141,10 @@ const LearnMore = () => {
       <p className={style["road-map-description"]}>
         Everything mentioned on this page pertains to Phase 1 of the project.
         This project has additional phases and higher goals. As you can see, our
-        roadmap is as follows: (insert roadmap here)
+        roadmap is as follows:
       </p>
       <div className={style["roadmap-container"]}>
-      <Roadmap />
+        <Roadmap />
       </div>
       <p className={style.title} id="team">
         Team
@@ -156,7 +165,6 @@ const LearnMore = () => {
         We would be happy to receive your feedback, suggestions, and reports.
         Your feedback drives our progress and helps us build the world we want
         together. Follow us on social media and stay updated with our news.
-        (insert social media links)
       </p>
       <div className={style["social-media-container"]}>
         <img
@@ -198,7 +206,7 @@ const LearnMore = () => {
         <br />
         The GemTopia and Gemyto Team.
       </p>
-      </div>
+    </div>
   );
 };
 
