@@ -108,6 +108,9 @@ const LearnMore = () => {
           needs of users, the market, and our project collaborators. The
           distribution of our tokens is as follows: (insert chart here
         </p>
+        <div className={style["chart-container"]}>
+          <Chart />
+        </div>
         <p className={style.title} id="financial-page">
           Financial Page
         </p>
@@ -135,10 +138,13 @@ const LearnMore = () => {
           This project has additional phases and higher goals. As you can see,
           our roadmap is as follows: (insert roadmap here)
         </p>
-        <img
-          src={require("../assets/learn more RM.png")}
-          className={style["road-map-img"]}
-        />
+        <div className={style["roadmap-container"]}>
+          <Roadmap />
+        </div>
+        {/* <img
+            src={require("../assets/learn more RM.png")}
+            className={style["road-map-img"]}
+          /> */}
         <p className={style.title} id="team">
           Team
         </p>

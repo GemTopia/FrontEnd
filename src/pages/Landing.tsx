@@ -89,7 +89,6 @@ const Landing = () => {
   };
   const copyHandler = () => {
     navigator.clipboard.writeText("0x728f30fa2f10074261804fa8e0b1387d");
-    console.log(tokenData);
   };
   const [IsLiked, setIsLiked] = useState<boolean[]>([false, false, false]);
   const likeClickHandler = (event: any) => {
@@ -166,9 +165,9 @@ const Landing = () => {
   } = useInput((input: string) => validEmail.test(input), "");
   return (
     <Fragment>
-      {/* <Header /> */}
+      <Header />
       <div className={style.container}>
-        {/* <div className={style["fading-background"]}></div> */}
+        <div className={style["fading-background"]}></div>
         <div className={style["fading-background-2"]}></div>
 
         <div className={style["intro-container"]}>
@@ -189,26 +188,6 @@ const Landing = () => {
           </Link>
         </div>
 
-<<<<<<< HEAD
-        <div className={style["game-switch-container"]}>
-          <div
-            className={`${
-              chosenGame === 0 && style["first-big-game-background-image"]
-            } ${
-              chosenGame === 1 && style["second-big-game-background-image"]
-            } ${chosenGame === 2 && style["third-big-game-background-image"]}`}
-          >
-            <div className={`${style["bottom-blur-background"]}`}>
-              <div className={style["game-info-container"]}>
-                <div className={style["game-text-info-container"]}>
-                  <p className={style['game-name']}>{dummy[chosenGame].name}</p>
-                  <p className={style["game-category"]}>
-                    {dummy[chosenGame].game_type}
-                  </p>
-                  <p className={style.rank}>#{dummy[chosenGame].id}</p>
-                </div>
-                {/* <div className={style["likes-container"]}>
-=======
         {sliderGames && (
           <div className={style["game-switch-container"]}>
             <div
@@ -230,7 +209,6 @@ const Landing = () => {
                     <p className={style.rank}>#{sliderGames[chosenGame].id}</p>
                   </div>
                   {/* <div className={style["likes-container"]}>
->>>>>>> 572d9a1 (connecting done)
                   <img
                     src={require(`../assets/${
                       IsLiked[chosenGame]
@@ -246,11 +224,8 @@ const Landing = () => {
                     {String(sliderGames[chosenGame].num_of_like)}{" "}
                   </p>
                 </div> */}
-<<<<<<< HEAD
-                <button className={style["play-now-button"]}>Play now</button>
-=======
                   <button className={style["play-now-button"]}>
-                    learn more
+                    Play now
                   </button>
                 </div>
               </div>
@@ -282,7 +257,6 @@ const Landing = () => {
                   id="2"
                   onClick={gameClickHandler}
                 ></div>
->>>>>>> 572d9a1 (connecting done)
               </div>
             </div>
           </div>
@@ -414,7 +388,7 @@ const Landing = () => {
                 </div> */}
               </div>
               <div className={style["price-item"]}>
-                <p className={style["price-item-title"]}>Market Cap</p>
+                <p className={style["price-item-title"]}>Market Cap(24h)</p>
                 <p className={style["price-amount"]}>
                   {tokenData && tokenData[3]}
                 </p>
@@ -597,7 +571,7 @@ const Landing = () => {
             <button className={style["subscribe-button"]}>Subscribe</button>
           </form>
         </div>
-        {/* <Footer /> */}
+        <Footer />
       </div>
     </Fragment>
   );
@@ -605,7 +579,7 @@ const Landing = () => {
 
 export default Landing;
 
-{
+// {
   /* <div className={style["games-scroll-container"]}>
           <div
             className={`${
@@ -654,4 +628,4 @@ export default Landing;
             />
           </span>
         </div> */
-}
+// }

@@ -95,7 +95,7 @@
   cursor: pointer;
   font-weight: bold;
 }
-.mobile-play-button{
+.mobile-play-button {
   display: none;
 }
 .play-button:hover {
@@ -107,47 +107,16 @@
   margin-left: auto;
   display: flex;
   flex-direction: column;
-<<<<<<< HEAD
-  width: 325px;
-=======
   width: 29%;
   align-items: center;
->>>>>>> 572d9a1 (connecting done)
 }
 
 .two-level {
   display: flex;
-  gap: .5rem;
+  gap: 0.5rem;
 }
-<<<<<<< HEAD
-.third-level-score {
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.195px;
-  margin-top: auto;
-  margin-bottom: -3px;
-  margin-left: 17px;
-}
-.third-to-fourth-arrow {
-  margin-top: 15px;
-  margin-left: auto;
-}
-.fourth-step-button {
-  height: 20%;
-  margin-top: 7%;
-  margin-left: 2.5%;
-  margin-right: 2%;
-}
-.fourth-level-score {
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.195px;
-}
-.fourth-level-label {
-=======
 
 .level-container {
->>>>>>> 572d9a1 (connecting done)
   display: flex;
   justify-content: center;
   align-items: center;
@@ -160,7 +129,7 @@
   justify-content: center;
   align-items: center;
   width: 7rem;
-  gap: .3rem;
+  gap: 0.3rem;
 }
 .level-score {
   font-size: 13px;
@@ -170,94 +139,6 @@
 
 .level-label {
   background: linear-gradient(90deg, #00d7ff 15.86%, #0d3fe6 100%);
-<<<<<<< HEAD
-}
-.third-level {
-  display: flex;
-}
-.third-level-label {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: black;
-  height: 35%;
-  margin-top: 2%;
-  margin-left: 5%;
-  padding:11px 1px;
-  font-size: 1.06vw;
-  font-weight: 700;
-  letter-spacing: 0.21px;
-  border-radius: 9px;
-  background: linear-gradient(90deg, #00d7ff 15.86%, #0d3fe6 100%);
-}
-.third-step-button {
-  height: 30%;
-  margin-top: 3%;
-  margin-left: 3%;
-}
-.second-to-third-arrow {
-  margin-top: 3%;
-  margin-left: 2%;
-}
-.second-level-score {
-  margin-top: auto;
-  margin-left: auto;
-  margin-right: 6%;
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.195px;
-}
-.first-and-second-level {
-  display: flex;
-}
-.first-level {
-  margin-left: 12%;
-  margin-top: auto;
-}
-.first-level-score {
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.195px;
-}
-.first-level-label {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: black;
-  height: 1.7rem;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.21px;
-  border-radius: 9px;
-  background: linear-gradient(90deg, #00d7ff 15.86%, #0d3fe6 100%);
-}
-.first-to-second-arrow {
-  margin-left: 40%;
-  margin-left:1.1vw;
-  margin-top: 15%;
-}
-.first-step-button {
-  margin-top: 5%;
-  margin-left: 10%;
-}
-.second-level-container {
-  display: flex;
-  margin-bottom: auto;
-  margin-left: auto;
-  margin-right: 10%;
-}
-.second-step-button {
-  height: 25%;
-  margin-left: -13%;
-  margin-top: 5%;
-  margin-right: 4%;
-}
-.second-level-label {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-=======
->>>>>>> 572d9a1 (connecting done)
   color: black;
   font-family: inherit;
   font-size: 14px;
@@ -269,45 +150,44 @@
   justify-content: center;
   padding: 0.2rem 0.6rem;
 }
-<<<<<<< HEAD
 @media only screen and (max-width: 767px) {
-  .container{
+  .container {
     flex-direction: column;
     align-items: center;
     width: 100%;
   }
-  .game-info-container{
+  .game-info-container {
     width: 93%;
   }
-  .info-box{
+  .info-box {
     margin-left: 2vw;
     width: 72%;
   }
-  .info-box h1{
+  .info-box h1 {
     font-size: 5vw;
     font-weight: 600;
   }
-  .game-type{
+  .game-type {
     font-size: 3.5vw;
   }
-  .rank{
+  .rank {
     font-size: 3.5vw;
   }
-  .thumbnail{
+  .thumbnail {
     width: 21vw;
     height: 21vw;
   }
-  .like-container{
+  .like-container {
     margin-left: auto;
     gap: 0.3vw;
     /* margin-left: 10%; */
   }
-  .buttons{
+  .buttons {
     flex-wrap: wrap;
     gap: 0.5vw;
     margin-top: -7%;
   }
-  .play-button{
+  .play-button {
     display: none;
   }
   .mobile-play-button {
@@ -325,31 +205,31 @@
     cursor: pointer;
     font-weight: bold;
   }
-  .description{
+  .description {
     display: none;
   }
-  .roadmap{
+  .roadmap {
     margin: 8vw 0;
   }
-  .third-level-score{
-    margin-bottom : -1%;
+  .third-level-score {
+    margin-bottom: -1%;
     margin-left: 5%;
   }
-  .fourth-level-label , .third-level-label{
+  .fourth-level-label,
+  .third-level-label {
     font-size: 14px;
   }
-  .first-to-second-arrow{
+  .first-to-second-arrow {
     margin-left: 40%;
   }
-=======
-.arrow{
-  margin-bottom: 1.7rem;
-  margin-top: .5rem;
 }
-.down{
+.arrow {
+  margin-bottom: 1.7rem;
+  margin-top: 0.5rem;
+}
+.down {
   align-self: flex-end;
 }
-.center-arrow{
-  margin: -1.5rem 0 0 0 ;
->>>>>>> 572d9a1 (connecting done)
+.center-arrow {
+  margin: -1.5rem 0 0 0;
 }
