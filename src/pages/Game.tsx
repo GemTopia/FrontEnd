@@ -1,5 +1,5 @@
 import style from "./Game.module.css";
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import gameTopPlayerItem from "../models/gameTopPlayer";
 import GameTopPlayers from "../components/players/GameTopPlayers";
 import GameInfo from "../components/game/GameInfo";
@@ -8,6 +8,7 @@ import axios, * as others from "axios";
 import { baseUrl } from "../shares/shared";
 import { useParams } from "react-router";
 import GameItem from "../models/GameItem";
+import Header from "../components/layout/Header";
 
 const Game = () => {
   let dummyPictures: { imgAddress: string; id: string }[] = [
@@ -45,7 +46,7 @@ const Game = () => {
     "screenshot.png",
   ];
   let rewards: number[] = [12, 12, 12, 12];
-  let scoreLevels: number[] = [25000, 25000, 25000, 25000];
+  const [scoreLevels, setScoreLevels] = useState<number[]>([]);
   let dummyGame = {
     cover_image: "GamePic.png",
     logo_image: "",
@@ -72,45 +73,50 @@ const Game = () => {
       })
       .then(function (response) {
         setGame(response.data.game);
+        const scores = response.data.scores;
+        setScoreLevels([
+          scores.first_level_score,
+          scores.second_level_score,
+          scores.third_level_score,
+          scores.fourth_level_score,
+        ]);
       })
       .catch(function (error) {
         console.log(error);
       });
   }, []);
+
   return (
-    <div className={style.container}>
-      <div className={style.header}>
-        <div className={style["header-content"]}>
-          <p>
-          The top {game?.num_of_users_get_gemyto} players will not only dominate
-          the game, but also earn
+    <Fragment>
+      <Header />
+
+      <div className={style.container}>
+        <div className={style.header}>
+          <p className={style["header-content"]}>
+            The top {game?.num_of_users_get_gemyto} players will not only
+            dominate the game, but also earn <span>Gemytos</span>
           </p>
-           <div>  <span>Gemytos</span>
-          <span>
           <img
-          src={require("../assets/stareye.png")}
-          alt="emoji1"
-          className={style.emoji}
-        />
-        <img
-          src={require("../assets/happy.png")}
-          alt="emoji2"
-          className={style.emoji}
-        />
-          </span>
-          </div>
+            src={require("../assets/stareye.png")}
+            alt="emoji1"
+            className={style.emoji}
+          />
+          <img
+            src={require("../assets/happy.png")}
+            alt="emoji2"
+            className={style.emoji}
+          />
         </div>
-        
+        {/* {game && <GameInfo game={game} />} */}
+        {game && <GameInfo game={game} scoreLevels={scoreLevels} />}
+        <div className={style["mobile-size-game-description"]}>
+          <h2>About this game</h2>
+          <p className={style.description}>{dummyGame.bio}</p>
+        </div>
+        <GamePictures pictures={dummyPictures} />
+        <GameTopPlayers players={topPlayersDummy} />
       </div>
-      {/* {game && <GameInfo game={game} />} */}
-      <GameInfo game={dummyGame} rewards={rewards} scoreLevels={scoreLevels} />
-      <div className={style['mobile-size-game-description']}>
-        <h2>About this game</h2>
-        <p className={style.description}>{dummyGame.bio}</p>
-      </div>
-      <GamePictures pictures={dummyPictures} />
-      <GameTopPlayers players={topPlayersDummy} />
-    </div>
+    </Fragment>
   );
 };
 

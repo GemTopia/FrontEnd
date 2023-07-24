@@ -12,7 +12,7 @@ const ListGamesItem: React.FC<{
   );
   const [likedNow, setLikedNow] = useState(false);
   const [disLikedNow, setDisLikedNow] = useState(false);
-
+  const [likeCounts, setLikeCount] = useState(props.gameItem.num_of_like);
   const likeClickHandler = (event: any) => {
     // console.log(isLiked);
     axios
@@ -20,19 +20,12 @@ const ListGamesItem: React.FC<{
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       })
       .then(function (response) {
-        if ((isLiked && likedNow) || (!isLiked && disLikedNow)) {
-          setLikedNow(false);
-          setDisLikedNow(false);
-        } else if (isLiked) {
-          setDisLikedNow(true);
-          setLikedNow(false);
+        if (isLiked === false) {
+          setLikeCount((current) => current + 1);
         } else {
-          setDisLikedNow(false);
-          setIsLiked(true);
+          setLikeCount((current) => current - 1);
         }
-        setIsLiked((current) => {
-          return !current;
-        });
+        setIsLiked((current) => !current);
       })
       .catch(function (error) {
         console.log(error);
@@ -65,13 +58,7 @@ const ListGamesItem: React.FC<{
           id={String(props.gameItem.id)}
           onClick={likeClickHandler}
         />
-        <p className={style["game-likes-count"]}>
-          {likedNow
-            ? String(props.gameItem.num_of_like + 1)
-            : disLikedNow
-            ? String(props.gameItem.num_of_like - 1)
-            : String(props.gameItem.num_of_like)}
-        </p>
+        <p className={style["game-likes-count"]}>{likeCounts}</p>
       </div>
     </Fragment>
   );

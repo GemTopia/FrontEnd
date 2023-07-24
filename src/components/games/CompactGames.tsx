@@ -26,21 +26,21 @@ const CompactGames: React.FC<{ games: GameItem[];dropdownIsOpen:boolean;}> = (pr
             id={`recent${gameItem.id}`}
           >
             <div className={style["thumbnail-container"]}>
-              <img
+              {/* <img
                 src={require(`../../assets/${gameItem.cover_image}`)}
                 alt=""
                 className={`${style["game-thumbnail"]} ${
                   (index !== 2 || props.dropdownIsOpen === false) &&
                   style["game-thumbnail-hover"]
                 }`}
-              />
+              /> */}
             </div>
             <div className={style["game-info-container"]}>
-              <img
+              {/* <img
                 src={require(`../../assets/${gameItem.cover_image}`)}
                 alt=""
                 className={style["game-logo"]}
-              />
+              /> */}
               <div className={style["game-text-info-container"]}>
                 <p>{gameItem.name}</p>
                 <p className={style["game-category"]}>{gameItem.game_type}</p>

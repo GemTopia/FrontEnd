@@ -14,5 +14,6 @@ interface GameItem {
   num_of_report: number;
   num_of_users_get_gemyto: number;
   bio: string;
+  scores:number
 }
 export default GameItem;

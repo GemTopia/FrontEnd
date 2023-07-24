@@ -32,7 +32,7 @@ const GameCategoryGroup: React.FC<{
             id={`categoryCompact${gameItem.game_type}${index}`}
           >
             <div className={style["thumbnail-container"]}>
-              <img
+              {/* <img
                 src={require(`../../assets/${gameItem.cover_image}`)}
                 alt=""
                 className={`${style["game-thumbnail"]} ${
@@ -42,14 +42,14 @@ const GameCategoryGroup: React.FC<{
                     props.dropdownIsOpen === true
                   ) && style["game-thumbnail-hover"]
                 }`}
-              />
+              /> */}
             </div>
             <div className={style["game-info-container"]}>
-              <img
+              {/* <img
                 src={require(`../../assets/${gameItem.cover_image}`)}
                 alt=""
                 className={style["game-logo"]}
-              />
+              /> */}
               <div>
                 <p>{gameItem.name}</p>
                 <p className={style["game-category"]}>{gameItem.game_type}</p>
@@ -58,7 +58,7 @@ const GameCategoryGroup: React.FC<{
                 </p> */}
               </div>
               <div className={style["likes-container"]}>
-                <img
+                {/* <img
                   src={require(`../../assets/${
                     IsLiked[+gameItem.id - 1]
                       ? "liked-icon.png"
@@ -67,7 +67,7 @@ const GameCategoryGroup: React.FC<{
                   alt="like icon"
                   // id={gameItem.id}
                   onClick={likeClickHandler}
-                />
+                /> */}
                 <p className={style["game-likes-count"]}>
                   {" "}
                   {String(gameItem.num_of_like)}{" "}

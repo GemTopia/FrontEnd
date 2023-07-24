@@ -1,4 +1,4 @@
-import React, { FormEvent } from "react";
+import React, { FormEvent, useState } from "react";
 import styles from "./SocialEdit.module.css";
 import useInput from "../hooks/use-input";
 import youtube from "../../assets/social-media/youtube.png";
@@ -7,6 +7,9 @@ import twitch from "../../assets/social-media/twitch.png";
 import steam from "../../assets/social-media/steam.png";
 import instagram from "../../assets/social-media/instagram.png";
 import telegram from "../../assets/social-media/telegram.png";
+import axios, * as others from "axios";
+import { baseUrl } from "../../shares/shared";
+
 const SocialEdit: React.FC<{ cancelEditSocial: Function }> = (props) => {
   const {
     enteredValue: discordValue,
@@ -50,11 +53,37 @@ const SocialEdit: React.FC<{ cancelEditSocial: Function }> = (props) => {
     inputChangeHandler: instagramChangeHandler,
     inputBlurHandler: instagramBlurHandler,
   } = useInput((input: string) => input.trim().length !== 0, "");
+  const [errorMessage, setErrorMessage] = useState("");
   const cancelHandler = () => {
     props.cancelEditSocial();
   };
   const submitHandler = (event: FormEvent) => {
     event.preventDefault();
+    axios
+      .put(
+        `${baseUrl}users/profile/link/`,
+        {
+          discord: discordValue,
+          twitch: twitchValue,
+          steam: steamValue,
+          youtube: youtubeValue,
+          telegram: telegramValue,
+          instagram: instagramValue,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      )
+      .then(function (response) {
+        console.log(response);
+        if (isNaN(response.data.status)) setErrorMessage(response.data.status);
+        else props.cancelEditSocial();
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
   return (
     <form className={styles.form} onSubmit={submitHandler}>
@@ -136,6 +165,9 @@ const SocialEdit: React.FC<{ cancelEditSocial: Function }> = (props) => {
           id="instagram"
         />
       </div>
+      {errorMessage && (
+        <p className={styles["error-message"]}>{errorMessage}</p>
+      )}
       <div className={styles.buttons}>
         <button className={styles["cancel-button"]} onClick={cancelHandler}>
           cancel

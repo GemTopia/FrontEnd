@@ -95,3 +95,6 @@
 .game-info {
   font-weight: bold;
 }
+.link {
+  display: contents;
+}

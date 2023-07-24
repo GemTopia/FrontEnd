@@ -349,6 +349,7 @@
   width: 30%;
   align-items: center;
   padding: 6% 1%;
+  justify-content: center;
 }
 
 .price-item-title {

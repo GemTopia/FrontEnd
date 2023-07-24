@@ -1,6 +1,8 @@
 .page-container {
+  margin: 4rem auto;
   display: flex;
-  gap: 5rem;
+  width: 59rem;
+  gap: 7rem;
   color: white;
   width: 80%;
   margin: 6rem auto;
@@ -26,10 +28,10 @@
 }
 
 .report-input-container {
-  margin-top: 1rem;
+  margin-top: 1.5rem;
 }
 
-.report-input-container form{
+.report-input-container form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -48,7 +50,7 @@
   margin: 10px 0;
   height: 9.5rem;
 }
-.report-input::placeholder{
+.report-input::placeholder {
   color: rgba(255, 255, 255, 0.95);
   font-size: 12px;
   font-weight: 500;
@@ -68,33 +70,35 @@
   border-radius: 15px;
   background-color: var(--main-blue, #0096ff);
   color: white;
-  padding: 0.9rem 2rem;
-  font-size: 14px;
+  padding: 1rem 2rem;
+  font-size: 16px;
   align-self: flex-end;
   cursor: pointer;
   font-weight: 400;
   letter-spacing: 0.21px;
   margin-top: 0.6rem;
+  margin-left: 16rem;
+  font-weight: bold;
 }
 
 .side-pictures-container {
   position: relative;
   width: 40rem;
+  display: flex;
 }
 
-
 .left-image {
-  position: absolute;
-  top: 60px;
   z-index: 2;
-  left: 10px;
+  width: 17rem;
+  height: 22rem;
 }
 
 .right-image {
-  left: 244px;
-  top: 60px;
-  position: absolute;
+  position: relative;
+  left: -3rem;
   z-index: 1;
+  width: 17rem;
+  height: 22rem;
 }
 
 /* Success message 
@@ -151,10 +155,9 @@
 }
 */
 
-
 /*responsive*/
 @media only screen and (max-width: 767px) {
-  .page-container{
+  .page-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -162,44 +165,44 @@
     margin: 1rem auto;
     gap: 4rem;
   }
-  .report-issue-container{
+  .report-issue-container {
     width: 100%;
   }
-  .report-header-container{
+  .report-header-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 92vw;
   }
-  .header-title{
+  .header-title {
     font-size: 18px;
     letter-spacing: 0.27px;
   }
-  .header-body{
+  .header-body {
     font-size: 14px;
     font-weight: 400;
     letter-spacing: 0.195px;
   }
-  .report-input-container{
+  .report-input-container {
     margin-top: 0.8rem;
     width: 92vw;
   }
-  .report-input-container form{
+  .report-input-container form {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
   }
-  .report-input{
+  .report-input {
     width: 92vw;
     height: 8rem;
   }
-  .submit-edit-button{
+  .submit-edit-button {
     width: 8rem;
     padding: 0.9rem 1rem;
   }
 
-  .side-pictures-container{
+  .side-pictures-container {
     width: 90%;
   }
   .left-image {
@@ -215,6 +218,8 @@
     position: absolute;
     z-index: 1;
   }
-
-  
+}
+p.error-message {
+  color: red;
+  margin: 10px 0;
 }

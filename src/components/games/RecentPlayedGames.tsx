@@ -4,6 +4,7 @@ import style from "./RecentPlayedGames.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 const RecentPlayedGames: React.FC<{ games: recentPlayedGameItem[] }> = (
   props
@@ -68,32 +69,34 @@ const RecentPlayedGames: React.FC<{ games: recentPlayedGameItem[] }> = (
         <div className={style["game-items-container"]}>
           {props.games.map((gameItem) => {
             return (
-              <div
-                className={style["recent-played-item"]}
-                key={String(gameItem.id)}
-                id={`recent${gameItem.id}`}
-              >
-                <div className={style["thumbnail-container"]}>
-                  {/* <img
+              <Link to={`/games/${gameItem.id}`} className={style.link}>
+                <div
+                  className={style["recent-played-item"]}
+                  key={String(gameItem.id)}
+                  id={`recent${gameItem.id}`}
+                >
+                  <div className={style["thumbnail-container"]}>
+                    {/* <img
                     src={require(`../../assets/${gameItem.cover_image}`)}
                     alt=""
                     className={style["game-thumbnail"]}
                   /> */}
-                </div>
-                <div className={style["game-info"]}>
-                  {/* <img
+                  </div>
+                  <div className={style["game-info"]}>
+                    {/* <img
                     src={require(`../../assets/${gameItem.logo_image}`)}
                     alt=""
                     className={style["game-logo"]}
                   /> */}
-                  <div>
-                    <p>{gameItem.name}</p>
-                    <p className={style["game-category"]}>
-                      {gameItem.game_type}
-                    </p>
+                    <div>
+                      <p>{gameItem.name}</p>
+                      <p className={style["game-category"]}>
+                        {gameItem.game_type}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             );
           })}
         </div>

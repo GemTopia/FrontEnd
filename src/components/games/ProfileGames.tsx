@@ -5,8 +5,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import profileGameItem from "../../models/profileGameItem";
+import GameItem from "../../models/GameItem";
 
-const ProfileGames: React.FC<{ games: profileGameItem[] | undefined }> = (
+const ProfileGames: React.FC<{ games: GameItem[] | undefined }> = (
   props
 ) => {
   const [topGame, setTopGame] = useState("0");
@@ -62,8 +63,8 @@ const ProfileGames: React.FC<{ games: profileGameItem[] | undefined }> = (
 
       <div className={styles["game-container"]}>
         {loadedGames &&
-          loadedGames.map((item) => {
-            return <ProfileGameItem key={item.name} game={item} />;
+          loadedGames.map((item,index) => {
+            return <ProfileGameItem key={index} game={item} index={index} />;
           })}
       </div>
     </div>

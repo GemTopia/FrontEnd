@@ -33,6 +33,7 @@ const Landing = () => {
       num_of_users_get_gemyto: 0,
       link: "",
       bio: "",
+      scores: 0,
     },
     {
       cover_image: "Rectangle 8.png",
@@ -49,6 +50,7 @@ const Landing = () => {
       num_of_users_get_gemyto: 0,
       link: "",
       bio: "",
+      scores: 0,
     },
     {
       cover_image: "Rectangle 8.png",
@@ -65,9 +67,10 @@ const Landing = () => {
       num_of_users_get_gemyto: 0,
       link: "",
       bio: "",
+      scores: 0,
     },
   ];
-
+  const [sliderGames, setSliderGames] = useState<GameItem[]>();
   const [dropdownIsOpen1, setDropdownIsOpen1] = useState<boolean>(false);
   const [dropdownIsOpen2, setDropdownIsOpen2] = useState<boolean>(false);
   const [dropdownIsOpen3, setDropdownIsOpen3] = useState<boolean>(false);
@@ -95,12 +98,21 @@ const Landing = () => {
       return secondState;
     });
   };
+  const [tokenData, setTokenData] = useState<any[]>();
   const [chosenGame, setChosenGame] = useState<number>(0);
   useEffect(() => {
     axios
-      .get(`${baseUrl}/landing/`)
+      .get(`${baseUrl}`)
       .then(function (response) {
-        console.log(response);
+        const usd: any = response.data.token.token_value.MANA.USD;
+        setTokenData([
+          usd.CHANGE24HOUR,
+          usd.PRICE,
+          usd.VOLUME24HOUR,
+          usd.MKTCAP,
+        ]);
+        setSliderGames(response.data.top_3_games);
+        console.log(tokenData);
       })
       .catch(function (error) {
         console.log(error);
@@ -153,9 +165,9 @@ const Landing = () => {
   } = useInput((input: string) => validEmail.test(input), "");
   return (
     <Fragment>
-      {/* <Header /> */}
+      <Header />
       <div className={style.container}>
-        {/* <div className={style["fading-background"]}></div> */}
+        <div className={style["fading-background"]}></div>
         <div className={style["fading-background-2"]}></div>
 
         <div className={style["intro-container"]}>
@@ -176,24 +188,27 @@ const Landing = () => {
           </Link>
         </div>
 
-        <div className={style["game-switch-container"]}>
-          <div
-            className={`${
-              chosenGame === 0 && style["first-big-game-background-image"]
-            } ${
-              chosenGame === 1 && style["second-big-game-background-image"]
-            } ${chosenGame === 2 && style["third-big-game-background-image"]}`}
-          >
-            <div className={`${style["bottom-blur-background"]}`}>
-              <div className={style["game-info-container"]}>
-                <div className={style["game-text-info-container"]}>
-                  <p className={style['game-name']}>{dummy[chosenGame].name}</p>
-                  <p className={style["game-category"]}>
-                    {dummy[chosenGame].game_type}
-                  </p>
-                  <p className={style.rank}>#{dummy[chosenGame].id}</p>
-                </div>
-                {/* <div className={style["likes-container"]}>
+        {sliderGames && (
+          <div className={style["game-switch-container"]}>
+            <div
+              className={`${
+                chosenGame === 0 && style["first-big-game-background-image"]
+              } ${
+                chosenGame === 1 && style["second-big-game-background-image"]
+              } ${
+                chosenGame === 2 && style["third-big-game-background-image"]
+              }`}
+            >
+              <div className={`${style["bottom-blur-background"]}`}>
+                <div className={style["game-info-container"]}>
+                  <div className={style["game-text-info-container"]}>
+                    <p>{sliderGames[chosenGame].name}</p>
+                    <p className={style["game-category"]}>
+                      {sliderGames[chosenGame].game_type}
+                    </p>
+                    <p className={style.rank}>#{sliderGames[chosenGame].id}</p>
+                  </div>
+                  {/* <div className={style["likes-container"]}>
                   <img
                     src={require(`../assets/${
                       IsLiked[chosenGame]
@@ -206,43 +221,46 @@ const Landing = () => {
                   />
                   <p className={style["game-likes-count"]}>
                     {" "}
-                    {String(dummy[chosenGame].num_of_like)}{" "}
+                    {String(sliderGames[chosenGame].num_of_like)}{" "}
                   </p>
                 </div> */}
-                <button className={style["play-now-button"]}>Play now</button>
+                  <button className={style["play-now-button"]}>
+                    Play now
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div className={style["small-size-games-container"]}>
+              <div className={`${style["first-small-game-background-image"]} `}>
+                <div
+                  className={`${
+                    chosenGame !== 0 && style["fully-blur-background-color"]
+                  } ${chosenGame === 0 && style["bottom-blur-background"]}`}
+                  id="0"
+                  onClick={gameClickHandler}
+                ></div>
+              </div>
+              <div className={`${style["second-small-game-background-image"]}`}>
+                <div
+                  className={`${
+                    chosenGame !== 1 && style["fully-blur-background-color"]
+                  } ${chosenGame === 1 && style["bottom-blur-background"]}`}
+                  id="1"
+                  onClick={gameClickHandler}
+                ></div>
+              </div>
+              <div className={`${style["third-small-game-background-image"]}`}>
+                <div
+                  className={`${
+                    chosenGame !== 2 && style["fully-blur-background-color"]
+                  } ${chosenGame === 2 && style["bottom-blur-background"]}`}
+                  id="2"
+                  onClick={gameClickHandler}
+                ></div>
               </div>
             </div>
           </div>
-          <div className={style["small-size-games-container"]}>
-            <div className={`${style["first-small-game-background-image"]} `}>
-              <div
-                className={`${
-                  chosenGame !== 0 && style["fully-blur-background-color"]
-                } ${chosenGame === 0 && style["bottom-blur-background"]}`}
-                id="0"
-                onClick={gameClickHandler}
-              ></div>
-            </div>
-            <div className={`${style["second-small-game-background-image"]}`}>
-              <div
-                className={`${
-                  chosenGame !== 1 && style["fully-blur-background-color"]
-                } ${chosenGame === 1 && style["bottom-blur-background"]}`}
-                id="1"
-                onClick={gameClickHandler}
-              ></div>
-            </div>
-            <div className={`${style["third-small-game-background-image"]}`}>
-              <div
-                className={`${
-                  chosenGame !== 2 && style["fully-blur-background-color"]
-                } ${chosenGame === 2 && style["bottom-blur-background"]}`}
-                id="2"
-                onClick={gameClickHandler}
-              ></div>
-            </div>
-          </div>
-        </div>
+        )}
 
         <div className={style["token-description-container"]}>
           <div className={style["gemyto-description-container"]}>
@@ -323,28 +341,36 @@ const Landing = () => {
             <div className={style["prices-container"]}>
               <div className={style["price-item"]}>
                 <p className={style["price-item-title"]}>PRICE(24h)</p>
-                <p className={style["price-amount"]}>${price.priceAmount}</p>
-                <div className={style["price-change-container"]}>
-                  <p
-                    className={`${
-                      price.changes <= 0
-                        ? style["red-text"]
-                        : style["green-text"]
-                    }`}
-                  >
-                    {Math.abs(price.changes)}
-                  </p>
-                  <img
-                    src={require(`../assets/${
-                      price.changes <= 0 ? "arrow down.png" : "arrow up.png"
-                    }`)}
-                  />
-                </div>
+                <p className={style["price-amount"]}>
+                  {tokenData && tokenData[1]}
+                </p>
+                {tokenData && Number(tokenData[0].slice(1)) !== 0 && (
+                  <div className={style["price-change-container"]}>
+                    <p
+                      className={`${
+                        tokenData && Number(tokenData[0].slice(1)) <= 0
+                          ? style["red-text"]
+                          : style["green-text"]
+                      }`}
+                    >
+                      {tokenData && Math.abs(Number(tokenData[0].slice(1)))}
+                    </p>
+                    <img
+                      src={require(`../assets/${
+                        tokenData && Number(tokenData[0].slice(1)) <= 0
+                          ? "arrow down.png"
+                          : "arrow up.png"
+                      }`)}
+                    />
+                  </div>
+                )}
               </div>
               <div className={style["price-item"]}>
                 <p className={style["price-item-title"]}>Volume(24h)</p>
-                <p className={style["price-amount"]}>${volume.priceAmount}</p>
-                <div className={style["price-change-container"]}>
+                <p className={style["price-amount"]}>
+                  {tokenData && tokenData[2].slice(4)}
+                </p>
+                {/* <div className={style["price-change-container"]}>
                   <p
                     className={`${
                       volume.changes <= 0
@@ -359,14 +385,14 @@ const Landing = () => {
                       volume.changes <= 0 ? "arrow down.png" : "arrow up.png"
                     }`)}
                   />
-                </div>
+                </div> */}
               </div>
               <div className={style["price-item"]}>
-                <p className={style["price-item-title"]}>Market Cap</p>
+                <p className={style["price-item-title"]}>Market Cap(24h)</p>
                 <p className={style["price-amount"]}>
-                  ${marketCap.priceAmount}
+                  {tokenData && tokenData[3]}
                 </p>
-                <div className={style["price-change-container"]}>
+                {/* <div className={style["price-change-container"]}>
                   <p
                     className={`${
                       marketCap.changes <= 0
@@ -381,7 +407,7 @@ const Landing = () => {
                       marketCap.changes <= 0 ? "arrow down.png" : "arrow up.png"
                     }`)}
                   />
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -548,7 +574,7 @@ const Landing = () => {
             <button className={style["subscribe-button"]}>Subscribe</button>
           </form>
         </div>
-        {/* <Footer /> */}
+        <Footer />
       </div>
     </Fragment>
   );
@@ -556,7 +582,7 @@ const Landing = () => {
 
 export default Landing;
 
-{
+// {
   /* <div className={style["games-scroll-container"]}>
           <div
             className={`${
@@ -605,4 +631,4 @@ export default Landing;
             />
           </span>
         </div> */
-}
+// }
