@@ -10,6 +10,29 @@
   /* box-shadow: 0 0 12px inset #00d7ff; */
   font-size: 18px;
 }
+.right-side-pic{
+  width: 100%;
+  height: 33rem;
+  background-image: url("../assets/stars1.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: -10;
+}
+.left-side-pic{
+  width: 45%;
+  height: 40rem;
+  background-image: url("../assets/stars2.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  /* top: 33%; */
+  top : 33vh;
+  left: 0;
+  z-index: -10;
+}
 .logo {
   width: 15rem;
   align-self: flex-start;
@@ -19,7 +42,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 28rem;
+  /* width: 28rem; */
+  width: 26.7%;
   margin-top: 2rem;
 }
 .form p {
@@ -38,6 +62,9 @@
   border-radius: 12px;
   font-size: 16px;
 }
+.input::placeholder{
+  color: white;
+}
 .inner-input {
   background-color: transparent;
   color: white;
@@ -47,6 +74,9 @@
   height: 100%;
   border-radius: 12px;
   font-size: 16px;
+}
+.inner-input::placeholder{
+  color: white;
 }
 .invalid-input {
   background-color: #0096ff33;
@@ -84,7 +114,8 @@
   cursor: pointer;
 }
 .button {
-  width: 75%;
+  /* width: 75%; */
+  width: 100%;
   padding: 13px;
   border-radius: 12px;
   background: linear-gradient(90deg, #5800ff 0%, #00d7ff 100%);
@@ -125,6 +156,12 @@ p.error-message {
 }
 
 @media only screen and (max-width: 480px) {
+  .right-side-pic{
+    display: none;
+  }
+  .left-side-pic{
+    display: none;
+  }
   .form {
     width: 90%;
   }

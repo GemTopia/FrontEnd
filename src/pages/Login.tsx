@@ -89,6 +89,8 @@ const Login = () => {
   return (
     <div className={styles.container}>
       <img src={logo} alt="" className={styles.logo} />
+      <div className={styles["right-side-pic"]}></div>
+      <div className={styles["left-side-pic"]}></div>
       {pageState === "forgot" ? (
         <ForgotPassword cancelForgot={cancelForgotHandler} />
       ) : (

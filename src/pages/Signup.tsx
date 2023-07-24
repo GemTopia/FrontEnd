@@ -92,6 +92,9 @@ const Signup = () => {
     <div className={styles.container}>
       <img src={logo} alt="" className={styles.logo} />
 
+      <div className={styles["right-side-pic"]}></div>
+      <div className={styles["left-side-pic"]}></div>
+
       <form action="" className={styles.form} onSubmit={submitHandler}>
         <h1>Sign Up</h1>
         <p>Please fill the input below here</p>
