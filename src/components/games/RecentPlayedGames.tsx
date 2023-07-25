@@ -5,12 +5,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import { baseUrl } from "../../shares/shared";
 
 const RecentPlayedGames: React.FC<{ games: recentPlayedGameItem[] }> = (
   props
 ) => {
   const [leftGame, setLeftGame] = useState("0");
-  const [disableRight, setDisableRight] = useState(false);
+  const [disableRight, setDisableRight] = useState(
+    props.games.length > 4 ? false : true
+  );
   const [disableLeft, setDisableLeft] = useState(true);
 
   const scrollLeftHandler = () => {
@@ -50,69 +53,83 @@ const RecentPlayedGames: React.FC<{ games: recentPlayedGameItem[] }> = (
   };
 
   return (
-    <Fragment>
+    <div className={style["recent-container"]}>
       <h2 className={style["recent-played-title"]} id="title">
         Recently played
       </h2>
-      <div className={style["body-container"]}>
-        <span
-          className={`${style.icon} ${
-            !disableLeft && style["icon-background"]
-          }`}
-          onClick={scrollLeftHandler}
-        >
-          <FontAwesomeIcon
-            icon={faAngleLeft}
-            className={disableLeft ? style.disabled : ""}
-          />
-        </span>
-        <div className={style["game-items-container"]}>
-          {props.games.map((gameItem) => {
-            return (
-              <Link to={`/games/${gameItem.id}`} className={style.link}>
-                <div
-                  className={style["recent-played-item"]}
-                  key={String(gameItem.id)}
-                  id={`recent${gameItem.id}`}
-                >
-                  <div className={style["thumbnail-container"]}>
-                    <img
-                    src={require(`../../assets/home/${gameItem.cover_image}`)}
-                    alt=""
-                    className={style["game-thumbnail"]}
-                  />
-                  </div>
-                  <div className={style["game-info"]}>
-                    <img
-                    src={require(`../../assets/home/${gameItem.logo_image}`)}
-                    alt=""
-                    className={style["game-logo"]}
-                  />
-                    <div>
-                      <p className={style["game-name"]}>{gameItem.name}</p>
-                      <p className={style["game-category"]}>
-                        {gameItem.game_type}
-                      </p>
+      {props.games.length > 0 ? (
+        <div className={style["body-container"]}>
+          {!disableLeft && (
+            <span
+              className={`${style.icon} ${
+                !disableLeft && style["icon-background"]
+              }`}
+              onClick={scrollLeftHandler}
+            >
+              <FontAwesomeIcon
+                icon={faAngleLeft}
+                className={disableLeft ? style.disabled : ""}
+              />
+            </span>
+          )}
+
+          <div className={style["game-items-container"]}>
+            {props.games.map((gameItem) => {
+              return (
+                <Link to={`/games/${gameItem.id}`} className={style.link}>
+                  <div
+                    className={style["recent-played-item"]}
+                    key={String(gameItem.id)}
+                    id={`recent${gameItem.id}`}
+                  >
+                    <div className={style["thumbnail-container"]}>
+                      {gameItem.cover_image && (
+                        <img
+                          src={baseUrl + gameItem.cover_image}
+                          alt=""
+                          className={style["game-thumbnail"]}
+                        />
+                      )}
+                    </div>
+                    <div className={style["game-info"]}>
+                      {gameItem.logo_image && (
+                        <img
+                          src={baseUrl + gameItem.logo_image}
+                          alt=""
+                          className={style["game-logo"]}
+                        />
+                      )}
+
+                      <div>
+                        <p className={style["game-name"]}>{gameItem.name}</p>
+                        <p className={style["game-category"]}>
+                          {gameItem.game_type}
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </Link>
-            );
-          })}
+                </Link>
+              );
+            })}
+          </div>
+          {!disableRight && (
+            <span
+              className={`${style.icon} ${
+                !disableRight && style["icon-background"]
+              }`}
+              onClick={scrollRightHandler}
+            >
+              <FontAwesomeIcon
+                icon={faAngleRight}
+                className={disableRight ? style.disabled : ""}
+              />
+            </span>
+          )}
         </div>
-        <span
-          className={`${style.icon} ${
-            !disableRight && style["icon-background"]
-          }`}
-          onClick={scrollRightHandler}
-        >
-          <FontAwesomeIcon
-            icon={faAngleRight}
-            className={disableRight ? style.disabled : ""}
-          />
-        </span>
-      </div>
-    </Fragment>
+      ) : (
+        <p className={style["no-recent"]}>You haven't played recently !!</p>
+      )}
+    </div>
   );
 };
 

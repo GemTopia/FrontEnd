@@ -1,5 +1,5 @@
 .popular-games-container {
-  width: 59rem;
+  width: 80%;
   display: flex;
   flex-direction: column;
 }
@@ -11,14 +11,13 @@
   align-items: center;
   justify-content: space-between;
   /* border: 1px solid white; */
-  width: 59rem;
+  width: 100%;
 }
 
 .search-bar {
   display: flex;
-  width: 30%;
+  width: 25rem;
   gap: 7px;
-  justify-content: center;
   align-content: center;
   flex-shrink: 0;
   border: 1.3px solid rgba(0, 150, 255, 0.85);

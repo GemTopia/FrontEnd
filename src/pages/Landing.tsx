@@ -72,6 +72,7 @@ const Landing = () => {
         ]);
         setSliderGames(response.data.top_3_games);
         console.log(tokenData);
+        // console.log("http://api.gem.kveh.ir" + response.data.top_3_games[0].cover_image)
       })
       .catch(function (error) {
         console.log(error);
@@ -109,7 +110,7 @@ const Landing = () => {
   } = useInput((input: string) => validEmail.test(input), "");
   return (
     <Fragment>
-      {/* <Header /> */}
+      <Header />
       <div className={style.container}>
         <div className={style["fading-background"]}></div>
         <div className={style["fading-background-2"]}></div>
@@ -142,7 +143,31 @@ const Landing = () => {
               } ${
                 chosenGame === 2 && style["third-big-game-background-image"]
               }`}
+              style={{
+                backgroundImage:
+                  "http://api.gem.kveh.ir" + sliderGames[0].cover_image,
+              }}
+              //   chosenGame === 0
+              //     ? {
+              //         backgroundImage:
+              //           "http://api.gem.kveh.ir" + sliderGames[0].cover_image,
+              //       }
+              //     : chosenGame === 1
+              //     ? {
+              //         backgroundImage:
+              //           "http://api.gem.kveh.ir" + sliderGames[1].cover_image,
+              //       }
+              //     : {
+              //         backgroundImage:
+              //           "http://api.gem.kveh.ir" + sliderGames[2].cover_image,
+              //       }
+              // }
             >
+              <img
+                src={baseUrl + sliderGames[chosenGame].cover_image}
+                alt=""
+                className={style["main-slider"]}
+              />
               <div className={`${style["bottom-blur-background"]}`}>
                 <div className={style["game-info-container"]}>
                   <div className={style["game-text-info-container"]}>
@@ -168,12 +193,21 @@ const Landing = () => {
                     {String(sliderGames[chosenGame].num_of_like)}{" "}
                   </p>
                 </div> */}
-                  <button className={style["play-now-button"]}>Play now</button>
+                  <Link to={"/signup"} className={style.link}>
+                    <button className={style["play-now-button"]}>
+                      Play now
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>
             <div className={style["small-size-games-container"]}>
               <div className={`${style["first-small-game-background-image"]} `}>
+                <img
+                  src={baseUrl + sliderGames[0].cover_image}
+                  alt=""
+                  className={style["slider"]}
+                />{" "}
                 <div
                   className={`${
                     chosenGame !== 0 && style["fully-blur-background-color"]
@@ -183,6 +217,11 @@ const Landing = () => {
                 ></div>
               </div>
               <div className={`${style["second-small-game-background-image"]}`}>
+                <img
+                  src={baseUrl +  sliderGames[1].cover_image}
+                  alt=""
+                  className={style["slider"]}
+                />
                 <div
                   className={`${
                     chosenGame !== 1 && style["fully-blur-background-color"]
@@ -192,6 +231,11 @@ const Landing = () => {
                 ></div>
               </div>
               <div className={`${style["third-small-game-background-image"]}`}>
+                <img
+                 src={baseUrl +  sliderGames[2].cover_image}
+                  alt=""
+                  className={style["slider"]}
+                />
                 <div
                   className={`${
                     chosenGame !== 2 && style["fully-blur-background-color"]
@@ -520,7 +564,7 @@ const Landing = () => {
             <button className={style["subscribe-button"]}>Subscribe</button>
           </form>
         </div>
-        {/* <Footer /> */}
+        <Footer />
       </div>
     </Fragment>
   );

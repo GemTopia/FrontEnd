@@ -2,20 +2,31 @@ import GameItem from "../../models/GameItem";
 import style from "./PopularGames.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import useInput from "../hooks/use-input";
 import { Link } from "react-router-dom";
 import ListGames from "./ListGames";
 
 const PopularGames: React.FC<{ games: GameItem[] }> = (props) => {
-  const {
-    enteredValue: searchValue,
-    isValid: searchIsValid,
-    hasError: searchHasError,
-    inputChangeHandler: searchChangeHandler,
-    inputBlurHandler: searchBlurHandler,
-  } = useInput((input: string) => input.trim().length !== 0, "");
-
+  // const {
+  //   enteredValue: searchValue,
+  //   isValid: searchIsValid,
+  //   hasError: searchHasError,
+  //   inputChangeHandler: searchChangeHandler,
+  //   inputBlurHandler: searchBlurHandler,
+  // } = useInput((input: string) => input.trim().length !== 0, "");
+  const [loadedGames, setLoadedGames] = useState<GameItem[]>();
+  useEffect(() => {
+    setLoadedGames(props.games);
+  }, [props]);
+  const searchHandler = (event: any) => {
+    // console.log(event.target.value);
+    setLoadedGames(
+      props.games.filter((item) =>
+        item.name.includes(String(event.target.value))
+      )
+    );
+  };
   return (
     <div className={style["popular-games-container"]}>
       <div className={style["popular-games-header"]}>
@@ -27,9 +38,7 @@ const PopularGames: React.FC<{ games: GameItem[] }> = (props) => {
             <input
               name="search"
               id="search"
-              onChange={searchChangeHandler}
-              onBlur={searchBlurHandler}
-              value={searchValue}
+              onChange={searchHandler}
               type="text"
               className={style["search-input"]}
               placeholder="search game ..."
@@ -37,10 +46,11 @@ const PopularGames: React.FC<{ games: GameItem[] }> = (props) => {
           </form>
         </div>
       </div>
-      <ListGames games={props.games} page="home" />
-      <Link to="/Home" className={style["popular-games-footer"]}>
+      {loadedGames && <ListGames games={loadedGames} page="home" />}
+
+      {/* <Link to="/Home" className={style["popular-games-footer"]}>
         veiw more
-      </Link>
+      </Link> */}
     </div>
   );
 };

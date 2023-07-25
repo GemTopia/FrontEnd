@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react";
 import styles from "./Header.module.css";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/logo.svg";
 import profile from "../../assets/profile.svg";
 import { Link, useNavigate } from "react-router-dom";
 import Clock from "../other/Clock";
@@ -12,6 +12,7 @@ const Header = () => {
   const [homeIcon, setHomeIcon] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
   const [openMenu, setMenuOpen] = useState(false);
+  const [page, setPage] = useState("");
   useEffect(() => {
     if (localStorage.getItem("token")) {
       setIsLoggedIn(true);
@@ -20,6 +21,9 @@ const Header = () => {
     else setHomeIcon(false);
     if (window.screen.width < 768) setIsMobile(true);
     else setIsMobile(false);
+    const element = document.getElementById("header");
+    if (element) element.scrollIntoView({ behavior: "smooth" });
+    setPage(document.location.pathname);
   }, [
     localStorage.getItem("token"),
     document.location.pathname,
@@ -53,7 +57,7 @@ const Header = () => {
   };
   return (
     <Fragment>
-      <header className={styles.container}>
+      <header className={styles.container} id="header">
         <Link to="/">
           <img src={logo} alt="gemtopia" className={styles.logo} />
         </Link>
@@ -61,12 +65,15 @@ const Header = () => {
           // openMenu ? (
           isLoggedIn ? (
             <Fragment>
-              <Link to="/profile" className={styles.right}>
-                <img
-                  src={profile}
-                  alt="profile"
-                  className={`${styles.icon} `}
-                />
+              <Link
+                to={homeIcon ? "/home" : "/profile"}
+                className={`${styles.icon} ${styles.right}`}
+              >
+                {homeIcon ? (
+                  <img src={home} alt="home" />
+                ) : (
+                  <img src={profile} alt="profile" />
+                )}
               </Link>
               <img
                 src={openMenu ? X : menu}
@@ -131,13 +138,16 @@ const Header = () => {
           </Fragment>
         ) : (
           <Fragment>
-            <nav className={styles.navbar}>
-              <ul>
-                <li onClick={roadmapHandler}>Roadmap</li>
-                <li onClick={communityHandler}>Community</li>
-                <li onClick={faqHandler}>FAQ</li>
-              </ul>
-            </nav>
+            {page === "/" && (
+              <nav className={styles.navbar}>
+                <ul>
+                  <li onClick={roadmapHandler}>Roadmap</li>
+                  <li onClick={communityHandler}>Community</li>
+                  <li onClick={faqHandler}>FAQ</li>
+                </ul>
+              </nav>
+            )}
+
             <nav className={`${styles.navbar} ${styles.right}`}>
               <ul>
                 <Link to="/login">

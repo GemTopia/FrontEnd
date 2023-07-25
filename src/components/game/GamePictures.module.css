@@ -1,11 +1,9 @@
 .container {
   width: 100%;
-  margin-left: 5%;
   margin-top: 1rem;
 }
 
 .pics-header {
-  margin-left: 5.5rem;
   font-size: 1.83vw;
   font-weight: 500;
   letter-spacing: 0.5px;
@@ -44,9 +42,8 @@
 }
 
 .pics-container {
-  width: 50%;
+  max-width: 100%;
   display: flex;
-  margin-left: 2rem;
   gap: 2.5rem;
   overflow: hidden;
 }

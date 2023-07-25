@@ -36,30 +36,34 @@ const GameCategory: React.FC<{
                     {CategoryGroup.category}
                   </p>
                   <div className={style["scroll-icons-container"]}>
-                    <span className={style.icon}>
-                      <FontAwesomeIcon
-                        icon={faAngleLeft}
-                        id={`${CategoryGroup.category} ${index}`}
-                        onClick={props.scrollLeftHandler}
-                        className={
-                          props.disableUpOrLefts[index].disableUpOrLeft
-                            ? style.disabled
-                            : ""
-                        }
-                      />
-                    </span>
-                    <span className={style.icon}>
-                      <FontAwesomeIcon
-                        icon={faAngleRight}
-                        id={`${CategoryGroup.category} ${index}`}
-                        onClick={props.scrollRightHandler}
-                        className={
-                          props.disableDownOrRights[index].disableDownOrRight
-                            ? style.disabled
-                            : ""
-                        }
-                      />
-                    </span>
+                    {!props.disableUpOrLefts[index].disableUpOrLeft && (
+                      <span className={style.icon}>
+                        <FontAwesomeIcon
+                          icon={faAngleLeft}
+                          id={`${CategoryGroup.category} ${index}`}
+                          onClick={props.scrollLeftHandler}
+                          // className={
+                          //   props.disableUpOrLefts[index].disableUpOrLeft
+                          //     ? style.disabled
+                          //     : ""
+                          // }
+                        />
+                      </span>
+                    )}
+                    {!props.disableDownOrRights[index].disableDownOrRight && (
+                      <span className={style.icon}>
+                        <FontAwesomeIcon
+                          icon={faAngleRight}
+                          id={`${CategoryGroup.category} ${index}`}
+                          onClick={props.scrollRightHandler}
+                          // className={
+                          //   props.disableDownOrRights[index].disableDownOrRight
+                          //     ? style.disabled
+                          //     : ""
+                          // }
+                        />
+                      </span>
+                    )}
                   </div>
                 </div>
 
@@ -83,30 +87,34 @@ const GameCategory: React.FC<{
                     {CategoryGroup.category}
                   </p>
                   <div className={style["scroll-icons-container"]}>
-                    <span className={style.icon}>
-                      <FontAwesomeIcon
-                        onClick={props.scrollUpHandler}
-                        icon={faAngleUp}
-                        id={`${CategoryGroup.category} ${index}`}
-                        className={
-                          props.disableUpOrLefts[index].disableUpOrLeft
-                            ? style.disabled
-                            : ""
-                        }
-                      />
-                    </span>
-                    <span className={style.icon}>
-                      <FontAwesomeIcon
-                        icon={faAngleDown}
-                        id={`${CategoryGroup.category} ${index}`}
-                        onClick={props.scrollDownHandler}
-                        className={
-                          props.disableDownOrRights[index].disableDownOrRight
-                            ? style.disabled
-                            : ""
-                        }
-                      />
-                    </span>
+                    {!props.disableUpOrLefts[index].disableUpOrLeft && (
+                      <span className={style.icon}>
+                        <FontAwesomeIcon
+                          onClick={props.scrollUpHandler}
+                          icon={faAngleUp}
+                          id={`${CategoryGroup.category} ${index}`}
+                          // className={
+                          //   props.disableUpOrLefts[index].disableUpOrLeft
+                          //     ? style.disabled
+                          //     : ""
+                          // }
+                        />
+                      </span>
+                    )}
+                    {!props.disableDownOrRights[index].disableDownOrRight && (
+                      <span className={style.icon}>
+                        <FontAwesomeIcon
+                          icon={faAngleDown}
+                          id={`${CategoryGroup.category} ${index}`}
+                          onClick={props.scrollDownHandler}
+                          // className={
+                          //   props.disableDownOrRights[index].disableDownOrRight
+                          //     ? style.disabled
+                          //     : ""
+                          // }
+                        />
+                      </span>
+                    )}
                   </div>
                 </div>
                 <div className={style["list-category-games-container"]}>

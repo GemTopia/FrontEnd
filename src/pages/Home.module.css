@@ -1,17 +1,17 @@
-.page-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: white;
-    width: 74rem;
-    margin: 3rem auto;
-    /* border: 1px solid white; */
-} 
+.page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  width: 95%;
+  margin: 3rem auto;
+  /* border: 1px solid white; */
+}
 
-@media only screen and (max-width: 767px){
-    .page-container{
-        /* border: 1px solid white; */
-        width: 90%;
-        /* overflow: hidden ; */
-    }
+@media only screen and (max-width: 767px) {
+  .page-container {
+    /* border: 1px solid white; */
+    width: 90%;
+    /* overflow: hidden ; */
+  }
 }

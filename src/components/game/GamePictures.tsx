@@ -3,12 +3,15 @@ import style from "./GamePictures.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
+import { baseUrl } from "../../shares/shared";
 
 const GamePictures: React.FC<{
   pictures: { imgAddress: string; id: string }[];
 }> = (props) => {
   const [leftPic, setLeftPic] = useState("0");
-  const [disableRight, setDisableRight] = useState(false);
+  const [disableRight, setDisableRight] = useState(
+    props.pictures.length > 3 ? false : true
+  );
   const [disableLeft, setDisableLeft] = useState(true);
 
   const scrollLeftHandler = () => {
@@ -45,39 +48,37 @@ const GamePictures: React.FC<{
     <div className={style.container}>
       <h2 className={style["pics-header"]}>Screenshots</h2>
       <div className={style["game-pics-body"]}>
-        <span
-          className={`${style["icon-container"]} ${
-            !disableLeft && style["icon-background"]
-          }`}
-          onClick={scrollLeftHandler}
-        >
-          <FontAwesomeIcon
-            icon={faAngleLeft}
-            className={disableLeft ? style.disabled : style.icon}
-          />
-        </span>
+        {!disableLeft && (
+          <span
+            className={`${style["icon-container"]} ${
+              !disableLeft && style["icon-background"]
+            }`}
+            onClick={scrollLeftHandler}
+          >
+            <FontAwesomeIcon icon={faAngleLeft} className={style.icon} />
+          </span>
+        )}
         <div className={style["pics-container"]}>
           {props.pictures.map((pic) => (
             <div id={`gameShot${pic.id}`} key={pic.id}>
               {" "}
               <img
-                src={require(`../../assets/${pic.imgAddress}`)}
+                src={baseUrl + pic.imgAddress}
                 className={style["game-picture"]}
               />{" "}
             </div>
           ))}
         </div>
-        <span
-          className={`${style["icon-container"]} ${
-            !disableRight && style["icon-background"]
-          }`}
-          onClick={scrollRightHandler}
-        >
-          <FontAwesomeIcon
-            icon={faAngleRight}
-            className={disableRight ? style.disabled : style.icon}
-          />
-        </span>
+        {!disableRight && (
+          <span
+            className={`${style["icon-container"]} ${
+              !disableRight && style["icon-background"]
+            }`}
+            onClick={scrollRightHandler}
+          >
+            <FontAwesomeIcon icon={faAngleRight} className={style.icon} />
+          </span>
+        )}
       </div>
     </div>
   );

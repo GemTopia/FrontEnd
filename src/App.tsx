@@ -20,7 +20,7 @@ function App() {
     setInterval(() => {
       if (localStorage.getItem("refresh"))
         axios
-          .post(`${baseUrl}/users/token/refresh/`, {
+          .post(`${baseUrl}users/token/refresh/`, {
             refresh: localStorage.getItem("refresh"),
           })
           .then(function (response) {

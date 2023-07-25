@@ -19,7 +19,7 @@ import axios, * as others from "axios";
 import profileUser from "../models/profileUser";
 import { baseUrl } from "../shares/shared";
 import { useParams } from "react-router";
-
+import { useNavigate } from "react-router";
 const Profile: React.FC = () => {
   // let dummy: profileGameItem[] = [
   //   {
@@ -50,8 +50,9 @@ const Profile: React.FC = () => {
   };
   const [avatar, setAvatar] = useState();
   const param = useParams();
+  const navigate = useNavigate();
   useEffect(() => {
-    // console.log(param.username);
+    if (!localStorage.getItem("token")) navigate("/");    // console.log(param.username);
     axios
       .get(
         `${baseUrl}users/profile/?user=${

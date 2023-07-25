@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import homeTopPlayerItem from "../../models/homeTopPlayerItem";
 import style from "./HomeTopPlayerItem.module.css";
+import { baseUrl } from "../../shares/shared";
 
 const HomeTopPlayerItem: React.FC<{
   player: homeTopPlayerItem;
@@ -34,11 +35,14 @@ const HomeTopPlayerItem: React.FC<{
             <p>{props.rank + 1}</p>
           )}
         </div>
-        <img
-        src={require(`../../assets/${props.player.avatar}`)}
-        alt=""
-        className={style["player-image"]}
-      />
+        {props.player.avatar && (
+          <img
+          src={baseUrl + props.player.avatar}
+            alt=""
+            className={style["player-image"]}
+          />
+        )}
+
         <p className={style.username}>{props.player.user_name}</p>
 
         <div className={style["token-container"]}>

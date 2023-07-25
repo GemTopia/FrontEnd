@@ -1,6 +1,6 @@
 .container {
-  width: 89%;
-  margin: 5rem auto;
+  width: 70%;
+  margin: 3rem auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,7 +8,7 @@
 }
 
 .header {
-  width: 84%;
+  width: 100%;
   /* text-align: center; */
   display: flex;
   justify-content: center;

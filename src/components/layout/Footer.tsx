@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Footer.module.css";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/logo.svg";
 import telegram from "../../assets/social-media/footer/telegram.png";
 import hoveredTelegram from "../../assets/social-media/footer/hovered telegram.png";
 import twitter from "../../assets/social-media/footer/twitter.png";

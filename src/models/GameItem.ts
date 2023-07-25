@@ -3,7 +3,7 @@ interface GameItem {
   logo_image: string;
   name: string;
   game_type: string;
-  // rank:string;
+  rank: number;
   num_of_like: number;
   id: number;
   created_at: string;
@@ -14,6 +14,6 @@ interface GameItem {
   num_of_report: number;
   num_of_users_get_gemyto: number;
   bio: string;
-  scores:number
+  scores: number;
 }
 export default GameItem;

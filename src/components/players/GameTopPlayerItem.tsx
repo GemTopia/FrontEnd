@@ -1,38 +1,55 @@
 import gameTopPlayerItem from "../../models/gameTopPlayer";
 import style from "./GameTopPlayerItem.module.css";
-
-const GameTopPlayerItem: React.FC<{ player: gameTopPlayerItem }> = (props) => {
+import { Link } from "react-router-dom";
+const GameTopPlayerItem: React.FC<{
+  player: gameTopPlayerItem;
+  rank: number;
+}> = (props) => {
   return (
-    <div
-      className={`${style.container} ${
-        Number(props.player.id) <= 3
-          ? style["light-backgeround"]
-          : style["dark-background"]
+    <Link
+      to={`../profile${
+        props.player.user_name === localStorage.getItem("username")
+          ? ""
+          : "/" + props.player.user_name
       }`}
-      id={String(props.player.id)}
     >
-      <div className={style["rank-container"]}>
-        {/* {isNaN(parseInt(props.player.rank)) ? (
+      <div
+        className={`${style.container} ${
+          Number(props.rank) % 2 == 0
+            ? style["dark-background"]
+            : style["light-backgeround"]
+        }`}
+        id={String(props.player.id)}
+      >
+        <div className={style["rank-container"]}>
+          {props.rank < 4 ? (
+            <img
+              src={require(`../../assets/home/${props.rank + 1}-medal.png`)}
+              alt=""
+              className={style.medal}
+            />
+          ) : (
+            <p>{props.rank + 1}</p>
+          )}
+        </div>
+        {/* {props.player.avatar && (
           <img
-            src={require(`../../assets/${props.player.rank}`)}
+            src={require(props.player.avatar)}
             alt=""
-            className={style.medal}
+            className={style["player-image"]}
           />
-        ) : (
-          <p>{props.player.rank}</p>
         )} */}
-      </div>
-      <img
-        src={require(`../../assets/${props.player.avatar}`)}
-        alt=""
-        className={style["player-image"]}
-      />
-      <p className={style.username}>{props.player.user_name}</p>
 
-      <p className={style["score-count"]}>
-        {String(props.player.total_gemyto)}
-      </p>
-    </div>
+        <p className={style.username}>{props.player.user_name}</p>
+
+        <div className={style["token-container"]}>
+          <p className={style["token-count"]}>
+            {String(props.player.total_gemyto)}
+          </p>
+          <img src={require("../../assets/gemyto.png")} alt="gemyto" />
+        </div>
+      </div>
+    </Link>
   );
 };
 

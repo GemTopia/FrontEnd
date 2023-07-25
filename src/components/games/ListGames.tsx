@@ -1,8 +1,7 @@
 import GameItem from "../../models/GameItem";
 import style from "./ListGames.module.css";
 import React, { useEffect, useState } from "react";
-import axios, * as others from "axios";
-import { baseUrl } from "../../shares/shared";
+
 import ListGamesItem from "./ListGamesItem";
 
 const ListGames: React.FC<{

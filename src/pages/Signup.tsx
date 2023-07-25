@@ -10,7 +10,7 @@ import useInput from "../components/hooks/use-input";
 import Axios from "axios";
 import ReCAPTCHA from "react-google-recaptcha";
 import { Link, Navigate, useNavigate } from "react-router-dom";
-import logo from "../assets/logo.png";
+import logo from "../assets/logo.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-regular-svg-icons";
 import axios, * as others from "axios";
@@ -94,13 +94,14 @@ const Signup = () => {
         })
         .catch(function (error) {
           console.log(error);
-          setErrorMessage(
-            error.response.data[0] ||
-              error.response.data.detail ||
-              error.response.data.email ||
-              error.response.data.password ||
-              "Something went wrong please try again"
-          );
+          if (error.response)
+            setErrorMessage(
+              error.response.data[0] ||
+                error.response.data.detail ||
+                error.response.data.email ||
+                error.response.data.password
+            );
+          else setErrorMessage("Something went wrong please try again");
         });
     }
   };

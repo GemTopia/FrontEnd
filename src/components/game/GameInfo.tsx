@@ -57,16 +57,19 @@ const GameInfo: React.FC<{
   return (
     <div className={style["container"]}>
       <div className={style["game-info-container"]}>
-        <img
-          src={require("../../assets/GamePic.png")}
-          // {props.game.logo_image}
-          alt="game thumbnail"
-          className={style.thumbnail}
-        />
+        {props.game.logo_image && (
+          <img
+            src={baseUrl + props.game.logo_image}
+            // {props.game.logo_image}
+            alt="game thumbnail"
+            className={style.thumbnail}
+          />
+        )}
+
         <div className={style["info-box"]}>
           <h1>{props.game.name}</h1>
           <p className={style["game-type"]}>{props.game.game_type}</p>
-          <p className={style.rank}>#1</p>
+          <p className={style.rank}>#{String(props.game.rank)}</p>
           <p className={style.description}>{props.game.bio}</p>
 
           <div className={style.buttons}>
@@ -95,18 +98,14 @@ const GameInfo: React.FC<{
               />
             </Link>
             {/* {props.game.link} */}
-            <a
-              href="http://game3.gem.kveh.ir/"
-              className={style.link}
-              target="blank"
-            >
+            <a href={props.game.link} className={style.link} target="blank">
               <button className={style["play-button"]}>Play now</button>
             </a>
           </div>
         </div>
-        <a href={props.game.link} className={style.link} target="blank">
+        {/* <a href={props.game.link} className={style.link} target="blank">
           <button className={style["mobile-play-button"]}>Play now</button>
-        </a>
+        </a> */}
       </div>
       <div className={style.roadmap}>
         <div className={style["two-level"]}>

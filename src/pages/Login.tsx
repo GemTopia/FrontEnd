@@ -1,7 +1,7 @@
 import React, { useState, FormEvent, MouseEvent, useRef } from "react";
 import styles from "./Signup-Login.module.css";
 import useInput from "../components/hooks/use-input";
-import logo from "../assets/logo.png";
+import logo from "../assets/logo.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-regular-svg-icons";
 import { Link, useNavigate } from "react-router-dom";
@@ -117,19 +117,23 @@ const Login = () => {
         })
         .catch(function (error) {
           // console.log(error.response.data[0]);
-          setErrorMessage(
-            error.response.data[0] ||
-              error.response.data.detail ||
-              error.response.data.email ||
-              error.response.data.password
-          );
+          if (error.response)
+            setErrorMessage(
+              error.response.data[0] ||
+                error.response.data.detail ||
+                error.response.data.email ||
+                error.response.data.password
+            );
+          else setErrorMessage("Something went wrong please try again");
           // setErrorMessage("Your email or your password is wrong");
         });
     }
   };
   return (
     <div className={styles.container}>
-      <img src={logo} alt="" className={styles.logo} />
+      <Link to="/" className={styles.link}>
+        <img src={logo} alt="" className={styles.logo} />
+      </Link>
       <div className={styles["right-side-pic"]}></div>
       <div className={styles["left-side-pic"]}></div>
       {pageState === "forgot" ? (
@@ -193,7 +197,7 @@ const Login = () => {
             <p className={styles["error-message"]}>{errorMessage}</p>
           )}
           <span>
-            Don't hava an account?{' '}
+            Don't hava an account?{" "}
             <Link to="/signup" className={styles["footer-link"]}>
               Signup
             </Link>

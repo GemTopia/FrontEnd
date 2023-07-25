@@ -5,12 +5,14 @@ import { baseUrl } from "../shares/shared";
 import { useParams } from "react-router";
 import gameResult from "../models/gameResult";
 import { Link } from "react-router-dom";
-
+import { useNavigate } from "react-router";
 const GameResult = () => {
   const [isWinner, setIsWinner] = useState<boolean>(false);
   const param = useParams();
   const [result, setResult] = useState<gameResult>();
+  const navigate = useNavigate();
   useEffect(() => {
+    if (!localStorage.getItem("token")) navigate("/");
     axios
       .post(
         `${baseUrl}game/result/`,

@@ -104,25 +104,34 @@
   margin-top: 8rem;
 }
 .first-big-game-background-image {
-  background-image: url("../assets/big pic 3.png");
+  /* background-image: url("../assets/big pic 3.png"); */
   background-repeat: no-repeat;
   background-size: 100%;
   width: 48.2vw;
   height: 32.3vw;
+  z-index: -100;
 }
 .second-big-game-background-image {
-  background-image: url("../assets/small pic 1.png");
+  /* background-image: url("../assets/small pic 1.png"); */
   background-repeat: no-repeat;
   background-size: 100%;
   width: 48.2vw;
   height: 32.3vw;
+  z-index: -100;
 }
 .third-big-game-background-image {
-  background-image: url("../assets/small pic 2.png");
+  /* background-image: url("../assets/small pic 2.png"); */
   background-repeat: no-repeat;
   background-size: 100%;
   width: 48.2vw;
   height: 32.3vw;
+  z-index: -100;
+}
+.main-slider{
+  position: absolute;
+  width: 48.2vw;
+  height: 32.3vw;
+  z-index: -100;
 }
 .bottom-blur-background {
   background-image: url("../assets/sh 1.png");
@@ -191,25 +200,31 @@
 }
 
 .first-small-game-background-image {
-  background-image: url("../assets/small pic 3.png");
+  /* background-image: url("../assets/small pic 3.png"); */
   background-repeat: no-repeat;
   background-size: 100%;
   width: 15vw;
   height: 9.9vw;
 }
 .second-small-game-background-image {
-  background-image: url("../assets/small pic 1.png");
+  /* background-image: url("../assets/small pic 1.png"); */
   background-repeat: no-repeat;
   background-size: 100%;
   width: 15vw;
   height: 9.9vw;
 }
 .third-small-game-background-image {
-  background-image: url("../assets/small pic 2.png");
+  /* background-image: url("../assets/small pic 2.png"); */
   background-repeat: no-repeat;
   background-size: 100%;
   width: 15vw;
   height: 9.9vw;
+}
+.slider {
+  width: 15vw;
+  height: 9.9vw;
+  z-index: -100;
+  position: absolute;
 }
 .fully-blur-background-color {
   width: 100%;

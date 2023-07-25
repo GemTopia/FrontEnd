@@ -10,8 +10,10 @@ const GameTopPlayers: React.FC<{ players: gameTopPlayerItem[] }> = (props) => {
         <h2>Top Players</h2>
         <p>The ranking is based on scores from the last 24 hours.</p>
       </div>
-      {loadedPlayers.map((player) => {
-        return <GameTopPlayerItem key={String(player.id)} player={player} />;
+      {loadedPlayers.map((player, index) => {
+        return (
+          <GameTopPlayerItem key={String(index)} player={player} rank={index} />
+        );
       })}
     </div>
   );

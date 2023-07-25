@@ -5,17 +5,21 @@ import HomeTopPlayerItem from "./HomeTopPlayerItem";
 import homeTopPlayerItem from "../../models/homeTopPlayerItem";
 import { Link } from "react-router-dom";
 import useInput from "../hooks/use-input";
-
+import { useState, useEffect } from "react";
 const HomeTopPlayers: React.FC<{ players: homeTopPlayerItem[] }> = (props) => {
-  const {
-    enteredValue: searchValue,
-    isValid: searchIsValid,
-    hasError: searchHasError,
-    inputChangeHandler: searchChangeHandler,
-    inputBlurHandler: searchBlurHandler,
-  } = useInput((input: string) => input.trim().length !== 0, "");
+  const [loadedPlayers, setLoadedPlayers] = useState<homeTopPlayerItem[]>();
 
-  const loadedPlayers = props.players;
+  useEffect(() => {
+    setLoadedPlayers(props.players);
+  }, [props]);
+  const searchHandler = (event: any) => {
+    // console.log(event.target.value);
+    setLoadedPlayers(
+      props.players.filter((item) =>
+        item.user_name.includes(String(event.target.value))
+      )
+    );
+  };
   return (
     <div className={style.container}>
       <div className={style.header}>
@@ -26,9 +30,7 @@ const HomeTopPlayers: React.FC<{ players: homeTopPlayerItem[] }> = (props) => {
             <input
               name="search"
               id="search"
-              onChange={searchChangeHandler}
-              onBlur={searchBlurHandler}
-              value={searchValue}
+              onChange={searchHandler}
               type="text"
               className={style["search-input"]}
               placeholder="search game ..."
@@ -36,19 +38,20 @@ const HomeTopPlayers: React.FC<{ players: homeTopPlayerItem[] }> = (props) => {
           </form>
         </div>
       </div>
-      {loadedPlayers.map((player, index) => {
-        return (
-          <HomeTopPlayerItem
-            key={String(player.id)}
-            player={player}
-            rank={index}
-            index={index}
-          />
-        );
-      })}
-      <Link to="/Home" className={style.footer}>
+      {loadedPlayers &&
+        loadedPlayers.map((player, index) => {
+          return (
+            <HomeTopPlayerItem
+              key={String(player.id)}
+              player={player}
+              rank={index}
+              index={index}
+            />
+          );
+        })}
+      {/* <Link to="/Home" className={style.footer}>
         veiw more
-      </Link>
+      </Link> */}
     </div>
   );
 };

@@ -1,5 +1,7 @@
+.recent-container {
+  width: 80%;
+}
 .recent-played-title {
-  margin-left: 7rem;
   align-self: flex-start;
   /* border: 1px solid white; */
 }
@@ -12,7 +14,6 @@
   gap: 1rem;
   margin-top: 1.5rem;
 }
-
 .icon {
   /* background-color: #06123c; */
   color: #0096ffe5;
@@ -36,7 +37,7 @@
 
 .game-items-container {
   /* border: 1px solid white; */
-  width: 59rem;
+  width: 100%;
   display: flex;
   gap: 1rem;
   overflow-x: hidden;
@@ -98,41 +99,48 @@
 .link {
   display: contents;
 }
+.no-recent {
+  font-weight: bold;
+  color: #0096ffe5;
+  margin-top: 2rem;
+}
 
 @media only screen and (max-width: 767px) {
+  .recent-container {
+    width: 100%;
+  }
   .recent-played-title {
     margin-left: 0;
     font-size: 5.4vw;
     font-weight: 500;
     letter-spacing: 0.24px;
   }
-  .body-container{
+  .body-container {
     /* border: 1px solid white; */
     width: 100%;
   }
-  .icon-background{
+  .icon-background {
     display: none;
   }
-  .icon{
+  .icon {
     display: none;
   }
-  .game-items-container{
+  .game-items-container {
     /* border: 1px solid white; */
     /* width: 100%; */
     overflow: scroll;
   }
-  .recent-played-item{
+  .recent-played-item {
     width: 100rem;
   }
-  .game-thumbnail{
+  .game-thumbnail {
     width: 50vw;
   }
-  .game-name{
+  .game-name {
     font-size: 3.4vw;
   }
-  .game-category{
+  .game-category {
     font-size: 3.3vw;
     font-weight: 300;
   }
-
 }

@@ -19,18 +19,18 @@ const GamesBody: React.FC<{
   scrollRightHandler: any;
   categorisedGames: CategorisedGameGroupItem[];
 }> = (props) => {
-  let sortedGames = [...props.games];
-  if (props.sortby === "rate" || props.sortby === "category") {
-    sortedGames.sort((game1, game2) => +game1.id - +game2.id);
-  }
+  // let sortedGames = [...props.games];
+  // if (props.sortby === "rate" || props.sortby === "category") {
+  //   sortedGames.sort((game1, game2) => +game1.id - +game2.id);
+  // }
 
-  if (props.sortby === "earliest") {
-    sortedGames.sort((game1 , game2) => new Date(game1.created_at).getTime() - new Date(game2.created_at).getTime());
-  }
+  // if (props.sortby === "earliest") {
+  //   sortedGames.sort((game1 , game2) => new Date(game1.created_at).getTime() - new Date(game2.created_at).getTime());
+  // }
 
-  if (props.sortby === "latest") {
-    sortedGames.sort((game1 , game2) => new Date(game2.created_at).getTime() - new Date(game1.created_at).getTime())
-  }
+  // if (props.sortby === "latest") {
+  //   sortedGames.sort((game1 , game2) => new Date(game2.created_at).getTime() - new Date(game1.created_at).getTime())
+  // }
 
   
   return (
@@ -39,14 +39,14 @@ const GamesBody: React.FC<{
         (props.sortby === "rate" ||
           props.sortby === "earliest" ||
           props.sortby === "latest") && (
-          <ListGames games={sortedGames} page="games" />
+          <ListGames games={props.games} page="games" />
         )}
       {props.viewType === "compact" &&
         (props.sortby === "rate" ||
           props.sortby === "earliest" ||
           props.sortby === "latest") && (
           <CompactGames
-            games={sortedGames}
+            games={props.games}
             dropdownIsOpen={props.dropdownIsOpen}
           />
         )}

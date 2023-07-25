@@ -10,13 +10,11 @@ const ListGamesItem: React.FC<{
   const [isLiked, setIsLiked] = useState<boolean>(
     props.gameItem.is_liked_by_user
   );
-  const [likedNow, setLikedNow] = useState(false);
-  const [disLikedNow, setDisLikedNow] = useState(false);
   const [likeCounts, setLikeCount] = useState(props.gameItem.num_of_like);
   const likeClickHandler = (event: any) => {
     // console.log(isLiked);
     axios
-      .get(`${baseUrl}/game/like/${event.target.id}/`, {
+      .get(`${baseUrl}game/like/${event.target.id}/`, {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       })
       .then(function (response) {
@@ -37,21 +35,19 @@ const ListGamesItem: React.FC<{
   };
   return (
     <Fragment>
-      {/* <img
-        src={require(`../../../../../gemtopia-back/BackEnd/media${props.gameItem.logo_image}`)}
-        alt=""
-        className={style["game-logo"]}
-      /> */}
-      <img
-        src={require(`../../assets/${props.gameItem.logo_image}`)}
-        alt=""
-        className={style["game-logo"]}
-      />
+      {props.gameItem.logo_image && (
+        <img
+          src={baseUrl + props.gameItem.logo_image}
+          alt=""
+          className={style["game-logo"]}
+        />
+      )}
+
       <Link to={`/games/${props.gameItem.id}`}></Link>
       <div className={style["game-info-container"]} onClick={gameOpenHandler}>
         <h4 className={style["game-name"]}>{props.gameItem.name}</h4>
         <p className={style["game-category"]}>{props.gameItem.game_type}</p>
-        <p className={style["game-rank"]}>#{String(props.gameItem.id)}</p>
+        <p className={style["game-rank"]}>#{String(props.gameItem.rank)}</p>
       </div>
 
       <div className={style["likes-container"]}>
@@ -63,7 +59,9 @@ const ListGamesItem: React.FC<{
           id={String(props.gameItem.id)}
           onClick={likeClickHandler}
         />
-        <p className={style["game-likes-count"]}>{likeCounts.toLocaleString()}</p>
+        <p className={style["game-likes-count"]}>
+          {likeCounts.toLocaleString()}
+        </p>
       </div>
     </Fragment>
   );
