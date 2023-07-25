@@ -1,5 +1,6 @@
 .category-games-container{
-    width: 59rem;
+    /* width: 59rem; */
+    width: 74vw;
     display: flex;
     gap : 1rem;
     overflow-x: hidden;
@@ -30,8 +31,10 @@
 .game-thumbnail{
     transition: transform 1.2s;
     overflow: hidden;
-    width: 16.66rem;
-    height: 10rem;
+    /* width: 16.66rem;
+    height: 10rem; */
+    width: 21.5vw;
+    height: 12vw;
 }
 
 .game-thumbnail-hover:hover{

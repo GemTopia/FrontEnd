@@ -17,3 +17,11 @@
 .list-game-item-container:hover {
   border: 1.5px solid rgba(0, 150, 255, 0.4);
 }
+@media only screen and (max-width: 767px) {
+  .list-games-body{
+    gap: 0.75rem;
+  }
+  .list-game-item-container{
+    padding: 7px;
+  }
+}

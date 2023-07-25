@@ -1,6 +1,6 @@
 .game-logo {
-  width: 4rem;
-  height: 4rem;
+  width: 80px;
+  height: 80px;
   border-radius: 15px;
 }
 
@@ -18,12 +18,14 @@
 .game-name {
   font-weight: 600;
   font-size: 16px;
+  line-height: 18.75px;
 }
 
 .game-category,
 .game-rank {
   font-size: 14px;
   font-weight: 300;
+  line-height: 16.41px;
 }
 
 .likes-container {
@@ -39,4 +41,43 @@
 .game-likes-count {
   font-size: 13px;
   font-weight: 300;
+  line-height: 15.23px;
+}
+@media only screen and (max-width: 767px) {
+  .game-logo{
+    width: 60px;
+    height: 60px;
+  }
+  .game-name{
+    /* font-size: 12px; */
+    font-size: 3.17vw;
+    line-height: 14.06px;
+    line-height: 4.2vw;
+  }
+  .game-rank{
+    /* font-size: 12px; */
+    font-size: 3.17vw;
+    line-height: 14.06px;
+    line-height: 4.2vw;
+  }
+  .game-category{
+    /* font-size: 11px; */
+    font-size: 2.9vw;
+    line-height: 12.89px;
+    line-height: 3.8vw;
+  }
+  .likes-container img{
+    /* width: 20px; */
+    width: 5.7vw;
+    max-width: 26px;
+    /* height: 17px; */
+    height: 4.6vw;
+    max-height: 21px;
+  }
+  .game-likes-count{
+    font-size: 11px;
+    font-size: 2.9vw;
+    line-height: 12.89px;
+    line-height: 3.1vw;
+  }
 }

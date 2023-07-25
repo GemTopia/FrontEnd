@@ -2,7 +2,8 @@
   gap: 1rem;
   display: flex;
   flex-direction: column;
-  width: 59rem;
+  /* width: 59rem; */
+  width: 100%;
 }
 
 .one-category-container {
@@ -55,7 +56,7 @@
 }
 
 .list-category-games-container{
-  height: 19.2rem;
+  height: 22.4rem;
   overflow-y: hidden;
   /* border: 1px solid white; */
 }
@@ -63,4 +64,19 @@
   display: none;
 }
 
-
+@media only screen and (max-width: 767px) {
+  .icon{
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+  .list-category-title{
+    font-size: 16px;
+    line-height: 19.36px;
+  }
+  .list-category-group-container{
+    gap: 1rem;
+  }
+  .list-category-games-container{
+    height: 16rem;
+  }
+}

@@ -165,7 +165,7 @@ const Landing = () => {
   } = useInput((input: string) => validEmail.test(input), "");
   return (
     <Fragment>
-      <Header />
+      {/* <Header /> */}
       <div className={style.container}>
         <div className={style["fading-background"]}></div>
         <div className={style["fading-background-2"]}></div>
@@ -574,7 +574,7 @@ const Landing = () => {
             <button className={style["subscribe-button"]}>Subscribe</button>
           </form>
         </div>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </Fragment>
   );

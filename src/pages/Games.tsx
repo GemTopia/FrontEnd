@@ -25,11 +25,116 @@ const Games = () => {
     //   created_at: "2022-03-25",
     //   is_liked_by_user: true,
     // },
+    {
+      cover_image: "Rectangle 8.png",
+      logo_image: "Rectangle 846.png",
+      name: "subway surfers1",
+      game_type: "category1",
+      // rank:string;
+      num_of_like: 576544,
+      id: 0,
+      created_at: "2022-03-25",
+      is_liked_by_user: false,
+      game_pictures: ["pictures"],
+      link: "string",
+      num_of_report: 0,
+      num_of_users_get_gemyto: 0,
+      bio: "You join the numbers and get to the 2048 tile! Supports tiny (3x3), classic (4x4), big (5x5), bigger (6x6) and huge (8x8) board sizes. Be ready for a new challenge!",
+      scores:120
+    },
+    {
+      cover_image: "Rectangle 8.png",
+      logo_image: "Rectangle 846.png",
+      name: "subway surfers1",
+      game_type: "category1",
+      // rank:string;
+      num_of_like: 576543,
+      id: 1,
+      created_at: "2022-03-26",
+      is_liked_by_user: false,
+      game_pictures: ["pictures"],
+      link: "string",
+      num_of_report: 0,
+      num_of_users_get_gemyto: 0,
+      bio: "You join the numbers and get to the 2048 tile! Supports tiny (3x3), classic (4x4), big (5x5), bigger (6x6) and huge (8x8) board sizes. Be ready for a new challenge!",
+      scores:120
+    },
+    {
+      cover_image: "Rectangle 8.png",
+      logo_image: "Rectangle 846.png",
+      name: "subway surfers1",
+      game_type: "category1",
+      // rank:string;
+      num_of_like: 576542,
+      id: 2,
+      created_at: "2022-03-24",
+      is_liked_by_user: false,
+      game_pictures: ["pictures"],
+      link: "string",
+      num_of_report: 0,
+      num_of_users_get_gemyto: 0,
+      bio: "You join the numbers and get to the 2048 tile! Supports tiny (3x3), classic (4x4), big (5x5), bigger (6x6) and huge (8x8) board sizes. Be ready for a new challenge!",
+      scores:120
+    },
+    {
+      cover_image: "Rectangle 8.png",
+      logo_image: "Rectangle 846.png",
+      name: "subway surfers1",
+      game_type: "category1",
+      // rank:string;
+      num_of_like: 576541,
+      id: 3,
+      created_at: "2022-03-23",
+      is_liked_by_user: false,
+      game_pictures: ["pictures"],
+      link: "string",
+      num_of_report: 0,
+      num_of_users_get_gemyto: 0,
+      bio: "You join the numbers and get to the 2048 tile! Supports tiny (3x3), classic (4x4), big (5x5), bigger (6x6) and huge (8x8) board sizes. Be ready for a new challenge!",
+      scores:120
+    },
+    {
+      cover_image: "Rectangle 8.png",
+      logo_image: "Rectangle 846.png",
+      name: "subway surfers1",
+      game_type: "category1",
+      // rank:string;
+      num_of_like: 576546,
+      id: 4,
+      created_at: "2022-03-27",
+      is_liked_by_user: false,
+      game_pictures: ["pictures"],
+      link: "string",
+      num_of_report: 0,
+      num_of_users_get_gemyto: 0,
+      bio: "You join the numbers and get to the 2048 tile! Supports tiny (3x3), classic (4x4), big (5x5), bigger (6x6) and huge (8x8) board sizes. Be ready for a new challenge!",
+      scores:120
+    },
+    {
+      cover_image: "Rectangle 8.png",
+      logo_image: "Rectangle 846.png",
+      name: "subway surfers2",
+      game_type: "category2",
+      // rank:string;
+      num_of_like: 576547,
+      id: 5,
+      created_at: "2022-03-29",
+      is_liked_by_user: false,
+      game_pictures: ["pictures"],
+      link: "string",
+      num_of_report: 0,
+      num_of_users_get_gemyto: 0,
+      bio: "You join the numbers and get to the 2048 tile! Supports tiny (3x3), classic (4x4), big (5x5), bigger (6x6) and huge (8x8) board sizes. Be ready for a new challenge!",
+      scores:120
+    },
   ];
   const [games, setGames] = useState<GameItem[]>([]);
+  // const [categorisedGames, setCategorisedGames] = useState<
+  //   CategorisedGameGroupItem[]
+  // >([]);
   const [categorisedGames, setCategorisedGames] = useState<
     CategorisedGameGroupItem[]
-  >([]);
+  >(groupBy(dummy));
 
   const [firstGames, setFirstGames] = useState(
     categorisedGames.map((categoryGroup: CategorisedGameGroupItem) => {
@@ -459,8 +564,10 @@ const Games = () => {
         <GamesBody
           viewType={viewType}
           sortby={sortby}
-          games={games}
-          categorisedGames={groupBy(games)}
+          // games={games}
+          // categorisedGames={groupBy(games)}
+          games={dummy}
+          categorisedGames={groupBy(dummy)}
           dropdownIsOpen={dropdownIsOpen}
           disableDownOrRights={disableDownOrRights}
           disableUpOrLefts={disableUpOrLefts}
