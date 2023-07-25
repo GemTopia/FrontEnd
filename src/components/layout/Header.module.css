@@ -38,6 +38,9 @@ li {
 li a:hover,li:hover {
   color: #0096ff;
 }
+.icon{
+  margin-left: 1rem;
+}
 .icon img {
   width: 3rem;
 }
@@ -60,11 +63,12 @@ a.signup li:hover {
 }
 .menu {
   position: absolute;
-  height: 40rem;
+  height: auto;
   top: 4.5rem;
   background-color: #040c37;
   width: 100%;
   z-index: 10000000000;
+  padding-bottom: 5rem;
 }
 .menu ul {
   flex-direction: column;
@@ -76,4 +80,9 @@ a.signup li:hover {
   border-bottom: 4px solid rgba(0, 150, 255, 0.07);
   width: 100%;
   padding: 1rem ;
+}
+@media (max-width: 768px) {
+  a.signup {
+    padding: .5rem .8rem;
+  }
 }

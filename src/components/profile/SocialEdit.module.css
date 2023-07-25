@@ -29,7 +29,9 @@
   border-radius: 12px;
   font-size: 16px;
 }
-
+.input:hover {
+  filter: brightness(120%);
+}
 .invalid-input {
   background-color: #0096ff33;
   color: white;
@@ -42,6 +44,9 @@
   border-radius: 12px;
   font-size: 16px;
   box-shadow: 0 0 12px inset red;
+}
+.invalid-input:hover {
+  filter: brightness(120%);
 }
 .input-container label {
   display: flex;

@@ -40,7 +40,8 @@ const Profile: React.FC = () => {
   };
 
   const referralHandler = () => {
-    if (profileUser) navigator.clipboard.writeText(profileUser.referrer_code);
+    if (profileUser)
+      window.navigator.clipboard.writeText(profileUser.referrer_code);
 
     setReferralCopy(true);
     setTimeout(() => {
@@ -165,9 +166,7 @@ const Profile: React.FC = () => {
                   )}
                 </div>
               )}
-              {profileUser && profileUser.user_game.length > 0 && (
-                <ProfileGames games={profileUser.user_game} />
-              )}
+              {profileUser && <ProfileGames games={profileUser.user_game} />}
             </div>
           </Fragment>
         )}

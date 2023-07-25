@@ -193,7 +193,7 @@ const Login = () => {
             <p className={styles["error-message"]}>{errorMessage}</p>
           )}
           <span>
-            already have an account?{" "}
+            Don't hava an account?{' '}
             <Link to="/signup" className={styles["footer-link"]}>
               Signup
             </Link>

@@ -36,7 +36,7 @@
 .edit-icon {
   margin-left: auto;  
   font-size: 25px;
- 
+  align-self: flex-start;
   background-color: #06092d;
   border: none;
   color: white;
@@ -70,7 +70,7 @@
 }
 
 .info-form h3 {
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 600;
   margin-top: 1.4rem;
 }

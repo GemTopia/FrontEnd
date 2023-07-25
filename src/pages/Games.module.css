@@ -48,7 +48,10 @@
   line-height: normal;
   letter-spacing: 0.27px;
 }
+.search-input:hover {
+  filter: brightness(120%);
 
+}
 .search-input::placeholder {
   color: rgba(0, 150, 255, 0.85);
 }

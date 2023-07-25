@@ -13,29 +13,32 @@ const Header = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [openMenu, setMenuOpen] = useState(false);
   useEffect(() => {
-    if (localStorage.getItem("username")) {
+    if (localStorage.getItem("token")) {
       setIsLoggedIn(true);
     } else setIsLoggedIn(false);
-    if (document.location.pathname === "/profile") setHomeIcon(true);
+    if (document.location.pathname !== "/home") setHomeIcon(true);
     else setHomeIcon(false);
     if (window.screen.width < 768) setIsMobile(true);
     else setIsMobile(false);
   }, [
-    localStorage.getItem("username"),
+    localStorage.getItem("token"),
     document.location.pathname,
     document.getElementsByTagName("body"),
   ]);
   const roadmapHandler = () => {
     const element = document.getElementById("roadmap");
     if (element) element.scrollIntoView({ behavior: "smooth" });
+    setMenuOpen(false);
   };
   const communityHandler = () => {
     const element = document.getElementById("community");
     if (element) element.scrollIntoView({ behavior: "smooth" });
+    setMenuOpen(false);
   };
   const faqHandler = () => {
     const element = document.getElementById("faq");
     if (element) element.scrollIntoView({ behavior: "smooth" });
+    setMenuOpen(false);
   };
   const navigate = useNavigate();
   const logoutHandler = () => {
@@ -51,11 +54,12 @@ const Header = () => {
   return (
     <Fragment>
       <header className={styles.container}>
-        <Link to="/home">
+        <Link to="/">
           <img src={logo} alt="gemtopia" className={styles.logo} />
         </Link>
         {isMobile ? (
-          openMenu ? (
+          // openMenu ? (
+          isLoggedIn ? (
             <Fragment>
               <Link to="/profile" className={styles.right}>
                 <img
@@ -65,30 +69,43 @@ const Header = () => {
                 />
               </Link>
               <img
-                src={X}
-                alt="X"
+                src={openMenu ? X : menu}
+                alt={openMenu ? "X" : "menu"}
                 className={styles.icon}
                 onClick={menuHandler}
               />
             </Fragment>
           ) : (
             <Fragment>
-              <Link to="/profile" className={styles.right}>
-                <img
-                  src={profile}
-                  alt="profile"
-                  className={`${styles.icon} `}
-                />
+              <Link to="signup" className={`${styles.signup}  ${styles.right}`}>
+                Sign up
               </Link>
               <img
-                src={menu}
-                alt="menu"
+                src={openMenu ? X : menu}
+                alt={openMenu ? "X" : "menu"}
                 className={styles.icon}
                 onClick={menuHandler}
               />
             </Fragment>
           )
-        ) : isLoggedIn ? (
+        ) : // ) : (
+        //   <Fragment>
+        //     <Link to="/profile" className={styles.right}>
+        //       <img
+        //         src={profile}
+        //         alt="profile"
+        //         className={`${styles.icon} `}
+        //       />
+        //     </Link>
+        //     <img
+        //       src={menu}
+        //       alt="menu"
+        //       className={styles.icon}
+        //       onClick={menuHandler}
+        //     />
+        //   </Fragment>
+        // )
+        isLoggedIn ? (
           <Fragment>
             <Clock className={styles.Clock} />
             <nav className={`${styles.navbar} ${styles.right}`}>
@@ -134,19 +151,31 @@ const Header = () => {
           </Fragment>
         )}
       </header>
-      {openMenu && (
-        <div className={styles.menu}>
-          <ul>
-            <li>
-              <Link to="/games">Games</Link>
-            </li>
-            <li>
-              <Link to="/inventory">Gemyto</Link>
-            </li>
-            <li onClick={logoutHandler}>Logout</li>
-          </ul>
-        </div>
-      )}
+      {openMenu &&
+        (isLoggedIn ? (
+          <div className={styles.menu}>
+            <ul>
+              <li>
+                <Link to="/games">Games</Link>
+              </li>
+              <li>
+                <Link to="/inventory">Gemyto</Link>
+              </li>
+              <li onClick={logoutHandler}>Logout</li>
+            </ul>
+          </div>
+        ) : (
+          <div className={styles.menu}>
+            <ul>
+              <li>
+                <Link to="/login">Log in</Link>
+              </li>
+              <li onClick={roadmapHandler}>Roadmap</li>
+              <li onClick={communityHandler}>Community</li>
+              <li onClick={faqHandler}>FAQ</li>
+            </ul>
+          </div>
+        ))}
     </Fragment>
   );
 };

@@ -98,15 +98,17 @@ const Signup = () => {
             error.response.data[0] ||
               error.response.data.detail ||
               error.response.data.email ||
-              error.response.data.password
+              error.response.data.password ||
+              "Something went wrong please try again"
           );
         });
     }
   };
   return (
     <div className={styles.container}>
-      <img src={logo} alt="" className={styles.logo} />
-
+      <Link to="/" className={styles.link}>
+        <img src={logo} alt="" className={styles.logo} />
+      </Link>
       <div className={styles["right-side-pic"]}></div>
       <div className={styles["left-side-pic"]}></div>
 
@@ -150,7 +152,7 @@ const Signup = () => {
         <input
           type="referral"
           name="referral"
-          placeholder="Referral code"
+          placeholder="Referral code (Opt.)"
           onChange={referralChangeHandler}
           onBlur={referralBlurHandler}
           className={styles.input}
@@ -177,9 +179,9 @@ const Signup = () => {
           <p className={styles["error-message"]}>{errorMessage}</p>
         )}
         <span>
-          already have an account?{" "}
+          Already have an account?{" "}
           <Link to="/login" className={styles["footer-link"]}>
-            login
+            Login
           </Link>
         </span>
       </form>

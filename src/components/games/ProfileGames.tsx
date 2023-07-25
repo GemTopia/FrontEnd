@@ -7,11 +7,11 @@ import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import profileGameItem from "../../models/profileGameItem";
 import GameItem from "../../models/GameItem";
 
-const ProfileGames: React.FC<{ games: GameItem[] | undefined }> = (
-  props
-) => {
+const ProfileGames: React.FC<{ games: GameItem[] | undefined }> = (props) => {
   const [topGame, setTopGame] = useState("0");
-  const [disableDown, setDisableDown] = useState(false);
+  const [disableDown, setDisableDown] = useState(
+    props.games && props.games.length > 4 ? false : true
+  );
   const [disableUp, setDisableUp] = useState(true);
 
   const scrollUpHandler = () => {
@@ -62,10 +62,10 @@ const ProfileGames: React.FC<{ games: GameItem[] | undefined }> = (
       </div>
 
       <div className={styles["game-container"]}>
-        {loadedGames &&
-          loadedGames.map((item,index) => {
+        {loadedGames && loadedGames.length>0 ?
+          loadedGames.map((item, index) => {
             return <ProfileGameItem key={index} game={item} index={index} />;
-          })}
+          }):<p className={styles['noscore-text']}>There are no scores to show !!</p>}
       </div>
     </div>
   );

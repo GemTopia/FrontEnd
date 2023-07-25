@@ -12,6 +12,11 @@ import axios, * as others from "axios";
 import { baseUrl } from "../shares/shared";
 import { ethers } from "ethers";
 import GameItem from "../models/GameItem";
+import { useNavigate } from "react-router";
+import Modal from "../components/layout/Modal";
+import warning from "../assets/warning.svg";
+import metamask from "../assets/metamask.svg";
+import X from "../assets/menu-X.svg"
 const Inventory = () => {
   // let dummy: InventoryGameItem[] = [
   //   {
@@ -68,7 +73,7 @@ const Inventory = () => {
   //   Quantity: 50000000000000,
   // },
   // ];
-  const [yesterdayWinning, setYesterdayWinning] = useState(true);
+  const [yesterdayWinning, setYesterdayWinning] = useState(false);
   const [transactionCondition, setTransactionCondition] = useState("");
   // const [transactionCondition, setTransactionCondition] = useState('success');
   // const [transactionCondition, setTransactionCondition] = useState('connect wallet');
@@ -76,7 +81,9 @@ const Inventory = () => {
   const [waitingGames, setWaitingGames] = useState<InventoryGameItem[]>();
   const [earnedGames, setEarnedGames] = useState<InventoryGameItem[]>();
   const [transactions, setTransactions] = useState<transaction[]>();
+  const navigate = useNavigate();
   useEffect(() => {
+    if (!localStorage.getItem("token")) navigate("/");
     axios
       .get(`${baseUrl}wallet/`, {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
@@ -86,22 +93,43 @@ const Inventory = () => {
         setWaitingGames(response.data.daily_played);
         setEarnedGames(response.data.played);
         setTransactions(response.data.transactions);
+        if (response.data.played.length > 0) setYesterdayWinning(true);
       })
       .catch(function (error) {
         console.log(error);
       });
-  }, []);
-  const successTransactionHandler = () => {
-    setTransactionCondition("success");
-  };
-  const walletConnectErrorHandler = () => {
-    setTransactionCondition("connect wallet");
-  };
-  const lackOfAmountErrorHandler = () => {
-    setTransactionCondition("lack of amount");
-  };
-  const confirmHandler = () => {
-    setTransactionCondition("");
+  }, [localStorage.getItem("token")]);
+  // const successTransactionHandler = () => {
+  //   setTransactionCondition("success");
+  // };
+  // const walletConnectErrorHandler = () => {
+  //   setTransactionCondition("connect wallet");
+  // };
+  // const lackOfAmountErrorHandler = () => {
+  //   setTransactionCondition("lack of amount");
+  // };
+  // const confirmHandler = () => {
+  //   setTransactionCondition("");
+  // };
+  async function connectWallet() {
+    if (typeof (window as any).ethereum !== "undefined") {
+      try {
+        await (window as any).ethereum.request({
+          method: "eth_requestAccounts",
+        });
+        const provider = new ethers.BrowserProvider((window as any).ethereum);
+        const signer = provider.getSigner();
+        const connectedAddress = (await signer).getAddress();
+        return connectedAddress.toString();
+      } catch (error) {
+        // console.log(error); // اینجاهم ارور برای کاربر نشون داده میشه مثلا گفته میشه که شما درخواست رو رد کردید اینم باز سارا طراحی میکنه مثلا هنگام اتصال به ولت مشکلی روی داد
+      }
+    } else {
+      setTransactionCondition("connect wallet");
+    }
+  }
+  const withdrawHandler = async () => {
+    const userAddress = await connectWallet(); //connected user address
   };
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   // const PRIVATE_KEY = process.env.REACT_APP_PRIVATE_KEY;
@@ -109,24 +137,7 @@ const Inventory = () => {
   // const ABI = process.env.REACT_APP_ABI
   //   ? JSON.parse(process.env.REACT_APP_ABI)
   //   : [];
-  // // connect wallet
-  // async function connectWallet() {
-  //   if (typeof (window as any).ethereum !== "undefined") {
-  //     try {
-  //       await (window as any).ethereum.request({
-  //         method: "eth_requestAccounts",
-  //       });
-  //       const provider = new ethers.BrowserProvider((window as any).ethereum);
-  //       const signer = provider.getSigner();
-  //       const connectedAddress = (await signer).getAddress();
-  //       return connectedAddress.toString();
-  //     } catch (error) {
-  //       console.error(error); // اینجاهم ارور برای کاربر نشون داده میشه مثلا گفته میشه که شما درخواست رو رد کردید اینم باز سارا طراحی میکنه مثلا هنگام اتصال به ولت مشکلی روی داد
-  //     }
-  //   } else {
-  //     console.error("MetaMask not found. Please install it first."); // اینجا همون کامپوننتی که سارا طراحی کرده باید برای کاربر نشون داده بشه
-  //   }
-  // }
+  // connect wallet
 
   // async function send_token(send_token_amount: any, to_address: any) {
   //   try {
@@ -164,7 +175,7 @@ const Inventory = () => {
   //   const userAddress = await connectWallet(); //connected user address
   //   // اینجا این ادرس فرستاده میشه برای بک هر بار
 
-  //   if (userAddress) send_token(amount.toString(), userAddress);
+  //   // if (userAddress) send_token(amount.toString(), userAddress);
   //   //اینجا مقدار هم فرستاده میشه برای بک
   //   else console.log("wallet did not connected"); //اینجا کامپوننتی که سارا طراحی کرده نشون داده میشه
   // }
@@ -172,14 +183,31 @@ const Inventory = () => {
   // withdraw(0.003); //این مقدار  تمام موجودی کاربر میشه ولی قبلش یه چک کنید از یه مقداری بیشتر باشه مثلا بیاد چک کنه اگه از 100 بیشتره اجازه برداشت بده اگه کمتره دوباره چیزی که سارا طراحی کرده رو بذارید
 
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  // <ErrorModal
+  //   transactionCondition={transactionCondition}
+  //   onConfirm={confirmHandler}
+  // />
+  const cancelModal = () => {
+    setTransactionCondition("");
+  };
   return (
     <Fragment>
       <Header />
       <div className={style.container}>
-        {transactionCondition && (
-          <ErrorModal
-            transactionCondition={transactionCondition}
-            onConfirm={confirmHandler}
+        {transactionCondition === "connect wallet" && (
+          <Modal
+            cancel={cancelModal}
+            children={
+              <div className={style.modal}>
+                <img src={X} alt="X" className={style['x-icon']} onClick={cancelModal}/>
+                <div className={style["modal-text"]}>
+                  <img src={warning} alt="warning" />
+                  <p>Please connnect your wallet first(MetaMask)</p>
+                </div>
+                <img src={metamask} alt="metamask" />
+              </div>
+            }
           />
         )}
         <div className={style.header}>
@@ -206,7 +234,12 @@ const Inventory = () => {
             </div>
           )}
           <div className={style["withdraw-container"]}>
-            <button className={style["withdraw-button"]}>Withdraw</button>
+            <button
+              className={style["withdraw-button"]}
+              onClick={withdrawHandler}
+            >
+              Withdraw
+            </button>
             <FontAwesomeIcon
               icon={faCircleExclamation}
               className={`${style["warning-icon"]} ${style["yellow-icon"]}`}
@@ -225,7 +258,7 @@ const Inventory = () => {
             <InventoryLlist title="Earned Gemyto" gameItems={earnedGames} />
           )}
         </div>
-        <table>
+        <table className={style.transaction}>
           <thead>
             <tr>
               <th></th>

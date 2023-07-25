@@ -74,6 +74,9 @@
   width: 86%;
   margin-top: 2.7rem;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 auto;
 }
 
 .withdraw-button {
@@ -113,7 +116,6 @@
 .header-description {
   color: rgba(0, 150, 255, 0.8);
   margin-top: 0.7%;
-  width: 86%;
   font-size: 15px;
   font-weight: 500;
 }
@@ -124,7 +126,27 @@
   width: 85%;
   flex-wrap: wrap;
   /* border: 1px solid white; */
-  margin-top: 8%;
+  margin-top: 2rem;
+}
+.modal{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.modal-text{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal-text img {
+  width: 3rem;
+}
+.x-icon {
+  align-self: flex-end;
+  width: 1rem;
+  cursor: pointer;
 }
 .table {
   overflow: scroll;
@@ -141,12 +163,12 @@ table {
   margin-bottom: 10%;
 }
 th:first-child {
-  border-top-left-radius: 15px;
+  /* border-top-left-radius: 15px; */
   border: 1px solid rgba(0, 150, 255, 0.15);
   border-right: none;
 }
 th:last-child {
-  border-top-right-radius: 15px;
+  /* border-top-right-radius: 15px; */
   border: 1px solid rgba(0, 150, 255, 0.15);
   border-left: none;
 }
@@ -201,6 +223,9 @@ th {
 .table-quantity {
   width: 25%;
 }
+.transaction *{
+  overflow: scroll;
+}
 @media only screen and (max-width: 767px) {
   .container {
     width: 100%;
@@ -251,7 +276,7 @@ th {
   table {
     font-size: 12px;
     line-height: 24px;
-    width: 260%;
+    /* width: 260%; */
   }
   .table-index {
     width: 8%;

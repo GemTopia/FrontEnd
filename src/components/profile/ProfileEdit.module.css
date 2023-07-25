@@ -34,7 +34,7 @@
   margin-right: 0.5rem;
   margin-left: auto;
   font-size: 25px;
-
+  align-self: flex-start;
   background-color: #06092d;
   border: none;
   color: white;
@@ -63,7 +63,7 @@
 }
 
 .info-form label {
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 600;
   margin-top: 1.5rem;
 }
@@ -76,12 +76,15 @@
   resize: none;
   background-color: rgba(0, 150, 255, 0.2);
   border: none;
-  padding: 10px;
+  padding: 1rem;
   border: transparent 1px rgba(0, 150, 255, 0.2);
   border-radius: 12px;
   width: 100%;
   color: white;
   margin: 10px 0;
+}
+.bioEdit:hover {
+  filter: brightness(120%);
 }
 .bioEdit:focus {
   outline: none;
@@ -93,13 +96,16 @@
 .usernameEdit {
   width: 100%;
   background-color: rgba(0, 150, 255, 0.2);
-  padding: 10px;
+  padding: 1rem;
   border: none;
   border: transparent 1px rgba(0, 150, 255, 0.2);
   border-radius: 12px;
   color: white;
   margin: 10px 0;
   font-size: 16px;
+}
+.usernameEdit:hover {
+  filter: brightness(120%);
 }
 .usernameEdit:focus {
   outline: none;

@@ -29,7 +29,7 @@
   margin-left: 0.3rem;
   cursor: pointer;
 }
-.disabled{
+.disabled {
   color: #0095ff69;
 }
 .game-container {
@@ -41,4 +41,9 @@
 
 .game-container::-webkit-scrollbar {
   display: none;
+}
+
+.noscore-text {
+  font-weight: bold;
+  color: #0096ffe5;
 }

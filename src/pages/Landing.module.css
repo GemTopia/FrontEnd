@@ -7,30 +7,34 @@
 
 .fading-background {
   width: 100%;
-  height: 30rem;
+  height: 50rem;
   margin: 0 auto;
   background-image: url("../assets/background.png");
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: 90% 30rem;
   position: absolute;
-  top: 0;
+  top: 5rem;
   z-index: -10;
   filter: brightness(50%);
+  margin-top: -5rem;
+  overflow-x: hidden;
 }
 .fading-background-2 {
   width: 100%;
-  height: 40rem;
+  height: 50rem;
   margin: 0 auto;
   background-image: url("../assets/background.png");
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: 80% 40rem;
   position: absolute;
-  top: 0;
+  top: 5rem;
   z-index: -10;
   filter: brightness(70%);
+  margin-top: -5rem;
+  overflow-x: hidden;
 }
 .intro-container {
-  margin-top: 9.7rem;
+  margin-top: 5rem;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -97,9 +101,7 @@
   color: white;
   display: flex;
   gap: 2rem;
-  margin-left: 4%;
-  margin-bottom: 24%;
-  margin-top: 7%;
+  margin-top: 8rem;
 }
 .first-big-game-background-image {
   background-image: url("../assets/big pic 3.png");
@@ -139,7 +141,7 @@
   margin-top: 50%;
   margin-left: 5%;
 }
-.game-name{
+.game-name {
   font-size: 1.22vw;
   font-weight: 600;
 }
@@ -219,6 +221,7 @@
   width: 70%;
   display: flex;
   align-items: center;
+  margin-top: 8rem;
 }
 
 .gemyto-description-container {
@@ -268,18 +271,19 @@
   letter-spacing: 0.18px;
   margin-right: 5%;
   padding: 2%;
-  
+  justify-content: center;
+  align-items: center;
 }
 
 .buying-platform-container img {
   width: 95%;
   height: 90%;
-  margin-top: 2%;
-  margin-left: 7%;
+  /* margin-top: 2%; */
+  /* margin-left: 7%; */
 }
 
 .uniswap {
-  width: 78%!important;
+  width: 78% !important;
   margin-bottom: 7%;
   margin-left: 10%;
 }
@@ -398,7 +402,7 @@
   align-items: center;
   width: 100%;
   height: 40rem;
-  margin-top: 10%;
+  margin-top: 8rem;
   overflow: hidden;
 }
 
@@ -419,7 +423,7 @@
   height: 100%;
 }
 
-.chart p{
+.chart p {
   color: rgba(255, 255, 255, 0.85);
   font-size: 1.55vw;
   font-weight: 500;
@@ -428,12 +432,11 @@
   width: 47%;
 }
 
-
 .clock-and-description-container {
   display: flex;
   align-items: center;
   gap: 4rem;
-  margin-top: 10rem;
+  margin-top: 8rem;
   width: 80%;
   justify-content: space-around;
 }
@@ -453,7 +456,7 @@
   align-items: center;
   justify-content: center;
 }
-.clock-container:hover{
+.clock-container:hover {
   box-shadow: 0px 0px 45px 5px #0096ff;
 }
 .clock-description {
@@ -469,7 +472,7 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  margin-top: 15%;
+  margin-top: 8rem;
 }
 
 .roadmap-container h2 {
@@ -482,15 +485,14 @@
   letter-spacing: 0.6px;
 }
 
-.roadmap{
+.roadmap {
   display: flex;
   justify-content: center;
 }
 
 .faq-container {
   color: white;
-  margin-top: 10%;
-  margin-bottom: 10%;
+  margin-top: 8rem;
   width: 70%;
   display: flex;
   flex-direction: column;
@@ -531,7 +533,7 @@
   flex-direction: column;
   align-items: center;
   width: 70%;
-  margin-top: 5rem;
+  margin-top: 8rem;
 }
 
 .subscribe-container p {
@@ -563,7 +565,9 @@
   outline: none;
   border: none;
 }
-
+.input:hover {
+  filter: brightness(120%);
+}
 .input::placeholder {
   color: rgba(255, 255, 255, 0.85);
 }
@@ -598,61 +602,72 @@
   display: contents;
 }
 @media only screen and (max-width: 767px) {
-  .intro-container h1{
+  .intro-container h1 {
     font-size: 7.7vw;
     letter-spacing: 0.42px;
   }
-  .description{
+  .fading-background {
+    background-size: 90% 20rem;
+    top: 10rem;
+  }
+  .fading-background-2 {
+    background-size: 80% 20rem;
+    top: 10rem;
+  }
+  .description {
     font-size: 4.48vw;
     letter-spacing: 0.24px;
   }
-  .second-description{
+  .second-description {
     font-size: 20px;
     font-size: 5.6vw;
     letter-spacing: 0.3px;
   }
-  .learn-more-button{
+  .learn-more-button {
     width: 40vw;
     max-width: 18rem;
     font-size: 4.48vw;
     letter-spacing: 0.24px;
   }
-  .first-big-game-background-image,.second-big-game-background-image,.third-big-game-background-image{
+  .first-big-game-background-image,
+  .second-big-game-background-image,
+  .third-big-game-background-image {
     width: 90vw;
     border-radius: 25px;
     background-size: 100%;
     height: inherit;
   }
-  .bottom-blur-background{
+  .bottom-blur-background {
     height: inherit;
     background-size: 100%;
   }
-  .small-size-games-container{
+  .small-size-games-container {
     display: none;
   }
-  
+
   .game-switch-container {
     gap: 0;
     margin-left: 0;
     margin-bottom: 0;
     justify-content: center;
     height: fit-content;
-    margin-top: 7%;
+    margin-top: 4rem;
     width: 90%;
     height: 100%;
   }
-  .game-text-info-container{
+  .game-text-info-container {
     line-height: 4.4vw;
     margin-top: 45%;
     margin-bottom: 7%;
   }
-  .game-category , .rank{
+  .game-category,
+  .rank {
     font-size: 2.8vw;
   }
-  .game-name{
+  .game-name {
     font-size: 3.3vw;
   }
-  .play-now-button{
+  .play-now-button {
     font-size: 2.74vw;
     margin-top: 50%;
     letter-spacing: 0.15px;
@@ -662,190 +677,189 @@
     height: 1.5rem;
     margin-left: 1.4vw;
   }
-  .title{
+  .title {
     font-size: 8.9vw;
     letter-spacing: 0.48px;
     margin-bottom: 1.7rem;
   }
-  .gemyto-description{
+  .gemyto-description {
     font-size: 3.89vw;
     letter-spacing: 0.21px;
     width: 90%;
   }
-  .token-description-container{
+  .token-description-container {
     width: 100%;
     flex-direction: column;
     gap: 2rem;
   }
-  .buying-guidance-container{
+  .buying-guidance-container {
     justify-content: center;
     gap: 3%;
   }
-  .buy-guidance-title{
+  .buy-guidance-title {
     font-size: 4.48vw;
     letter-spacing: 0.24px;
   }
-  .buying-platform-container{
+  .buying-platform-container {
     font-size: 2.74vw;
     letter-spacing: 0.15;
     margin-right: 0;
     width: 50%;
   }
-  .buying-platform-container img{
+  .buying-platform-container img {
     height: 100%;
   }
 
-  .gemyto-description-container{
+  .gemyto-description-container {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-  .gemyto-info{
+  .gemyto-info {
     margin-left: 0;
     width: 85%;
   }
-  .gemyto-info-title{
+  .gemyto-info-title {
     font-size: 6.65vw;
     letter-spacing: 0.36px;
   }
-  .gemyto-info-title img{
+  .gemyto-info-title img {
     width: 4.4vw;
   }
-  .contract-address-container span{
+  .contract-address-container span {
     font-size: 3.15vw;
     letter-spacing: 0.165px;
   }
-  .price-item-title{
+  .price-item-title {
     font-size: 2.18vw;
     letter-spacing: 0.156px;
   }
-  
-.price-amount {
-  font-size: 3.7vw;
-  letter-spacing: 0.2px;
-}
 
-.price-change-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 80%;
-  padding-left: 13%;
-}
+  .price-amount {
+    font-size: 3.7vw;
+    letter-spacing: 0.2px;
+  }
 
+  .price-change-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    padding-left: 13%;
+  }
 
-.red-text {
-  font-size: 3.27vw;
-  letter-spacing: 0.178px;
-}
+  .red-text {
+    font-size: 3.27vw;
+    letter-spacing: 0.178px;
+  }
 
-.green-text {
-  font-size: 3.27vw;
-  letter-spacing: 0.178px;
-}
-.clock-and-description-container{
-  flex-direction: column;
-  width: 100%;
-}
-.clock-container{
-  width: 70%;
-  font-size: 38px;
-  font-size: 10.4vw;
-  letter-spacing: 0.57px;
-  padding: 12vw 27vw;
+  .green-text {
+    font-size: 3.27vw;
+    letter-spacing: 0.178px;
+  }
+  .clock-and-description-container {
+    flex-direction: column;
+    width: 100%;
+  }
+  .clock-container {
+    width: 70%;
+    font-size: 38px;
+    font-size: 10.4vw;
+    letter-spacing: 0.57px;
+    padding: 12vw 27vw;
+  }
+  .clock-description {
+    width: 80%;
+    font-size: 3.88vw;
+    letter-spacing: 0.21px;
+  }
+  .tokenomics {
+    height: 20%;
+  }
+  .tokenomics-title {
+    font-size: 8.9vw;
+    letter-spacing: 0.48px;
+  }
+  .chart {
+    flex-wrap: wrap-reverse;
+    width: 120%;
+    min-width: 500px;
+    max-width: 45rem;
+    overflow: hidden;
+  }
 
-}
-.clock-description{
-  width: 80%;
-  font-size: 3.88vw;
-  letter-spacing: 0.21px;
-}
-.tokenomics{
-  height: 20%;
-}
-.tokenomics-title{
-  font-size: 8.9vw;
-  letter-spacing: 0.48px;
-}
-.chart{
-  flex-wrap: wrap-reverse;
-  width: 120%;
-  min-width: 500px;
-  max-width: 45rem;
-  overflow: hidden;
-}
+  .chart p {
+    width: 60%;
+    font-size: 4vw;
+    margin-right: 10%;
+    display: none;
+  }
 
-.chart p{
-  width: 60%;
-  font-size: 4vw;
-  margin-right: 10%;
-}
+  .roadmap-container {
+    width: 90%;
+    margin-top: 5rem;
+  }
 
-.roadmap-container {
-  width: 90%;
-  margin-top: 5rem;
-}
+  .roadmap-container h2 {
+    font-size: 8.9vw;
+    margin-bottom: 5rem;
+  }
 
-.roadmap-container h2 {
-  font-size: 8.9vw;
-  margin-bottom: 5rem;
-}
+  .roadmap {
+    width: 100%;
+    overflow: scroll;
+  }
 
-.roadmap{
-  width: 100%;
-  overflow: scroll;
-}
+  .roadmap::-webkit-scrollbar {
+    display: none;
+  }
 
-.roadmap::-webkit-scrollbar {
-  display: none;
-}
-
-.faq-container{
-  width: 100%;
-}
-.faq-title{
-  font-size: 8.9vw;
-  letter-spacing: 0.48px;
-}
-.faq-item{
-  padding: 5%;
-  font-size: 3.15vw;
-  border-radius: 10px;
-  width: 90%;
-}
-.subscribe-container{
-  width: 100%;
-}
-.subscribe-container p{
-  font-size: 7.65vw;
-  letter-spacing: 0.45px;
-  width: 60%;
-  text-align: center;
-}
-.input-container{
-  flex-direction: column;
-  gap: 1rem;
-}
-.input{
-  width: 100%;
-  font-size: 3.7vw;
-  letter-spacing: 0.24px;
-  border-radius: 15px;
-  padding: 1rem;
-}
-.invalid-input{
-  width: 100%;
-  font-size: 3.7vw;
-  letter-spacing: 0.24px;
-  border-radius: 15px;
-  padding: 1rem;
-}
-.subscribe-button{
-  width: 100%;
-  font-size: 4.2vw;
-  letter-spacing: 0.21px;
-  padding: 1rem 3rem;
-  border-radius: 15px;
-}
+  .faq-container {
+    width: 100%;
+  }
+  .faq-title {
+    font-size: 8.9vw;
+    letter-spacing: 0.48px;
+  }
+  .faq-item {
+    padding: 5%;
+    font-size: 3.15vw;
+    border-radius: 10px;
+    width: 90%;
+  }
+  .subscribe-container {
+    width: 100%;
+  }
+  .subscribe-container p {
+    font-size: 7.65vw;
+    letter-spacing: 0.45px;
+    width: 60%;
+    text-align: center;
+  }
+  .input-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .input {
+    width: 100%;
+    font-size: 3.7vw;
+    letter-spacing: 0.24px;
+    border-radius: 15px;
+    padding: 1rem;
+  }
+  .invalid-input {
+    width: 100%;
+    font-size: 3.7vw;
+    letter-spacing: 0.24px;
+    border-radius: 15px;
+    padding: 1rem;
+  }
+  .subscribe-button {
+    width: 100%;
+    font-size: 4.2vw;
+    letter-spacing: 0.21px;
+    padding: 1rem 3rem;
+    border-radius: 15px;
+  }
 }

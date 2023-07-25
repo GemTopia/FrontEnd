@@ -17,59 +17,25 @@ import { Link } from "react-router-dom";
 import Chart from "../components/other/Chart";
 import Roadmap from "../components/other/Roadmap";
 const Landing = () => {
-  let dummy: GameItem[] = [
-    {
-      cover_image: "Rectangle 8.png",
-      logo_image: "Rectangle 846.png",
-      name: "subway surfers1",
-      game_type: "category1",
-      num_of_like: 5278,
-      // rank: "1",
-      id: 0,
-      created_at: "2022-03-25",
-      is_liked_by_user: true,
-      game_pictures: [],
-      num_of_report: 0,
-      num_of_users_get_gemyto: 0,
-      link: "",
-      bio: "",
-      scores: 0,
-    },
-    {
-      cover_image: "Rectangle 8.png",
-      logo_image: "Rectangle 846.png",
-      name: "subway surfers1",
-      game_type: "category1",
-      num_of_like: 5279,
-      // rank: "2",
-      id: 1,
-      created_at: "2022-03-26",
-      is_liked_by_user: true,
-      game_pictures: [],
-      num_of_report: 0,
-      num_of_users_get_gemyto: 0,
-      link: "",
-      bio: "",
-      scores: 0,
-    },
-    {
-      cover_image: "Rectangle 8.png",
-      logo_image: "Rectangle 846.png",
-      name: "subway surfers1",
-      game_type: "category1",
-      num_of_like: 5277,
-      // rank: "3",
-      id: 2,
-      created_at: "2022-03-28",
-      is_liked_by_user: true,
-      game_pictures: [],
-      num_of_report: 0,
-      num_of_users_get_gemyto: 0,
-      link: "",
-      bio: "",
-      scores: 0,
-    },
-  ];
+  // let dummy: GameItem[] = [
+  //   {
+  //     cover_image: "Rectangle 8.png",
+  //     logo_image: "Rectangle 846.png",
+  //     name: "subway surfers1",
+  //     game_type: "category1",
+  //     num_of_like: 5278,
+  //     // rank: "1",
+  //     id: 0,
+  //     created_at: "2022-03-25",
+  //     is_liked_by_user: true,
+  //     game_pictures: [],
+  //     num_of_report: 0,
+  //     num_of_users_get_gemyto: 0,
+  //     link: "",
+  //     bio: "",
+  //     scores: 0,
+  //   },
+  // ]
   const [sliderGames, setSliderGames] = useState<GameItem[]>();
   const [dropdownIsOpen1, setDropdownIsOpen1] = useState<boolean>(false);
   const [dropdownIsOpen2, setDropdownIsOpen2] = useState<boolean>(false);
@@ -88,16 +54,9 @@ const Landing = () => {
     setDropdownIsOpen4((current) => !current);
   };
   const copyHandler = () => {
-    navigator.clipboard.writeText("0x728f30fa2f10074261804fa8e0b1387d");
+    window.navigator.clipboard.writeText("0x728f30fa2f10074261804fa8e0b1387d");
   };
-  const [IsLiked, setIsLiked] = useState<boolean[]>([false, false, false]);
-  const likeClickHandler = (event: any) => {
-    setIsLiked((firstState: boolean[]) => {
-      let secondState = [...firstState];
-      secondState[+event.target.id] = !secondState[+event.target.id];
-      return secondState;
-    });
-  };
+
   const [tokenData, setTokenData] = useState<any[]>();
   const [chosenGame, setChosenGame] = useState<number>(0);
   useEffect(() => {
@@ -122,7 +81,7 @@ const Landing = () => {
       //code inside here will run every second
       setChosenGame((current) => (current + 1) % 3);
       // console.log('working')
-    }, 3000); //change the 1000 to however many miliseconds you want between execution
+    }, 5000); //change the 1000 to however many miliseconds you want between execution
     return () => clearInterval(interval);
   }, []);
   const gameClickHandler = (event: any) => {
@@ -136,21 +95,6 @@ const Landing = () => {
 
   const handleMouseLeave = () => {
     setIsHovered(false);
-  };
-
-  let price: { priceAmount: string; changes: number } = {
-    priceAmount: "0.0060",
-    changes: -0.92,
-  };
-
-  let volume: { priceAmount: string; changes: number } = {
-    priceAmount: "0.0060",
-    changes: 0.92,
-  };
-
-  let marketCap: { priceAmount: string; changes: number } = {
-    priceAmount: "0.0060",
-    changes: -0.92,
   };
 
   const validEmail =
@@ -224,9 +168,7 @@ const Landing = () => {
                     {String(sliderGames[chosenGame].num_of_like)}{" "}
                   </p>
                 </div> */}
-                  <button className={style["play-now-button"]}>
-                    Play now
-                  </button>
+                  <button className={style["play-now-button"]}>Play now</button>
                 </div>
               </div>
             </div>
@@ -264,9 +206,7 @@ const Landing = () => {
 
         <div className={style["token-description-container"]}>
           <div className={style["gemyto-description-container"]}>
-            <h2 className={style.title}>
-              Gemyto
-            </h2>
+            <h2 className={style.title}>Gemyto</h2>
             <p className={style["gemyto-description"]}>
               Gemyto is a token with which you will earn, Invest in it or
               participate in competitions and win money. We hope to increase the
@@ -416,7 +356,12 @@ const Landing = () => {
         <div className={style.tokenomics}>
           <h3 className={style["tokenomics-title"]}>Tokenomics</h3>
           <div className={style.chart}>
-            <p>We have a total of 560,000,000 tokens, which have been minted only once. This total amount is divided into different sections to meet the needs of users, the market, and our project collaborators. The distribution of our tokens is as follows:</p>
+            <p>
+              We have a total of 560,000,000 tokens, which have been minted only
+              once. This total amount is divided into different sections to meet
+              the needs of users, the market, and our project collaborators. The
+              distribution of our tokens is as follows:
+            </p>
             <Chart />
           </div>
         </div>
@@ -483,9 +428,9 @@ const Landing = () => {
         </div> */}
 
         <div className={style["roadmap-container"]}>
-          <h2>Roadmap</h2>
+          <h2 id="roadmap">Roadmap</h2>
           <div className={style.roadmap}>
-          <Roadmap />
+            <Roadmap />
           </div>
         </div>
 
@@ -545,16 +490,17 @@ const Landing = () => {
               <p className={style["faq-answer"]}>
                 In each game, specific scores are determined, which are divided
                 into four stages.When you can obtain the score of each stage in
-                the desired game, tokens for that stage will be awarded to you. <br /> <br />
+                the desired game, tokens for that stage will be awarded to you.{" "}
+                <br /> <br />
                 At the end of the day, if you are among the top players of each
                 game, the number of these top players depends on your game rank,
                 you can view your earned tokens on your financial page, which
-                have been added to the total number of your previous tokens. <br /> <br /> You
-                need to first install and have the MetaMask wallet.Then, you
-                should reach a suitable amount of Gemyto to be eligible for
-                withdrawal. Afterwards, you can go to the financial section of
-                your profile page and withdraw your Gemytos. It's as simple as
-                that.
+                have been added to the total number of your previous tokens.{" "}
+                <br /> <br /> You need to first install and have the MetaMask
+                wallet.Then, you should reach a suitable amount of Gemyto to be
+                eligible for withdrawal. Afterwards, you can go to the financial
+                section of your profile page and withdraw your Gemytos. It's as
+                simple as that.
               </p>
             )}
           </div>
@@ -583,7 +529,7 @@ const Landing = () => {
 export default Landing;
 
 // {
-  /* <div className={style["games-scroll-container"]}>
+/* <div className={style["games-scroll-container"]}>
           <div
             className={`${
               positions[0].position === 0 && style["first-game-background-image"]

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Footer.module.css";
 import logo from "../../assets/logo.png";
 import telegram from "../../assets/social-media/footer/telegram.png";
@@ -16,6 +16,7 @@ const Footer = () => {
   const [twitterIsHovered, setTwitterIsHovered] = useState<boolean>(false);
   const [discordIsHovered, setDiscordIsHovered] = useState<boolean>(false);
   const [emailIsHovered, setEmailIsHovered] = useState<boolean>(false);
+  const [isMobile, setIsMobile] = useState(false);
   const handleTelegramHover = () => {
     setTelegramIsHovered((current) => !current);
   };
@@ -30,22 +31,26 @@ const Footer = () => {
   const handleEmailMouseHover = () => {
     setEmailIsHovered((current) => !current);
   };
-
+  useEffect(() => {
+    if (window.screen.width < 768) setIsMobile(true);
+  }, []);
   return (
     <footer className={styles.container}>
       <Link to="/">
         <img src={logo} alt="gemtopia" className={styles.logo} />
       </Link>
-      <nav className={styles.navbar}>
-        <ul>
-          <Link to="/term-of-use">
-            <li>Terms of Use</li>
-          </Link>
-          <Link to="/learn-more">
-            <li>Learn more</li>
-          </Link>
-        </ul>
-      </nav>
+      {!isMobile && (
+        <nav className={styles.navbar}>
+          <ul>
+            <Link to="/term-of-use">
+              <li>Terms of Use</li>
+            </Link>
+            <Link to="/learn-more">
+              <li>Learn more</li>
+            </Link>
+          </ul>
+        </nav>
+      )}
       <div className={styles["social-media-container"]}>
         <img
           src={telegramIsHovered ? hoveredTelegram : telegram}

@@ -50,6 +50,9 @@
   margin: 10px 0;
   height: 9.5rem;
 }
+.repor-input:hover {
+  filter: brightness(120%);
+}
 .report-input::placeholder {
   color: rgba(255, 255, 255, 0.95);
   font-size: 12px;
