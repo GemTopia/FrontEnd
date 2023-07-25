@@ -52,7 +52,7 @@ const RecentPlayedGames: React.FC<{ games: recentPlayedGameItem[] }> = (
   return (
     <Fragment>
       <h2 className={style["recent-played-title"]} id="title">
-        Recent played
+        Recently played
       </h2>
       <div className={style["body-container"]}>
         <span
@@ -76,20 +76,20 @@ const RecentPlayedGames: React.FC<{ games: recentPlayedGameItem[] }> = (
                   id={`recent${gameItem.id}`}
                 >
                   <div className={style["thumbnail-container"]}>
-                    {/* <img
-                    src={require(`../../assets/${gameItem.cover_image}`)}
+                    <img
+                    src={require(`../../assets/home/${gameItem.cover_image}`)}
                     alt=""
                     className={style["game-thumbnail"]}
-                  /> */}
+                  />
                   </div>
                   <div className={style["game-info"]}>
-                    {/* <img
-                    src={require(`../../assets/${gameItem.logo_image}`)}
+                    <img
+                    src={require(`../../assets/home/${gameItem.logo_image}`)}
                     alt=""
                     className={style["game-logo"]}
-                  /> */}
+                  />
                     <div>
-                      <p>{gameItem.name}</p>
+                      <p className={style["game-name"]}>{gameItem.name}</p>
                       <p className={style["game-category"]}>
                         {gameItem.game_type}
                       </p>

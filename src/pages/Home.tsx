@@ -12,17 +12,46 @@ import { baseUrl } from "../shares/shared";
 
 const Home = () => {
   const [recentGames, setRecentGames] = useState<RecentPlayedGameItem[]>([]);
-  // let recentPlayedDummy: RecentPlayedGameItem[] = [
+  let recentPlayedDummy: RecentPlayedGameItem[] = [
   // {
   //   thumnailImageAddress: "Rectangle 8.png",
   //   gameLogoAddress: "Rectangle 846.png",
   //   gameName: "subway surfers1",
   //   gameCategory: "category",
-  //   id: "0",
+  //   id: 0,
   // },
-  // ];
+  {
+    logo_image: "pic.png",
+    cover_image: "Rectangle 8.png",
+    name: "string",
+    game_type: "string",
+    id: 0,
+  },
+  {
+    logo_image: "pic.png",
+    cover_image: "Rectangle 8.png",
+    name: "string",
+    game_type: "string",
+    id: 1,
+  },
+  {
+    logo_image: "pic.png",
+    cover_image: "Rectangle 8.png",
+    name: "string",
+    game_type: "string",
+    id: 2,
+  },
+  {
+    logo_image: "pic.png",
+    cover_image: "Rectangle 8.png",
+    name: "string",
+    game_type: "string",
+    id: 3,
+  },
+  ];
+
   const [popularGames, setPopularGames] = useState<GameItem[]>([]);
-  // let popularGamesDummy: GameItem[] = [
+  let popularGamesDummy: GameItem[] = [
   // {
   //   gameLogoAddress: "Rectangle 846.png",
   //   gameName: "subway surfers",
@@ -31,9 +60,9 @@ const Home = () => {
   //   id: "0",
   //   likesCount: "5279",
   // },
-  // ];
+  ];
   const [topPlayers, setTopPlayers] = useState<homeTopPlayerItem[]>([]);
-  // let topPlayersDummy: homeTopPlayerItem[] = [
+  let topPlayersDummy: homeTopPlayerItem[] = [
   // {
   //   rank: "first-place-medal.png",
   //   imageAddress: "player.png",
@@ -42,8 +71,45 @@ const Home = () => {
   //   id: "0",
   // },
 
-  // {
-  // ];
+  {
+  rank: "1",
+  avatar: "player.png",
+  user_name: "Jasmine Dragon",
+  total_gemyto: 120,
+  id: 0,
+  },
+  {
+    rank: "2",
+    avatar: "player.png",
+    user_name: "Jasmine Dragon",
+    total_gemyto: 120,
+    id: 1,
+  },
+  {
+    rank: "3",
+    avatar: "player.png",
+    user_name: "Jasmine Dragon",
+    total_gemyto: 120,
+    id: 2,
+  },
+  {
+    rank: "4",
+    avatar: "player.png",
+    user_name: "Jasmine Dragon",
+    total_gemyto: 120,
+    id: 3,
+  },
+  {
+    rank: "5",
+    avatar: "player.png",
+    user_name: "Jasmine Dragon",
+    total_gemyto: 120,
+    id: 4,
+  },
+
+  
+
+  ];
 
   useEffect(() => {
     axios
@@ -132,11 +198,11 @@ const Home = () => {
 
   return (
     <Fragment>
-      <Header />
+      {/* <Header /> */}
       <div className={style["page-container"]}>
-        <RecentPlayedGames games={recentGames} />
+        <RecentPlayedGames games={recentPlayedDummy} />
         <PopularGames games={popularGames} />
-        <HomeTopPlayers players={topPlayers} />
+        <HomeTopPlayers players={topPlayersDummy} />
       </div>
     </Fragment>
   );

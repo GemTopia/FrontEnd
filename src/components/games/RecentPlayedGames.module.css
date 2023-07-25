@@ -1,6 +1,7 @@
 .recent-played-title {
   margin-left: 7rem;
   align-self: flex-start;
+  /* border: 1px solid white; */
 }
 
 .body-container {
@@ -60,17 +61,16 @@
 }
 
 .thumbnail-container {
+  /* border: 1px solid white; */
   border-radius: 15px;
   overflow: hidden;
-  width: 100%;
-  height: 5rem;
 }
 
 .game-thumbnail {
   transition: transform 1.2s;
   overflow: hidden;
-  width: 12rem;
-  height: 7rem;
+  width: 100%;
+  height: 100%;
 }
 
 .game-thumbnail:hover {
@@ -97,4 +97,42 @@
 }
 .link {
   display: contents;
+}
+
+@media only screen and (max-width: 767px) {
+  .recent-played-title {
+    margin-left: 0;
+    font-size: 5.4vw;
+    font-weight: 500;
+    letter-spacing: 0.24px;
+  }
+  .body-container{
+    /* border: 1px solid white; */
+    width: 100%;
+  }
+  .icon-background{
+    display: none;
+  }
+  .icon{
+    display: none;
+  }
+  .game-items-container{
+    /* border: 1px solid white; */
+    /* width: 100%; */
+    overflow: scroll;
+  }
+  .recent-played-item{
+    width: 100rem;
+  }
+  .game-thumbnail{
+    width: 50vw;
+  }
+  .game-name{
+    font-size: 3.4vw;
+  }
+  .game-category{
+    font-size: 3.3vw;
+    font-weight: 300;
+  }
+
 }

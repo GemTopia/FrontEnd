@@ -8,4 +8,10 @@
     /* border: 1px solid white; */
 } 
 
-
+@media only screen and (max-width: 767px){
+    .page-container{
+        /* border: 1px solid white; */
+        width: 90%;
+        /* overflow: hidden ; */
+    }
+}

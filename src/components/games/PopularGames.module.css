@@ -72,3 +72,24 @@
   color: white;
   filter: brightness(180%);
 }
+
+@media only screen and (max-width: 767px){
+  .popular-games-container{
+    /* border: 1px solid white; */
+    width: 100%;
+  }
+  .popular-games-header{
+    /* border: 1px solid white; */
+    width: 100%;
+  }
+  .popular-games-header h2{
+    font-size: 5.4vw;
+    font-weight: 500;
+  }
+  .search-bar{
+    display: none;
+  }
+  .popular-games-footer{
+    font-size: 3.5vw;
+  }
+}

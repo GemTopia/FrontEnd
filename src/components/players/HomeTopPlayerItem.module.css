@@ -56,3 +56,37 @@
 .token-count {
   font-size: 15px;
 }
+
+@media only screen and (max-width: 767px){
+  .container{
+    padding: 0.4rem 0;
+  }
+  .rank-container{
+    /* border: 1px solid white; */
+    width: 7vw;
+    height: 8vw;
+    margin-left: 0.5rem;
+  }
+  .medal{
+    width: 7vw;
+    height: 1.5rem;
+  }
+  .player-image{
+    margin-left: 0.5rem;
+    width: 9vw;
+  }
+  .username {
+    margin-left: 0.5rem;
+    font-size: 3.4vw;
+  }
+  .token-container{
+    /* border: 1px solid white; */
+    margin-right: 0.5rem;
+  }
+  .token-container img{
+    width: 5.5vw;
+  }
+  .token-count{
+    font-size: 3.4vw;
+  }
+}

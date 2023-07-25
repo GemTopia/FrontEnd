@@ -1,5 +1,5 @@
 interface homeTopPlayerItem {
-  //   rank: string;
+  rank: string;
   avatar: string;
   user_name: string;
   total_gemyto: Number;

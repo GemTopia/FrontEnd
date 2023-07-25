@@ -34,11 +34,11 @@ const HomeTopPlayerItem: React.FC<{
             <p>{props.rank + 1}</p>
           )}
         </div>
-        {/* <img
+        <img
         src={require(`../../assets/${props.player.avatar}`)}
         alt=""
         className={style["player-image"]}
-      /> */}
+      />
         <p className={style.username}>{props.player.user_name}</p>
 
         <div className={style["token-container"]}>
