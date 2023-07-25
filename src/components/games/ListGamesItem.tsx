@@ -42,6 +42,11 @@ const ListGamesItem: React.FC<{
         alt=""
         className={style["game-logo"]}
       /> */}
+      <img
+        src={require(`../../assets/${props.gameItem.logo_image}`)}
+        alt=""
+        className={style["game-logo"]}
+      />
       <Link to={`/games/${props.gameItem.id}`}></Link>
       <div className={style["game-info-container"]} onClick={gameOpenHandler}>
         <h4 className={style["game-name"]}>{props.gameItem.name}</h4>
@@ -58,7 +63,7 @@ const ListGamesItem: React.FC<{
           id={String(props.gameItem.id)}
           onClick={likeClickHandler}
         />
-        <p className={style["game-likes-count"]}>{likeCounts}</p>
+        <p className={style["game-likes-count"]}>{likeCounts.toLocaleString()}</p>
       </div>
     </Fragment>
   );

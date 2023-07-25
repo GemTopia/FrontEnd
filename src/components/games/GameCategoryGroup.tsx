@@ -28,12 +28,12 @@ const GameCategoryGroup: React.FC<{
                 props.dropdownIsOpen === true
               ) && style["game-item-hover"]
             }`}
-            // key={gameItem.id}
+            key={gameItem.id}
             id={`categoryCompact${gameItem.game_type}${index}`}
           >
             <div className={style["thumbnail-container"]}>
-              {/* <img
-                src={require(`../../assets/${gameItem.cover_image}`)}
+              <img
+                src={require(`../../assets/home/${gameItem.cover_image}`)}
                 alt=""
                 className={`${style["game-thumbnail"]} ${
                   !(
@@ -42,7 +42,7 @@ const GameCategoryGroup: React.FC<{
                     props.dropdownIsOpen === true
                   ) && style["game-thumbnail-hover"]
                 }`}
-              /> */}
+              />
             </div>
             <div className={style["game-info-container"]}>
               {/* <img

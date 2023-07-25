@@ -12,6 +12,9 @@
     flex-direction: column;
     padding: 1rem;
     border-radius: 15px;
+    width: 32.1%;
+    /* min-width: 13rem; */
+
 }
 
 .game-item-hover:hover{
@@ -28,6 +31,9 @@
     overflow: hidden;
     width: 16.66rem;
     height: 10rem;
+    /* width: 50%; */
+    width: 21.5vw;
+    height: 12vw;
 }
 
 .game-thumbnail-hover:hover{
