@@ -51,6 +51,7 @@
     margin-right: 0.5rem;
     width: 3.5rem;
     height: 3.5rem;
+    border-radius: 10px;
 }
 
 .game-category, .rank{

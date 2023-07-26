@@ -33,8 +33,8 @@ const Profile: React.FC = () => {
   };
 
   const referralHandler = () => {
-    if (profileUser)
-      window.navigator.clipboard.writeText(profileUser.referrer_code);
+    // if (profileUser)
+    //   window.navigator.clipboard.writeText(profileUser.referrer_code);
 
     setReferralCopy(true);
     // setTimeout(() => {

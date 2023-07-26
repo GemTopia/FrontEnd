@@ -54,9 +54,9 @@ const Landing = () => {
     setDropdownIsOpen4((current) => !current);
   };
 
-  const copyHandler = () => {
-    window.navigator.clipboard.writeText("0x728f30fa2f10074261804fa8e0b1387d");
-  };
+  // const copyHandler = () => {
+  //   window.navigator.clipboard.writeText("0x728f30fa2f10074261804fa8e0b1387d");
+  // };
 
   const [tokenData, setTokenData] = useState<any[]>();
   const [chosenGame, setChosenGame] = useState<number>(0);

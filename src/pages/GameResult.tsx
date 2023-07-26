@@ -103,7 +103,7 @@ const GameResult = () => {
           />
           <p className={style["token-count"]}>{result?.game_gemyto}</p>
         </div> */}
-        <Link to="http://game3.gem.kveh.ir/" className={style.link}>
+        <Link to={`/games/${param.gameId}`} className={style.link}>
           <button className={style["play-button"]}> Play Again</button>
         </Link>
 

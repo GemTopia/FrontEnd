@@ -1,78 +1,79 @@
 .compact-games-body {
-    gap : 1rem;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-
-.game-item{
-    background-color: rgba(0, 150, 255, 0.07);
-    border:1px solid #06173E;
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
-    border-radius: 15px;
-    width: 32.1%;
-    /* min-width: 13rem; */
-
+  gap: 1rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
-.game-item-hover:hover{
-    border-color: #04417F;
+.game-item {
+  background-color: rgba(0, 150, 255, 0.07);
+  border: 1px solid #06173e;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  border-radius: 15px;
+  width: 32.1%;
+  /* min-width: 13rem; */
 }
 
-.thumbnail-container{
-    border-radius: 15px;
-    overflow: hidden;
+.game-item-hover:hover {
+  border-color: #04417f;
 }
 
-.game-thumbnail{
-    transition: transform 1.2s;
-    overflow: hidden;
-    width: 16.66rem;
-    height: 10rem;
-    /* width: 50%; */
-    width: 21.5vw;
-    height: 12vw;
+.thumbnail-container {
+  border-radius: 15px;
+  overflow: hidden;
 }
 
-.game-thumbnail-hover:hover{
-    transform: scale(1.35) rotate(-10deg);
+.game-thumbnail {
+  transition: transform 1.2s;
+  overflow: hidden;
+  width: 16.66rem;
+  height: 10rem;
+  /* width: 50%; */
+  width: 21.5vw;
+  height: 12vw;
 }
 
-.game-info-container{
-    display: flex;
-    margin-top: 1rem;
+.game-thumbnail-hover:hover {
+  transform: scale(1.35) rotate(-10deg);
 }
 
-.game-logo{
-    margin-right: 0.5rem;
-    width: 3.5rem;
-    height: 3.5rem;
+.game-info-container {
+  display: flex;
+  margin-top: 1rem;
 }
 
-.game-text-info-container{
-    line-height: 15px;
-    margin-top: 3px;
+.game-logo {
+  margin-right: 0.5rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 10px;
 }
 
-.game-category , .rank{
-    font-size: 12px;
-    font-weight: 100;
+.game-text-info-container {
+  line-height: 15px;
+  margin-top: 3px;
 }
 
-.likes-container{
-    margin-left: auto;
-    margin-right: 0.4rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.game-category,
+.rank {
+  font-size: 12px;
+  font-weight: 100;
 }
 
-.game-likes-count{
-    font-size: 13px;
-    font-weight: 300;
+.likes-container {
+  margin-left: auto;
+  margin-right: 0.4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.game-likes-count {
+  font-size: 13px;
+  font-weight: 300;
 }
 .link {
-    display: contents;
+  display: contents;
 }
