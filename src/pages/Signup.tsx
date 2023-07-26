@@ -66,7 +66,7 @@ const Signup = () => {
     event.preventDefault();
     let token: any = captchaRef.current.getValue();
     captchaRef.current.reset();
-    console.log(token);
+    // console.log(token);
     if (!formIsValid) {
       setErrorMessage("Please enter your information first");
     } else {
@@ -93,7 +93,7 @@ const Signup = () => {
           // console.log(response);
         })
         .catch(function (error) {
-          console.log(error);
+          // console.log(error);
           if (error.response)
             setErrorMessage(
               error.response.data[0] ||

@@ -14,7 +14,7 @@ const GameInfo: React.FC<{
 
   const likeHandler = () => {
     axios
-      .get(`${baseUrl}/game/like/${props.game.id}/`, {
+      .get(`${baseUrl}game/like/${props.game.id}/`, {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       })
       .then(function (response) {
@@ -40,7 +40,7 @@ const GameInfo: React.FC<{
         }
       })
       .catch(function (error) {
-        console.log(error);
+        // console.log(error);
       });
   };
 

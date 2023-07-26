@@ -16,7 +16,7 @@ const HomeTopPlayers: React.FC<{ players: homeTopPlayerItem[] }> = (props) => {
     // console.log(event.target.value);
     setLoadedPlayers(
       props.players.filter((item) =>
-        item.user_name.includes(String(event.target.value))
+        item.user_name.toLocaleLowerCase().includes(String(event.target.value).toLocaleLowerCase())
       )
     );
   };

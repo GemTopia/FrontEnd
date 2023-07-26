@@ -209,7 +209,7 @@ const Home = () => {
         // console.log(loadedPopularGames);
       })
       .catch(function (error) {
-        console.log(error);
+        // console.log(error);
       });
   }, []);
 

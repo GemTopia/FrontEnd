@@ -67,7 +67,7 @@
   .mobile-size-game-description{
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: flex-start;
     width: 90%;
   }
   .mobile-size-game-description h2{

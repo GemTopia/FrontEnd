@@ -4,8 +4,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
 import profileGameItem from "../../models/profileGameItem";
 import GameItem from "../../models/GameItem";
+import { baseUrl } from "../../shares/shared";
 
-const ProfileGameItem: React.FC<{ game: GameItem ,index:number}> = (props) => {
+const ProfileGameItem: React.FC<{ game: GameItem; index: number }> = (
+  props
+) => {
   return (
     <div
       className={`${style.game} ${
@@ -13,11 +16,11 @@ const ProfileGameItem: React.FC<{ game: GameItem ,index:number}> = (props) => {
       }`}
       id={`profile${props.index}`}
     >
-      {/* <img
-        src={require(`../../assets/${props.game.image_name}`)}
+      <img
+        src={baseUrl + props.game.logo_image}
         alt=""
         className={style["game-pic"]}
-      /> */}
+      />
       <p className={style["game-name"]}>{props.game.name}</p>
       {/* <FontAwesomeIcon icon={faAngleUp} className={style['up-icon']} /> */}
       <p className={style["score"]}>{props.game.scores}</p>

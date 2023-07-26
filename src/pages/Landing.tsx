@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from "react";
+import React, { useState, useEffect, Fragment, FormEvent } from "react";
 import style from "./Landing.module.css";
 import GameItem from "../models/GameItem";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -13,7 +13,7 @@ import Clock from "../components/other/Clock";
 import Header from "../components/layout/Header";
 import axios, * as others from "axios";
 import { baseUrl } from "../shares/shared";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Chart from "../components/other/Chart";
 import Roadmap from "../components/other/Roadmap";
 const Landing = () => {
@@ -53,6 +53,7 @@ const Landing = () => {
   const dropdownClickHandler4 = () => {
     setDropdownIsOpen4((current) => !current);
   };
+
   const copyHandler = () => {
     window.navigator.clipboard.writeText("0x728f30fa2f10074261804fa8e0b1387d");
   };
@@ -71,11 +72,11 @@ const Landing = () => {
           usd.MKTCAP,
         ]);
         setSliderGames(response.data.top_3_games);
-        console.log(tokenData);
+        // console.log(tokenData);
         // console.log("http://api.gem.kveh.ir" + response.data.top_3_games[0].cover_image)
       })
       .catch(function (error) {
-        console.log(error);
+        // console.log(error);
       });
 
     const interval = setInterval(() => {
@@ -97,7 +98,11 @@ const Landing = () => {
   const handleMouseLeave = () => {
     setIsHovered(false);
   };
-
+  const navigate = useNavigate();
+  const playNowHandler = () => {
+    if (localStorage.getItem("token")) navigate("/games");
+    else navigate("/signup");
+  };
   const validEmail =
     /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
@@ -108,6 +113,24 @@ const Landing = () => {
     inputChangeHandler: emailChangeHandler,
     inputBlurHandler: emailBlurHandler,
   } = useInput((input: string) => validEmail.test(input), "");
+  const [thankYou, setThankYou] = useState("");
+  const subscribeHandler = (event: FormEvent) => {
+    event.preventDefault();
+    axios
+      .post(baseUrl, { email: emailValue })
+      .then(function (response) {
+        setThankYou("Thank you for your subscription");
+        setTimeout(() => {
+          setThankYou("");
+        }, 3000);
+      })
+      .catch(function (error) {
+        setThankYou("You have registered before!");
+        setTimeout(() => {
+          setThankYou("");
+        }, 3000);
+      });
+  };
   return (
     <Fragment>
       <Header />
@@ -129,7 +152,7 @@ const Landing = () => {
             <img src={require("../assets/stareye.png")} />
           </div>
           <Link to="/learn-more" className={style.link}>
-            <button className={style["learn-more-button"]}>learn more</button>
+            <button className={style["learn-more-button"]}>Learn more</button>
           </Link>
         </div>
 
@@ -193,11 +216,14 @@ const Landing = () => {
                     {String(sliderGames[chosenGame].num_of_like)}{" "}
                   </p>
                 </div> */}
-                  <Link to={"/signup"} className={style.link}>
-                    <button className={style["play-now-button"]}>
-                      Play now
-                    </button>
-                  </Link>
+                  {/* <Link to={"/signup"} className={style.link}> */}
+                  {/* <button
+                    className={style["play-now-button"]}
+                    onClick={playNowHandler}
+                  >
+                    Play now
+                  </button> */}
+                  {/* </Link> */}
                 </div>
               </div>
             </div>
@@ -218,7 +244,7 @@ const Landing = () => {
               </div>
               <div className={`${style["second-small-game-background-image"]}`}>
                 <img
-                  src={baseUrl +  sliderGames[1].cover_image}
+                  src={baseUrl + sliderGames[1].cover_image}
                   alt=""
                   className={style["slider"]}
                 />
@@ -232,7 +258,7 @@ const Landing = () => {
               </div>
               <div className={`${style["third-small-game-background-image"]}`}>
                 <img
-                 src={baseUrl +  sliderGames[2].cover_image}
+                  src={baseUrl + sliderGames[2].cover_image}
                   alt=""
                   className={style["slider"]}
                 />
@@ -310,8 +336,8 @@ const Landing = () => {
                 alt="ethereum"
                 className={style.ethereum}
               />
-              <span>0x728f30fa2f10074261804fa8e0b1387d</span>
-              <img
+              <span>0x09126279272F568515111d5796368Dfc85A1Dd7C</span>
+              {/* <img
                 onClick={copyHandler}
                 src={require(`../assets/${
                   isHovered ? "hovered copy.png" : "copy.png"
@@ -320,7 +346,7 @@ const Landing = () => {
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
                 className={style["copy-icon"]}
-              />
+              /> */}
             </div>
             <div className={style["prices-container"]}>
               <div className={style["price-item"]}>
@@ -550,9 +576,12 @@ const Landing = () => {
           </div>
         </div>
 
-        <div className={style["subscribe-container"]} id="community">
-          <p>Be The First To Know </p>
-          <form className={style["input-container"]}>
+        <div className={style["subscribe-container"]}>
+          <p  id="community">Be The First To Know </p>
+          <form
+            className={style["input-container"]}
+            onSubmit={subscribeHandler}
+          >
             <input
               type="email"
               name="email"
@@ -561,8 +590,10 @@ const Landing = () => {
               onBlur={emailBlurHandler}
               className={style.input}
             />
+
             <button className={style["subscribe-button"]}>Subscribe</button>
-          </form>
+          </form>{" "}
+          {thankYou && <p className={style.thankyou}>{thankYou}</p>}
         </div>
         <Footer />
       </div>

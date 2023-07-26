@@ -3,23 +3,16 @@ import styles from "./Profile.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faPenToSquare } from "@fortawesome/free-regular-svg-icons";
 import { faLink } from "@fortawesome/free-solid-svg-icons";
-import youtube from "../assets/social-media/youtube.png";
-import discord from "../assets/social-media/discord.png";
-import twitch from "../assets/social-media/twitch.png";
-import steam from "../assets/social-media/steam.png";
-import instagram from "../assets/social-media/instagram.png";
-import telegram from "../assets/social-media/telegram.png";
+
 import ProfileGames from "../components/games/ProfileGames";
-import profileGameItem from "../models/profileGameItem";
-import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import ProfileEdit from "../components/profile/ProfileEdit";
-import smile from "../assets/smile.png";
 import Header from "../components/layout/Header";
 import axios, * as others from "axios";
 import profileUser from "../models/profileUser";
 import { baseUrl } from "../shares/shared";
 import { useParams } from "react-router";
 import { useNavigate } from "react-router";
+import profile from "../assets/Profile.svg";
 const Profile: React.FC = () => {
   // let dummy: profileGameItem[] = [
   //   {
@@ -44,15 +37,15 @@ const Profile: React.FC = () => {
       window.navigator.clipboard.writeText(profileUser.referrer_code);
 
     setReferralCopy(true);
-    setTimeout(() => {
-      setReferralCopy(false);
-    }, 2000);
+    // setTimeout(() => {
+    //   setReferralCopy(false);
+    // }, 2000);
   };
   const [avatar, setAvatar] = useState();
   const param = useParams();
   const navigate = useNavigate();
   useEffect(() => {
-    if (!localStorage.getItem("token")) navigate("/");    // console.log(param.username);
+    if (!localStorage.getItem("token")) navigate("/"); // console.log(param.username);
     axios
       .get(
         `${baseUrl}users/profile/?user=${
@@ -73,13 +66,15 @@ const Profile: React.FC = () => {
         // setAvatar(avatar);
       })
       .catch(function (error) {
-        console.log(error);
+        // console.log(error);
       });
   }, [isEdit]);
 
   return (
     <Fragment>
       <Header />
+      <div className={styles["right-side-pic"]}></div>
+      <div className={styles["left-side-pic"]}></div>
       <div className={styles.container}>
         {isEdit ? (
           <ProfileEdit
@@ -90,17 +85,14 @@ const Profile: React.FC = () => {
           <Fragment>
             <div className={styles["profile-header"]}>
               <div className={styles["profile-img-container"]}>
-                {/* {profileUser?.avatar ? (
+                {profileUser?.avatar ? (
                   <img
-                    src={require(`../../../../gemtopia-back/BackEnd/BackEnd/media${profileUser.avatar}`)}
-                  ></img>
-                ) : ( */}
-                <FontAwesomeIcon
-                  icon={faUser}
-                  className={styles["user-icon"]}
-                />
-                {/* )} */}
-                {/* ../../gemtopia-back/BackEnd/BackEnd/media${profileUser.avatar}` */}
+                    src={baseUrl + profileUser.avatar}
+                    className={styles.avatar}
+                  />
+                ) : (
+                  <img src={profile} />
+                )}
               </div>
               <div className={styles["header-info"]}>
                 <h2>{profileUser?.user_name}</h2>
@@ -162,7 +154,7 @@ const Profile: React.FC = () => {
                   </button>
                   {referralCopy && (
                     <span className={styles["referral-copy"]}>
-                      Link copied <img src={smile} alt="smile" />
+                      {profileUser?.referrer_code}
                     </span>
                   )}
                 </div>

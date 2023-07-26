@@ -9,8 +9,6 @@ const ListGames: React.FC<{
   page: string;
   sortby?: string;
 }> = (props) => {
-  // const firstState = props.games.map((gameItem) => true);
-  const [isLiked, setIsLiked] = useState<boolean[]>([]);
   
   return (
     <div className={style["list-games-body"]}>

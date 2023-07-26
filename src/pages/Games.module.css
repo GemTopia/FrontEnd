@@ -21,7 +21,6 @@
 }
 
 .search-bar {
-  margin-right: 5rem;
   margin-top: -0.65rem;
   display: flex;
   width: 20rem;
@@ -181,5 +180,8 @@
   }
   .view-icon {
     display: none;
+  }
+  .search-bar{
+    width: 18vh;
   }
 }

@@ -6,9 +6,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark, faCircleCheck } from "@fortawesome/free-solid-svg-icons";
 import React, { FormEvent, Fragment, useState } from "react";
 import Header from "../components/layout/Header";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import Modal from "../components/layout/Modal";
-
+import tik from "../assets/tik.svg";
+import X from "../assets/menu-X.svg"
 const Report: React.FC = (props) => {
   // const [showMessage, setShowMessage] = useState<boolean>(false);
 
@@ -39,16 +40,18 @@ const Report: React.FC = (props) => {
           }
         )
         .then(function (response) {
-          console.log(response);
+          // console.log(response);
           setModal(true);
         })
         .catch(function (error) {
-          console.log(error);
+          // console.log(error);
         });
     } else setErrorMessage("Please enter your information first");
   };
+  const navigate = useNavigate();
   const cancelModal = () => {
     setModal(false);
+    navigate(`/games/${param.gameId}`);
   };
 
   // const cancleHandler = () => {
@@ -61,8 +64,10 @@ const Report: React.FC = (props) => {
         <Modal
           cancel={cancelModal}
           children={
-            <Fragment>
+            <div className={style.modal}>
+              <img src={X} alt="" className={style.x} onClick={cancelModal}/>
               <p className={style["modal-text"]}>
+                <img src={tik} alt="" className={style.icon}/>
                 Your report has been successfully submitted.
               </p>
               <p className={style["modal-text"]}>
@@ -73,7 +78,7 @@ const Report: React.FC = (props) => {
                 our experts will review the issue and work to fix the problem as
                 soon as possible.
               </p>
-            </Fragment>
+            </div>
           }
         />
       )}

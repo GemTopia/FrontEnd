@@ -51,16 +51,18 @@ const Login = () => {
       setErrorMessage("Please enter your email");
     } else {
       setErrorMessage("");
+      setPageState("forgot");
+
       axios
         .post(`${baseUrl}password_reset/`, { email: emailValue })
         .then(function (response) {
-          console.log(response);
+          // console.log(response);
         })
         .catch(function (error) {
-          console.log(error);
+          setErrorMessage('This email is not registered')
+          // console.log(error);
         });
     }
-    setPageState("forgot");
   };
   const cancelForgotHandler = () => {
     setPageState("login");
@@ -85,7 +87,7 @@ const Login = () => {
     event.preventDefault();
     let token: any = captchaRef.current.getValue();
     captchaRef.current.reset();
-    console.log(token);
+    // console.log(token);
     if (token) {
       // let valid_token: any = await verifyToken(token);
       setValidToken(valid_token);
@@ -199,7 +201,7 @@ const Login = () => {
           <span>
             Don't hava an account?{" "}
             <Link to="/signup" className={styles["footer-link"]}>
-              Signup
+              Sign up
             </Link>
           </span>
         </form>

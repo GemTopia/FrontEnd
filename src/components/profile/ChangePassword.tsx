@@ -64,11 +64,11 @@ const ChangePassword: React.FC<{ cancelChange: Function }> = (props) => {
           }
         )
         .then(function (response) {
-          console.log(response);
+          // console.log(response);
           props.cancelChange();
         })
         .catch(function (error) {
-          console.log(error);
+          // console.log(error);
         });
     } else {
       setErrorMessage("Please enter your information first");

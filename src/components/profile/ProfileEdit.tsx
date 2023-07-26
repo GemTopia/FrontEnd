@@ -9,6 +9,7 @@ import SocialEdit from "./SocialEdit";
 import axios, * as others from "axios";
 import profileUser from "../../models/profileUser";
 import { baseUrl } from "../../shares/shared";
+import profile from "../../assets/Profile.svg";
 
 const ProfileEdit: React.FC<{
   profileUser: profileUser | undefined;
@@ -72,11 +73,11 @@ const ProfileEdit: React.FC<{
           }
         )
         .then(function (response) {
-          console.log(response);
+          // console.log(response);
           props.cancelEdit();
         })
         .catch(function (error) {
-          console.log(error);
+          // console.log(error);
         });
     }
   };
@@ -95,7 +96,7 @@ const ProfileEdit: React.FC<{
   const uploadChangeHandler = (event: any) => {
     if (event.target.files[0] && event.target.files[0].type === "image/png") {
       const file = event.target.files[0];
-      console.log(file);
+      // console.log(file);
       setUploadedAvatar(file);
     }
   };
@@ -106,7 +107,14 @@ const ProfileEdit: React.FC<{
           className={styles["profile-img-container"]}
           onClick={uploadClickHandler}
         >
-          <FontAwesomeIcon icon={faUser} className={styles["user-icon"]} />
+          {props.profileUser?.avatar ? (
+            <img
+              src={baseUrl + props.profileUser.avatar}
+              className={styles.avatar}
+            />
+          ) : (
+            <img src={profile} />
+          )}
           <input
             type="file"
             name="upload"

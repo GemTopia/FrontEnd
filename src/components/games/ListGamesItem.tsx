@@ -26,7 +26,7 @@ const ListGamesItem: React.FC<{
         setIsLiked((current) => !current);
       })
       .catch(function (error) {
-        console.log(error);
+        // console.log(error);
       });
   };
   const navigate = useNavigate();

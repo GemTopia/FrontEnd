@@ -7,43 +7,64 @@ import gameResult from "../models/gameResult";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
 const GameResult = () => {
-  const [isWinner, setIsWinner] = useState<boolean>(false);
+  // const [isWinner, setIsWinner] = useState<boolean>(false);
   const param = useParams();
   const [result, setResult] = useState<gameResult>();
+  // const [score, setScore] = useState<number>();
   const navigate = useNavigate();
   useEffect(() => {
     if (!localStorage.getItem("token")) navigate("/");
-    axios
-      .post(
-        `${baseUrl}game/result/`,
-        {
-          game: param.gameId,
-          user: String(1),
-          score: String(120),
-        },
-        {
-          headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-        }
-      )
-      .then(function (response) {
-        console.log(response);
-        setResult(response.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-    const messageEle = document.getElementById("message");
-    function receiveMessage(event: any) {
-      console.log(event.origin);
-      if (event.origin !== "http://game3.gem.kveh.ir/") return;
-      console.log(event.data);
+    if (param.score) {
+      axios
+        .post(
+          `${baseUrl}game/result/`,
+          {
+            game: param.gameId,
+            user: String(1),
+            score: (Number(param.score) + 68) / 17,
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          }
+        )
+        .then(function (response) {
+          // console.log(response);
+          setResult(response.data);
+        })
+        .catch(function (error) {
+          // console.log(error);
+        });
     }
-    window.addEventListener("message", receiveMessage);
+    // if (param.score) setScore(Number(param.score + 68) / 17);
+    //   window.addEventListener( "message",
+    //       function (event) {
+    //             if(event.origin !== 'http://127.0.0.1:5500/'){ return; }
+    //             alert(event.data);
+    //       },
+    //       false);
+    // // const messageEle = document.getElementById("receiver");
+    // function receiveMessage(event: any) {
+    //   console.log(event.data);
+    //   if (event.origin !== "http://127.0.0.1:5500/index.html") return;
+    //   console.log(event.data);
+    // }
+    // window.addEventListener("message", receiveMessage);
   }, []);
   return (
     <div className={style.container}>
-      <div id="message" hidden></div>
-      {!isWinner ? (
+      {/* <div id="message" hidden></div> */}
+      {/* <iframe src="http://127.0.0.1:5500/" hidden></iframe> */}
+      {/* <iframe
+        id="receiver"
+        src="http://127.0.0.1:5500/index.html"
+        width="0"
+        height="0"
+        hidden
+        title="receiver"
+      ></iframe> */}
+      {!result?.is_new_record ? (
         <div className={style["losing-message-container"]}>
           <p>OH ! YOU FAILDED ! </p>
           <img
@@ -68,20 +89,20 @@ const GameResult = () => {
         </div>
       )}
       <div className={style.body}>
-        {!isWinner ? (
+        {!result?.is_new_record ? (
           <p className={style.score}>Score : {result?.score}</p>
         ) : (
           <p className={style.score}>Best Score : {result?.score}</p>
         )}
         {/* <p className={style.rank}>Rank : 143</p> */}
-        <div className={style.token}>
+        {/* <div className={style.token}>
           <img
             src={require("../assets/rotated-gemyto.png")}
             alt="gemyto"
             className={style.gemyto}
           />
           <p className={style["token-count"]}>{result?.game_gemyto}</p>
-        </div>
+        </div> */}
         <Link to="http://game3.gem.kveh.ir/" className={style.link}>
           <button className={style["play-button"]}> Play Again</button>
         </Link>

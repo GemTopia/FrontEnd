@@ -1,4 +1,5 @@
 import gameTopPlayerItem from "../../models/gameTopPlayer";
+import { baseUrl } from "../../shares/shared";
 import style from "./GameTopPlayerItem.module.css";
 import { Link } from "react-router-dom";
 const GameTopPlayerItem: React.FC<{
@@ -32,21 +33,21 @@ const GameTopPlayerItem: React.FC<{
             <p>{props.rank + 1}</p>
           )}
         </div>
-        {/* {props.player.avatar && (
+        {props.player.avatar && (
           <img
-            src={require(props.player.avatar)}
+            src={baseUrl+props.player.avatar}
             alt=""
             className={style["player-image"]}
           />
-        )} */}
+        )}
 
         <p className={style.username}>{props.player.user_name}</p>
 
         <div className={style["token-container"]}>
           <p className={style["token-count"]}>
-            {String(props.player.total_gemyto)}
+            {String(props.player.score)}
           </p>
-          <img src={require("../../assets/gemyto.png")} alt="gemyto" />
+          {/* <img src={require("../../assets/gemyto.png")} alt="gemyto" /> */}
         </div>
       </div>
     </Link>

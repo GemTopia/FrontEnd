@@ -337,13 +337,17 @@ const Games = () => {
   const [dropdownIsOpen, setdropdownIsOpen] = useState<boolean>(false);
   const [viewType, setVeiwType] = useState<string>("list");
   const [sortby, setSortby] = useState<string>("rate");
-  const {
-    enteredValue: searchValue,
-    isValid: searchIsValid,
-    hasError: searchHasError,
-    inputChangeHandler: searchChangeHandler,
-    inputBlurHandler: searchBlurHandler,
-  } = useInput((input: string) => input.trim().length !== 0, "");
+
+  const searchChangeHandler = (event: any) => {
+    if (loadedGames)
+      setGames(
+        loadedGames.filter((item) =>
+          item.name
+            .toLocaleLowerCase()
+            .includes(String(event.target.value).toLocaleLowerCase())
+        )
+      );
+  };
 
   const dropdownIconClickHandler = () => {
     setdropdownIsOpen((current) => !current);
@@ -421,7 +425,7 @@ const Games = () => {
     // }
     return categoryGroups;
   }
-
+  const [loadedGames, setLoadedGames] = useState<GameItem[]>();
   const navigate = useNavigate();
   useEffect(() => {
     if (!localStorage.getItem("token")) navigate("/");
@@ -436,6 +440,7 @@ const Games = () => {
       )
       .then(function (response) {
         setGames(response.data);
+        setLoadedGames(response.data);
         console.log(response.data);
         setCategorisedGames(groupBy(response.data));
         setDisableDownOrRight(
@@ -479,8 +484,6 @@ const Games = () => {
                 name="search"
                 id="search"
                 onChange={searchChangeHandler}
-                onBlur={searchBlurHandler}
-                value={searchValue}
                 type="text"
                 className={style["search-input"]}
                 placeholder="search game ..."

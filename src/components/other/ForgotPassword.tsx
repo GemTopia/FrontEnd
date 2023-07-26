@@ -5,6 +5,7 @@ import axios, * as others from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-regular-svg-icons";
 import { baseUrl } from "../../shares/shared";
+import { useNavigate } from "react-router";
 const ForgotPassword: React.FC<{ cancelForgot: Function }> = (props) => {
   const [showNewPass, setShowNewPass] = useState(false);
   const [showConfirmPass, setShowConfirmPass] = useState(false);
@@ -23,14 +24,14 @@ const ForgotPassword: React.FC<{ cancelForgot: Function }> = (props) => {
     hasError: newPassHasError,
     inputChangeHandler: newPassChangeHandler,
     inputBlurHandler: newPassBlurHandler,
-  } = useInput((input: string) => input.trim().length !== 0, "");
+  } = useInput((input: string) => input.trim().length > 8, "");
   const {
     enteredValue: confirmPassValue,
     isValid: confirmPassIsValid,
     hasError: confirmPassHasError,
     inputChangeHandler: confirmPassChangeHandler,
     inputBlurHandler: confirmPassBlurHandler,
-  } = useInput((input: string) => input.trim().length !== 0, "");
+  } = useInput((input: string) => input === newPassValue, "");
   ////////////////////////////////////////
 
   const showNewPassHandler = (event: MouseEvent) => {
@@ -42,20 +43,26 @@ const ForgotPassword: React.FC<{ cancelForgot: Function }> = (props) => {
   const cancelHandler = () => {
     props.cancelForgot();
   };
+  const [errorMessage, setErrorMessage] = useState("");
+  const navigate = useNavigate()
   const submitHandler = (event: FormEvent) => {
     event.preventDefault();
-    console.log({ password: newPassValue, token: verificationValue });
-    axios
-      .post(`${baseUrl}password_reset/confirm/`, {
-        password: newPassValue,
-        token: verificationValue,
-      })
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    // console.log({ password: newPassValue, token: verificationValue });
+    if (verificationIsValid && newPassIsValid && confirmPassIsValid) {
+      axios
+        .post(`${baseUrl}password_reset/confirm/`, {
+          password: newPassValue,
+          token: verificationValue,
+        })
+        .then(function (response) {
+          // console.log(response);
+          navigate('/login')
+        })
+        .catch(function (error) {
+          // console.log(error);
+          setErrorMessage('Your verification code is wrong please try agian')
+        });
+    } else setErrorMessage("Please Enter you information first");
   };
   return (
     <form action="" className={styles["form"]} onSubmit={submitHandler}>
@@ -118,6 +125,9 @@ const ForgotPassword: React.FC<{ cancelForgot: Function }> = (props) => {
           />
         </span>
       </div>
+      {errorMessage && (
+        <p className={styles["error-message"]}>{errorMessage}</p>
+      )}
       <div className={styles.buttons}>
         <button className={styles["cancel-button"]} onClick={cancelHandler}>
           cancel change

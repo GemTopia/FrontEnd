@@ -23,7 +23,7 @@ const PopularGames: React.FC<{ games: GameItem[] }> = (props) => {
     // console.log(event.target.value);
     setLoadedGames(
       props.games.filter((item) =>
-        item.name.includes(String(event.target.value))
+        item.name.toLocaleLowerCase().includes(String(event.target.value).toLocaleLowerCase())
       )
     );
   };

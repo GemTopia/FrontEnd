@@ -13,7 +13,7 @@
   color: var(--main-blue, #0096ff);
   font-size: 16px;
   font-weight: 600;
-  letter-spacing: 2.4px;
+  letter-spacing: 1px;
   box-shadow: 1px 1px 20px 0.5px #0096ff;
   border-radius: 12px;
   width: 20%;
@@ -22,7 +22,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 0 calc(50% - 15rem);
+  margin: 0 auto 0 calc(50% - 18rem);
 }
 ul {
   list-style: none;

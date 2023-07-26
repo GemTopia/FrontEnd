@@ -86,7 +86,7 @@ const Game = () => {
         setPlayers(response.data.players_list);
       })
       .catch(function (error) {
-        console.log(error);
+        // console.log(error);
       });
   }, []);
 
@@ -125,7 +125,7 @@ const Game = () => {
           />
         )}
 
-        {/* {players && <GameTopPlayers players={players} />} */}
+        {players && <GameTopPlayers players={players} />}
       </div>
     </Fragment>
   );

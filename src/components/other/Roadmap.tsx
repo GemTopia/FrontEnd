@@ -1,10 +1,10 @@
 import style from "./Roadmap.module.css";
-
+import roadmap from "../../assets/landing/roadmap.svg"
 const Roadmap = () => {
   return (
     <div className={style["roadmap-container"]}>
       <img
-        src={require("../../assets/roadmap.png")}
+        src={roadmap}
         alt="Roadmap"
         className={style["roadmap-pic"]}
       />

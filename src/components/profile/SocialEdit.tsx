@@ -77,12 +77,12 @@ const SocialEdit: React.FC<{ cancelEditSocial: Function }> = (props) => {
         }
       )
       .then(function (response) {
-        console.log(response);
+        // console.log(response);
         if (isNaN(response.data.status)) setErrorMessage(response.data.status);
         else props.cancelEditSocial();
       })
       .catch(function (error) {
-        console.log(error);
+        // console.log(error);
       });
   };
   return (

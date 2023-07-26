@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleExclamation } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 import InventoryGameItem from "../../models/InventoryGameItem";
+import { baseUrl } from "../../shares/shared";
 
 const InventoryLlist: React.FC<{
   title: string;
@@ -12,23 +13,22 @@ const InventoryLlist: React.FC<{
     return (
       <div className={style["list-container"]}>
         <p className={style["list-title"]}>{props.title}</p>
-        {props.gameItems.map((gameItem,index) => {
+        {props.gameItems.map((gameItem, index) => {
           return (
             <div className={style["game-item"]} key={index}>
-              <div className={style['game-info']}>
-              {/* <img
-                src={require(`../../assets/${gameItem.game_image}`)}
-                alt="game logo"
-              /> */}
-              <pre className={style["game-name"]}>{gameItem.game_name}</pre>
+              <div className={style["game-info"]}>
+                {gameItem.cover_image && (
+                  <img src={baseUrl + '/media'+ gameItem.cover_image} alt="game logo" />
+                )}
 
+                <pre className={style["game-name"]}>{gameItem.game_name}</pre>
               </div>
-              <p>{gameItem.gemyto}</p>
-              {/* <img
+              <p>{gameItem.game_gemyto}</p>
+              <img
                 src={require("../../assets/gemyto2.png")}
                 alt="gemyto"
                 className={style.gemyto}
-              /> */}
+              />
             </div>
           );
         })}

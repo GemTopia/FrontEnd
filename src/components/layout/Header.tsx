@@ -58,7 +58,7 @@ const Header = () => {
   return (
     <Fragment>
       <header className={styles.container} id="header">
-        <Link to="/">
+        <Link to="../">
           <img src={logo} alt="gemtopia" className={styles.logo} />
         </Link>
         {isMobile ? (
@@ -66,7 +66,7 @@ const Header = () => {
           isLoggedIn ? (
             <Fragment>
               <Link
-                to={homeIcon ? "/home" : "/profile"}
+                to={homeIcon ? "../home" : "../profile"}
                 className={`${styles.icon} ${styles.right}`}
               >
                 {homeIcon ? (
@@ -84,7 +84,7 @@ const Header = () => {
             </Fragment>
           ) : (
             <Fragment>
-              <Link to="signup" className={`${styles.signup}  ${styles.right}`}>
+              <Link to="../signup" className={`${styles.signup}  ${styles.right}`}>
                 Sign up
               </Link>
               <img
@@ -117,14 +117,14 @@ const Header = () => {
             <Clock className={styles.Clock} />
             <nav className={`${styles.navbar} ${styles.right}`}>
               <ul>
-                <Link to="/games">
+                <Link to="../games">
                   <li>Games</li>
                 </Link>
-                <Link to="/inventory">
-                  <li>Gemyto</li>
+                <Link to="../inventory">
+                  <li>Inventory</li>
                 </Link>
                 <li onClick={logoutHandler}>Logout</li>
-                <Link to={homeIcon ? "/home" : "/profile"}>
+                <Link to={homeIcon ? "../home" : "../profile"}>
                   <li className={styles.icon}>
                     {homeIcon ? (
                       <img src={home} alt="home" />
@@ -150,10 +150,10 @@ const Header = () => {
 
             <nav className={`${styles.navbar} ${styles.right}`}>
               <ul>
-                <Link to="/login">
+                <Link to="../login">
                   <li>Log in</li>
                 </Link>
-                <Link to="signup" className={styles.signup}>
+                <Link to="../signup" className={styles.signup}>
                   <li>Sign up</li>
                 </Link>
               </ul>
@@ -166,10 +166,10 @@ const Header = () => {
           <div className={styles.menu}>
             <ul>
               <li>
-                <Link to="/games">Games</Link>
+                <Link to="../games">Games</Link>
               </li>
               <li>
-                <Link to="/inventory">Gemyto</Link>
+                <Link to="../inventory">Inventory</Link>
               </li>
               <li onClick={logoutHandler}>Logout</li>
             </ul>
@@ -178,7 +178,7 @@ const Header = () => {
           <div className={styles.menu}>
             <ul>
               <li>
-                <Link to="/login">Log in</Link>
+                <Link to="../login">Log in</Link>
               </li>
               <li onClick={roadmapHandler}>Roadmap</li>
               <li onClick={communityHandler}>Community</li>

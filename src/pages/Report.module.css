@@ -103,7 +103,25 @@
   width: 17rem;
   height: 22rem;
 }
-
+.modal {
+  padding: 1rem;
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+.modal p {
+  display: flex;
+  align-items: center;
+}
+.icon{
+  width: 2.5rem;
+  height: 2.5rem;
+}
+.x{
+  width: 1rem;
+  align-self: flex-end;
+  cursor: pointer;
+}
 /* Success message 
 
 .backdrop {
@@ -220,6 +238,9 @@
     top: 0px;
     position: absolute;
     z-index: 1;
+  }
+  .modal{
+    width: 95%;
   }
 }
 p.error-message {

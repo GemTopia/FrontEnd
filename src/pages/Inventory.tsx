@@ -16,7 +16,7 @@ import { useNavigate } from "react-router";
 import Modal from "../components/layout/Modal";
 import warning from "../assets/warning.svg";
 import metamask from "../assets/metamask.svg";
-import X from "../assets/menu-X.svg"
+import X from "../assets/menu-X.svg";
 const Inventory = () => {
   // let dummy: InventoryGameItem[] = [
   //   {
@@ -81,6 +81,7 @@ const Inventory = () => {
   const [waitingGames, setWaitingGames] = useState<InventoryGameItem[]>();
   const [earnedGames, setEarnedGames] = useState<InventoryGameItem[]>();
   const [transactions, setTransactions] = useState<transaction[]>();
+  const [myGemyto, setMyGemyto] = useState(0);
   const navigate = useNavigate();
   useEffect(() => {
     if (!localStorage.getItem("token")) navigate("/");
@@ -89,14 +90,15 @@ const Inventory = () => {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       })
       .then(function (response) {
-        console.log(response);
+        // console.log(response);
         setWaitingGames(response.data.daily_played);
         setEarnedGames(response.data.played);
         setTransactions(response.data.transactions);
+        setMyGemyto(response.data.gemyto);
         if (response.data.played.length > 0) setYesterdayWinning(true);
       })
       .catch(function (error) {
-        console.log(error);
+        // console.log(error);
       });
   }, [localStorage.getItem("token")]);
   // const successTransactionHandler = () => {
@@ -200,7 +202,12 @@ const Inventory = () => {
             cancel={cancelModal}
             children={
               <div className={style.modal}>
-                <img src={X} alt="X" className={style['x-icon']} onClick={cancelModal}/>
+                <img
+                  src={X}
+                  alt="X"
+                  className={style["x-icon"]}
+                  onClick={cancelModal}
+                />
                 <div className={style["modal-text"]}>
                   <img src={warning} alt="warning" />
                   <p>Please connnect your wallet first(MetaMask)</p>
@@ -219,7 +226,7 @@ const Inventory = () => {
               alt="gemyto"
               className={style.gemyto}
             />
-            <p className={style["token-count"]}>0</p>
+            <p className={style["token-count"]}>{myGemyto}</p>
           </div>
           {yesterdayWinning && (
             <div className={style["winning-message"]}>

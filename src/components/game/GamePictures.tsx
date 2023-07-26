@@ -26,7 +26,7 @@ const GamePictures: React.FC<{
     } else if (leftPic !== "0") {
       const element = document.getElementById("gameShot0");
       if (element) {
-        console.log(element.id);
+        // console.log(element.id);
         element.scrollIntoView({ behavior: "smooth" });
         setLeftPic("0");
       }
@@ -43,7 +43,7 @@ const GamePictures: React.FC<{
       setDisableLeft(false);
     }
   };
-  console.log(leftPic);
+  // console.log(leftPic);
   return (
     <div className={style.container}>
       <h2 className={style["pics-header"]}>Screenshots</h2>

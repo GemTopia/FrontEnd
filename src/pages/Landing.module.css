@@ -80,7 +80,7 @@
 }
 
 .learn-more-button {
-  width: 13%;
+  width: 15rem;
   background: linear-gradient(180deg, #6ec3ff 0%, #0096ff 57.1%);
   border: none;
   border-radius: 12px;
@@ -127,11 +127,12 @@
   height: 32.3vw;
   z-index: -100;
 }
-.main-slider{
+.main-slider {
   position: absolute;
   width: 48.2vw;
   height: 32.3vw;
   z-index: -100;
+  border-radius: 20px;
 }
 .bottom-blur-background {
   background-image: url("../assets/sh 1.png");
@@ -175,8 +176,6 @@
   font-weight: 300;
 }
 .play-now-button {
-  height: 10%;
-  width: 23%;
   background: linear-gradient(180deg, #6ec3ff 0%, #0096ff 57.1%);
   border: none;
   border-radius: 12px;
@@ -189,6 +188,8 @@
   margin-right: 5%;
   margin-top: 53%;
   font-weight: bold;
+  /* position: relative; */
+  padding: 1rem 2rem;
 }
 .play-now-button:hover {
   box-shadow: 1px 1px 20px 1.5px #0095ff;
@@ -225,6 +226,7 @@
   height: 9.9vw;
   z-index: -100;
   position: absolute;
+  border-radius: 20px;
 }
 .fully-blur-background-color {
   width: 100%;
@@ -443,7 +445,7 @@
   font-size: 1.55vw;
   font-weight: 500;
   letter-spacing: 0.3px;
-  margin-top: 16%;
+  margin-top: 10rem;
   width: 47%;
 }
 
@@ -616,6 +618,13 @@
 .link {
   display: contents;
 }
+p.thankyou{
+  text-align: center;
+  color: #0095ff;
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 2rem;
+}
 @media only screen and (max-width: 767px) {
   .intro-container h1 {
     font-size: 7.7vw;
@@ -650,11 +659,17 @@
     width: 90vw;
     border-radius: 25px;
     background-size: 100%;
-    height: inherit;
+    height: 23vh;
+  }
+  .main-slider {
+    width: 90vw;
+    border-radius: 25px;
+    height:20%
+    /* background-size: cover; */
   }
   .bottom-blur-background {
-    height: inherit;
-    background-size: 100%;
+    height: 25vh;
+    background-size: cover;
   }
   .small-size-games-container {
     display: none;
@@ -673,7 +688,9 @@
   .game-text-info-container {
     line-height: 4.4vw;
     margin-top: 45%;
-    margin-bottom: 7%;
+    margin-bottom: 115%;
+    height: 10%;
+    width: 80%;
   }
   .game-category,
   .rank {
@@ -743,7 +760,7 @@
     width: 4.4vw;
   }
   .contract-address-container span {
-    font-size: 3.15vw;
+    font-size: 2.8vw;
     letter-spacing: 0.165px;
   }
   .price-item-title {

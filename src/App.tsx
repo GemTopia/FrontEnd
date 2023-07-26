@@ -28,7 +28,7 @@ function App() {
             localStorage.setItem("token", token);
           })
           .catch(function (error) {
-            console.log(error);
+            // console.log(error);
           });
     }, 120000);
   }, []);
@@ -44,7 +44,7 @@ function App() {
         <Route path="/home" element={<Home />}></Route>
         <Route path="/games" element={<Games />}></Route>
         <Route path="/games/:gameId" element={<Game />}></Route>
-        <Route path="/result/:gameId" element={<GameResult />}></Route>
+        <Route path="/result/:gameId/:score" element={<GameResult />}></Route>
         <Route path="/report/:gameId" element={<Report />}></Route>
         <Route path="/inventory" element={<Inventory />}></Route>
         <Route path="/term-of-use" element={<TermOfUse />}></Route>
